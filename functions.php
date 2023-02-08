@@ -134,20 +134,17 @@ add_action( 'after_setup_theme', 'bonyan_setup' );
 // }
 // add_action( 'widgets_init', 'bonyan_widgets_init' );
 
-/**
- * Enqueue scripts and styles.
- */
-function bonyan_scripts() {
-	wp_enqueue_style( 'bonyan-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'bonyan-style', 'rtl', 'replace' );
-
-	//wp_enqueue_script( 'bonyan-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+add_action('wp_footer', 'wpdd_load_scripts');
+function wpdd_load_scripts()
+{
+	wp_print_script_tag(
+		array(
+			'id' => 'lazysize',
+			'src' => esc_url('https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js'),
+			'async' => true
+		)
+	);
 }
-add_action( 'wp_enqueue_scripts', 'bonyan_scripts' );
 
 /**
  * Implement the Custom Header feature.
@@ -168,6 +165,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Enqueue Assets
+ */
+require get_template_directory() . '/inc/enqueue-assets.php';
 
 
 

@@ -1,0 +1,161 @@
+@import "variables";
+
+/* ===[Start Global]=== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+}
+
+/* __Start Buttons__ */
+button {
+  outline: none;
+}
+
+.primary-btn {
+  background: $secondary-color;
+  color: $light-color;
+  border-radius: $radius-10;
+}
+
+.secondary-outlined-btn {
+  background: transparent;
+  border: 1px solid $primary-color;
+  border-radius: $radius-10;
+}
+/* __End Buttons__ */
+
+/* __Start Inputs__ */
+
+// Auto complete style
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: $primary-color;
+}
+
+.input-holder {
+  position: relative;
+  display: flex;
+}
+
+input {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: $radius-10;
+  outline: none;
+}
+/* __End Inputs__ */
+
+/* ===[End Global]=== */
+
+/* ===[Start Header]=== */
+header {
+  .top-header {
+    padding: 1.25rem 0;
+    background: $light-color;
+
+    .top-header-helper {
+      display: flex;
+      align-items: center;
+
+      // Header Logo
+      .header-logo {
+        img {
+          max-width: 233.66px;
+          width: 100%;
+          object-fit: scale-down;
+        }
+      }
+
+      // Header Donation
+      .donation-btn {
+        text-decoration: none;
+        padding: 1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        grid-gap: 0.5rem;
+        height: 65px;
+
+        &:hover {
+          color: $light-color;
+        }
+
+        span {
+          font-size: 18px;
+        }
+      }
+
+      // Header Search
+      .header-search {
+        .input-holder {
+          input {
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            font-weight: bold;
+            height: 65px;
+
+            &::placeholder {
+              color: $primary-color;
+            }
+          }
+
+          svg {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            color: $primary-color;
+            font-size: 20px;
+          }
+        }
+      }
+
+      // Header Login
+      .login {
+        button {
+          width: 75px;
+          height: 65px;
+          padding: 0.75rem 1rem;
+
+          &:active {
+            background: $primary-color;
+
+            svg {
+              path:nth-child(2) {
+                fill: $light-color;
+              }
+            }
+          }
+        }
+      }
+
+      // Language Swicher
+      .lang-switcher {
+        span {
+            text-transform: uppercase;
+            color: $primary-color;
+            font-weight: bold;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            height: 65px;
+            padding: 1rem;
+        }
+      }
+    }
+  }
+}
+/* ===[End Header]=== */
