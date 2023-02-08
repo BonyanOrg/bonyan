@@ -56,7 +56,7 @@
 											<path id="Path_154" data-name="Path 154" d="M18.031,16.617,22.314,20.9,20.9,22.314l-4.282-4.283a9,9,0,1,1,1.414-1.414Zm-2.006-.742a7,7,0,1,0-.15.15l.15-.15Z" fill="#6d54a7" />
 										</svg>
 									</div>
-									<input type="search" name="s" id="header-search-input" placeholder="<?php _e('Search...', 'bonyan') ?>" class="ps-5 pe-1">
+									<input type="search" name="s" id="header-search-input" placeholder="<?php _e('Search...', 'bonyan') ?>" class="ps-5 pe-2">
 								</div>
 							</form>
 						</div>
