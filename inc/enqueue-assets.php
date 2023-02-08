@@ -13,8 +13,8 @@ function bonyan_scripts()
     wp_enqueue_style('bonyan-style', get_template_directory_uri() . "/dist/css/style.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
     // __Scripts__
-    wp_enqueue_script('bonyan-js', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), $GLOBALS['bonyan_version'], true);
     wp_enqueue_script('bonyan-toastr-js', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array(), false, true);
+    wp_enqueue_script('bonyan-js', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), $GLOBALS['bonyan_version'], true);
     /* =====[End Enqueue GLOBAL Assets]===== */
 
     // Underscore Scripts

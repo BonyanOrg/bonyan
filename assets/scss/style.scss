@@ -142,6 +142,8 @@ header {
 
       // Language Swicher
       .lang-switcher {
+        position: relative;
+
         span {
             text-transform: uppercase;
             color: $primary-color;
@@ -153,6 +155,62 @@ header {
             align-items: center;
             height: 65px;
             padding: 1rem;
+
+            & > * {
+              pointer-events: none;
+            }
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin-bottom: 0;
+        }
+
+        .menu-languages-container {
+          width: 100%;
+        }
+
+        .lang-switcher--dropdown {
+          position: absolute;
+          width: 100%;
+          background: $light-color;
+          border: 1px solid $primary-color;
+          list-style: none;
+          text-align: center;
+          border-radius: $radius-10;
+          top: calc(100% + 0.5rem);
+          display: none;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+
+          a {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+          }
+        }
+
+        &.active {
+          button {
+            background: $primary-color;
+            color: $light-color;
+
+            span {
+              color: $light-color;
+            }
+
+            svg path {
+              fill: $light-color;
+            }
+          }
+
+          .lang-switcher--dropdown {
+            display: flex;
+          }
         }
       }
     }

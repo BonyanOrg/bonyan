@@ -1,15 +1,22 @@
 /* ===[Start Language Swicher]=== */
-let langSwichBtns = document.querySelectorAll('.lang-switcher');
-
-langSwichBtns.forEach((langSwichBtn) => {
-    langSwichBtn.addEventListener('click', function(){
-        console.log(this.children.length);
+window.addEventListener('DOMContentLoaded', function () {
+    let langSwichBtns = document.querySelectorAll('.lang-switcher button');
+    
+    langSwichBtns.forEach((langSwichBtn) => {
+        langSwichBtn.addEventListener('click', function(){
+            this.parentElement.classList.toggle('active');
+        });  
     });
-});
 
-console.log("Hello");
-
-window.addEventListener('DOMContentLoaded', function(){
-    console.log("Hello");
+    window.addEventListener('click', function(e){
+        // Close Language Swicher
+        if(!e.target.parentElement.classList.contains('lang-switcher')) {
+            let switcherDropdowns = document.querySelectorAll('.lang-switcher--dropdown');
+            
+            switcherDropdowns.forEach((switcherDropdown) => {
+                switcherDropdown.parentElement.classList.remove('active');
+            });
+        }
+    });
 });
 /* ===[End Language Swicher]=== */

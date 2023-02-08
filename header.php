@@ -75,7 +75,7 @@
 						<div class="lang-switcher">
 							<button class="secondary-outlined-btn">
 								<span class="me-2 current-lang">En</span>
-								
+
 								<svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 									<path id="Path_213" data-name="Path 213" d="M12,22A10,10,0,1,1,22,12,10,10,0,0,1,12,22ZM9.71,19.667A17.9,17.9,0,0,1,8.027,13H4.062A8.008,8.008,0,0,0,9.71,19.667ZM10.03,13A15.915,15.915,0,0,0,12,19.752,15.9,15.9,0,0,0,13.97,13H10.03Zm9.908,0H15.973a17.9,17.9,0,0,1-1.683,6.667A8.008,8.008,0,0,0,19.938,13ZM4.062,11H8.027A17.9,17.9,0,0,1,9.71,4.333,8.008,8.008,0,0,0,4.062,11Zm5.969,0h3.938A15.9,15.9,0,0,0,12,4.248,15.9,15.9,0,0,0,10.03,11ZM14.29,4.333A17.9,17.9,0,0,1,15.973,11h3.965A8.008,8.008,0,0,0,14.29,4.333Z" transform="translate(-2 -2)" fill="#5b4795" />
 								</svg>
@@ -84,6 +84,14 @@
 									<path id="Path_215" data-name="Path 215" d="M12,15,7.757,10.757,9.172,9.343,12,12.172l2.828-2.829,1.415,1.414Z" transform="translate(-7.757 -9.343)" fill="#5b4795" />
 								</svg>
 							</button>
+
+							<ul class="lang-switcher--dropdown">
+								<div class="menu-languages-container">
+									<ul id="language-menu" class="menu">
+										<li id="menu-item-wpml-ls-43-en" class="menu-item wpml-ls-slot-43 wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-menu-item wpml-ls-last-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-43-en"><a title="English" href="https://sema-sy.org/beta/"><span class="wpml-ls-native" lang="en">Arabic</span></a><i class="menu-arrow"></i></li>
+									</ul>
+								</div>
+							</ul>
 						</div>
 					</div>
 
@@ -91,9 +99,9 @@
 			</div>
 
 			<!-- <nav id="site-navigation" class="main-navigation"> -->
-				<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'bonyan'); ?></button> -->
-				<?php
-				/*
+			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'bonyan'); ?></button> -->
+			<?php
+			/*
 				wp_nav_menu(
 					array(
 						'theme_location' => 'menu-1',
@@ -101,7 +109,7 @@
 					)
 				);
 				*/
-				?>
+			?>
 			<!-- </nav> -->
 			<!-- #site-navigation -->
 		</header><!-- #masthead -->

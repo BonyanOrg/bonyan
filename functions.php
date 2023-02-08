@@ -1,4 +1,6 @@
 <?php
+require get_template_directory() . '/inc/enqueue-assets.php';
+
 /**
  * bonyan functions and definitions
  *
@@ -169,7 +171,6 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * Enqueue Assets
  */
-require get_template_directory() . '/inc/enqueue-assets.php';
 
 
 
