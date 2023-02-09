@@ -56,17 +56,17 @@ function bonyan_setup()
 	);
 	register_nav_menus(
 		array(
-			'footer-1' => esc_html__('Footer-1', 'sema'),
+			'footer-1' => esc_html__('Footer-1', 'bonyan'),
 		)
 	);
 	register_nav_menus(
 		array(
-			'footer-2' => esc_html__('Footer-2', 'sema'),
+			'footer-2' => esc_html__('Footer-2', 'bonyan'),
 		)
 	);
 	register_nav_menus(
 		array(
-			'languages' => esc_html__('Languages', 'sema'),
+			'languages' => esc_html__('Languages', 'bonyan'),
 		)
 	);
 

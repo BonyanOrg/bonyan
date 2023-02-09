@@ -17,23 +17,23 @@ function custom_registration()
 		$registration_user_password_confirm = isset($_POST['registration_user_password_confirm']) ? sanitize_text_field($_POST['registration_user_password_confirm']) : '';
 		if (empty($registration_user_name) || empty($registration_user_email) || empty($registration_user_password) || empty($registration_user_password_confirm)) wp_die();
 		if (strpos($registration_user_name, ' ') !== false) {
-			wp_send_json(['error_message' => __('User Name Must Not Contain Spaces',"sema")], 400);
+			wp_send_json(['error_message' => __('User Name Must Not Contain Spaces',"bonyan")], 400);
 			wp_die();
 		}
 		if (username_exists($registration_user_name)) {
-			wp_send_json(['error_message' => __('User Name Is Already Exist',"sema")], 400);
+			wp_send_json(['error_message' => __('User Name Is Already Exist',"bonyan")], 400);
 			wp_die();
 		}
 		if (!is_email($registration_user_email)) {
-			wp_send_json(['error_message' => __('Email Has No Valid Value',"sema")], 400);
+			wp_send_json(['error_message' => __('Email Has No Valid Value',"bonyan")], 400);
 			wp_die();
 		}
 		if (email_exists($registration_user_email)) {
-			wp_send_json(['error_message' => __('User Email Is Already Exist',"sema")], 400);
+			wp_send_json(['error_message' => __('User Email Is Already Exist',"bonyan")], 400);
 			wp_die();
 		}
 		if (strcmp($registration_user_password, $registration_user_password_confirm) !== 0) {
-			wp_send_json(['error_message' => __('Password Didn\'t Match',"sema")], 400);
+			wp_send_json(['error_message' => __('Password Didn\'t Match',"bonyan")], 400);
 			wp_die();
 		}
 
@@ -52,7 +52,7 @@ function custom_registration()
 			$verify_user = login_to_website($registration_user_name, $registration_user_password_confirm);
 
 			if (is_wp_error($verify_user)) {
-				wp_send_json(['error_message' => __('Error Happened When Tyr To Login',"sema")], 400);
+				wp_send_json(['error_message' => __('Error Happened When Tyr To Login',"bonyan")], 400);
 				wp_die();
 			}
 			do_action('wp_login', $verify_user->user_login, $verify_user);

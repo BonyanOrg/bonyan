@@ -22,7 +22,7 @@ function bonyan_scripts()
         wp_enqueue_script('comment-reply');
     }
 
-    $style_sheets_will_support_rtl = ['bonyan-style', 'sema-bootstrap-css'];
+    $style_sheets_will_support_rtl = ['bonyan-style', 'bonyan-bootstrap-css'];
     support_rtl($style_sheets_will_support_rtl);
 }
 

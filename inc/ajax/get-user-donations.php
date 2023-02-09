@@ -18,7 +18,7 @@ function get_user_donations()
         )
     );
     if (empty($payments)) { // Return Error if no payments
-        wp_send_json(['error_message' => __("No donations found","sema")], 400);
+        wp_send_json(['error_message' => __("No donations found","bonyan")], 400);
         wp_die();
     }
     ob_start();

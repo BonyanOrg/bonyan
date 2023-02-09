@@ -16,7 +16,7 @@ function get_user_recurring_donations()
         )
     );
     if (empty($payments)) { // Return Error if no payments
-        wp_send_json(['error_message' => __("No donations found","sema")], 400);
+        wp_send_json(['error_message' => __("No donations found","bonyan")], 400);
         wp_die();
     }
     $is_user_have_recurring_payments = false;
@@ -29,7 +29,7 @@ function get_user_recurring_donations()
         endif;
     endforeach;
     if($is_user_have_recurring_payments==false){
-        wp_send_json(['error_message' => __("No recurring donations found","sema")], 400);
+        wp_send_json(['error_message' => __("No recurring donations found","bonyan")], 400);
         wp_die();
     }
     ob_start();
