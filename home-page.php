@@ -23,12 +23,18 @@ get_header();
 <br>
 <h1>Template home-page.php</h1>
 
-<?php
-
-the_comment();
 
 
-?>
+<?php if (have_posts()) : while (have_posts()) : the_post();
+        the_content();
+    endwhile;
+else : ?>
+    <p>Sorry, no posts matched your criteria.</p>
+<?php endif; ?>
+
+
+
+
 
 
 
