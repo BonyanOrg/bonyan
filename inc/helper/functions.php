@@ -25,7 +25,7 @@ require __DIR__ . '/mobile-detection.php';
 //====================
 //    Rank Math Faqs
 //====================
-require __DIR__ . '/rank-math-faqs.php';
+//require __DIR__ . '/rank-math-faqs.php';
 
 //====================
 //    Contact Form 7

@@ -24,29 +24,29 @@ if (!function_exists('tenders_datatable_shortcode')) {
         } ?>
 
         <div class="about-us-datatable custom-widget">
-            <h2 class="sema-title primary-title"><?php _e('Tenders', 'sema'); ?></h2>
+            <h2 class="bonyan-title primary-title"><?php _e('Tenders', 'bonyan'); ?></h2>
 
             <div class="colors-index my-2">
                 <div class="color-index-item active-color">
                     <div class="color-box"></div>
-                    <span><?php _e('Active', 'sema') ?> </span>
+                    <span><?php _e('Active', 'bonyan') ?> </span>
                 </div>
 
                 <div class="color-index-item inactive-color">
                     <div class="color-box"></div>
-                    <span> <?php _e('Inactive', 'sema') ?> </span>
+                    <span> <?php _e('Inactive', 'bonyan') ?> </span>
                 </div>
             </div>
 
             <table id="tenders-table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="example_info">
                 <thead>
                     <tr>
-                        <th><?php _e('Posted', 'sema'); ?></th>
-                        <th><?php _e('Title', 'sema'); ?></th>
-                        <th><?php _e('Status', 'sema'); ?></th>
-                        <th><?php _e('Location', 'sema'); ?></th>
-                        <th><?php _e('Deadline', 'sema'); ?></th>
-                        <th><?php _e('Unit', 'sema'); ?></th>
+                        <th><?php _e('Posted', 'bonyan'); ?></th>
+                        <th><?php _e('Title', 'bonyan'); ?></th>
+                        <th><?php _e('Status', 'bonyan'); ?></th>
+                        <th><?php _e('Location', 'bonyan'); ?></th>
+                        <th><?php _e('Deadline', 'bonyan'); ?></th>
+                        <th><?php _e('Unit', 'bonyan'); ?></th>
                     </tr>
                 </thead>
                 <tbody>

@@ -35,12 +35,12 @@ function save_user_account_details()
 
 
     if (!is_email($user_Email)) {
-        wp_send_json(['error_message' => __('Email Has No Valid Value','sema')], 400);
+        wp_send_json(['error_message' => __('Email Has No Valid Value','bonyan')], 400);
         wp_die();
     }
     if ($user_Email !== $user_data->user_email) {
         if (email_exists($user_Email)) {
-            wp_send_json(['error_message' => __('User Email Is Already In Use','sema')], 400);
+            wp_send_json(['error_message' => __('User Email Is Already In Use','bonyan')], 400);
             wp_die();
         } elseif (!email_exists($user_Email)) {
             wp_update_user(array('ID' => $user_id, 'user_email' => $user_Email));

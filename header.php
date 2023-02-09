@@ -99,7 +99,7 @@
 							<ul class="lang-switcher--dropdown">
 								<div class="menu-languages-container">
 									<ul id="language-menu" class="menu">
-										<li id="menu-item-wpml-ls-43-en" class="menu-item wpml-ls-slot-43 wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-menu-item wpml-ls-last-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-43-en"><a title="English" href="https://sema-sy.org/beta/"><span class="wpml-ls-native" lang="en">Arabic</span></a><i class="menu-arrow"></i></li>
+										<li id="menu-item-wpml-ls-43-en" class="menu-item wpml-ls-slot-43 wpml-ls-item wpml-ls-item-en wpml-ls-current-language wpml-ls-menu-item wpml-ls-last-item menu-item-type-wpml_ls_menu_item menu-item-object-wpml_ls_menu_item menu-item-wpml-ls-43-en"><a title="English" href="https://bonyan-sy.org/beta/"><span class="wpml-ls-native" lang="en">Arabic</span></a><i class="menu-arrow"></i></li>
 									</ul>
 								</div>
 							</ul>

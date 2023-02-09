@@ -1,8 +1,8 @@
 <?php
 function my_login_logo()
 {
-    wp_enqueue_style('sema-style', get_template_directory_uri() . "/dist/css/style.min.css");
-    wp_enqueue_style('sema-login-register-css', get_template_directory_uri() . "/dist/css/login-register.min.css", array());
+    wp_enqueue_style('bonyan-style', get_template_directory_uri() . "/dist/css/style.min.css");
+    wp_enqueue_style('bonyan-login-register-css', get_template_directory_uri() . "/dist/css/login-register.min.css", array());
 
 ?>
 
