@@ -8,9 +8,9 @@
  * @package bonyan
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
+if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define('_S_VERSION', '1.0.0');
 }
 
 /**
@@ -20,17 +20,18 @@ if ( ! defined( '_S_VERSION' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function bonyan_setup() {
+function bonyan_setup()
+{
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
 		* If you're building a theme based on bonyan, use a find and replace
 		* to change 'bonyan' to the name of your theme in all the template files.
 		*/
-	load_theme_textdomain( 'bonyan', get_template_directory() . '/languages' );
+	load_theme_textdomain('bonyan', get_template_directory() . '/languages');
 
 	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+	add_theme_support('automatic-feed-links');
 
 	/*
 		* Let WordPress manage the document title.
@@ -38,19 +39,34 @@ function bonyan_setup() {
 		* hard-coded <title> tag in the document head, and expect WordPress to
 		* provide it for us.
 		*/
-	add_theme_support( 'title-tag' );
+	add_theme_support('title-tag');
 
 	/*
 		* Enable support for Post Thumbnails on posts and pages.
 		*
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
-	add_theme_support( 'post-thumbnails' );
+	add_theme_support('post-thumbnails');
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'main_menu' => esc_html__( 'Primary', 'bonyan' ),
+			'main_menu' => esc_html__('Primary', 'bonyan'),
+		)
+	);
+	register_nav_menus(
+		array(
+			'footer-1' => esc_html__('Footer-1', 'sema'),
+		)
+	);
+	register_nav_menus(
+		array(
+			'footer-2' => esc_html__('Footer-2', 'sema'),
+		)
+	);
+	register_nav_menus(
+		array(
+			'languages' => esc_html__('Languages', 'sema'),
 		)
 	);
 
@@ -84,7 +100,7 @@ function bonyan_setup() {
 	);
 
 	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
+	add_theme_support('customize-selective-refresh-widgets');
 
 	/**
 	 * Add support for core custom logo.
@@ -101,7 +117,7 @@ function bonyan_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'bonyan_setup' );
+add_action('after_setup_theme', 'bonyan_setup');
 
 
 
@@ -122,6 +138,60 @@ function wpdd_load_scripts()
 /**
  * Enqueue Assets
  */
- require get_template_directory() . '/inc/enqueue-assets.php';
+require get_template_directory() . '/inc/enqueue-assets.php';
 
 
+/**
+ * Register Custom Post Types
+ */
+require __DIR__ . '/inc/CPT/functions.php';
+
+/**
+ * Meta Boxes
+ */
+require __DIR__ . '/inc/meta-boxes/functions.php';
+
+
+
+/**
+ * Register Settings Page In Admin Dashboard 
+ */
+//require __DIR__ . '/inc/settings/functions.php';
+
+
+//require __DIR__ . '/inc/givewp/givewp-init.php';
+
+
+
+// Add Customizer 
+//require __DIR__ . '/customizer-repeater/functions.php';
+require __DIR__ . '/inc/customizer/customizer.php';
+
+
+// Ajax Requests
+require __DIR__ . '/inc/ajax/functions.php';
+
+
+
+/**
+ * Load Visual Composer widgets
+ * if wp bakery plugin is installed.
+ */
+if (class_exists('WPBakeryVisualComposerAbstract')) {
+	// load vc map file [Back-end dashboard]
+	require_once __DIR__ . '/inc/wpbakery/vcmaps.php';
+
+	// load short codes field [Front-end]
+	require_once __DIR__ . '/inc/wpbakery/shortcodes.php';
+}
+
+/**
+ * Helper Functions
+ */
+require_once __DIR__ . '/inc/helper/functions.php';
+
+
+$roles = ['give_donor'];
+if (check_user_role($roles)) {
+	add_filter('show_admin_bar', '__return_false');
+}
