@@ -1,5 +1,4 @@
 <?php
-require get_template_directory() . '/inc/enqueue-assets.php';
 
 /**
  * bonyan functions and definitions
@@ -104,37 +103,8 @@ function bonyan_setup() {
 }
 add_action( 'after_setup_theme', 'bonyan_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-// function bonyan_content_width() {
-// 	$GLOBALS['content_width'] = apply_filters( 'bonyan_content_width', 640 );
-// }
-// add_action( 'after_setup_theme', 'bonyan_content_width', 0 );
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-// function bonyan_widgets_init() {
-// 	register_sidebar(
-// 		array(
-// 			'name'          => esc_html__( 'Sidebar', 'bonyan' ),
-// 			'id'            => 'sidebar-1',
-// 			'description'   => esc_html__( 'Add widgets here.', 'bonyan' ),
-// 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-// 			'after_widget'  => '</section>',
-// 			'before_title'  => '<h2 class="widget-title">',
-// 			'after_title'   => '</h2>',
-// 		)
-// 	);
-// }
-// add_action( 'widgets_init', 'bonyan_widgets_init' );
+
 
 add_action('wp_footer', 'wpdd_load_scripts');
 function wpdd_load_scripts()
@@ -148,29 +118,10 @@ function wpdd_load_scripts()
 	);
 }
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Enqueue Assets
  */
-
+ require get_template_directory() . '/inc/enqueue-assets.php';
 
 
