@@ -37,7 +37,7 @@
 							</a>
 						</div>
 
-						<div class="donation-button-holder me-2">
+						<div class="donation-button-holder from-laptop-up as-block mx-3">
 							<a href="#" class="primary-btn donation-btn">
 								<span>Donate Now</span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
@@ -47,7 +47,7 @@
 						</div>
 
 						<!-- Search -->
-						<div class="header-search me-2">
+						<div class="header-search from-laptop-up as-block me-3">
 							<form method="get" action="<?php echo home_url('/'); ?>" class="search-form">
 								<div class="input-holder search-input-holder">
 									<div class="search-icon">
@@ -62,7 +62,7 @@
 						</div>
 
 						<!-- Login Button -->
-						<div class="me-2 login">
+						<div class="me-lg-3 login">
 							<button class="secondary-outlined-btn login-btn">
 								<svg id="Group_442" data-name="Group 442" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
 									<path id="Path_304" data-name="Path 304" d="M0,0H26V26H0Z" fill="none" />
@@ -71,8 +71,19 @@
 							</button>
 						</div>
 
+						<!-- Burger Button For Tablate/iPad & Mobile -->
+						<div class="toggle-mobile-menu from-ipad-down as-flex">
+							<div class="burger-btn justify-content-center align-items-center">
+								<div class="dashes-container">
+									<div class="dash top-dash"></div>
+									<div class="dash middle-dash"></div>
+									<div class="dash bottom-dash"></div>
+								</div>
+							</div>
+						</div>
+						
 						<!-- Language Swicher -->
-						<div class="lang-switcher">
+						<div class="lang-switcher from-laptop-up as-block">
 							<button class="secondary-outlined-btn">
 								<span class="me-2 current-lang">En</span>
 
@@ -98,18 +109,23 @@
 				</div>
 			</div>
 
-			<!-- <nav id="site-navigation" class="main-navigation"> -->
-			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'bonyan'); ?></button> -->
-			<?php
-			/*
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-				*/
-			?>
-			<!-- </nav> -->
-			<!-- #site-navigation -->
-		</header><!-- #masthead -->
+			<div class="bottom-header">
+				<div class="container">
+					<div class="bottom-header-helper">
+						<!-- Navbar -->
+						<nav id="site-navigation" class="main-navigation">
+							<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'main_menu',
+									'menu_id'        => 'primary-menu',
+									'after'			 =>	'<i class="menu-arrow"></i>'
+								)
+							);
+							?>
+						</nav>
+					</div>
+				</div>
+
+			</div>
+		</header>
