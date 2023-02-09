@@ -20,7 +20,7 @@ function register_reports_cpt()
     $args = array(
         'labels'             => $labels,
         'description'        => 'reports custom post type.',
-        'menu_icon'          => 'dashicons-megaphone',
+        'menu_icon'          => 'dashicons-welcome-widgets-menus',
         'public'             => true,
         'publicly_queryable' => true,
         'show_ui'            => true,
