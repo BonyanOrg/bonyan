@@ -23,3 +23,6 @@ require __DIR__ . '/special_cases.php';
 
 // Projects Cpt
 require __DIR__ . '/projects.php';
+
+// Reports Cpt
+require __DIR__ . '/reports.php';
