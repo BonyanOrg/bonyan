@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
                     e.target.nextElementSibling.style.display = 'block';
                     e.target.nextElementSibling.classList.add('opened');
-                    e.target.style.transform = 'rotateX(180deg)';
+                    e.target.style.transform = 'rotate(180deg)';
                 }
             }
 
