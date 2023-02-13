@@ -18,6 +18,12 @@ function bonyan_scripts()
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
 
+    // __Ajax__
+    wp_enqueue_script('ajax-scripts', get_template_directory_uri() . '/assets/js/ajax-scripts.js', array('jquery'), $GLOBALS['bonyan_version'], true);
+    wp_localize_script('ajax-scripts', 'ajax_script_object', array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+    ));
+
     // Used in: [Home page]
     wp_enqueue_script('bonyan-swiper-carousel-script', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.4/swiper-bundle.min.js', array(), false, true);
     
