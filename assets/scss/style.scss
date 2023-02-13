@@ -55,7 +55,7 @@ button {
 }
 /* __End Borders */
 
-/* __Start Inputs__ */
+/* __Start Inputs, Selects__ */
 
 // Auto complete style
 input:-webkit-autofill,
@@ -70,7 +70,8 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: $primary-color;
 }
 
-.input-holder {
+.input-holder,
+.select-holder {
   position: relative;
   display: flex;
 }
@@ -81,7 +82,13 @@ input {
   border-radius: $radius-10;
   outline: none;
 }
-/* __End Inputs__ */
+
+.select-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* __End Inputs, Selects__ */
 
 /* __Start Responsive Classes__ */
 .as-flex {
@@ -809,6 +816,8 @@ header {
 
       .copyrights {
         color: $light-color;
+        display: flex;
+        align-items: center;
         
         @media (max-width: 1024px) {
           text-align: center;
@@ -816,6 +825,10 @@ header {
 
         a {
           text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          grid-gap: 0.25rem;
         }
       }
     }

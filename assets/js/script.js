@@ -1,4 +1,35 @@
+let getDir = document.dir;
+
 window.addEventListener('DOMContentLoaded', function () {
+    /* ===[Start Global]=== */
+    /* ___Start only number validation___ */
+    console.log("Hello dodsadslly");
+    let numReg = /[\d.\.\d]+/;
+    let numInputs = document.querySelectorAll('.only-number');
+
+    numInputs.forEach((theInput) => {
+        theInput.addEventListener('keypress', function (e) {
+            let currentValue = e.target.value + e.key;
+
+            if (!numReg.test(e.key)) {
+                if (typeof toastr !== 'undefined') {
+                    getDir !== 'rtl' ? toastr.error("You can enter English numbers only") : toastr.error("يمكنك إدخال ارقام انجليزية فقط");
+                }
+                e.preventDefault();
+            }
+
+            if (currentValue.split(".").length > 2) {
+                if (typeof toastr !== 'undefined') {
+                    getDir !== 'rtl' ? toastr.error("Invalid number") : toastr.error("الرقم غير صالح");
+                }
+
+                e.preventDefault();
+            }
+        });
+    });
+    /* ___End only number validation___ */
+    /* ===[End Global]=== */
+
     /* ===[Start Language Swicher]=== */
     let langSwichBtns = document.querySelectorAll('.lang-switcher button');
 
