@@ -11,10 +11,16 @@ function bonyan_scripts()
     wp_enqueue_style('bonyan-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css', array());
     wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
     wp_enqueue_style('bonyan-style', get_template_directory_uri() . "/dist/css/style.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-home-style', get_template_directory_uri() . "/dist/css/home.min.css", array('bonyan-bootstrap', 'bonyan-swiper-carousel-style'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-swiper-carousel-style', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.4/swiper-bundle.min.css', array());
 
     // __Scripts__
-    wp_enqueue_script('bonyan-toastr-js', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array(), false, true);
-    wp_enqueue_script('bonyan-js', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), $GLOBALS['bonyan_version'], true);
+    wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array(), false, true);
+    wp_enqueue_script('bonyan-script', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), $GLOBALS['bonyan_version'], true);
+    wp_enqueue_script('home-sliders-script', get_template_directory_uri() . '/dist/js/home-sliders.min.js', array('bonyan-swiper-carousel-script'), $GLOBALS['bonyan_version'], true);
+    
+    // Used in: Home
+    wp_enqueue_script('bonyan-swiper-carousel-script', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.4/swiper-bundle.min.js', array(), false, true);
     /* =====[End Enqueue GLOBAL Assets]===== */
 
     // Underscore Scripts

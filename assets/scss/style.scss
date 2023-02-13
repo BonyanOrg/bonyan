@@ -28,7 +28,32 @@ button {
   border: 1px solid $primary-color;
   border-radius: $radius-10;
 }
+
+.primary-btn-white-bg {
+  background: $light-color;
+  color: $primary-color;
+}
 /* __End Buttons__ */
+
+/* __Start Borders */
+// Border
+.no-border {
+  border: none;
+}
+
+// Radius
+.radius-10 {
+  border-radius: 15px;
+}
+
+.radius-15 {
+  border-radius: 15px;
+}
+
+.border-30 {
+  border-radius: 30px;
+}
+/* __End Borders */
 
 /* __Start Inputs__ */
 

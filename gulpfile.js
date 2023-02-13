@@ -109,6 +109,18 @@ gulp.task('script-js', function () {
 });
 
 //****************************************************
+// home.js
+//****************************************************
+gulp.task('home-sliders-js', function () {
+    return gulp.src('./assets/js/home-sliders.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('home-sliders.min.js'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/js'))
+});
+
+//****************************************************
 //task for automate all styles
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home']));
@@ -118,7 +130,7 @@ gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
 //****************************************************
 //task for automate all scripts
 //****************************************************
-gulp.task('scripts', gulp.parallel(['script-js']));
+gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js']));
 
 //****************************************************
 //task for watching file
