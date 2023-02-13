@@ -7,7 +7,9 @@ function show_donate_form()
 
     $form_id = $_POST['form_id'];
     $give_form =  do_shortcode('[give_form id="' . $form_id . '"]', true);
-    $give_form = str_replace('?giveDonationFormInIframe=1', '?giveDonationFormInIframe=1&amount=' . $_POST['amount'], $give_form);
+    if (isset($_POST['amount'])) {
+        $give_form = str_replace('?giveDonationFormInIframe=1', '?giveDonationFormInIframe=1&amount=' . $_POST['amount'], $give_form);
+    }
 
     wp_send_json([
         'give_form' => $give_form,
