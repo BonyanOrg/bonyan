@@ -7,21 +7,9 @@ get_header();
 ?>
 
 
-<!-- MAIN SLIDER WILL BE HERE -->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Template home-page.php</h1>
+<!-- Start Main Slider -->
+<?php get_template_part('template-parts/components/main-slider'); ?>
+<!-- End Main Slider -->
 
 
 
