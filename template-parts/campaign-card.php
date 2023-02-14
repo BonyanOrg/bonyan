@@ -1,7 +1,7 @@
 <div class="campaign-card">
     <a href="#" class="card-head campaign-card-head">
         <div class="card-img campaign-img">
-            <img src="https://chiefexecutive.net/wp-content/uploads/2021/09/AdobeStock_450525157-1280x720.jpg" alt="">
+            <img data-src="https://chiefexecutive.net/wp-content/uploads/2021/09/AdobeStock_450525157-1280x720.jpg" alt="" class="lazyload">
         </div>
 
         <div class="card-title campaign-title">
