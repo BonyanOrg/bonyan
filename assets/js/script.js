@@ -3,7 +3,6 @@ let getDir = document.dir;
 window.addEventListener('DOMContentLoaded', function () {
     /* ===[Start Global]=== */
     /* ___Start only number validation___ */
-    console.log("Hello dodsadslly");
     let numReg = /[\d.\.\d]+/;
     let numInputs = document.querySelectorAll('.only-number');
 

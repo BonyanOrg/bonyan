@@ -6,9 +6,7 @@
 <!-- Quick Donation -->
 <?php echo get_template_part('template-parts/quick-donation') ?>
 
-<!-- Campaigns -->
-<div class="container">
-    <?php echo get_template_part('template-parts/campaign-card') ?>
-</div>
+<!-- Campaigns Slider -->
+<?php echo get_template_part('template-parts/campaigns-slider') ?>
 
 <?php get_footer(); ?>

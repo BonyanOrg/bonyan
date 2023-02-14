@@ -12,6 +12,31 @@ body {
   height: 1200px;
 }
 
+a {
+  text-decoration: none;
+}
+
+/* __Start Colors__ */
+.primary-color {
+  color: $primary-color;
+}
+
+.secondary-color {
+  color: $secondary-color;
+}
+/* __End Colors__ */
+
+/* __Start Titles__ */
+.bonyan-title {
+  font-size: 40px;
+  font-weight: bold;
+
+  @media (max-width: 576px) {
+    font-size: 30px;
+  }
+}
+/* __End Titles__ */
+
 /* __Start Buttons__ */
 button {
   outline: none;
@@ -126,6 +151,75 @@ input {
   transition: opacity 300ms;
 }
 /* __End Lazyload Style Handler__ */
+
+/* __Start Custom Swiper Arrows__ */
+.more-btn {
+  height: 40px;
+  padding: 0.25rem 1rem;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  color: $primary-color;
+  transition: $general-transition;
+  text-transform: capitalize;
+
+  &:hover {
+    background: $primary-color;
+    color: $light-color;
+  }
+}
+
+.custom-swiper-nav {
+  display: flex;
+  gap: 0.5rem;
+  grid-gap: 0.5rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+    grid-gap: 0.5rem;
+  }
+
+  .swiper-nav-btn {
+    background: $light-color;
+    transition: $general-transition;
+    padding: 0.25rem;
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-10;
+    border: 1px solid $primary-color;
+
+    @media (max-width: 768px) {
+      width: 30px;
+      height: 30px;
+    }
+
+    &:hover {
+      background: #f8f8f8;
+    }
+
+    &.swiper-prev-nav {
+      background-image: url("data:image/svg+xml,%3Csvg style='fill:%236D54A7' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat no-repeat;
+      background-position: center center;
+      background-size: 12px;
+    }
+
+    &.swiper-next-nav {
+      background-image: url("data:image/svg+xml,%3Csvg style='fill:%236D54A7' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat no-repeat;
+      background-position: center center;
+      background-size: 12px;
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+}
+/* __End Custom Swiper Arrows__ */
+
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
@@ -172,7 +266,6 @@ header {
 
   // Header Donation
   .donation-btn {
-    text-decoration: none;
     padding: 1rem;
     display: inline-flex;
     justify-content: center;
@@ -252,7 +345,6 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        text-decoration: none;
       }
     }
 
@@ -475,10 +567,6 @@ header {
       ul {
         padding: 0;
         list-style: none;
-
-        a {
-          text-decoration: none;
-        }
       }
     }
   }
@@ -681,7 +769,6 @@ header {
 
     a {
       color: $light-color;
-      text-decoration: none;
     }
 
     span {
@@ -824,7 +911,6 @@ header {
         }
 
         a {
-          text-decoration: none;
           display: flex;
           align-items: center;
           gap: 0.25rem;
@@ -888,12 +974,12 @@ header {
   overflow: hidden;
   border: 1px solid #d9d9d9;
   background: #f7f7f7;
+  max-width: 520px;
 
   .campaign-card-head {
     display: flex;
     flex-direction: column;
     background: $light-color;
-    text-decoration: none;
     border-radius: 0 0 19px 19px;
 
     .campaign-img {
@@ -913,10 +999,18 @@ header {
         padding: 0 0.75rem;
       }
 
-      h2 {
+      h3 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
         color: $primary-color;
         font-size: 28px;
         font-weight: bold;
+
+        @media (max-width: 1199px) {
+          font-size: 20px;
+        }
       }
     }
 
@@ -1014,7 +1108,6 @@ header {
       place-items: center;
       border: 2px solid rgba($dark-color, 0.5);
       padding: 1rem;
-      text-decoration: none;
       border-radius: 25px;
     }
   }
