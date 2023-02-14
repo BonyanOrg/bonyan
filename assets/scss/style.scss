@@ -737,7 +737,7 @@ header {
     }
 
     // 2nd and 3rd columns
-    .footer-links {      
+    .footer-links {
       justify-self: center;
 
       a {
@@ -818,7 +818,7 @@ header {
         color: $light-color;
         display: flex;
         align-items: center;
-        
+
         @media (max-width: 1024px) {
           text-align: center;
         }
@@ -858,3 +858,165 @@ header {
   }
 }
 /* ===[End Footer]=== */
+
+/* ===[Start Campaign Card]=== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem;
+  grid-gap: 3rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 1400px) {
+    gap: 1.5rem;
+    grid-gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.campaign-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 19px;
+  overflow: hidden;
+  border: 1px solid #d9d9d9;
+  background: #f7f7f7;
+
+  .campaign-card-head {
+    display: flex;
+    flex-direction: column;
+    background: $light-color;
+    text-decoration: none;
+    border-radius: 0 0 19px 19px;
+
+    .campaign-img {
+      img {
+        height: 200px;
+        border-radius: 0 0 19px 19px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .campaign-title {
+      padding: 0 1rem;
+      margin: 1rem 0 1.5rem;
+
+      @media (max-width: 576px) {
+        padding: 0 0.75rem;
+      }
+
+      h2 {
+        color: $primary-color;
+        font-size: 28px;
+        font-weight: bold;
+      }
+    }
+
+    .campaign-info {
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      grid-gap: 1rem;
+      margin-bottom: 1rem;
+
+      @media (max-width: 576px) {
+        padding: 0 0.75rem;
+      }
+
+      .campaign-info--item {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        grid-gap: 0.25rem;
+        position: relative;
+
+        &:not(:first-of-type) {
+          &::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            width: 1px;
+            height: 100%;
+            background: #DEDEDE;
+          }
+        }
+      }
+    }
+  }
+
+  .campaign-card-body {
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 576px) {
+      padding: 0 0.75rem;
+    }
+
+    .campaign-progress-bar-holder {
+      margin-top: 1rem;
+
+      p {
+        color: $primary-color;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+      }
+
+      .progress-bar {
+        height: 15px;
+        width: 100%;
+        background: #D5D5D5;
+        border-radius: $radius-15;
+        overflow: hidden;
+
+        .progress-bar-value {
+          width: 0%;
+          height: 100%;
+          background: $primary-color;
+        }
+      }
+    }
+  }
+
+  .campaign-card-cta {
+    padding: 0 1rem;
+    display: flex;
+    gap: 1rem;
+    grid-gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 576px) {
+      gap: 0.75rem;
+      grid-gap: 0.75rem;
+      padding: 0 0.75rem;
+    }
+
+    button {
+      width: 60%;
+      padding: 1rem;
+      border-radius: 25px;
+    }
+
+    a {
+      width: 40%;
+      display: flex;
+      text-align: center;
+      place-content: center;
+      place-items: center;
+      border: 2px solid rgba($dark-color, 0.5);
+      padding: 1rem;
+      text-decoration: none;
+      border-radius: 25px;
+    }
+  }
+}
+/* ===[End Campaign Card]=== */
