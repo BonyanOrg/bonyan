@@ -1129,7 +1129,7 @@ header {
   }
 
   .program-card {
-    width: calc(52% - 2rem);
+    width: calc(52% - 1rem);
 
     @media (max-width: 992px) {
       width: 100%;
@@ -1139,7 +1139,7 @@ header {
     &:nth-child(3),
     &:nth-child(6),
     &:nth-child(7) {
-      width: calc(48% - 2rem);
+      width: calc(48% - 1rem);
 
       @media (max-width: 992px) {
         width: 100%;
@@ -1224,7 +1224,7 @@ header {
   @media (max-width: 350px) {
     padding: 0.5rem;
   }
- 
+
   &::before {
     content: "";
     position: absolute;
@@ -1234,7 +1234,9 @@ header {
     height: 100%;
     background: linear-gradient(
       45deg,
-      rgba($primary-color, 0.75) 0%, transparent 100%);
+      rgba($primary-color, 0.75) 0%,
+      transparent 100%
+    );
     z-index: 2;
   }
 
@@ -1275,9 +1277,123 @@ header {
       display: inline-flex;
 
       @media (max-width: 576px) {
-        font-size: 24px; 
+        font-size: 24px;
       }
     }
   }
 }
 /* ===[End Program Card]=== */
+
+/* ===[Start Statistics]=== */
+.statistics {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  grid-gap: 1.5rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+  }
+
+  .statistic-img {
+    max-width: 460px;
+    height: 445px;
+
+    @media (max-width: 1024px) {
+      max-width: none;
+      width: 100%;
+      height: 267px;
+    }
+
+    @media (max-width: 768px) {
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $radius-19;
+    }
+  }
+
+  .statistic-details {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1024px) {
+      align-items: center;
+      text-align: center;
+    }
+
+    .statistic-title {
+      h2 {
+        color: #a8a8a8;
+        font-size: 20px;
+        margin-bottom: 0;
+      }
+    }
+
+    .statistic-total {
+      color: $primary-color;
+      font-size: 60px;
+      font-weight: bold;
+      margin-bottom: 2rem;
+
+      @media (max-width: 1024px) {
+        font-size: 40px;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .statistic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+      grid-gap: 2rem;
+
+      @media (max-width: 1199px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        grid-gap: 0.75rem;
+
+        @media (max-width: 1024px) {
+          flex-direction: column;
+        }
+
+        .stat-icon {
+          height: 85px;
+        }
+
+        .stat-value {
+          font-size: 30px;
+          color: $primary-color;
+          font-weight: bold;
+
+          @media (max-width: 1024px) {
+            font-size: 24px;
+          }
+
+          @media (max-width: 768px) {
+            font-size: 20px;
+          }
+        }
+
+        .stat-name {
+          @media (max-width: 768px) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+/* ===[End Statistics]=== */

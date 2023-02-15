@@ -15,4 +15,7 @@
 <!-- Programs Cards -->
 <?php echo get_template_part('template-parts/program-card') ?>
 
+<!-- Statistics -->
+<?php echo get_template_part('template-parts/statistics') ?>
+
 <?php get_footer(); ?>
