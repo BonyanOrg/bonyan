@@ -220,6 +220,78 @@ input {
 }
 /* __End Custom Swiper Arrows__ */
 
+/* __Start Page Head__ */
+.page-head {
+  position: relative;
+  margin-top: 182px;
+  min-height: 186px;
+  padding: 2rem 0;
+
+  @media (max-width: 1024px) {
+    margin-top: 112px;
+    min-height: 150px;
+  }
+
+  // Overlay
+  &::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba($primary-color, 0.6) 0%,
+      transparent 100%
+    );
+  }
+
+  // Title
+  h1 {
+    color: $light-color;
+    font-size: 50px;
+    position: relative;
+
+    @media (max-width: 1024px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 24px;
+    }
+  }
+
+  // Breadcrumb
+  .rank-math-breadcrumb {
+    color: $light-color;
+    position: relative;
+    display: flex;
+
+    p {
+      border: 1px solid #D1D3D4;
+      padding: 0.5rem 1rem;
+      border-radius: $radius-10;
+      background: rgba($light-color, 0.2);
+      backdrop-filter: blur(50px);
+      margin-bottom: 0;
+    }
+
+    span {
+      font-weight: bold;
+    }
+
+    a {
+      transition: $general-transition;
+
+      &:hover {
+        color: #a5f7ff;
+      }
+    }
+  }
+}
+/* __End Page Head__ */
+
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
@@ -1050,6 +1122,7 @@ header {
   .campaign-card-body {
     padding: 0 1rem;
     margin-bottom: 1.5rem;
+    margin-top: auto;
 
     @media (max-width: 576px) {
       padding: 0 0.75rem;
@@ -1086,6 +1159,7 @@ header {
     display: flex;
     gap: 1rem;
     grid-gap: 1rem;
+    margin-top: auto;
     margin-bottom: 1.5rem;
 
     @media (max-width: 576px) {
@@ -1113,6 +1187,18 @@ header {
   }
 }
 /* ===[End Campaign Card]=== */
+
+/* ===[Start Campaigns Cards Slider]=== */
+.campaigns-carousel {
+  .swiper-slide {
+    height: auto;
+  }
+
+  .campaign-card {
+    height: 100%;
+  }
+}
+/* ===[End Campaigns Cards Slider]=== */
 
 /* ===[Start Program Card]=== */
 // Container
