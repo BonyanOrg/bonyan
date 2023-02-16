@@ -99,6 +99,15 @@ gulp.task('home-rtl', function () {
 //****************************************************
 // Quick Donation
 //****************************************************
+gulp.task('wpb-urgent-campaigns-carousel-css', function () {
+    return gulp.src('./assets/scss/components/wpb/urgent-campaigns-carousel.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('urgent-campaigns-carousel.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
 gulp.task('wpb-quick-donation-css', function () {
     return gulp.src('./assets/scss/components/wpb/quick-donation.scss')
         .pipe(sourcemaps.init())
@@ -149,17 +158,29 @@ gulp.task('wpb-quick-donation-js', function () {
 });
 
 //****************************************************
+// Urgent Campaigns Carousel JS
+//****************************************************
+gulp.task('wpb-urgent-campaigns-carousel-js', function () {
+    return gulp.src('./assets/js/components/wpb/urgent-campaigns-carousel.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('urgent-campaigns-carousel.min.js'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/js/components/wpb'));
+});
+
+//****************************************************
 //task for automate all styles
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home']));
 gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
-gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css']));
+gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-urgent-campaigns-carousel-css']));
 
 //****************************************************
 //task for automate all scripts
 //****************************************************
 gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js']));
-gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js']));
+gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-urgent-campaigns-carousel-js']));
 
 //****************************************************
 //task for watching file

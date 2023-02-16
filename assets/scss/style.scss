@@ -113,6 +113,32 @@ input {
   top: 50%;
   transform: translateY(-50%);
 }
+
+// Search input
+.search-input-holder {
+  input {
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    font-weight: bold;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+
+    &::placeholder {
+      color: $primary-color;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: $primary-color;
+    font-size: 20px;
+  }
+}
 /* __End Inputs, Selects__ */
 
 /* __Start Responsive Classes__ */
@@ -292,6 +318,77 @@ input {
 }
 /* __End Page Head__ */
 
+/* __Start categories filter__ */
+.categories-and-search {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  grid-gap: 2rem;
+  margin: 2.5rem 0;
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+
+    .search-form {
+      width: 100%;
+    }
+  }
+
+  .search-input-holder {
+    input {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      font-weight: normal;
+    }
+  }
+}
+
+.categories-filter-scroll {
+  width: 100%;
+  padding-right: 1.5rem;
+}
+
+.categories-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  grid-gap: 1rem;
+
+  @media (max-width: 992px) {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding-bottom: 1rem;
+    width: 100%;
+  }
+
+  .category-filter-item {
+    background: $light-color;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    border-radius: $radius-10;
+    padding: 0.75rem;
+    transition: $general-transition;
+    white-space: nowrap;
+
+    @media (min-width: 993px) {
+      &:hover {
+        background: $primary-color;
+        color: $light-color;
+        box-shadow: 0 3px 20px rgba($primary-color, 0.3);
+      }      
+    }
+
+    &.active {
+      background: $primary-color;
+      color: $light-color;
+      box-shadow: 0 3px 20px rgba($primary-color, 0.3);
+    }
+  }
+}
+/* __End categories filter__ */
+
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
@@ -309,29 +406,9 @@ header {
 
   // Header Search
   .header-search {
-    .input-holder {
+    .search-input-holder {
       input {
-        border: 1px solid $primary-color;
-        color: $primary-color;
-        font-weight: bold;
         height: 65px;
-
-        @media (max-width: 1024px) {
-          width: 100%;
-        }
-
-        &::placeholder {
-          color: $primary-color;
-        }
-      }
-
-      svg {
-        position: absolute;
-        top: 50%;
-        left: 1rem;
-        transform: translateY(-50%);
-        color: $primary-color;
-        font-size: 20px;
       }
     }
   }
@@ -1434,8 +1511,8 @@ header {
     .statistic-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 2rem;
-      grid-gap: 2rem;
+      gap: 2rem 1rem;
+      grid-gap: 2rem 1rem;
 
       @media (max-width: 1199px) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1464,7 +1541,7 @@ header {
           color: $primary-color;
           font-weight: bold;
 
-          @media (max-width: 1024px) {
+          @media (max-width: 1400px) {
             font-size: 24px;
           }
 
@@ -1474,7 +1551,7 @@ header {
         }
 
         .stat-name {
-          @media (max-width: 768px) {
+          @media (max-width: 1400px) {
             font-size: 14px;
           }
         }

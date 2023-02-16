@@ -4,11 +4,11 @@ window.addEventListener('DOMContentLoaded', function () {
     // let quickDonateBtn = document.querySelector('.quick-donation-btn');
 
     // Handle prices buttons
-    quickDonationPriceBtns.forEach((quickDonationPriceBtn) => {
+    quickDonationPriceBtns?.forEach((quickDonationPriceBtn) => {
 
         quickDonationPriceBtn.addEventListener('click', function () {
             
-            let quickDonationBtn = this.parentElement.querySelector('.donation-btn');
+            let quickDonationBtn = this.closest('.quick-donation--amount').querySelector('.donation-btn');
 
             document.querySelectorAll('.quick-donation-amount--item').forEach((qdp) => {
 
@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     // Handle Other amount button
-    quickDonationOtherBtns.addEventListener('click', function(){
+    quickDonationOtherBtns?.addEventListener('click', function(){
 
         document.querySelectorAll('.quick-donation-amount--item').forEach((qdp) => {
 
@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     });
 
-    quickDonationOtherBtns.querySelector('input').addEventListener('input', function(e){
+    quickDonationOtherBtns?.querySelector('input').addEventListener('input', function(e){
         let quickDonationBtn = this.closest('.quick-donation--amount').querySelector('.donation-btn');
         
         this.setAttribute('title', `The price is: ${this.value}`);
