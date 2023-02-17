@@ -8,7 +8,8 @@ window.addEventListener('DOMContentLoaded', function () {
     /* ===[End Global Lazyload Options]=== */
 
     /* ===[ Start Urgent Campaigns Slider (Might need to separate this code: campaign page) ]=== */
-    const urgentCampaignsCarousel = new Swiper(".urgent-campaigns-carousel", {
+    let urgentCampgians = document.querySelector('.urgent-campaigns-carousel');
+    const urgentCampaignsCarousel = new Swiper(urgentCampgians, {
         preloadImages: false,
         touchEventsTarget: "container",
         grabCursor: true,
