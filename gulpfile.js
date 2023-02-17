@@ -96,23 +96,31 @@ gulp.task('home-rtl', function () {
         .pipe(gulp.dest('./dist/css'));
 });
 
-//****************************************************
-// Quick Donation
-//****************************************************
-gulp.task('wpb-urgent-campaigns-carousel-css', function () {
-    return gulp.src('./assets/scss/components/wpb/urgent-campaigns-carousel.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(concat('urgent-campaigns-carousel.min.css'))
-        .pipe(sourcemaps.write('./map'))
-        .pipe(gulp.dest('./dist/css/components/wpb'));
-});
 
+//****************************************************
+// ===================WPB CSS=========================
+//****************************************************
+
+//****************************************************
+// Quick Donation Style
+//****************************************************
 gulp.task('wpb-quick-donation-css', function () {
     return gulp.src('./assets/scss/components/wpb/quick-donation.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('quick-donation.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
+//****************************************************
+// Urgent Campaigns Carousel Style
+//****************************************************
+gulp.task('wpb-primary-carousel-css', function () {
+    return gulp.src('./assets/scss/components/wpb/primary-carousel.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('primary-carousel.min.css'))
         .pipe(sourcemaps.write('./map'))
         .pipe(gulp.dest('./dist/css/components/wpb'));
 });
@@ -146,6 +154,10 @@ gulp.task('home-sliders-js', function () {
 });
 
 //****************************************************
+// ===================WPB JS=========================
+//****************************************************
+
+//****************************************************
 // Quick Donation JS
 //****************************************************
 gulp.task('wpb-quick-donation-js', function () {
@@ -160,34 +172,35 @@ gulp.task('wpb-quick-donation-js', function () {
 //****************************************************
 // Urgent Campaigns Carousel JS
 //****************************************************
-gulp.task('wpb-urgent-campaigns-carousel-js', function () {
-    return gulp.src('./assets/js/components/wpb/urgent-campaigns-carousel.js')
+gulp.task('wpb-primary-carousel-js', function () {
+    return gulp.src('./assets/js/components/wpb/primary-carousel.js')
         .pipe(sourcemaps.init())
         .pipe(uglify())
-        .pipe(concat('urgent-campaigns-carousel.min.js'))
+        .pipe(concat('primary-carousel.min.js'))
         .pipe(sourcemaps.write('./map'))
         .pipe(gulp.dest('./dist/js/components/wpb'));
 });
+
 
 //****************************************************
 //task for automate all styles
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home']));
 gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
-gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-urgent-campaigns-carousel-css']));
+gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css']));
 
 //****************************************************
 //task for automate all scripts
 //****************************************************
 gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js']));
-gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-urgent-campaigns-carousel-js']));
+gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js']));
 
 //****************************************************
 //task for watching file
 //****************************************************
 gulp.task('watch', function () {
     gulp.watch(['./assets/scss/**/*.scss', '!./assets/scss/components/**'], gulp.series('styles'));
-    gulp.watch('./assets/js/**/*.js', gulp.series('scripts'));
+    gulp.watch(['./assets/js/**/*.js', '!./assets/js/components/**'], gulp.series('scripts'));
 });
 
 //****************************************************

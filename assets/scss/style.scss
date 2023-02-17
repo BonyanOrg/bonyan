@@ -52,6 +52,10 @@ button {
   background: transparent;
   border: 1px solid $primary-color;
   border-radius: $radius-10;
+
+  &.white-outline {
+    border-color: $light-color;
+  }
 }
 
 .primary-btn-white-bg {
@@ -261,7 +265,7 @@ input {
   // Overlay
   &::before {
     position: absolute;
-    content: '';
+    content: "";
     left: 0;
     top: 0;
     width: 100%;
@@ -295,7 +299,7 @@ input {
     display: flex;
 
     p {
-      border: 1px solid #D1D3D4;
+      border: 1px solid #d1d3d4;
       padding: 0.5rem 1rem;
       border-radius: $radius-10;
       background: rgba($light-color, 0.2);
@@ -377,7 +381,7 @@ input {
         background: $primary-color;
         color: $light-color;
         box-shadow: 0 3px 20px rgba($primary-color, 0.3);
-      }      
+      }
     }
 
     &.active {
@@ -1277,6 +1281,17 @@ header {
 }
 /* ===[End Campaigns Cards Slider]=== */
 
+/* ===[Start Campaign Page]=== */
+.urgent-campaigns {
+  background: $secondary-color;
+  padding: 3rem 0;
+
+  @media (max-width: 1024px) {
+    padding: 2rem 0;
+  }
+}
+/* ===[End Campaign Page]=== */
+
 /* ===[Start Program Card]=== */
 // Container
 .program-cards-container {
@@ -1446,6 +1461,156 @@ header {
   }
 }
 /* ===[End Program Card]=== */
+
+/* ===[Start Programs Page]=== */
+.archive-programs-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  grid-gap: 3rem;
+  margin: 3rem 0;
+
+  @media (max-width: 1400px) {
+    gap: 1.5rem;
+    grid-gap: 1.5rem;
+  }
+
+  @media (max-width: 1199px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .archive-program-card {
+    display: flex;
+    gap: 1.5rem;
+    grid-gap: 1.5rem;
+    padding: 2rem 0 0 2rem;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      padding: 0;
+      gap: 0.5rem;
+      grid-gap: 0.5rem;
+    }
+
+    .program-img-decor {
+      position: relative;
+
+      .program-img {
+        position: relative;
+        width: 270px;
+        height: 250px;
+        border-radius: 20px;
+        overflow: hidden;
+
+        @media (max-width: 576px) {
+          width: 100%
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: linear-gradient(
+            45deg,
+            rgba($primary-color, 0.8) 0%,
+            transparent 100%
+          );
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .program-icon {
+        position: absolute;
+        top: -2rem;
+        left: -2rem;
+
+        @media (max-width: 576px) {
+          top: 1rem;
+          left: 1rem;
+        }
+      }
+    }
+
+    .program-details {
+      .program-title {
+        h2 {
+          color: $primary-color;
+          font-weight: bold;
+          font-size: 35px;
+          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+
+          @media (max-width: 1400px) {
+            font-size: 28px;
+          }
+
+          @media (max-width: 576px) {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .program-desc {
+        p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+          overflow: hidden;
+          margin-bottom: 1rem;
+          font-size: 20px;
+          color: #5B5B5B;
+
+          @media (max-width: 1400px) {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .program-link {
+        & > div {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          grid-gap: 0.5rem;
+
+          span {
+            color: $primary-color;
+          }
+
+          svg {
+            opacity: 0;
+            transition: $general-transition;
+          }
+
+          &:hover {
+            svg {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.news {
+  padding: 3rem 0;
+  background: $primary-color;
+
+  h2 {
+    color: $light-color;
+    margin-bottom: 2rem;
+  }
+}
+/* ===[End Programs Page]=== */
 
 /* ===[Start Statistics]=== */
 .statistics {
