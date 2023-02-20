@@ -21,6 +21,8 @@ function bonyan_scripts()
 
     wp_enqueue_style('bonyan-project-card-style', get_template_directory_uri() . "/dist/css/components/wpb/project-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
+    wp_enqueue_style('bonyan-contact-info-style', get_template_directory_uri() . "/dist/css/components/wpb/contact-info.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
 

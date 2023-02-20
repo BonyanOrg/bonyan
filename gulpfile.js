@@ -150,6 +150,18 @@ gulp.task('wpb-project-card-css', function () {
 });
 
 //****************************************************
+// Contact Info Style
+//****************************************************
+gulp.task('wpb-contact-info-css', function () {
+    return gulp.src('./assets/scss/components/wpb/contact-info.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('contact-info.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
+//****************************************************
 // ===================SCRIPTS=========================
 //****************************************************
 
@@ -226,7 +238,7 @@ gulp.task('wpb-zakat-js', function () {
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home']));
 gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
-gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css']));
+gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css']));
 
 //****************************************************
 //task for automate all scripts
