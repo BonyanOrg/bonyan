@@ -3,6 +3,7 @@
 .primary-carousel {
   border: 1px solid $light-color;
   border-radius: $radius-19;
+  background: $light-color;
   height: 365px;
   box-shadow: 8px 8px rgb(255 255 255 / 0.15),
     16px 16px 1px rgb(255 255 255 / 0.1);
@@ -86,7 +87,7 @@
       }
     }
 
-    // Urgent Campaign Description
+    // Description
     .primary-carousel-desc {
       margin-bottom: 1.5rem;
 
@@ -133,7 +134,7 @@
       }
     }
 
-    // Urgent Campaign Buttons
+    // Buttons
     .primary-carousel-cta {
       display: flex;
       align-items: center;

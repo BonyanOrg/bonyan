@@ -1609,6 +1609,34 @@ header {
     color: $light-color;
     margin-bottom: 2rem;
   }
+
+  .primary-carousel {
+    height: 300px;
+
+    @media (max-width: 1024px) {
+      height: 265px;
+    }
+
+    .swiper-slide {
+
+      &::before {
+        background: linear-gradient(
+          90deg,
+          rgba($primary-color, 0.75) 20%,
+          transparent 100%
+        );
+      }
+  
+      // Buttons
+      .primary-carousel-cta {
+        button {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+
 }
 /* ===[End Programs Page]=== */
 

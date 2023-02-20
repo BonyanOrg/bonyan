@@ -114,13 +114,37 @@ gulp.task('wpb-quick-donation-css', function () {
 });
 
 //****************************************************
-// Urgent Campaigns Carousel Style
+// Primary Carousel Style
 //****************************************************
 gulp.task('wpb-primary-carousel-css', function () {
     return gulp.src('./assets/scss/components/wpb/primary-carousel.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('primary-carousel.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
+//****************************************************
+// Zakat Style
+//****************************************************
+gulp.task('wpb-zakat-css', function () {
+    return gulp.src('./assets/scss/components/wpb/zakat.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('zakat.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
+//****************************************************
+// Project Card Style
+//****************************************************
+gulp.task('wpb-project-card-css', function () {
+    return gulp.src('./assets/scss/components/wpb/project-card.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('project-card.min.css'))
         .pipe(sourcemaps.write('./map'))
         .pipe(gulp.dest('./dist/css/components/wpb'));
 });
@@ -170,7 +194,7 @@ gulp.task('wpb-quick-donation-js', function () {
 });
 
 //****************************************************
-// Urgent Campaigns Carousel JS
+// Primary Carousel JS
 //****************************************************
 gulp.task('wpb-primary-carousel-js', function () {
     return gulp.src('./assets/js/components/wpb/primary-carousel.js')
@@ -181,19 +205,34 @@ gulp.task('wpb-primary-carousel-js', function () {
         .pipe(gulp.dest('./dist/js/components/wpb'));
 });
 
+//****************************************************
+// Zakat JS
+//****************************************************
+gulp.task('wpb-zakat-js', function () {
+    return gulp.src('./assets/js/components/wpb/zakat.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('zakat.min.js'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/js/components/wpb'));
+});
+
+//*************************************************************
+// ===================TASKS AUTOMATION=========================
+//*************************************************************
 
 //****************************************************
 //task for automate all styles
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home']));
 gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
-gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css']));
+gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css']));
 
 //****************************************************
 //task for automate all scripts
 //****************************************************
 gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js']));
-gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js']));
+gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js']));
 
 //****************************************************
 //task for watching file

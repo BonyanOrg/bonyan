@@ -1,0 +1,40 @@
+@import "../../variables";
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+
+  .project-img {
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      aspect-ratio: 16/9;
+    }
+  }
+
+  .project-title {
+    margin: 1rem 0;
+
+    h3 {
+      color: $primary-color;
+      font-size: 24px;
+      margin-bottom: 0;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+  }
+
+  .project-desc {
+    p {
+      color: #5b5b5b;
+      font-size: 20px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,2 @@
+.project-card{display:flex;flex-direction:column}.project-card .project-img img{width:100%;object-fit:cover;border-radius:20px;aspect-ratio:16/9}.project-card .project-title{margin:1rem 0}.project-card .project-title h3{color:#6d54a7;font-size:24px;margin-bottom:0;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.project-card .project-desc p{color:#5b5b5b;font-size:20px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+/*# sourceMappingURL=map/project-card.min.css.map */
