@@ -407,19 +407,34 @@ input {
   grid-gap: 1rem;
   flex-wrap: wrap;
 
+  @media (max-width: 768px) {
+    margin: 1rem 0;
+  }
+
   .bonyan-title {
     margin-bottom: 0;
   }
 
-  input[type=search] {
-    border: 1px solid $primary-color;
-    min-width: 400px;
-    padding: 1rem;
-    color: $primary-color;
-    font-size: 18px;
+  .input-holder {
+    @media (max-width: 768px) {      
+      width: 100%;
+    }
 
-    &::placeholder {
+    input[type=search] {
+      border: 1px solid $primary-color;
+      min-width: 400px;
+      padding: 1rem;
       color: $primary-color;
+      font-size: 18px;
+  
+      @media (max-width: 768px) {
+        min-width: unset;
+        width: 100%;
+      }
+  
+      &::placeholder {
+        color: $primary-color;
+      }
     }
   }
 }

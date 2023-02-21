@@ -25,6 +25,7 @@ function bonyan_scripts()
     // Datatable Style
     wp_enqueue_style('bonyan-datatable-css', 'https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css', array());
     wp_enqueue_style('bonyan-datatable-responsive-css', 'https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css', array());
+    
     // Global Datatable custom style
     wp_enqueue_style('bonyan-global-datatable-style', get_template_directory_uri() . "/dist/css/global-datatable.min.css", array('bonyan-datatable-css', 'bonyan-datatable-responsive-css'), $GLOBALS['bonyan_version']);
 

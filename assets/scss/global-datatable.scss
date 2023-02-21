@@ -29,6 +29,11 @@
             font-size: 16px;
         }
 
+        @media (max-width: 768px) {
+            padding: 0.37rem 0.75rem;
+            font-size: 14px;
+        }
+
         &:hover {
             background: $primary-color;
             border-color: $primary-color;
@@ -53,6 +58,12 @@
             background: $primary-color;
             border-color: $primary-color;
             color: $light-color !important;
+
+            &:hover {
+                background: $primary-color;
+                border-color: $primary-color;
+                color: $light-color !important;
+            }
         }
     }
 }
@@ -64,5 +75,15 @@
 
 .dataTables_empty {
     height: 50px;
+}
+
+.dtr-control {
+    padding-left: 2.5rem !important;
+}
+
+// RTL
+html[dir='rtl'] {
+    padding-left: 0 !important;
+    padding-right: 2.5rem !important;
 }
 /* __End Datatables__ */
