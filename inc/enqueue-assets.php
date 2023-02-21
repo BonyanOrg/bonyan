@@ -35,7 +35,7 @@ function bonyan_scripts()
     // Bonyan Home Style
     wp_enqueue_style('bonyan-home-style', get_template_directory_uri() . "/dist/css/home.min.css", array('bonyan-bootstrap', 'bonyan-swiper-carousel-style'), $GLOBALS['bonyan_version']);
 
-    // WPB
+    // __WPB STYLE__
     wp_enqueue_style('bonyan-quick-donation-style', get_template_directory_uri() . "/dist/css/components/wpb/quick-donation.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
     // Primary Carouse
@@ -52,6 +52,9 @@ function bonyan_scripts()
 
     // Tenders Style
     wp_enqueue_style('bonyan-tenders-style', get_template_directory_uri() . "/dist/css/components/wpb/tenders.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+
+    // Icon Title Description Style
+    wp_enqueue_style('bonyan-icon-title-desc-style', get_template_directory_uri() . "/dist/css/components/wpb/icon-title-desc.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
