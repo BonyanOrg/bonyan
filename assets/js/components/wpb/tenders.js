@@ -24,10 +24,10 @@ jQuery(document).ready(function ($) {
     }
 
     // Vacancies DataTable
-    let vacanciesTable = $('#vacancies-table');
+    let tendersTable = $('#tenders-table');
 
-    if (vacanciesTable.length > 0) {
-        let vacanciesDatatable = vacanciesTable.DataTable({
+    if (tendersTable.length > 0) {
+        let tendersDatatable = tendersTable.DataTable({
             "dom": 'rtip',
             "paging": true,
             "pageLength": 10,
@@ -46,12 +46,12 @@ jQuery(document).ready(function ($) {
         });
 
         setTimeout(() => {
-            vacanciesDatatable.columns.adjust();
+            tendersDatatable.columns.adjust();
         }, 500);
 
         // Custom Search
         $('.custom-datatable-search').keyup(function(){
-            vacanciesDatatable.search($(this).val()).draw();
+            tendersDatatable.search($(this).val()).draw();
         });
     }
 });

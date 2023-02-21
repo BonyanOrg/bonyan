@@ -38,13 +38,20 @@ function bonyan_scripts()
     // WPB
     wp_enqueue_style('bonyan-quick-donation-style', get_template_directory_uri() . "/dist/css/components/wpb/quick-donation.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
+    // Primary Carouse
     wp_enqueue_style('bonyan-primary-carousel-style', get_template_directory_uri() . "/dist/css/components/wpb/primary-carousel.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
+    // Project Card 
     wp_enqueue_style('bonyan-project-card-style', get_template_directory_uri() . "/dist/css/components/wpb/project-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
+    // Contact Info Style
     wp_enqueue_style('bonyan-contact-info-style', get_template_directory_uri() . "/dist/css/components/wpb/contact-info.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
+    // Vacancies Style
     wp_enqueue_style('bonyan-vacancies-style', get_template_directory_uri() . "/dist/css/components/wpb/vacancies.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+
+    // Tenders Style
+    wp_enqueue_style('bonyan-tenders-style', get_template_directory_uri() . "/dist/css/components/wpb/tenders.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
@@ -69,6 +76,9 @@ function bonyan_scripts()
 
     // Vacancies
     wp_enqueue_script('bonyan-vacancies-script', get_template_directory_uri() . '/dist/js/components/wpb/vacancies.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
+
+    // Tenders
+    wp_enqueue_script('bonyan-tenders-script', get_template_directory_uri() . '/dist/js/components/wpb/tenders.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
 
     // __Ajax__
     wp_enqueue_script('ajax-scripts', get_template_directory_uri() . '/assets/js/ajax-scripts.js', array('jquery'), $GLOBALS['bonyan_version'], true);

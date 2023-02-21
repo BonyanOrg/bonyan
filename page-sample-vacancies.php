@@ -10,6 +10,7 @@
         </div>
     </div>
 
+    <!-- Vacancies Datatable Widget -->
     <div class="vacancies-container">
         <table id="vacancies-table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="example_info">
             <thead>

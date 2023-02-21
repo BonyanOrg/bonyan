@@ -175,13 +175,25 @@ gulp.task('wpb-contact-info-css', function () {
 });
 
 //****************************************************
-// Contact Info Style
+// Vacancies Style
 //****************************************************
 gulp.task('wpb-vacancies-css', function () {
     return gulp.src('./assets/scss/components/wpb/vacancies.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('vacancies.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
+//****************************************************
+// Tenders Style
+//****************************************************
+gulp.task('wpb-tenders-css', function () {
+    return gulp.src('./assets/scss/components/wpb/tenders.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('tenders.min.css'))
         .pipe(sourcemaps.write('./map'))
         .pipe(gulp.dest('./dist/css/components/wpb'));
 });
@@ -266,6 +278,18 @@ gulp.task('wpb-vacancies-js', function () {
         .pipe(gulp.dest('./dist/js/components/wpb'));
 });
 
+//****************************************************
+// Tenders JS
+//****************************************************
+gulp.task('wpb-tenders-js', function () {
+    return gulp.src('./assets/js/components/wpb/tenders.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('tenders.min.js'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/js/components/wpb'));
+});
+
 //*************************************************************
 // ===================TASKS AUTOMATION=========================
 //*************************************************************
@@ -275,13 +299,13 @@ gulp.task('wpb-vacancies-js', function () {
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css']));
 gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
-gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css']));
+gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css']));
 
 //****************************************************
 //task for automate all scripts
 //****************************************************
 gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js']));
-gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js', 'wpb-vacancies-js']));
+gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js', 'wpb-vacancies-js', 'wpb-tenders-js']));
 
 //****************************************************
 //task for watching file
