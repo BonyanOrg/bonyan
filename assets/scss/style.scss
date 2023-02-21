@@ -397,6 +397,34 @@ input {
 }
 /* __End categories filter__ */
 
+/* __Start Global Header Search__ */
+.global-header-search {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  grid-gap: 1rem;
+  flex-wrap: wrap;
+
+  .bonyan-title {
+    margin-bottom: 0;
+  }
+
+  input[type=search] {
+    border: 1px solid $primary-color;
+    min-width: 400px;
+    padding: 1rem;
+    color: $primary-color;
+    font-size: 18px;
+
+    &::placeholder {
+      color: $primary-color;
+    }
+  }
+}
+/* __End Global Header Search__ */
+
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */

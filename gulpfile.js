@@ -96,6 +96,19 @@ gulp.task('home-rtl', function () {
         .pipe(gulp.dest('./dist/css'));
 });
 
+//****************************************************
+// Global Datatable Style
+//****************************************************
+gulp.task('global-datatable-css', function () {
+    return gulp.src('./assets/scss/global-datatable.scss')
+        .pipe(sourcemaps.init())
+        .pipe(autoprefixer())
+        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(concat('global-datatable.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css'));
+});
+
 
 //****************************************************
 // ===================WPB CSS=========================
@@ -157,6 +170,18 @@ gulp.task('wpb-contact-info-css', function () {
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('contact-info.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
+//****************************************************
+// Contact Info Style
+//****************************************************
+gulp.task('wpb-vacancies-css', function () {
+    return gulp.src('./assets/scss/components/wpb/vacancies.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('vacancies.min.css'))
         .pipe(sourcemaps.write('./map'))
         .pipe(gulp.dest('./dist/css/components/wpb'));
 });
@@ -229,6 +254,18 @@ gulp.task('wpb-zakat-js', function () {
         .pipe(gulp.dest('./dist/js/components/wpb'));
 });
 
+//****************************************************
+// Vacancies JS
+//****************************************************
+gulp.task('wpb-vacancies-js', function () {
+    return gulp.src('./assets/js/components/wpb/vacancies.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('vacancies.min.js'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/js/components/wpb'));
+});
+
 //*************************************************************
 // ===================TASKS AUTOMATION=========================
 //*************************************************************
@@ -236,15 +273,15 @@ gulp.task('wpb-zakat-js', function () {
 //****************************************************
 //task for automate all styles
 //****************************************************
-gulp.task('styles', gulp.parallel(['style', 'home']));
+gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css']));
 gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
-gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css']));
+gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css']));
 
 //****************************************************
 //task for automate all scripts
 //****************************************************
 gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js']));
-gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js']));
+gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js', 'wpb-vacancies-js']));
 
 //****************************************************
 //task for watching file
