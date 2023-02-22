@@ -46,6 +46,12 @@ button {
   border-radius: $radius-10;
 }
 
+.reversed-primary-btn {
+  background: $light-color;
+  color: $secondary-color;
+  border-radius: $radius-10;
+}
+
 .secondary-btn {
   background: $primary-color;
   color: $light-color;
@@ -366,7 +372,7 @@ input {
 
   @media (max-width: 992px) {
     flex-wrap: nowrap;
-    overflow-x: scroll;
+    overflow-x: auto;
     padding-bottom: 1rem;
     width: 100%;
   }
@@ -1164,6 +1170,24 @@ header {
 
   @media (max-width: 768px) {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  &.grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    @media (max-width: 1199px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      grid-gap: 1.5rem;
+    }
+  
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    @media (max-width: 576px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 }
 

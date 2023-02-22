@@ -10,7 +10,6 @@
     <?php echo get_template_part('template-parts/locations'); ?>
 
     <!-- Background Title Description Widget for (values) -->
-    
     <div class="bg-title-desc-container py-4 py-lg-5">
         <div class="container">
             <h2 class="bonyan-title primary-color mb-3 mb-lg-5 text-center text-xl-start">Values</h2>

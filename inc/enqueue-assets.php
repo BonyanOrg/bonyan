@@ -61,6 +61,9 @@ function bonyan_scripts()
 
     // Locations Style
     wp_enqueue_style('bonyan-locations-style', get_template_directory_uri() . "/dist/css/components/wpb/locations.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    
+    // Locations Style
+    wp_enqueue_style('bonyan-report-card-style', get_template_directory_uri() . "/dist/css/components/wpb/report-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
