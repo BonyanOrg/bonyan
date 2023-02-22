@@ -1,4 +1,4 @@
-<div class="locations">
+<div class="locations" id="locations">
     <div class="container">
         <div class="locations-helper">
             <!-- Loop can start from here which is single location item -->
