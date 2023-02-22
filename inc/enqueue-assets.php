@@ -56,6 +56,9 @@ function bonyan_scripts()
     // Icon Title Description Style
     wp_enqueue_style('bonyan-icon-title-desc-style', get_template_directory_uri() . "/dist/css/components/wpb/icon-title-desc.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
+    // Locations Style
+    wp_enqueue_style('bonyan-locations-style', get_template_directory_uri() . "/dist/css/components/wpb/locations.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
 
