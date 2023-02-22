@@ -211,6 +211,18 @@ gulp.task('wpb-icon-title-desc-css', function () {
 });
 
 //****************************************************
+// Background Title Description Style
+//****************************************************
+gulp.task('wpb-bg-title-desc-css', function () {
+    return gulp.src('./assets/scss/components/wpb/bg-title-desc.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('bg-title-desc.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
+//****************************************************
 // Locations Style
 //****************************************************
 gulp.task('wpb-locations-css', function () {
@@ -323,7 +335,7 @@ gulp.task('wpb-tenders-js', function () {
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css']));
 gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
-gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css', 'wpb-icon-title-desc-css', 'wpb-locations-css']));
+gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css', 'wpb-icon-title-desc-css', 'wpb-bg-title-desc-css', 'wpb-locations-css']));
 
 //****************************************************
 //task for automate all scripts
