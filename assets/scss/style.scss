@@ -1843,6 +1843,7 @@ header {
     width: 100%;
   }
 
+  // Input holder and <input>
   .input-holder {
     input,
     textarea {
@@ -1870,6 +1871,28 @@ header {
     }
   }
 
+  // Select holder and <select>
+  .select-holder {
+    select {
+      border: 1px solid $primary-color;
+      padding: 1rem 2rem 1rem 1rem;
+      width: 100%;
+      color: $primary-color;
+      outline: none;
+      font-size: 20px;
+      border-radius: $radius-10;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .select-icon {
+      right: 1rem;
+      z-index: 1;
+      color: $primary-color;
+    }
+  }
+
+  // Submit Button
   input[type=submit] {
     border: 1px solid $primary-color;
     outline: none;
@@ -1879,3 +1902,45 @@ header {
   }
 }
 /* ===[End Contact Form 7 Custom Style]=== */
+
+/* ===[Start Contact Us Page]=== */
+.contact-us-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10rem;
+  grid-gap: 10rem;
+
+  @media (max-width: 1199px) {
+    gap: 5rem;
+    grid-gap: 5rem;
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    grid-gap: 1.5rem;
+  }
+
+  .contact-details {
+    & > p {
+      font-size: 20px;
+      color: $text-color;
+    }
+
+    .map-location {
+      margin: 2rem 0 0;
+      height: 250px;
+
+      @media (max-width: 1024px) {
+        margin: 2rem 0;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: $radius-10;
+      }
+    }
+  }
+}
+/* ===[End Contact Us Page]=== */

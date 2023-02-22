@@ -30,7 +30,7 @@
         <span>www.bonyan-ngo.org</span>
     </a>
 
-    <a href="#" target="_blank" class="contact-item">
+    <a href="https://www.google.com/maps/place/Alaybey,+27010+%C5%9Eahinbey%2FGaziantep/@37.0593109,37.3792826,18z/data=!4m6!3m5!1s0x1531e14abe53fe11:0xa97272ab75601058!8m2!3d37.0591839!4d37.3807203!16s%2Fg%2F11fl7g097j" target="_blank" class="contact-item">
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="17.728" viewBox="0 0 14 17.728">
                 <path id="Path_239" data-name="Path 239" d="M14.95,14.536,10,19.728,5.05,14.536a7.6,7.6,0,0,1,0-10.385,6.771,6.771,0,0,1,9.9,0,7.6,7.6,0,0,1,0,10.385ZM10,10.975A1.634,1.634,0,1,0,8.444,9.343,1.6,1.6,0,0,0,10,10.975Z" transform="translate(-3 -2)" fill="#fff" />
