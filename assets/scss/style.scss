@@ -1968,3 +1968,78 @@ header {
   }
 }
 /* ===[End Contact Us Page]=== */
+
+/* ===[Start Faqs]=== */
+#rank-math-faq .rank-math-list-item {
+  margin-bottom: 0.5rem;
+  border: 1px solid $primary-color;
+  border-radius: $radius-10;
+  overflow: hidden;
+  transition: .2s all ease-in-out;
+  margin-bottom: 1.5rem;
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: $light-primary-color;
+    color: $primary-color;
+    border-radius: 0 0 $radius-10 $radius-10;
+
+    @media (max-width: 992px) {
+      font-size: 20px;
+    }
+  }
+  
+  &.faq-active {
+    background: $light-color;
+    border-color: $primary-color;
+    box-shadow: 0 5px 16px rgba($primary-color, 0.2);
+  }
+}
+
+.rank-math-question {
+  cursor: pointer;
+  position: relative;
+  padding: 1rem;
+  font-weight: 300;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  grid-gap: 1rem;
+}
+
+.rank-math-question:after {
+  position: relative;
+  left: 0;
+  content: "\f107";
+  transition: all 150ms ease-in-out;
+  font: var(--fa-font-solid);
+  pointer-events: none;
+  transform: rotate(0);
+  font-size: 20px;
+}
+
+.rank-math-question.collapse:after {
+  transform: rotate(180deg);
+}
+
+.rank-math-question:hover {
+  opacity: 0.8;
+}
+
+.rank-math-answer {
+  padding: 1rem;
+
+  p {
+    font-size: 18px !important;
+    margin-bottom: 0;
+    color: $primary-color;
+
+    @media (max-width: 576px) {
+      font-size: 16px !important;
+    }
+  }
+}
+/* ===[End Faqs]=== */
