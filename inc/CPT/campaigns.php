@@ -91,7 +91,7 @@ function register_campaigns_cpt()
         'show_in_rest'      => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array('slug' => 'campaigns-tags', 'with_front' => false),
+        'rewrite'           => array('slug' => 'tag', 'with_front' => false),
     );
 
     register_taxonomy('campaigns-tags', 'campaign', $args);
