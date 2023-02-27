@@ -10,7 +10,6 @@ function Init_Campaign_Options($post)
     $co_campaign_end_date = get_post_meta($post->ID, "co_campaign_end_date", true);
     $co_give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
     $co_donation_amount = get_post_meta($post->ID, "co_donation_amount", true);
-    $co_giveloop_default_program_id = get_post_meta($post->ID, "co_giveloop_default_program_id", true);
 
     $co_show_progress_bar = get_post_meta($post->ID, "co_show_progress_bar", true);
     $co_show_donors_count = get_post_meta($post->ID, "co_show_donors_count", true);
@@ -41,12 +40,7 @@ function Init_Campaign_Options($post)
                 </th>
                 <td><input type="number" name="co_give_form_id" id="co_give_form_id" value="<?php echo $co_give_form_id; ?>"></td>
             </tr>
-            <tr class="form-field">
-                <th>
-                    <label for="co_giveloop_default_program_id">Give Loop Default Program ID </label>
-                </th>
-                <td><input type="number" name="co_giveloop_default_program_id" id="co_giveloop_default_program_id" value="<?php echo $co_giveloop_default_program_id; ?>"></td>
-            </tr>
+
             <tr class="form-field">
                 <th>
                     <label for="co_donation_amount">Default Amount</label>
@@ -99,16 +93,19 @@ function save_campaign_options($post_id)
 {
     if (!empty($_POST['co_campaign_end_date']))
         update_post_meta($post_id, 'co_campaign_end_date', $_POST['co_campaign_end_date']);
+
     if (!empty($_POST['co_give_form_id']))
         update_post_meta($post_id, 'co_give_form_id', $_POST['co_give_form_id']);
-    if (!empty($_POST['co_giveloop_default_program_id']))
-        update_post_meta($post_id, 'co_giveloop_default_program_id', $_POST['co_giveloop_default_program_id']);
+
     if (!empty($_POST['co_donation_amount']))
         update_post_meta($post_id, 'co_donation_amount', $_POST['co_donation_amount']);
+
     if (!empty($_POST['co_show_progress_bar']))
         update_post_meta($post_id, 'co_show_progress_bar', $_POST['co_show_progress_bar']);
+
     if (!empty($_POST['co_show_donors_count']))
         update_post_meta($post_id, 'co_show_donors_count', $_POST['co_show_donors_count']);
+        
     if (!empty($_POST['co_show_reaming_time']))
         update_post_meta($post_id, 'co_show_reaming_time', $_POST['co_show_reaming_time']);
 }

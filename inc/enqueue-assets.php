@@ -25,7 +25,7 @@ function bonyan_scripts()
     // Datatable Style
     wp_enqueue_style('bonyan-datatable-css', 'https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css', array());
     wp_enqueue_style('bonyan-datatable-responsive-css', 'https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css', array());
-    
+
     // Global Datatable custom style
     wp_enqueue_style('bonyan-global-datatable-style', get_template_directory_uri() . "/dist/css/global-datatable.min.css", array('bonyan-datatable-css', 'bonyan-datatable-responsive-css'), $GLOBALS['bonyan_version']);
 
@@ -61,7 +61,7 @@ function bonyan_scripts()
 
     // Locations Style
     wp_enqueue_style('bonyan-locations-style', get_template_directory_uri() . "/dist/css/components/wpb/locations.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
-    
+
     // Locations Style
     wp_enqueue_style('bonyan-report-card-style', get_template_directory_uri() . "/dist/css/components/wpb/report-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
@@ -96,6 +96,7 @@ function bonyan_scripts()
     wp_enqueue_script('ajax-scripts', get_template_directory_uri() . '/assets/js/ajax-scripts.js', array('jquery'), $GLOBALS['bonyan_version'], true);
     wp_localize_script('ajax-scripts', 'ajax_script_object', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('ajax-nonce'),
     ));
     /* =====[End Enqueue GLOBAL Assets]===== */
 
