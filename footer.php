@@ -132,9 +132,9 @@
 		<div class="container">
 			<div class="footer-bottom-helper">
 				<div class="socialmedia">
-					<a href="#"><i class="fa-brands fa-facebook"></i></a>
-					<a href="#"><i class="fa-brands fa-twitter"></i></a>
-					<a href="#"><i class="fa-brands fa-youtube"></i></a>
+					<a href="<?php echo get_option("facebook_url") ?>"><i class="fa-brands fa-facebook"></i></a>
+					<a href="<?php echo get_option("twitter_url") ?>"><i class="fa-brands fa-twitter"></i></a>
+					<a href="<?php echo get_option("youtube_url") ?>"><i class="fa-brands fa-youtube"></i></a>
 				</div>
 
 				<div class="copyrights">
