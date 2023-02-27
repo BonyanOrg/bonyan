@@ -446,6 +446,131 @@ input {
 }
 /* __End Global Header Search__ */
 
+/* __Start Contect With Info Panel__ */
+.content-with-info-panel {
+  display: grid;
+  grid-template-columns: calc(60% - 5rem) calc(40% - 5rem);
+  gap: 5rem;
+  grid-gap: 5rem;
+  justify-content: space-between;
+
+  @media (max-width: 1400px) {
+    grid-template-columns: calc(60% - 3rem) calc(40% - 3rem);
+    gap: 3rem;
+    grid-gap: 3rem;
+  }
+
+  @media (max-width: 1199px) {
+    grid-template-columns: calc(60% - 1.5rem) calc(40% - 1.5rem);
+    gap: 1.5rem;
+    grid-gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .inner-content {
+    @media (max-width: 1024px) {
+      order: 2;
+    }
+  }
+
+  .info-panel {
+    margin-left: auto;
+    max-width: 400px;
+    width: 100%;
+    filter: drop-shadow(0 0 6px rgba($primary-color, 0.5));
+
+    @media (min-width: 1025px) {
+      margin-top: -2rem;
+    }
+
+    @media (max-width: 1024px) {
+      max-width: 100%;
+      order: 1;
+    }
+
+    .info-panel--card {
+      background: $primary-color;
+      overflow: hidden;
+      padding: 2rem;
+      border-radius: 20px;
+
+      .info-panel-title {
+        color: $light-color;
+        font-size: 50px;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-box {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        grid-gap: 0.25rem;
+        position: relative;
+        padding-bottom: 1.5rem;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 4px;
+          width: 100px;
+          max-width: 100%;
+          border-radius: 5px;
+          background: $light-color;
+          mix-blend-mode: overlay;
+        }
+
+        .info-item {
+          color: $light-color;
+          font-size: 20px;
+        }
+      }
+
+      .info-cta {
+        margin-top: 2rem;
+
+        a {
+          display: inline-flex;
+          justify-content: center;
+          text-align: center;
+          padding: 0.75rem 1rem;
+          font-size: 20px;
+          border-radius: 25px;
+
+          &:hover {
+            color: $light-color;
+          }
+        }
+      }
+    }
+  }
+}
+/* __End Contect With Info Panel__ */
+
+/* __Start Light Effect__ */
+.with-light {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -40%;
+    right: -30%;
+    border-radius: 50%;
+    background: rgba(255,255,255,.72);
+    z-index: 1;
+    opacity: .4;
+    filter: blur(65px);
+  }
+}
+/* __End Light Effect__ */
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
