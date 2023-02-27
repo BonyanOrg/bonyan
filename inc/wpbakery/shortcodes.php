@@ -12,3 +12,6 @@ require_once "shortcodes/vacancies_datatable_view.php";
 
 /* Zakat Calculator  */
 require_once "shortcodes/zakat_calculator_view.php";
+
+/* Quick Donation  */
+require_once "shortcodes/quick_donation_view.php";

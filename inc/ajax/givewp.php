@@ -4,12 +4,20 @@ add_action('wp_ajax_show_donate_form', 'show_donate_form');
 add_action('wp_ajax_nopriv_show_donate_form', 'show_donate_form');
 function show_donate_form()
 {
+    // Check for nonce security      
+    if (!wp_verify_nonce($_POST['nonce'], 'ajax-nonce')) {
+        die('Busted!');
+    }
 
     $form_id = $_POST['form_id'];
     $give_form =  do_shortcode('[give_form id="' . $form_id . '"]', true);
-    if (isset($_POST['amount'])) {
+    if (isset($_POST['amount']) && !isset($_POST['type'])) {
         $give_form = str_replace('?giveDonationFormInIframe=1', '?giveDonationFormInIframe=1&amount=' . $_POST['amount'], $give_form);
     }
+    if (isset($_POST['type']) && $_POST['type'] === "quick_donation" && isset($_POST['charity_type'])) {
+        $give_form = str_replace('?giveDonationFormInIframe=1', '?giveDonationFormInIframe=1&amount=' . $_POST['amount'] . '&description=' . $_POST['charity_type'], $give_form);
+    }
+
 
     wp_send_json([
         'give_form' => $give_form,
@@ -39,6 +47,7 @@ function give_populate_amount($form_id, $args)
 
         jQuery(document).ready(function($) {
             var getamount = giveGetQueryVariable('amount');
+            var getdescription = giveGetQueryVariable('description');
             var amount = '1.00';
             if (getamount !== false) {
                 amount = getamount;
@@ -46,6 +55,12 @@ function give_populate_amount($form_id, $args)
             if ($('#give-amount').length > 0) {
                 $('#give-amount')
                     .val(amount)
+                    .focus()
+                    .trigger('blur');
+            }
+            if (getdescription !== null && getdescription !== '') {
+                $('#give-comment')
+                    .val(decodeURI(getdescription))
                     .focus()
                     .trigger('blur');
             }
