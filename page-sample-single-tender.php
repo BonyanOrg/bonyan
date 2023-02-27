@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php echo get_template_part('template-parts/page-head'); ?>
 
-<div class="single-vacancy">
+<div class="single-tender">
     <div class="container">
         <div class="content-with-info-panel">
             <div class="inner-content">
@@ -9,27 +9,7 @@
             </div>
 
             <div class="info-panel">
-                <div class="info-panel--card with-light">
-                    <h2 class="info-panel-title">Job Details</h2>
-
-                    <div class="info-box">
-                        <div class="info-item">
-                            <span>Deadline: 30 Dec 2022</span>
-                        </div>
-
-                        <div class="info-item">
-                            <span>Job Type: on site</span>
-                        </div>
-
-                        <div class="info-item">
-                            <span>Location: Istanbul, Turkey</span>
-                        </div>
-                    </div>
-
-                    <div class="info-cta">
-                        <a href="#" class="primary-btn">Apply for this job</a>
-                    </div>
-                </div>
+                <?php echo get_template_part('template-parts/report-card') ?>
             </div>
         </div>
     </div>

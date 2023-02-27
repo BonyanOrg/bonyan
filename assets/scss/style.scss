@@ -2168,3 +2168,18 @@ header {
   }
 }
 /* ===[End Faqs]=== */
+
+/* ===[Start Single Tender]=== */
+/* __Start modify the width of info panel__ */
+.single-tender {
+  .info-panel {
+    max-width: 350px;
+
+    .report-card {
+      height: auto;
+      min-height: 300px;
+    }
+  }
+}
+/* __Start modify the width of info panel__ */
+/* ===[End Single Tender]=== */
