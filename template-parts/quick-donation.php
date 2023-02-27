@@ -50,7 +50,7 @@
 
                 <div class="quick-donation--cta btn-with-animated-icon">
                     <button class="primary-btn donation-btn no-border radius-15">
-                        <span><?php _e('Donate', 'sema'); ?></span>
+                        <span><?php _e('Donate', 'bonyan'); ?></span>
                     </button>
                 </div>
             </div>
