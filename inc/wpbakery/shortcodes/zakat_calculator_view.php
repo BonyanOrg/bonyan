@@ -13,8 +13,7 @@ if (!function_exists('zakat_calc_shortcode')) {
         extract(shortcode_atts(array(
             'zakat_calc_under_head_description'     => '',
             'zakat_calc_nisab_value'     => '',
-            'zakat_calc_form_id'     => '',
-            'zakat_calc_give_loop_default_program_id'     => '',
+            'zakat_calc_form_id'     => ''
         ), $atts));
 
         ob_start();
@@ -34,6 +33,10 @@ if (!function_exists('zakat_calc_shortcode')) {
         </style>
 
         <form class="zakat-calculator-container custom-widget" onsubmit="isLowerThanNisab(event, this);">
+            <div class="calc-decor">
+                <img src="<?php echo get_template_directory_uri() . '/dist/imgs/dollar-watermark.png'; ?>" alt="dollar watermark (Zakat calcualtor)">
+            </div>
+
             <p><strong><?php _e('Zakat Calculator', 'bonyan'); ?></strong></p>
             <p class="mb-5"><?php echo $zakat_calc_under_head_description ?></p>
 
@@ -83,8 +86,8 @@ if (!function_exists('zakat_calc_shortcode')) {
                     <p class="calculated-zakat-amount mb-2"><strong><span>0.00</span>$</strong></p>
                     <p class="mb-3"><?php _e('Ensure that Zakat-Eligible Total', 'bonyan'); ?> <br /><?php _e('Exceeds Nisab', 'bonyan'); ?> - <?php echo $zakat_calc_nisab_value ?>$*</p>
 
-                    <button class="primary-btn donation-btn" id="zakat-donation-btn" data-target="bonyan-donation-modal" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="00" data-form_id="<?php echo $zakat_calc_form_id ?>" data-giveLoop_defaultProgram="<?php echo $zakat_calc_give_loop_default_program_id ?>">
-                    <?php _e('Donate Now', 'bonyan'); ?>
+                    <button class="primary-btn donation-btn" id="zakat-donation-btn" data-target="bonyan-donation-modal" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="00" data-form_id="<?php echo $zakat_calc_form_id ?>">
+                        <?php _e('Donate Now', 'bonyan'); ?>
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
                             <path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />

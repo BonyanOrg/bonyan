@@ -32,14 +32,6 @@ function zakat_calc_vc()
 				"value"			=> "",
 				"description"	=> esc_html__("Paste Just Give Form ID Not ShortCode", 'ONYX_DOMAIN'),
 			),
-			array(
-				"type"			=> "textfield",
-				"admin_label"	=> false,
-				"heading"		=> esc_html__("Give Loop Default Program Id", 'ONYX_DOMAIN'),
-				"param_name"	=> "zakat_calc_give_loop_default_program_id",
-				"value"			=> "",
-				"description"	=> esc_html__("", 'ONYX_DOMAIN'),
-			),
 		)
 	));
 }
