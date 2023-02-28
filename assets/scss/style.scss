@@ -480,7 +480,6 @@ input {
     margin-left: auto;
     max-width: 400px;
     width: 100%;
-    filter: drop-shadow(0 0 6px rgba($primary-color, 0.5));
 
     @media (min-width: 1025px) {
       margin-top: -2rem;
@@ -496,12 +495,21 @@ input {
       overflow: hidden;
       padding: 2rem;
       border-radius: 20px;
+      filter: drop-shadow(0 0 6px rgba($primary-color, 0.5));
+
+      @media (max-width: 992px) {
+        padding: 1.5rem;
+      }
 
       .info-panel-title {
         color: $light-color;
         font-size: 50px;
         font-weight: bold;
         margin-bottom: 1.5rem;
+
+        @media (max-width: 992px) {
+          font-size: 30px;
+        }
       }
 
       .info-box {
@@ -525,9 +533,34 @@ input {
           mix-blend-mode: overlay;
         }
 
+        &.no-underline {
+          padding-bottom: 0;
+
+          &::before {
+            display: none;
+          }
+        }
+
         .info-item {
           color: $light-color;
           font-size: 20px;
+
+          &.with-underline {
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              height: 4px;
+              width: 100px;
+              max-width: 100%;
+              border-radius: 5px;
+              background: $light-color;
+              mix-blend-mode: overlay;
+            }
+          }
         }
       }
 
@@ -2183,3 +2216,41 @@ header {
 }
 /* __Start modify the width of info panel__ */
 /* ===[End Single Tender]=== */
+
+/* ===[Start Single Program]=== */
+.single-program {
+  .info-panel {
+    .info-panel--card {
+      .info-box {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: baseline;
+        gap: 2rem;
+        grid-gap: 2rem;
+
+        @media (max-width: 450px) {
+          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        }
+
+        .info-item {
+          display: flex;
+          flex-direction: column;
+          font-size: 24px;
+          font-weight: bold;
+          padding-bottom: 0.75rem;
+
+          @media (max-width: 992px) {
+            font-size: 20px;
+          }
+
+          span {
+            &:last-of-type {
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* ===[End Single Program]=== */

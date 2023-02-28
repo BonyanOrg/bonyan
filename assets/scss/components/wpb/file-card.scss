@@ -10,6 +10,7 @@
     height: 250px;
     border-radius: 20px;
     overflow: hidden;
+    filter: drop-shadow(0 0 6px rgba($primary-color, 0.5));
 
     &::before {
         content: "";

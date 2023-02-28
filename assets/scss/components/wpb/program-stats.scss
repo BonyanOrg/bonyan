@@ -1,0 +1,55 @@
+@import '../../variables';
+
+.program-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    grid-gap: 2rem;
+
+    .program-stats-item {
+        display: flex;
+        gap: 1rem;
+        grid-gap: 1rem;
+
+        .program-stats.icon {
+            height: 87px;
+
+            @media (max-width: 576px) {
+                height: 67px;
+            }
+
+            img {
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .program-stats-info {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+
+            span {
+                &:first-of-type {
+                    font-size: 28px;
+                    color: $primary-color;
+                    font-weight: bold;
+
+                    @media (max-width: 576px) {
+                        font-size: 20px;
+                    }
+                }
+
+                &:last-of-type {
+                    font-size: 20px;
+                    color: $text-color;
+                    font-weight: 500;
+
+                    @media (max-width: 576px) {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
