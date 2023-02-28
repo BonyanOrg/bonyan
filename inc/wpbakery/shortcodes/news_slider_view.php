@@ -31,7 +31,7 @@ if (!function_exists('news_slider_shortcode')) {
             news_slider_register_style();
         } ?>
 
-        <div class="news">
+        <div class="news custom-widget">
             <div class="container">
                 <h2 class="bonyan-title white"><?php echo $news_slider_header_text ?></h2>
                 <div class="swiper primary-carousel">

@@ -23,7 +23,7 @@ if (!function_exists('archive_programs_cards_shortcode')) {
                 archive_programs_cards_register_style();
             } ?>
         </style>
-        <div class="archive-programs-cards-container">
+        <div class="archive-programs-cards-container custom-widget">
             <?php echo do_shortcode($content); ?>
         </div>
 
@@ -62,7 +62,7 @@ if (!function_exists('archive_program_card_shortcode')) {
 
 
 
-        <a href="<?php echo $a_href  ?>" class="archive-program-card">
+        <a href="<?php echo $a_href  ?>" class="archive-program-card ">
 
             <div class="program-img-decor">
                 <div class="program-img">

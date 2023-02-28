@@ -28,7 +28,8 @@ if (!function_exists('programs_cards_shortcode')) {
                 programs_cards_register_style();
             } ?>
         </style>
-        <div class="program-cards-container">
+        <h2 class="bonyan-title">Programs</h2>
+        <div class="program-cards-container custom-widget">
             <?php echo do_shortcode($content); ?>
             <div class="program-card">
                 <div class="more-program-decor left-decor">

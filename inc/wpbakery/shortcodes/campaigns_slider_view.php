@@ -42,7 +42,7 @@ if (!function_exists('campaigns_slider_shortcode')) {
         } ?>
 
         <!-- Start Campaign Cards -->
-        <section class="campaigns-section py-5">
+        <section class="campaigns-section py-5 custom-widget">
             <div class="container">
 
                 <div class="d-flex align-items-center justify-content-center justify-content-xl-strtch mb-3 ">
