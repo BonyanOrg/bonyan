@@ -9,7 +9,7 @@
             </div>
 
             <div class="info-panel">
-                <?php echo get_template_part('template-parts/report-card') ?>
+                <?php echo get_template_part('template-parts/file-card') ?>
             </div>
         </div>
 

@@ -1,6 +1,6 @@
 @import "../../variables";
 
-.report-card {
+.file-card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
         filter: blur(45px);
     }
 
-    .report-icon {
+    .file-icon {
         position: absolute;
         bottom: -0.5rem;
         right: 0;
@@ -45,7 +45,7 @@
         }
     }
 
-    .report-name {
+    .file-name {
         position: relative;
         font-size: 32px;
         font-weight: bold;
@@ -62,7 +62,7 @@
         }
     }
 
-    .report-cta {
+    .file-cta {
         position: relative;
         margin-top: auto;
         margin-bottom: 0.5rem;
