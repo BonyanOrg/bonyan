@@ -36,14 +36,14 @@
 <!-- Start Reports Cards -->
 <div class="container">
     <div class="cards-container grid-4">
-        <?php echo get_template_part('template-parts/report-card') ?>
-        <?php echo get_template_part('template-parts/report-card') ?>
-        <?php echo get_template_part('template-parts/report-card') ?>
-        <?php echo get_template_part('template-parts/report-card') ?>
-        <?php echo get_template_part('template-parts/report-card') ?>
-        <?php echo get_template_part('template-parts/report-card') ?>
-        <?php echo get_template_part('template-parts/report-card') ?>
-        <?php echo get_template_part('template-parts/report-card') ?>
+        <?php echo get_template_part('template-parts/file-card') ?>
+        <?php echo get_template_part('template-parts/file-card') ?>
+        <?php echo get_template_part('template-parts/file-card') ?>
+        <?php echo get_template_part('template-parts/file-card') ?>
+        <?php echo get_template_part('template-parts/file-card') ?>
+        <?php echo get_template_part('template-parts/file-card') ?>
+        <?php echo get_template_part('template-parts/file-card') ?>
+        <?php echo get_template_part('template-parts/file-card') ?>
     </div>
 </div>
 <!-- End Reports Cards -->
