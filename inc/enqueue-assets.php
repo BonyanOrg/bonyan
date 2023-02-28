@@ -62,8 +62,11 @@ function bonyan_scripts()
     // Locations Style
     wp_enqueue_style('bonyan-locations-style', get_template_directory_uri() . "/dist/css/components/wpb/locations.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
-    // Locations Style
+    // File Card Style
     wp_enqueue_style('bonyan-file-card-style', get_template_directory_uri() . "/dist/css/components/wpb/file-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+
+    // File Card Style
+    wp_enqueue_style('bonyan-program-stats-style', get_template_directory_uri() . "/dist/css/components/wpb/program-stats.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);

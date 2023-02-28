@@ -235,13 +235,25 @@ gulp.task('wpb-locations-css', function () {
 });
 
 //****************************************************
-// Report Card Style
+// File Card Style
 //****************************************************
 gulp.task('wpb-file-card-css', function () {
     return gulp.src('./assets/scss/components/wpb/file-card.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('file-card.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
+//****************************************************
+// File Card Style
+//****************************************************
+gulp.task('wpb-program-stats-css', function () {
+    return gulp.src('./assets/scss/components/wpb/program-stats.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('program-stats.min.css'))
         .pipe(sourcemaps.write('./map'))
         .pipe(gulp.dest('./dist/css/components/wpb'));
 });
@@ -347,7 +359,7 @@ gulp.task('wpb-tenders-js', function () {
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css']));
 gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
-gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css', 'wpb-icon-title-desc-css', 'wpb-bg-title-desc-css', 'wpb-locations-css', 'wpb-file-card-css']));
+gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css', 'wpb-icon-title-desc-css', 'wpb-bg-title-desc-css', 'wpb-locations-css', 'wpb-file-card-css', 'wpb-program-stats-css']));
 
 //****************************************************
 //task for automate all scripts
