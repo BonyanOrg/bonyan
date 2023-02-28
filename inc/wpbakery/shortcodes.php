@@ -15,3 +15,6 @@ require_once "shortcodes/zakat_calculator_view.php";
 
 /* Quick Donation  */
 require_once "shortcodes/quick_donation_view.php";
+
+/* Campaigns Slider  */
+require_once "shortcodes/campaigns_slider_view.php";
