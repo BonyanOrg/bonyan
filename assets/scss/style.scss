@@ -604,6 +604,96 @@ input {
   }
 }
 /* __End Light Effect__ */
+
+/* __Start Inner Content__*/
+.inner-content {
+  h1:not(.custom-widget h1):not(h1.custom-widget),
+  h2:not(.custom-widget h2):not(h2.custom-widget),
+  h3:not(.custom-widget h3):not(h3.custom-widget),
+  h4:not(.custom-widget h4):not(h4.custom-widget),
+  h5:not(.custom-widget h5):not(h5.custom-widget),
+  h6:not(.custom-widget h6):not(h6.custom-widget) {
+    margin: 1rem 0 0.75rem;
+    color: $primary-color;
+  }
+
+  h1:not(.custom-widget h1):not(h1.custom-widget) {
+    font-size: 48px;
+  }
+
+  h2:not(.custom-widget h2):not(h2.custom-widget) {
+    font-size: 40px;
+  }
+
+  h3:not(.custom-widget h3):not(h3.custom-widget) {
+    font-size: 32px;
+  }
+
+  h4:not(.custom-widget h4):not(h4.custom-widget) {
+    font-size: 28px;
+  }
+
+  h5:not(.custom-widget h5):not(h5.custom-widget) {
+    font-size: 24px;
+  }
+
+  h6:not(.custom-widget h6):not(h6.custom-widget) {
+    font-size: 20px;
+  }
+
+  p:not(.custom-widget p):not(p.custom-widget),
+  a:not(.custom-widget a):not(a.custom-widget) {
+    font-size: 20px;
+  }
+  
+  a:not(.custom-widget a):not(a.custom-widget) {
+    color: $primary-color;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  li:not(.custom-widget li):not(li.custom-widget) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 992px) {
+    h1:not(.custom-widget h1):not(h1.custom-widget) {
+      font-size: 32px;
+    }
+
+    h2:not(.custom-widget h2):not(h2.custom-widget) {
+      font-size: 28px;
+    }
+
+    h3:not(.custom-widget h3):not(h3.custom-widget) {
+      font-size: 24px;
+    }
+
+    h4:not(.custom-widget h4):not(h4.custom-widget) {
+      font-size: 20px;
+    }
+
+    h5:not(.custom-widget h5):not(h5.custom-widget) {
+      font-size: 16px;
+    }
+
+    h6:not(.custom-widget h6):not(h6.custom-widget) {
+      font-size: 14px;
+    }
+
+    p:not(.custom-widget p):not(p.custom-widget),
+    a:not(.custom-widget a):not(a.custom-widget) {
+      font-size: 14px;
+    }
+
+    li:not(.custom-widget li):not(li.custom-widget) {
+      font-size: 14px;
+    }
+  }
+}
+/* __End Inner Content__*/
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
@@ -680,6 +770,17 @@ header {
       list-style: none;
       padding: 0;
       margin-bottom: 0;
+      overflow: hidden;
+
+      li {
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #ddd;
+        }
+
+        a:hover {
+          background: rgba($primary-color, 0.1);
+        }
+      }
     }
 
     .menu-languages-container {
@@ -700,9 +801,7 @@ header {
       align-items: center;
       text-align: center;
 
-      ul.menu {
-        padding: 0.5rem 0;
-      }
+      
 
       a {
         padding: 0.5rem 1rem;
@@ -2208,6 +2307,15 @@ header {
   .info-panel {
     max-width: 350px;
 
+    @media (max-width: 1024px) {
+      margin-left: 0;
+    }
+
+    @media (max-width: 576px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .info-card {
       height: auto;
       min-height: 300px;
@@ -2259,6 +2367,15 @@ header {
 .single-report {
   .info-panel {
     max-width: 350px;
+
+    @media (max-width: 1024px) {
+      margin-left: 0;
+    }
+
+    @media (max-width: 576px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 /* ===[End Single Report]=== */
