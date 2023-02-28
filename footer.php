@@ -25,7 +25,7 @@
 			<!-- Column 1 -->
 			<div class="logo-and-contact-info">
 				<div class="logo">
-					<img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/bonyan-white-logo.png' ?>" alt="Logo" class="lazyload">
+					<img data-src="<?php echo wp_get_attachment_image_url(get_theme_mod('footer_logo_image_url'), 'full'); ?>" alt="Logo" class="lazyload">
 				</div>
 
 				<div class="contact-info from-laptop-up as-flex">
@@ -34,7 +34,7 @@
 							<path id="Path_235" data-name="Path 235" d="M17,13.438v2.75a.778.778,0,0,1-.723.776c-.34.023-.618.036-.832.036A12.444,12.444,0,0,1,3,4.556q0-.322.036-.832A.778.778,0,0,1,3.812,3h2.75a.389.389,0,0,1,.387.35c.018.179.034.321.05.429a10.812,10.812,0,0,0,.94,3.112.354.354,0,0,1-.114.441l-1.678,1.2a10.148,10.148,0,0,0,5.323,5.323l1.2-1.675a.359.359,0,0,1,.446-.116A10.812,10.812,0,0,0,16.224,13c.108.016.25.033.428.05a.389.389,0,0,1,.349.387Z" transform="translate(-3 -3)" fill="#fff" />
 						</svg>
 
-						<a href="tel:+905555555555">+90 555 555 55 55</a>
+						<a href="tel:<?php echo get_option('contact_info_phone_number'); ?>"><?php echo get_option('contact_info_phone_number'); ?></a>
 					</div>
 
 					<div class="contact-item">
@@ -42,7 +42,7 @@
 							<path id="Path_237" data-name="Path 237" d="M6.667,15.073h8.287l1.427,1.115V7.829h.81a.807.807,0,0,1,.81.8V19.5l-3.606-2.817H7.476a.807.807,0,0,1-.81-.8Zm-2.06-1.61L1,16.28V3.8A.807.807,0,0,1,1.81,3H13.952a.807.807,0,0,1,.81.8v9.659Z" transform="translate(-1 -3)" fill="#fff" />
 						</svg>
 
-						<span>+90 555 555 55 55</span>
+						<span><?php echo get_option('contact_info_text_phone_number'); ?></span>
 					</div>
 
 					<div class="contact-item address">
@@ -50,7 +50,7 @@
 							<path id="Path_239" data-name="Path 239" d="M14.95,14.536,10,19.728,5.05,14.536a7.6,7.6,0,0,1,0-10.385,6.771,6.771,0,0,1,9.9,0,7.6,7.6,0,0,1,0,10.385ZM10,10.975A1.634,1.634,0,1,0,8.444,9.343,1.6,1.6,0,0,0,10,10.975Z" transform="translate(-3 -2)" fill="#fff" />
 						</svg>
 
-						<a href="#">TOPÇULAR MAH. DEMIRKAPI CAD. NO: 2 IÇ KAPI NO: 2 EYÜPSULTAN/ ISTANBUL</a>
+						<a href="<?php echo get_option('contact_info_address_url'); ?>"><?php echo get_option('contact_info_address'); ?></a>
 					</div>
 				</div>
 			</div>
@@ -106,7 +106,7 @@
 						<path id="Path_235" data-name="Path 235" d="M17,13.438v2.75a.778.778,0,0,1-.723.776c-.34.023-.618.036-.832.036A12.444,12.444,0,0,1,3,4.556q0-.322.036-.832A.778.778,0,0,1,3.812,3h2.75a.389.389,0,0,1,.387.35c.018.179.034.321.05.429a10.812,10.812,0,0,0,.94,3.112.354.354,0,0,1-.114.441l-1.678,1.2a10.148,10.148,0,0,0,5.323,5.323l1.2-1.675a.359.359,0,0,1,.446-.116A10.812,10.812,0,0,0,16.224,13c.108.016.25.033.428.05a.389.389,0,0,1,.349.387Z" transform="translate(-3 -3)" fill="#fff" />
 					</svg>
 
-					<a href="tel:+905555555555">+90 555 555 55 55</a>
+					<a href="tel:<?php echo get_option('contact_info_phone_number'); ?>"><?php echo get_option('contact_info_phone_number'); ?></a>
 				</div>
 
 				<div class="contact-item">
@@ -114,7 +114,7 @@
 						<path id="Path_237" data-name="Path 237" d="M6.667,15.073h8.287l1.427,1.115V7.829h.81a.807.807,0,0,1,.81.8V19.5l-3.606-2.817H7.476a.807.807,0,0,1-.81-.8Zm-2.06-1.61L1,16.28V3.8A.807.807,0,0,1,1.81,3H13.952a.807.807,0,0,1,.81.8v9.659Z" transform="translate(-1 -3)" fill="#fff" />
 					</svg>
 
-					<span>+90 555 555 55 55</span>
+					<span><?php echo get_option('contact_info_text_phone_number'); ?></span>
 				</div>
 
 				<div class="contact-item address">
@@ -122,7 +122,7 @@
 						<path id="Path_239" data-name="Path 239" d="M14.95,14.536,10,19.728,5.05,14.536a7.6,7.6,0,0,1,0-10.385,6.771,6.771,0,0,1,9.9,0,7.6,7.6,0,0,1,0,10.385ZM10,10.975A1.634,1.634,0,1,0,8.444,9.343,1.6,1.6,0,0,0,10,10.975Z" transform="translate(-3 -2)" fill="#fff" />
 					</svg>
 
-					<a href="#">TOPÇULAR MAH. DEMIRKAPI CAD. NO: 2 IÇ KAPI NO: 2 EYÜPSULTAN/ ISTANBUL</a>
+					<a href="<?php echo get_option('contact_info_address_url'); ?>"><?php echo get_option('contact_info_address'); ?></a>
 				</div>
 			</div>
 		</div>

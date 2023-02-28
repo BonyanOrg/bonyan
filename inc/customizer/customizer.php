@@ -32,11 +32,13 @@ function my_customize_register($wp_customize)
     //===============
     // Header Options
     require_once(__DIR__ . '/header-options.php');
-    
+
     //===============
     // Footer Options
     require_once(__DIR__ . '/footer-options.php');
 
-
+    //===============
+    // Contact Info
+    require_once(__DIR__ . '/contact-info.php');
 }
 add_action('customize_register', 'my_customize_register');

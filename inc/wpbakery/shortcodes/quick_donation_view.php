@@ -48,15 +48,23 @@ if (!function_exists('quick_donation_shortcode')) {
                 </div>
                 <div class="quick-donation--content">
                     <div class="quick-donation--amount">
-                        <div class="select-holder programs-select">
+
+
+
+
+                        <div class="select-holder charity-type-select">
                             <div class="select-icon">
                                 <i class="fa-solid fa-angle-down"></i>
                             </div>
-                            <select name="program_select" id="program_select">
-                                <option value="">Choose the program</option>
+
+                            <select name="charity_select" id="charity_select">
+                                <option value="">Choose Charity</option>
+                                <?php foreach ($tags_list_array as $tag) : ?>
+                                    <option value="<?php echo $tag->term_id; ?>"><?php echo $tag->name; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
-
+                        
                         <div class="quick-donation--amount-btns">
 
                             <?php foreach ($quick_donation_prices as $key => $price) { ?>
@@ -74,26 +82,17 @@ if (!function_exists('quick_donation_shortcode')) {
                             <?php } ?>
                         </div>
 
-                        <div class="select-holder charity-type-select">
+                        <div class="select-holder programs-select">
                             <div class="select-icon">
                                 <i class="fa-solid fa-angle-down"></i>
                             </div>
-
-                            <select name="charity_select" id="charity_select">
-                                <option value="">Choose Charity</option>
-                                <?php foreach ($tags_list_array as $tag) : ?>
-                                    <option value="<?php echo $tag->term_id; ?>"><?php echo $tag->name; ?></option>
-                                <?php endforeach; ?>
+                            <select name="program_select" id="program_select">
+                                <option value="">Choose the program</option>
                             </select>
                         </div>
 
                         <div class="quick-donation--cta btn-with-animated-icon">
-                            <button id="quick_donate_now_btn" class="primary-btn donation-btn no-border radius-15"
-                            data-amount="66"
-                            data-giveformid="00"
-                            data-tagName="00"
-                            
-                            >
+                            <button id="quick_donate_now_btn" class="primary-btn donation-btn no-border radius-15" data-amount="66" data-giveformid="00" data-tagName="00">
                                 <span><?php _e('Donate', 'bonyan'); ?></span>
                             </button>
                         </div>
