@@ -10,5 +10,10 @@ require __DIR__ . '/campaign.php';
 //====================
 require __DIR__ . '/main_slider.php';
 
+//====================
+//    POST
+//====================
+require __DIR__ . '/post.php';
+
 
 
