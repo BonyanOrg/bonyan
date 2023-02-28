@@ -18,3 +18,6 @@ require_once "shortcodes/quick_donation_view.php";
 
 /* Campaigns Slider  */
 require_once "shortcodes/campaigns_slider_view.php";
+
+/* News Slider  */
+require_once "shortcodes/news_slider_view.php";

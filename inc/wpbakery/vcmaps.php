@@ -45,3 +45,6 @@ require_once "vcmaps/quick_donation_map.php";
 
 /* Campaigns Slider  */
 require_once "vcmaps/campaigns_slider_map.php";
+
+/* News Slider  */
+require_once "vcmaps/news_slider_map.php";
