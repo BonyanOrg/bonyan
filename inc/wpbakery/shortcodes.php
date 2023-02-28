@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 /* This is for showing the results in the Front-end */
 /* ================================================ */
@@ -21,3 +21,9 @@ require_once "shortcodes/campaigns_slider_view.php";
 
 /* News Slider  */
 require_once "shortcodes/news_slider_view.php";
+
+/* Archive Programs Cards  */
+require_once "shortcodes/archive_programs_cards_view.php";
+
+/*  Programs Cards  */
+require_once "shortcodes/programs_cards_view.php";

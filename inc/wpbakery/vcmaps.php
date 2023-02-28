@@ -48,3 +48,9 @@ require_once "vcmaps/campaigns_slider_map.php";
 
 /* News Slider  */
 require_once "vcmaps/news_slider_map.php";
+
+/* Archive Programs Cards  */
+require_once "vcmaps/archive_programs_cards_map.php";
+
+/*  Programs Cards  */
+require_once "vcmaps/programs_cards_map.php";
