@@ -42,3 +42,6 @@ require_once "vcmaps/zakat_calculator_map.php";
 
 /* Quick Donation  */
 require_once "vcmaps/quick_donation_map.php";
+
+/* Campaigns Slider  */
+require_once "vcmaps/campaigns_slider_map.php";
