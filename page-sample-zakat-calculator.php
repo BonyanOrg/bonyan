@@ -6,6 +6,7 @@
 </div>
 
 <div class="container">
+    <h2 class="bonyan-title primary-color mb-4 mb-md-5">Program Projects</h2>
     <div class="cards-container">
         <?php echo get_template_part('template-parts/project-card') ?>
         <?php echo get_template_part('template-parts/project-card') ?>

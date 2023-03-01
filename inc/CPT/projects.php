@@ -4,7 +4,7 @@ function register_projects_cpt()
 {
     $labels = array(
         'name'                  => _x('Projects', 'bonyan'),
-        'singular_name'         => _x('Media',  'bonyan'),
+        'singular_name'         => _x('Project',  'bonyan'),
         'menu_name'             => _x('Projects',  'bonyan'),
         'name_admin_bar'        => _x('projects',  'bonyan'),
         'add_new'               => __('Add New', 'bonyan'),
@@ -12,7 +12,7 @@ function register_projects_cpt()
         'new_item'              => __('New projects', 'bonyan'),
         'edit_item'             => __('Edit projects', 'bonyan'),
         'view_item'             => __('View projects', 'bonyan'),
-        'all_items'             => __('All Media', 'bonyan'),
+        'all_items'             => __('All Projects', 'bonyan'),
         'search_items'          => __('Search projects', 'bonyan'),
         'parent_item_colon'     => __('Parent projects:', 'bonyan'),
         'not_found'             => __('No projects found.', 'bonyan'),
@@ -30,7 +30,7 @@ function register_projects_cpt()
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 20,
-        'supports'           => array('title', 'author', 'thumbnail'),
+        'supports'           => array('title', 'author', 'thumbnail',"editor"),
         'taxonomies'         => array('post_tag', 'projects-categories'),
         'show_in_rest'       => true
     );
@@ -44,8 +44,8 @@ function register_projects_cpt()
 
     // Add new taxonomy
     $labels = array(
-        'name'              => __('projects - Categories', 'bonyan'),
-        'singular_name'     => __('projects - Category',  'bonyan'),
+        'name'              => __('Projects - Categories', 'bonyan'),
+        'singular_name'     => __('Projects - Category',  'bonyan'),
         'search_items'      => __('Search Categories', 'bonyan'),
         'all_items'         => __('All Categories', 'bonyan'),
         'parent_item'       => __('Parent Category', 'bonyan'),
@@ -54,7 +54,7 @@ function register_projects_cpt()
         'update_item'       => __('Update Category', 'bonyan'),
         'add_new_item'      => __('Add New Category', 'bonyan'),
         'new_item_name'     => __('New Category Name', 'bonyan'),
-        'menu_name'         => __('projects Category', 'bonyan'),
+        'menu_name'         => __('Projects Category', 'bonyan'),
     );
 
     $args = array(
