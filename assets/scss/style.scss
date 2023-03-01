@@ -723,6 +723,36 @@ input {
 
 /* __Start General User ACtion Modal__ */
 .user-action-modal {
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba($dark-color, 0.5);
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  transition: $general-transition;
+
+  .modal-window {
+    background: $light-color;
+    border-radius: 29px;
+    height: 600px;
+    max-height: 100%;
+    width: 1000px;
+    max-width: 100%;
+    overflow-y: auto;
+    border-radius: 29px;
+    padding: 1.25rem;
+
+    @media (max-width: 992px) {
+      border-radius: 0;
+      height: auto;
+    }
+  }
+  
   .user-action-content {
     display: flex;
     height: 100%;
@@ -879,41 +909,6 @@ input {
   }
 }
 /* __End General User ACtion Modal__ */
-
-/* __Start Login Modal__ */
-.login-modal {
-  position: fixed;
-  z-index: 20;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba($dark-color, 0.5);
-  display: none;
-  opacity: 0;
-  justify-content: center;
-  align-items: center;
-  transition: $general-transition;
-
-  .modal-window {
-    background: $light-color;
-    border-radius: 29px;
-    height: 600px;
-    max-height: 100%;
-    width: 1000px;
-    max-width: 100%;
-    overflow-y: auto;
-    border-radius: 29px;
-    padding: 1.25rem;
-
-    @media (max-width: 992px) {
-      border-radius: 0;
-      height: auto;
-    }
-
-  }
-}
-/* __End Login Modal__ */
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
@@ -2560,7 +2555,7 @@ header {
     .info-panel--card {
       .info-box {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: minmax(0, 1fr);
         align-items: baseline;
         gap: 2rem;
         grid-gap: 2rem;
