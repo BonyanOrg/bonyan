@@ -739,7 +739,7 @@ input {
   .modal-window {
     background: $light-color;
     border-radius: 29px;
-    height: 600px;
+    min-height: 200px;
     max-height: 100%;
     width: 1000px;
     max-width: 100%;
@@ -752,7 +752,7 @@ input {
       height: auto;
     }
   }
-  
+
   .user-action-content {
     display: flex;
     height: 100%;
@@ -767,12 +767,11 @@ input {
   }
 
   .user-action-img {
-    height: 100%;
     width: 50%;
     position: relative;
     border-radius: 29px;
     overflow: hidden;
-    
+
     @media (max-width: 992px) {
       width: 100%;
       height: 250px;
@@ -785,10 +784,10 @@ input {
       left: 0;
       height: 100%;
       width: 100%;
-      background: linear-gradient(180deg, rgba($primary-color,0.7) 0%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(180deg, rgba($primary-color, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
     }
 
-    & > img {
+    &>img {
       height: 100%;
       width: 100%;
       object-fit: cover;
@@ -811,7 +810,7 @@ input {
 
   .user-action-form {
     padding-top: 2rem;
-    
+
     @media (max-width: 992px) {
       padding-top: 0;
     }
@@ -854,7 +853,11 @@ input {
         outline: none;
         color: #6d54a7;
         background: #FBFAFF;
-      
+
+        &::placeholder {
+          color: $primary-color;
+        }
+
         @media (max-width: 992px) {
           width: 100%;
         }
@@ -908,7 +911,96 @@ input {
     }
   }
 }
-/* __End General User ACtion Modal__ */
+
+/* __End General User Action Modal__ */
+
+/* __Start Sign Up Modal (override General User Action Modal)__ */
+.signup-modal {
+  .user-action-form {
+    form {
+      .form-inputs-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem 0.75rem;
+        grid-gap: 1rem 0.75rem;
+
+        @media (max-width: 992px) {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        input {
+          width: 100%;
+        }
+
+        .radio-btns-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          gap: 1rem;
+          grid-gap: 1rem;
+          height: 100%;
+          background: #fbfaff;
+          border: 1px solid $primary-color;
+          padding: 1rem;
+          border-radius: $radius-10;
+
+          @media (max-width: 992px) {
+            justify-content: flex-start;
+            gap: 2rem;
+            grid-gap: 2rem;
+          }
+
+          .gender-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            grid-gap: 0.5rem;
+            position: relative;
+
+            input[type="radio"] {
+              opacity: 0;
+              width: 20px;
+              height: 20px;
+            }
+
+            .radio-btn-holder {
+              position: relative;
+
+              .custom-radio-btn {
+                pointer-events: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: $light-color;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                border: 1px solid $primary-color;
+              }
+
+              input[type="radio"]:checked~.custom-radio-btn {
+                &::before {
+                  content: '';
+                  position: absolute;
+                  background: $primary-color;
+                  width: 60%;
+                  height: 60%;
+                  border-radius: 50%;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* __End Sign Up Modal (override General User Action Modal)__ */
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
@@ -2554,7 +2646,7 @@ header {
   .content-with-info-panel {
     grid-template-columns: minmax(0, 1fr);
   }
-  
+
   .info-panel {
     .info-panel--card {
       .info-box {

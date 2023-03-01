@@ -34,20 +34,20 @@ window.addEventListener('DOMContentLoaded', function () {
 
     if (showPasswords !== null) {
         showPasswords.forEach((showPassword) => {
-            showPassword.addEventListener('click', function(){
+            showPassword.addEventListener('click', function () {
                 this.style.display = 'none';
                 this.parentElement.querySelector('.hide-password').style.display = 'block';
-                this.parentElement.querySelector('input').setAttribute('type', 'text');     
+                this.parentElement.querySelector('input').setAttribute('type', 'text');
             });
         });
     }
 
     // Hide
     let hidePasswords = document.querySelectorAll('.hide-password');
-    
+
     if (hidePasswords !== null) {
         hidePasswords.forEach((hidePassword) => {
-            hidePassword.addEventListener('click', function(){
+            hidePassword.addEventListener('click', function () {
                 this.style.display = 'none';
                 this.parentElement.querySelector('.show-password').style.display = 'block';
                 this.parentElement.querySelector('input').setAttribute('type', 'password');
@@ -56,36 +56,83 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     /* ___End Toggle Show/Hide Password___ */
 
-    /* ___Start Handle Login Modal___ */
-    let loginBtn = document.querySelector('.login-btn');
+    /* ___Start Handle Modal___ */
+    let modalBtns = document.querySelectorAll('.login-btn');
 
-    // Open
-    if (loginBtn !== null) {
-        let loginModal = document.getElementById('login-modal');
+    if (modalBtns !== null) {
+        let targetedModalName;
+        let targetedModal;
 
-        loginBtn.addEventListener('click', function(){
-            loginModal.classList.add('opened');
-            loginModal.closest('body').classList.add('modal-active');
-            loginModal.style.display = 'flex';
+        modalBtns.forEach((modalBtn) => {
+            modalBtn.addEventListener('click', function () {
+                targetedModalName = modalBtn.getAttribute('data-target');
+                targetedModal = document.getElementById(targetedModalName);
 
-            setTimeout(() => {
-                loginModal.style.opacity = '1';
-            }, 100);
-        });
+                if (targetedModal !== null) {
+                    // Open
+                    targetedModal.classList.add('opened');
+                    targetedModal.closest('body').classList.add('modal-active');
+                    targetedModal.style.display = 'flex';
 
-        loginModal.addEventListener('click', function(e){
-            if (e.target.classList.contains('login-modal') || e.target.classList.contains('back-btn')) {
-                loginModal.classList.remove('opened');
-                loginModal.closest('body').classList.remove('modal-active');
-                loginModal.style.opacity = '0';
-                
-                setTimeout(() => {
-                    loginModal.style.display = 'none';
-                }, 300);
-            }
+                    setTimeout(() => {
+                        targetedModal.style.opacity = '1';
+                    }, 100);
+                }
+
+                targetedModal.addEventListener('click', function (e) {
+                    if (e.target.classList.contains(targetedModalName) || e.target.classList.contains('back-btn')) {
+                        targetedModal.classList.remove('opened');
+                        targetedModal.closest('body').classList.remove('modal-active');
+                        targetedModal.style.opacity = '0';
+
+                        setTimeout(() => {
+                            targetedModal.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
         });
     }
-    /* ___End Handle Login Modal___ */
+
+    ///////// After testing modal behavior and made sure it's ok I will remove this
+    // let modalBtn = document.querySelector('.login-btn');
+
+    // let targetedModal = modalBtn.getAttribute('data-target');
+
+    // if (modalBtn !== null) {
+    //     let theModal = document.getElementById(targetedModal);
+
+    //     if (theModal !== null) {
+
+    //         // Open
+    //         modalBtn.addEventListener('click', function () {
+    //             theModal.classList.add('opened');
+    //             theModal.closest('body').classList.add('modal-active');
+    //             theModal.style.display = 'flex';
+
+    //             setTimeout(() => {
+    //                 theModal.style.opacity = '1';
+    //             }, 100);
+    //         });
+
+    //         // Close
+    //         theModal.addEventListener('click', function (e) {
+    //             console.log(theModal);
+    //             console.log("Hellol");
+    //             console.log(targetedModal);
+    //             if (e.target.classList.contains(targetedModal) || e.target.classList.contains('back-btn')) {
+    //                 theModal.classList.remove('opened');
+    //                 theModal.closest('body').classList.remove('modal-active');
+    //                 theModal.style.opacity = '0';
+
+    //                 setTimeout(() => {
+    //                     theModal.style.display = 'none';
+    //                 }, 300);
+    //             }
+    //         });
+    //     }
+    // }
+    /* ___End Handle Modal___ */
     /* ===[End Global]=== */
 
     /* ===[Start Language Swicher]=== */
