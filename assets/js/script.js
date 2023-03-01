@@ -56,8 +56,26 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     /* ___End Toggle Show/Hide Password___ */
 
-    /* ___Start Handle Open Login Modal___ */
-    /* ___ENd Handle Open Login Modal___ */
+    /* ___Start Handle Login Modal___ */
+    let loginBtn = document.querySelector('.login-btn');
+
+    // Open
+    if (loginBtn !== null) {
+        loginBtn.addEventListener('click', function(){
+
+            let loginModal = document.getElementById('login-modal');
+            
+            loginModal.classList.add('opened');
+            loginModal.closest('body').classList.add('modal-active');
+
+            loginModal.style.display = 'flex';
+
+            setTimeout(() => {
+                loginModal.style.opacity = '1';
+            }, 100);
+        });
+    }
+    /* ___End Handle Login Modal___ */
     /* ===[End Global]=== */
 
     /* ===[Start Language Swicher]=== */
