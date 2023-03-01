@@ -72,7 +72,7 @@
 
                         <div class="input-holder">
                             <label for="date-of-birth">Date of birth</label>
-                            <input type="date" name="date-of-birth" id="date-of-birth" min='2005-01-01'>
+                            <input type="date" name="date-of-birth" id="date-of-birth" max='2005-01-01'>
                         </div>
 
                         <div class="input-holder">
