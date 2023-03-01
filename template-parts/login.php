@@ -1,4 +1,4 @@
-<div class="login-modal user-action-modal">
+<div id="login-modal" class="login-modal user-action-modal">
     <div class="modal-window">
         <div class="user-action-content login-content">
 

@@ -29,7 +29,6 @@ window.addEventListener('DOMContentLoaded', function () {
     /* ___End only number validation___ */
 
     /* ___Start Toggle Show/Hide Password___ */
-
     // Show
     let showPasswords = document.querySelectorAll('.show-password');
 
@@ -56,6 +55,9 @@ window.addEventListener('DOMContentLoaded', function () {
         })
     }
     /* ___End Toggle Show/Hide Password___ */
+
+    /* ___Start Handle Open Login Modal___ */
+    /* ___ENd Handle Open Login Modal___ */
     /* ===[End Global]=== */
 
     /* ===[Start Language Swicher]=== */
