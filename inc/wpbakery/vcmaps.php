@@ -66,3 +66,6 @@ require_once "vcmaps/achievements_map.php";
 
 /*  Projects Section  */
 require_once "vcmaps/projects_section_map.php";
+
+/*  Campaign Banner  */
+require_once "vcmaps/campaign_banner_map.php";

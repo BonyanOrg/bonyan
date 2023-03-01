@@ -39,3 +39,6 @@ require_once "shortcodes/achievements_view.php";
 
 /*  Projects Section  */
 require_once "shortcodes/projects_section_view.php";
+
+/*  Campaign Banner  */
+require_once "shortcodes/campaign_banner_view.php";
