@@ -789,6 +789,15 @@ input {
     .back-btn {
       cursor: pointer;
       color: $primary-color;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      grid-gap: 0.25rem;
+
+      span,
+      i {
+        pointer-events: none;
+      }
     }
 
     form {
