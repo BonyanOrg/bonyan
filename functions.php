@@ -190,6 +190,11 @@ if (class_exists('WPBakeryVisualComposerAbstract')) {
  */
 require_once __DIR__ . '/inc/helper/functions.php';
 
+/**
+ * Settings IN THE Dashboard
+ */
+ require __DIR__ . '/inc/settings/functions.php';
+
 
 $roles = ['give_donor'];
 if (check_user_role($roles)) {
