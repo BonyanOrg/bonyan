@@ -81,7 +81,7 @@ if (!function_exists('campaigns_slider_shortcode')) {
 
                         ?>
                                 <div class="swiper-slide">
-                                    <?php get_template_part('template-parts/cards/campaign', '', array("is_slider" => true)); ?>
+                                    <?php get_template_part('template-parts/cards/content', 'campaign', array("is_slider" => true)); ?>
                                 </div>
                         <?php
 
