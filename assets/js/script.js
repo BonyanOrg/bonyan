@@ -61,18 +61,28 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // Open
     if (loginBtn !== null) {
-        loginBtn.addEventListener('click', function(){
+        let loginModal = document.getElementById('login-modal');
 
-            let loginModal = document.getElementById('login-modal');
-            
+        loginBtn.addEventListener('click', function(){
             loginModal.classList.add('opened');
             loginModal.closest('body').classList.add('modal-active');
-
             loginModal.style.display = 'flex';
 
             setTimeout(() => {
                 loginModal.style.opacity = '1';
             }, 100);
+        });
+
+        loginModal.addEventListener('click', function(e){
+            if (e.target.classList.contains('login-modal') || e.target.classList.contains('back-btn')) {
+                loginModal.classList.remove('opened');
+                loginModal.closest('body').classList.remove('modal-active');
+                loginModal.style.opacity = '0';
+                
+                setTimeout(() => {
+                    loginModal.style.display = 'none';
+                }, 300);
+            }
         });
     }
     /* ___End Handle Login Modal___ */
