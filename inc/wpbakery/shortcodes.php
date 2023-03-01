@@ -31,3 +31,5 @@ require_once "shortcodes/programs_cards_view.php";
 /*  Partners  */
 require_once "shortcodes/partners_view.php";
 
+/*  Statistics  */
+require_once "shortcodes/statistics_view.php";

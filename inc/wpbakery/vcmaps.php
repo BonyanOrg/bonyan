@@ -57,3 +57,6 @@ require_once "vcmaps/programs_cards_map.php";
 
 /*  Partners  */
 require_once "vcmaps/partners_map.php";
+
+/*  Statistics  */
+require_once "vcmaps/statistics_map.php";
