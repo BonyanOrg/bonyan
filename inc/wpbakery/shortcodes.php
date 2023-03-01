@@ -33,3 +33,12 @@ require_once "shortcodes/partners_view.php";
 
 /*  Statistics  */
 require_once "shortcodes/statistics_view.php";
+
+/*  Achievement  */
+require_once "shortcodes/achievements_view.php";
+
+/*  Projects Section  */
+require_once "shortcodes/projects_section_view.php";
+
+/*  Campaign Banner  */
+require_once "shortcodes/campaign_banner_view.php";
