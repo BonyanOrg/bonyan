@@ -27,3 +27,7 @@ require_once "shortcodes/archive_programs_cards_view.php";
 
 /*  Programs Cards  */
 require_once "shortcodes/programs_cards_view.php";
+
+/*  Partners  */
+require_once "shortcodes/partners_view.php";
+
