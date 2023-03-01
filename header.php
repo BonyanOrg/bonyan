@@ -24,6 +24,11 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
+
+	<!-- Start Login Modal -->
+	<?php echo get_template_part('template-parts/login'); ?>
+	<!-- End Login Modal -->
+
 	<div id="page" class="site">
 		<header id="masthead" class="site-header">
 
@@ -38,7 +43,7 @@
 						</div>
 
 						<!-- Donate button -->
-						<div class="donation-button-holder from-laptop-up as-block mx-3">
+						<div class="donation-button-holder hide-from-laptop-up as-block mx-3">
 							<a href="#" class="primary-btn donation-btn" data-giveformid="<?php echo get_option('give_form_id') ?>" data-amount="<?php echo intval(get_option("default_donation_amount")); ?>">
 								<span>Donate Now</span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
@@ -48,7 +53,7 @@
 						</div>
 
 						<!-- Search -->
-						<div class="header-search from-laptop-up as-block me-3">
+						<div class="header-search hide-from-laptop-up as-block me-3">
 							<form method="get" action="<?php echo home_url('/'); ?>" class="search-form">
 								<div class="input-holder search-input-holder">
 									<div class="search-icon">
@@ -73,7 +78,7 @@
 						</div>
 
 						<!-- Burger Button For Tablate/iPad & Mobile -->
-						<div class="toggle-mobile-menu from-ipad-down as-flex">
+						<div class="toggle-mobile-menu hide-from-ipad-down as-flex">
 							<div class="burger-btn justify-content-center align-items-center">
 								<div class="dashes-container">
 									<div class="dash top-dash"></div>
@@ -84,7 +89,7 @@
 						</div>
 
 						<!-- Language Swicher -->
-						<div class="lang-switcher from-laptop-up as-block">
+						<div class="lang-switcher hide-from-laptop-up as-block">
 							<button class="secondary-outlined-btn">
 								<span class="me-2 current-lang">En</span>
 
@@ -134,9 +139,9 @@
 							?>
 						</nav>
 
-						<div class="mobile-nav-items from-ipad-down as-block mt-auto">
+						<div class="mobile-nav-items hide-from-ipad-down as-block mt-auto">
 							<!-- Search -->
-							<div class="header-search from-ipad-down as-block">
+							<div class="header-search hide-from-ipad-down as-block">
 								<form method="get" action="<?php echo home_url('/'); ?>" class="search-form">
 									<div class="input-holder search-input-holder">
 										<div class="search-icon">
@@ -150,7 +155,7 @@
 								</form>
 							</div>
 
-							<div class="mobile-header-cta from-ipad-down as-flex align-items-center">
+							<div class="mobile-header-cta hide-from-ipad-down as-flex align-items-center">
 								<!-- Donate button -->
 								<div class="donation-button-holder me-3 my-2">
 									<a href="#" class="primary-btn donation-btn">

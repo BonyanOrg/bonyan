@@ -27,6 +27,35 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     });
     /* ___End only number validation___ */
+
+    /* ___Start Toggle Show/Hide Password___ */
+
+    // Show
+    let showPasswords = document.querySelectorAll('.show-password');
+
+    if (showPasswords !== null) {
+        showPasswords.forEach((showPassword) => {
+            showPassword.addEventListener('click', function(){
+                this.style.display = 'none';
+                this.parentElement.querySelector('.hide-password').style.display = 'block';
+                this.parentElement.querySelector('input').setAttribute('type', 'text');     
+            });
+        });
+    }
+
+    // Hide
+    let hidePasswords = document.querySelectorAll('.hide-password');
+    
+    if (hidePasswords !== null) {
+        hidePasswords.forEach((hidePassword) => {
+            hidePassword.addEventListener('click', function(){
+                this.style.display = 'none';
+                this.parentElement.querySelector('.show-password').style.display = 'block';
+                this.parentElement.querySelector('input').setAttribute('type', 'password');
+            });
+        })
+    }
+    /* ___End Toggle Show/Hide Password___ */
     /* ===[End Global]=== */
 
     /* ===[Start Language Swicher]=== */

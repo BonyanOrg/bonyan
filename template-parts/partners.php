@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center justify-content-center justify-content-xl-strtch mb-3 ">
             <h2 class="bonyan-title primary-color bold">Our Partners</h2>
 
-            <div class="custom-swiper-nav ms-auto from-laptop-up">
+            <div class="custom-swiper-nav ms-auto hide-from-laptop-up">
                 <div class="swiper-nav-btn swiper-prev-nav references-prev-arrow"></div>
                 <div class="swiper-nav-btn swiper-next-nav references-next-arrow"></div>
             </div>

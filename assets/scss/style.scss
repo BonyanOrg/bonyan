@@ -22,6 +22,7 @@ a {
 .secondary-color {
   color: $secondary-color;
 }
+
 /* __End Colors__ */
 
 /* __Start Titles__ */
@@ -33,6 +34,7 @@ a {
     font-size: 30px;
   }
 }
+
 /* __End Titles__ */
 
 /* __Start Buttons__ */
@@ -72,6 +74,7 @@ button {
   background: $light-color;
   color: $primary-color;
 }
+
 /* __End Buttons__ */
 
 /* __Start Borders */
@@ -92,6 +95,7 @@ button {
 .border-30 {
   border-radius: 30px;
 }
+
 /* __End Borders */
 
 /* __Start Inputs, Selects__ */
@@ -153,6 +157,7 @@ input {
     font-size: 20px;
   }
 }
+
 /* __End Inputs, Selects__ */
 
 /* __Start Responsive Classes__ */
@@ -168,17 +173,30 @@ input {
   display: block;
 }
 
-.from-laptop-up {
+.hide-from-laptop-up {
   @media (max-width: 1024px) {
     display: none !important;
   }
 }
 
-.from-ipad-down {
+.hide-from-ipad-down {
   @media (min-width: 1025px) {
     display: none !important;
   }
 }
+
+.hide-from-mobile-up {
+  @media (min-width: 993px) {
+    display: none;
+  }
+}
+
+.hide-from-mobile-down {
+  @media (max-width: 992px) {
+    display: none !important;
+  }
+}
+
 /* __End Responsive Classes__ */
 
 /* __Start Lazyload Style Handler__ */
@@ -186,10 +204,12 @@ input {
 .lazyloading {
   opacity: 0;
 }
+
 .lazyloaded {
   opacity: 1;
   transition: opacity 300ms;
 }
+
 /* __End Lazyload Style Handler__ */
 
 /* __Start Custom Swiper Arrows__ */
@@ -258,6 +278,7 @@ input {
     }
   }
 }
+
 /* __End Custom Swiper Arrows__ */
 
 /* __Start Page Head__ */
@@ -280,11 +301,9 @@ input {
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      45deg,
-      rgba($primary-color, 0.6) 0%,
-      transparent 100%
-    );
+    background: linear-gradient(45deg,
+        rgba($primary-color, 0.6) 0%,
+        transparent 100%);
   }
 
   // Title
@@ -330,6 +349,7 @@ input {
     }
   }
 }
+
 /* __End Page Head__ */
 
 /* __Start categories filter__ */
@@ -401,6 +421,7 @@ input {
     }
   }
 }
+
 /* __End categories filter__ */
 
 /* __Start Global Header Search__ */
@@ -422,7 +443,7 @@ input {
   }
 
   .input-holder {
-    @media (max-width: 768px) {      
+    @media (max-width: 768px) {
       width: 100%;
     }
 
@@ -432,18 +453,19 @@ input {
       padding: 1rem;
       color: $primary-color;
       font-size: 18px;
-  
+
       @media (max-width: 768px) {
         min-width: unset;
         width: 100%;
       }
-  
+
       &::placeholder {
         color: $primary-color;
       }
     }
   }
 }
+
 /* __End Global Header Search__ */
 
 /* __Start Contect With Info Panel__ */
@@ -583,6 +605,7 @@ input {
     }
   }
 }
+
 /* __End Contect With Info Panel__ */
 
 /* __Start Light Effect__ */
@@ -597,16 +620,18 @@ input {
     top: -40%;
     right: -30%;
     border-radius: 50%;
-    background: rgba(255,255,255,.72);
+    background: rgba(255, 255, 255, .72);
     z-index: 1;
     opacity: .4;
     filter: blur(65px);
   }
 }
+
 /* __End Light Effect__ */
 
 /* __Start Inner Content__*/
 .inner-content {
+
   h1:not(.custom-widget h1):not(h1.custom-widget),
   h2:not(.custom-widget h2):not(h2.custom-widget),
   h3:not(.custom-widget h3):not(h3.custom-widget),
@@ -645,7 +670,7 @@ input {
   a:not(.custom-widget a):not(a.custom-widget) {
     font-size: 20px;
   }
-  
+
   a:not(.custom-widget a):not(a.custom-widget) {
     color: $primary-color;
 
@@ -693,7 +718,191 @@ input {
     }
   }
 }
+
 /* __End Inner Content__*/
+
+/* __Start General User ACtion Modal__ */
+.user-action-modal {
+  .user-action-content {
+    display: flex;
+    height: 100%;
+    gap: 3rem;
+    grid-gap: 3rem;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 1.25rem;
+      grid-gap: 1.25rem;
+    }
+  }
+
+  .user-action-img {
+    height: 100%;
+    width: 50%;
+    position: relative;
+    border-radius: 29px;
+    overflow: hidden;
+    
+    @media (max-width: 992px) {
+      width: 100%;
+      height: 250px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(180deg, rgba($primary-color,0.7) 0%, rgba(255,255,255,0) 100%);
+    }
+
+    & > img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .user-action-logo {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+
+      @media (max-width: 992px) {
+        display: none;
+      }
+
+      img {
+        height: 95px;
+      }
+    }
+  }
+
+  .user-action-form {
+    padding-top: 2rem;
+    
+    @media (max-width: 992px) {
+      padding-top: 0;
+    }
+
+    .back-btn {
+      cursor: pointer;
+      color: $primary-color;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      grid-gap: 1.25rem;
+    }
+
+    .input-holder {
+      position: relative;
+      flex-direction: column;
+      gap: 0.75rem;
+      grid-gap: 0.75rem;
+
+      label {
+        color: $primary-color;
+        font-weight: bold;
+      }
+
+      input {
+        border: 1px solid #6d54a7;
+        padding: 1rem;
+        outline: none;
+        color: #6d54a7;
+        background: #FBFAFF;
+      
+        @media (max-width: 992px) {
+          width: 100%;
+        }
+      }
+
+      .password-holder {
+        position: relative;
+
+        .password-type {
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          color: $primary-color;
+          cursor: pointer;
+
+          i {
+            font-size: 20px;
+          }
+        }
+
+        .hide-password {
+          display: none;
+        }
+      }
+    }
+
+    .forgot-password {
+      a {
+        color: $primary-color;
+        text-decoration: underline;
+      }
+    }
+
+    .form-cta {
+      button {
+        border: none;
+        padding: 0.75rem 1.5rem;
+      }
+    }
+
+    .not-have-account {
+      a {
+        color: $primary-color;
+        text-decoration: underline;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+/* __End General User ACtion Modal__ */
+
+/* __Start Login Modal__ */
+.login-modal {
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba($dark-color, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-window {
+    background: $light-color;
+    border-radius: 29px;
+    height: 600px;
+    max-height: 100%;
+    width: 1000px;
+    max-width: 100%;
+    overflow-y: auto;
+    border-radius: 29px;
+    padding: 1.25rem;
+
+    @media (max-width: 992px) {
+      border-radius: 0;
+      height: auto;
+    }
+
+  }
+}
+/* __End Login Modal__ */
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
@@ -761,7 +970,7 @@ header {
       height: 65px;
       padding: 1rem;
 
-      & > * {
+      &>* {
         pointer-events: none;
       }
     }
@@ -801,7 +1010,7 @@ header {
       align-items: center;
       text-align: center;
 
-      
+
 
       a {
         padding: 0.5rem 1rem;
@@ -906,9 +1115,10 @@ header {
           user-select: none;
         }
 
-        & > .menu-item {
+        &>.menu-item {
+
           // Only direct a inside navbar
-          & > a {
+          &>a {
             color: $primary-color;
             font-weight: bold;
             font-size: 18px;
@@ -985,7 +1195,7 @@ header {
             & .menu-item-has-children {
               position: relative;
 
-              & > .sub-menu {
+              &>.sub-menu {
                 left: 100%;
                 top: 0;
               }
@@ -994,7 +1204,7 @@ header {
         }
 
         .menu-item-has-children {
-          & > ul {
+          &>ul {
             @media (min-width: 1025px) {
               opacity: 0;
               transform: scaleY(0);
@@ -1011,13 +1221,13 @@ header {
             }
           }
 
-          & > .menu-arrow {
+          &>.menu-arrow {
             display: block;
           }
 
           @media (min-width: 1025px) {
             &:hover {
-              & > ul {
+              &>ul {
                 transform: scaleY(1);
                 opacity: 1;
               }
@@ -1034,6 +1244,7 @@ header {
     }
   }
 }
+
 /* ===[End Header]=== */
 
 /* ===[Start Mobile Header]=== */
@@ -1163,7 +1374,7 @@ header {
               & .menu-item-has-children {
                 position: relative;
 
-                & > .sub-menu {
+                &>.sub-menu {
                   left: 0;
                   top: 100%;
                   width: 100%;
@@ -1186,6 +1397,7 @@ header {
     }
   }
 }
+
 /* ===[End Mobile Header]=== */
 
 /* ===[Start Footer]=== */
@@ -1406,6 +1618,7 @@ header {
     }
   }
 }
+
 /* ===[End Footer]=== */
 
 /* ===[Start Campaign Card]=== */
@@ -1437,11 +1650,11 @@ header {
       gap: 1.5rem;
       grid-gap: 1.5rem;
     }
-  
+
     @media (max-width: 1024px) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-  
+
     @media (max-width: 576px) {
       grid-template-columns: minmax(0, 1fr);
     }
@@ -1595,6 +1808,7 @@ header {
     }
   }
 }
+
 /* ===[End Campaign Card]=== */
 
 /* ===[Start Campaigns Cards Slider]=== */
@@ -1607,6 +1821,7 @@ header {
     height: 100%;
   }
 }
+
 /* ===[End Campaigns Cards Slider]=== */
 
 /* ===[Start Campaign Page]=== */
@@ -1618,6 +1833,7 @@ header {
     padding: 2rem 0;
   }
 }
+
 /* ===[End Campaign Page]=== */
 
 /* ===[Start Program Card]=== */
@@ -1738,11 +1954,9 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      45deg,
-      rgba($primary-color, 0.75) 0%,
-      transparent 100%
-    );
+    background: linear-gradient(45deg,
+        rgba($primary-color, 0.75) 0%,
+        transparent 100%);
     z-index: 2;
   }
 
@@ -1788,6 +2002,7 @@ header {
     }
   }
 }
+
 /* ===[End Program Card]=== */
 
 /* ===[Start Programs Page]=== */
@@ -1841,11 +2056,9 @@ header {
           height: 100%;
           top: 0;
           left: 0;
-          background: linear-gradient(
-            45deg,
-            rgba($primary-color, 0.8) 0%,
-            transparent 100%
-          );
+          background: linear-gradient(45deg,
+              rgba($primary-color, 0.8) 0%,
+              transparent 100%);
         }
 
         img {
@@ -1903,7 +2116,7 @@ header {
       }
 
       .program-link {
-        & > div {
+        &>div {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
@@ -1948,13 +2161,11 @@ header {
     .swiper-slide {
 
       &::before {
-        background: linear-gradient(
-          90deg,
-          rgba($primary-color, 0.75) 20%,
-          transparent 100%
-        );
+        background: linear-gradient(90deg,
+            rgba($primary-color, 0.75) 20%,
+            transparent 100%);
       }
-  
+
       // Buttons
       .primary-carousel-cta {
         button {
@@ -1966,6 +2177,7 @@ header {
 
 
 }
+
 /* ===[End Programs Page]=== */
 
 /* ===[Start Statistics]=== */
@@ -1989,8 +2201,7 @@ header {
       height: 267px;
     }
 
-    @media (max-width: 768px) {
-    }
+    @media (max-width: 768px) {}
 
     img {
       width: 100%;
@@ -2080,6 +2291,7 @@ header {
     }
   }
 }
+
 /* ===[End Statistics]=== */
 
 /* ===[Start Volunteers]=== */
@@ -2104,12 +2316,13 @@ header {
     max-width: 500px;
     width: 100%;
 
-    & > p {
+    &>p {
       color: $text-color;
       font-size: 20px;
     }
   }
 }
+
 /* ===[End Volunteers]=== */
 
 /* ===[Start Contact Form 7 Custom Style]=== */
@@ -2126,6 +2339,7 @@ header {
 
   // Input holder and <input>
   .input-holder {
+
     input,
     textarea {
       border: 1px solid $primary-color;
@@ -2182,6 +2396,7 @@ header {
     font-size: 20px;
   }
 }
+
 /* ===[End Contact Form 7 Custom Style]=== */
 
 /* ===[Start Contact Us Page]=== */
@@ -2203,7 +2418,7 @@ header {
   }
 
   .contact-details {
-    & > p {
+    &>p {
       font-size: 20px;
       color: $text-color;
     }
@@ -2224,6 +2439,7 @@ header {
     }
   }
 }
+
 /* ===[End Contact Us Page]=== */
 
 /* ===[Start Faqs]=== */
@@ -2246,7 +2462,7 @@ header {
       font-size: 20px;
     }
   }
-  
+
   &.faq-active {
     background: $light-color;
     border-color: $primary-color;
@@ -2299,6 +2515,7 @@ header {
     }
   }
 }
+
 /* ===[End Faqs]=== */
 
 /* ===[Start Single Tender]=== */
@@ -2322,6 +2539,7 @@ header {
     }
   }
 }
+
 /* __Start modify the width of info panel__ */
 /* ===[End Single Tender]=== */
 
@@ -2361,6 +2579,7 @@ header {
     }
   }
 }
+
 /* ===[End Single Program]=== */
 
 /* ===[Start Single Report]=== */
@@ -2378,4 +2597,5 @@ header {
     }
   }
 }
+
 /* ===[End Single Report]=== */

@@ -28,7 +28,7 @@
 					<img data-src="<?php echo wp_get_attachment_image_url(get_theme_mod('footer_logo_image_url'), 'full'); ?>" alt="Logo" class="lazyload">
 				</div>
 
-				<div class="contact-info from-laptop-up as-flex">
+				<div class="contact-info hide-from-laptop-up as-flex">
 					<div class="contact-item">
 						<svg xmlns="http://www.w3.org/2000/svg" width="14.001" height="14" viewBox="0 0 14.001 14">
 							<path id="Path_235" data-name="Path 235" d="M17,13.438v2.75a.778.778,0,0,1-.723.776c-.34.023-.618.036-.832.036A12.444,12.444,0,0,1,3,4.556q0-.322.036-.832A.778.778,0,0,1,3.812,3h2.75a.389.389,0,0,1,.387.35c.018.179.034.321.05.429a10.812,10.812,0,0,0,.94,3.112.354.354,0,0,1-.114.441l-1.678,1.2a10.148,10.148,0,0,0,5.323,5.323l1.2-1.675a.359.359,0,0,1,.446-.116A10.812,10.812,0,0,0,16.224,13c.108.016.25.033.428.05a.389.389,0,0,1,.349.387Z" transform="translate(-3 -3)" fill="#fff" />
@@ -100,7 +100,7 @@
 
 
 			<!-- Contact for mobile (Duplicated) -->
-			<div class="contact-info from-ipad-down as-flex">
+			<div class="contact-info hide-from-ipad-down as-flex">
 				<div class="contact-item">
 					<svg xmlns="http://www.w3.org/2000/svg" width="14.001" height="14" viewBox="0 0 14.001 14">
 						<path id="Path_235" data-name="Path 235" d="M17,13.438v2.75a.778.778,0,0,1-.723.776c-.34.023-.618.036-.832.036A12.444,12.444,0,0,1,3,4.556q0-.322.036-.832A.778.778,0,0,1,3.812,3h2.75a.389.389,0,0,1,.387.35c.018.179.034.321.05.429a10.812,10.812,0,0,0,.94,3.112.354.354,0,0,1-.114.441l-1.678,1.2a10.148,10.148,0,0,0,5.323,5.323l1.2-1.675a.359.359,0,0,1,.446-.116A10.812,10.812,0,0,0,16.224,13c.108.016.25.033.428.05a.389.389,0,0,1,.349.387Z" transform="translate(-3 -3)" fill="#fff" />
