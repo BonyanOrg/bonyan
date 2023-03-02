@@ -7,9 +7,18 @@ function my_login_logo()
 ?>
 
     <style type="text/css">
-        body{
-            background-image: url(<?php echo get_stylesheet_directory_uri() . '/dist/imgs/login-bg.jpg' ?>)  !important;
+        body {
+            background: linear-gradient(45deg, #6D54A7, transparent) !important;
             padding: 1rem !important;
+        }
+
+        .login .message {
+            border-left-color: #6D54A7 !important;
+        }
+
+        .login label {
+            color: #6D54A7;
+            font-weight: bold;
         }
 
         #login {
@@ -22,9 +31,9 @@ function my_login_logo()
         }
 
         form {
-            border-radius: 50px 0 50px 0;
+            border-radius: 10px;
             border: none !important;
-            box-shadow: 0 0 3px rgba(0,0,0,.1) !important;
+            box-shadow: 0 0 3px rgba(0, 0, 0, .1) !important;
             padding: 3rem !important;
             display: flex;
             flex-direction: column;
@@ -55,7 +64,7 @@ function my_login_logo()
             border-radius: 10px;
             margin-top: 0.5rem;
             font-size: 14px !important;
-            background: #009b89;
+            background: #6D54A7;
             border: none;
             outline: none;
         }
@@ -67,11 +76,14 @@ function my_login_logo()
 
         input[type="text"],
         input[type="password"] {
-            border: 1px solid #009b89;
-            color: #009b89;
-            outline: none;
             font-size: 16px !important;
             width: 100% !important;
+            border: 1px solid #6d54a7 !important;
+            padding: 0.5rem !important;
+            outline: none !important;
+            color: #6d54a7 !important;
+            background: #fbfaff !important;
+            border-radius: 10px !important;
         }
 
         .wp-pwd {
@@ -86,7 +98,7 @@ function my_login_logo()
 
         .input-holder label {
             font-size: 20px !important;
-            color: #009b89 !important;
+            color: #6D54A7 !important;
             margin-bottom: 0.35rem !important;
             font-weight: bold !important;
         }
@@ -102,10 +114,10 @@ function my_login_logo()
         #backtoblog a {
             font-size: 18px;
             background: #fff;
-            color: #009b89 !important;
-            padding: 0.25rem 1rem;
-            border: 1px solid #009b89;
-            border-radius: 25px 0 25px 0;
+            color: #6D54A7 !important;
+            padding: 0.35rem 1rem;
+            border: 1px solid #6D54A7;
+            border-radius: 10px;
         }
 
         .reset-pass-submit {

@@ -1,60 +1,112 @@
 <?php
+
 /**
  * The template for displaying 404 pages (not found)
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package bonyan
+ * @package sema
  */
 
 get_header();
 ?>
+<style>
+    .content-of-404 {
+        display: flex;
+        justify-content: center;
+        margin: 75px 0px;
+        flex-direction: column;
+        align-items: center;
+    }
 
-	<main id="primary" class="site-main">
+    .lottie-container {
+        height: 600px;
+        width: 100%;
+    }
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'bonyan' ); ?></h1>
-			</header><!-- .page-header -->
+    @media (max-width: 992px) {
+        .lottie-container {
+            height: 300px;
+        }
+    }
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'bonyan' ); ?></p>
+    @media (max-width: 340px) {
+        .lottie-container {
+            height: 250px;
+        }
+    }
 
-					<?php
-					get_search_form();
+    .content-of-404--text-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        margin-top: -2rem;
+    }
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
+    .content-of-404--text-cta p {
+        font-weight: bold;
+        font-size: 1.5em;
+        max-width: 700px;
+        width: 100%;
+        color: #009a89;
+    }
 
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'bonyan' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
+    @media (max-width: 768px) {
+        .content-of-404--text-cta p {
+            font-size: 1.25em;
+        }
+    }
 
-					<?php
-					/* translators: %1$s: smiley */
-					$bonyan_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'bonyan' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$bonyan_archive_content" );
+    .content-of-404-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
 
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
+    .content-of-404-cta form {
+        width: 100%;
+    }
 
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
+    .content-of-404-cta input {
+        width: 400px;
+        max-width: 100%;
+    }
+    
+    @media (max-width: 992px) {
+        .content-of-404-cta input {
+            width: 100%;
+        }
 
-	</main><!-- #main -->
+        .wpb-sema-btn {
+            width: 100%;
+        }
+    }
+</style>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<div class="container">
+    <div class="content-of-404">
+        <div class="content-of-404--image">
+            <lottie-player class="lottie-container" src="<?php echo get_template_directory_uri() . '/dist/imgs/mylf30_editor_3qe223oa.json' ?>" background="transparent" speed="1" style="width: 100%;" autoplay></lottie-player>
+        </div>
+
+        <div class="content-of-404--text-cta">
+            <p>
+                <?php _e("Sorry, but nothing matched your search terms. Please try again with some different keywords.", "sema") ?>
+            </p>
+
+            <div class="content-of-404-cta">
+                <?php get_search_form() ?>
+                
+                <a href="<?php echo home_url(); ?>" class="wpb-sema-btn">
+                    <span><?php _e('Back To Home', 'sema'); ?></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php
 get_footer();

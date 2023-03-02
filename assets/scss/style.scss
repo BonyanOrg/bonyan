@@ -957,10 +957,15 @@ input {
             grid-gap: 0.5rem;
             position: relative;
 
+            label {
+              cursor: pointer;
+            }
+
             input[type="radio"] {
               opacity: 0;
               width: 20px;
               height: 20px;
+              cursor: pointer;
             }
 
             .radio-btn-holder {
