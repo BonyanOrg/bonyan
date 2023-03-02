@@ -15,6 +15,11 @@ require __DIR__ . '/main_slider.php';
 //====================
 require __DIR__ . '/post.php';
 
+//====================
+//    Reports
+//====================
+require __DIR__ . '/reports.php';
+
 
 
 //================================================
@@ -30,4 +35,3 @@ require __DIR__ . '/term/category_cat_options.php';
 //    CAMPAIGN
 //==================
 require __DIR__ . '/term/campaign_cat_options.php';
-
