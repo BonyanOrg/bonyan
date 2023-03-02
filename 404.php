@@ -14,14 +14,26 @@ get_header();
     .content-of-404 {
         display: flex;
         justify-content: center;
-        margin: 75px 0px;
+        margin: 200px 0 75px;
         flex-direction: column;
         align-items: center;
+    }
+
+    @media (max-width: 1024px) {
+        .content-of-404 {
+            margin: 150px 0 55px;
+        }
     }
 
     .lottie-container {
         height: 600px;
         width: 100%;
+    }
+
+    @media (max-width: 1400px) {
+        .lottie-container {
+            height: 400px;
+        }
     }
 
     @media (max-width: 992px) {
@@ -49,7 +61,7 @@ get_header();
         font-size: 1.5em;
         max-width: 700px;
         width: 100%;
-        color: #009a89;
+        color: #38c2cf;
     }
 
     @media (max-width: 768px) {
@@ -67,6 +79,8 @@ get_header();
 
     .content-of-404-cta form {
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .content-of-404-cta input {
@@ -89,10 +103,10 @@ get_header();
 <div class="container">
     <div class="content-of-404">
         <div class="content-of-404--image">
-            <lottie-player class="lottie-container" src="<?php echo get_template_directory_uri() . '/dist/imgs/mylf30_editor_3qe223oa.json' ?>" background="transparent" speed="1" style="width: 100%;" autoplay></lottie-player>
+            <lottie-player class="lottie-container" src="<?php echo get_template_directory_uri() . '/dist/imgs/404.json' ?>" background="transparent" speed="1" style="width: 100%;" autoplay></lottie-player>
         </div>
 
-        <div class="content-of-404--text-cta">
+        <div class="content-of-404--text-cta mt-4">
             <p>
                 <?php _e("Sorry, but nothing matched your search terms. Please try again with some different keywords.", "sema") ?>
             </p>

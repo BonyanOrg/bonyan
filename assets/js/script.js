@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', function () {
     /* ___End Toggle Show/Hide Password___ */
 
     /* ___Start Handle Modal___ */
-    let modalBtns = document.querySelectorAll('.login-btn');
+    let modalBtns = document.querySelectorAll('.user-action-btn');
 
     if (modalBtns !== null) {
         let targetedModalName;
@@ -69,6 +69,15 @@ window.addEventListener('DOMContentLoaded', function () {
                 targetedModal = document.getElementById(targetedModalName);
 
                 if (targetedModal !== null) {
+                    // If already a modal opened
+                    if (document.body.classList.contains('modal-active')) {
+                        document.querySelectorAll('.user-action-modal').forEach((userActionModal) => {
+                            userActionModal.classList.remove('opened');
+                            userActionModal.closest('body').classList.remove('modal-active');
+                            userActionModal.style.display = 'none';
+                        });
+                    }
+
                     // Open
                     targetedModal.classList.add('opened');
                     targetedModal.closest('body').classList.add('modal-active');
@@ -79,6 +88,7 @@ window.addEventListener('DOMContentLoaded', function () {
                     }, 100);
                 }
 
+                // Close
                 targetedModal.addEventListener('click', function (e) {
                     if (e.target.classList.contains(targetedModalName) || e.target.classList.contains('back-btn')) {
                         targetedModal.classList.remove('opened');

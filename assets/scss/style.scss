@@ -810,9 +810,11 @@ input {
 
   .user-action-form {
     padding-top: 2rem;
+    width: 45%;
 
     @media (max-width: 992px) {
       padding-top: 0;
+      width: 100%;
     }
 
     .back-btn {
@@ -853,13 +855,10 @@ input {
         outline: none;
         color: #6d54a7;
         background: #FBFAFF;
+        width: 100%;
 
         &::placeholder {
           color: $primary-color;
-        }
-
-        @media (max-width: 992px) {
-          width: 100%;
         }
       }
 
