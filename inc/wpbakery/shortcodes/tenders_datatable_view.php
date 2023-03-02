@@ -2,12 +2,17 @@
 
 /**
  * Tenders Table
- * 
+ * tenders_datatable_title
  * 
  */
 if (!function_exists('tenders_datatable_shortcode')) {
     function tenders_datatable_shortcode($atts)
     {
+
+        extract(shortcode_atts(array(
+            'tenders_datatable_title'     => '',
+            'reports_categories'     => '',
+        ), $atts));
 
         ob_start();
 ?>
@@ -23,71 +28,82 @@ if (!function_exists('tenders_datatable_shortcode')) {
             tenders_datatable_register_style();
         } ?>
 
-        <div class="about-us-datatable custom-widget">
-            <h2 class="bonyan-title primary-title"><?php _e('Tenders', 'bonyan'); ?></h2>
+        <div class="custom-widget">
+            <div class="global-header-search">
+                <h2 class="bonyan-title primary-color"><?php echo $tenders_datatable_title ?></h2>
 
-            <div class="colors-index my-2">
-                <div class="color-index-item active-color">
-                    <div class="color-box"></div>
-                    <span><?php _e('Active', 'bonyan') ?> </span>
-                </div>
-
-                <div class="color-index-item inactive-color">
-                    <div class="color-box"></div>
-                    <span> <?php _e('Inactive', 'bonyan') ?> </span>
+                <div class="input-holder">
+                    <input type="search" class="custom-datatable-search" placeholder="Search in this page">
                 </div>
             </div>
 
-            <table id="tenders-table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="example_info">
-                <thead>
-                    <tr>
-                        <th><?php _e('Posted', 'bonyan'); ?></th>
-                        <th><?php _e('Title', 'bonyan'); ?></th>
-                        <th><?php _e('Status', 'bonyan'); ?></th>
-                        <th><?php _e('Location', 'bonyan'); ?></th>
-                        <th><?php _e('Deadline', 'bonyan'); ?></th>
-                        <th><?php _e('Unit', 'bonyan'); ?></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $args = array(
-                        'post_type' => 'tender',
-                        'post_status' => 'publish',
+            <!-- Tenders Datatable Widget -->
+            <div class="tenders-container">
+                <table id="tenders-table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="example_info">
+                    <thead>
+                        <tr>
+                            <th><?php _e('Job', 'bonyan'); ?></th>
+                            <th><?php _e('Status', 'bonyan'); ?></th>
+                            <th><?php _e('Deadline', 'bonyan'); ?></th>
+                            <th><?php _e('Location', 'bonyan'); ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $args = array(
+                            'post_type' => 'tender',
+                            'post_status' => 'publish',
 
-                    );
-                    $tenders_posts = new WP_Query($args);
-                    if ($tenders_posts->have_posts()) {
-                        while ($tenders_posts->have_posts()) {
-                            $tenders_posts->the_post();
-                            $post = $tenders_posts->post;
-                            $to_status = get_post_meta(get_the_ID(), "to_status", true);
-                            $to_location = get_post_meta(get_the_ID(), "to_location", true);
-                            $to_deadline = get_post_meta(get_the_ID(), "to_deadline", true);
-                            $to_unit = get_post_meta(get_the_ID(), "to_unit", true);
+                        );
+                        // if ($reports_categories != "none") {
+                        //     $args['tax_query'] = array(
+                        //         array(
+                        //             "taxonomy" => "reports-categories",
+                        //             'field'    => 'slug',
+                        //             'terms'    => $terms_dropdown_values,
+                        //         ),
+                        //     );
+                        // }
+                        $tenders_posts = new WP_Query($args);
+                        if ($tenders_posts->have_posts()) {
+                            while ($tenders_posts->have_posts()) {
+                                $tenders_posts->the_post();
+                                $post = $tenders_posts->post;
+                                $to_is_urgent = get_post_meta(get_the_ID(), "to_is_urgent", true);
+                                $to_location = get_post_meta(get_the_ID(), "to_location", true);
+                                $to_deadline = get_post_meta(get_the_ID(), "to_deadline", true);
 
-                            $end_date = new DateTime($to_deadline);
-                            $end_date = $end_date->format('Y-m-d');
+                                // IS Active Or not 
+                                $end_date = new DateTime($to_deadline);
+                                $current_date = date('Y-m-d');
+                                $end_date = $end_date->format('Y-m-d');
+                                $is_active = $current_date <= $end_date ? 'true' : 'false';
+                                // Get Result
 
-                            $create_data = new DateTime($post->post_date);
-                            $create_data = $create_data->format('Y-m-d');
-                    ?>
-                            <tr>
-                                <td> <?php echo $create_data ?> </td>
-                                <td><a href="<?php echo get_permalink(get_the_ID()) ?>" class="link-in-table"> <?php the_title() ?> </a></td>
-                                <td> <?php echo $to_status ?> </td>
-                                <td> <?php echo $to_location ?> </td>
-                                <td> <?php echo $end_date ?> </td>
-                                <td> <?php echo $to_unit ?> </td>
-                            </tr>
-                    <?php
-                        }
-                    }
+                                $end_date = new DateTime($to_deadline);
+                                $end_date = $end_date->format('d M Y '); // redesign format for front end date
+                                $is_urgent = (!empty($to_is_urgent) && $to_is_urgent == "yes") ? 'true' : 'false';
 
-                    ?>
-                </tbody>
-            </table>
+                        ?>
+
+                                <tr isactive="<?php echo $is_active ?>" isurgent="<?php echo $is_urgent  ?>">
+                                    <td><a href="<?php echo get_permalink(get_the_ID()) ?>"> <?php the_title() ?>
+                                            <span class="urgent">Urgent</span></a></td>
+                                    <td><?php echo $is_active == "true" ? __('Active', 'bonyan') : __('Inactive', 'bonyan'); ?></td>
+                                    <td><?php echo $end_date  ?></td>
+                                    <td><?php echo $to_location ?></td>
+                                </tr>
+
+                        <?php
+
+                            }
+                        } ?>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
+
 
         <?php
 

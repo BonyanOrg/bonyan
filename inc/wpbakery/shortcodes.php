@@ -42,3 +42,7 @@ require_once "shortcodes/projects_section_view.php";
 
 /*  Campaign Banner  */
 require_once "shortcodes/campaign_banner_view.php";
+
+/*  PDF Download Card  */
+require_once "shortcodes/PDF_download_card_view.php";
+
