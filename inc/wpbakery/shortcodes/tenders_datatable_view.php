@@ -11,7 +11,7 @@ if (!function_exists('tenders_datatable_shortcode')) {
 
         extract(shortcode_atts(array(
             'tenders_datatable_title'     => '',
-            'reports_categories'     => '',
+            // 'reports_categories'     => '',
         ), $atts));
 
         ob_start();
@@ -53,6 +53,8 @@ if (!function_exists('tenders_datatable_shortcode')) {
                         $args = array(
                             'post_type' => 'tender',
                             'post_status' => 'publish',
+                            'order_by' => 'date',
+                            'order' => 'DESC'
 
                         );
                         // if ($reports_categories != "none") {
