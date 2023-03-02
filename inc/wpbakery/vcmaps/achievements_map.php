@@ -1,5 +1,5 @@
 <?php
-function Achievements_vc()
+function achievements_vc()
 {
 	vc_map(array(
 		"name"					=> esc_html__("achievements", 'DOMAIN'),
