@@ -7,6 +7,8 @@
 
 function Init_Campaign_Options($post)
 {
+
+    wp_nonce_field(basename(__FILE__), "co_campaign_options");
     $co_campaign_end_date = get_post_meta($post->ID, "co_campaign_end_date", true);
     $co_give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
     $co_donation_amount = get_post_meta($post->ID, "co_donation_amount", true);
@@ -91,6 +93,12 @@ function add_campaign_options()
 // Save Value When Save
 function save_campaign_options($post_id)
 {
+    $is_valid_nonce = (isset($_POST['co_campaign_options']) && wp_verify_nonce($_POST['co_campaign_options'], basename(__FILE__))) ? 'true' : 'false';
+    // Exits script depending on save status
+    if (!$is_valid_nonce) {
+        return;
+    }
+
     if (!empty($_POST['co_campaign_end_date']))
         update_post_meta($post_id, 'co_campaign_end_date', $_POST['co_campaign_end_date']);
 
@@ -100,14 +108,24 @@ function save_campaign_options($post_id)
     if (!empty($_POST['co_donation_amount']))
         update_post_meta($post_id, 'co_donation_amount', $_POST['co_donation_amount']);
 
-    if (!empty($_POST['co_show_progress_bar']))
-        update_post_meta($post_id, 'co_show_progress_bar', $_POST['co_show_progress_bar']);
 
-    if (!empty($_POST['co_show_donors_count']))
+    if (isset($_POST['co_show_progress_bar'])) {
+        update_post_meta($post_id, 'co_show_progress_bar', $_POST['co_show_progress_bar']);
+    } else {
+        update_post_meta($post_id, 'co_show_progress_bar', '');
+    }
+
+    if (isset($_POST['co_show_donors_count'])) {
         update_post_meta($post_id, 'co_show_donors_count', $_POST['co_show_donors_count']);
-        
-    if (!empty($_POST['co_show_reaming_time']))
+    } else {
+        update_post_meta($post_id, 'co_show_donors_count', '');
+    }
+
+    if (isset($_POST['co_show_reaming_time'])) {
         update_post_meta($post_id, 'co_show_reaming_time', $_POST['co_show_reaming_time']);
+    } else {
+        update_post_meta($post_id, 'co_show_reaming_time', '');
+    }
 }
 add_action('save_post', 'save_campaign_options', 10, 2);
 
