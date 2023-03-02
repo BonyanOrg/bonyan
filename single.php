@@ -11,8 +11,12 @@
 get_header();
 ?>
 <?php get_template_part('template-parts/page', 'header'); ?>
-<div class="inner-content">
-	<?php the_content(); ?>
+<div class="single-<?php echo get_post_type() ?>"  >
+	<div class="container">
+		<div class="inner-content">
+			<?php the_content(); ?>
+		</div>
+	</div>
 </div>
 
 <?php
