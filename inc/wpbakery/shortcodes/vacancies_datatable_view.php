@@ -9,6 +9,9 @@ if (!function_exists('vacancies_datatable_shortcode')) {
     function vacancies_datatable_shortcode($atts)
     {
 
+        extract(shortcode_atts(array(
+            'vacancies_datatable_title'     => '',
+        ), $atts));
 
 
         ob_start();
@@ -24,83 +27,68 @@ if (!function_exists('vacancies_datatable_shortcode')) {
             }
             vacancies_datatable_register_style();
         } ?>
+        <div class="container custom-widget">
+            <div class="global-header-search">
+                <h2 class="bonyan-title primary-color"><?php echo $vacancies_datatable_title ?></h2>
 
-        <div class="about-us-datatable custom-widget">
-            <h2 class="bonyan-title primary-title"><?php _e('Vacancies', 'bonyan'); ?></h2>
-
-            <div class="colors-index my-2">
-                <div class="color-index-item active-color">
-                    <div class="color-box"></div>
-                    <span><?php _e('Active', 'bonyan') ?> </span>
-                </div>
-
-                <div class="color-index-item inactive-color">
-                    <div class="color-box"></div>
-                    <span> <?php _e('Inactive', 'bonyan') ?> </span>
+                <div class="input-holder">
+                    <input type="search" class="custom-datatable-search" placeholder="Search in this page">
                 </div>
             </div>
+            <!-- Vacancies Datatable Widget -->
+            <div class="vacancies-container">
+                <table id="vacancies-table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="example_info">
+                    <thead>
+                        <tr>
+                            <th><?php _e('Job', 'bonyan'); ?></th>
+                            <th><?php _e('Status', 'bonyan'); ?></th>
+                            <th><?php _e('Deadline', 'bonyan'); ?></th>
+                            <th><?php _e('Department', 'bonyan'); ?></th>
+                            <th><?php _e('Location', 'bonyan'); ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $args = array(
+                            'post_type' => 'vacancy',
+                            'post_status' => 'publish',
+                            'order_by' => 'date',
+                            'order' => 'DESC',
+                            'suppress_filters' => 0,
 
-            <table id="vacancies-table" class="display nowrap dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="example_info">
-                <thead>
-                    <tr>
-                        <th><?php _e('Requisition Tittle', 'bonyan'); ?></th>
-                        <th><?php _e('Requisition Number', 'bonyan'); ?></th>
-                        <th><?php _e('Job Location', 'bonyan'); ?></th>
-                        <th><?php _e('Nature Of Working', 'bonyan'); ?></th>
-                        <th><?php _e('Required <br> Number', 'bonyan'); ?></th>
-                        <th><?php _e('Gender', 'bonyan'); ?></th>
-                        <th><?php _e('Type Of Contract', 'bonyan'); ?></th>
-                        <th><?php _e('Start Date', 'bonyan'); ?></th>
-                        <th><?php _e('Submission End Date', 'bonyan'); ?></th>
-                        <th><?php _e('Submission Button', 'bonyan'); ?></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $args = array(
-                        'post_type' => 'vacancy',
-                        'post_status' => 'publish',
-                        'suppress_filters' => 0,
+                        );
+                        $vacancies_posts = new WP_Query($args);
+                        if ($vacancies_posts->have_posts()) {
+                            while ($vacancies_posts->have_posts()) {
+                                $vacancies_posts->the_post();
+                                $vd_is_urgent = get_post_meta(get_the_ID(), "vd_is_urgent", true);
+                                $vd_location = get_post_meta(get_the_ID(), "vd_location", true);
+                                $vd_deadline = get_post_meta(get_the_ID(), "vd_deadline", true);
+                                $vd_department = get_post_meta(get_the_ID(), "vd_department", true);
 
-                    );
-                    $vacancies_posts = new WP_Query($args);
-                    if ($vacancies_posts->have_posts()) {
-                        while ($vacancies_posts->have_posts()) {
-                            $vacancies_posts->the_post();
-                            $vd_requisition_number = get_post_meta(get_the_ID(), "vd_requisition_number", true);
-                            $vd_job_location = get_post_meta(get_the_ID(), "vd_job_location", true);
-                            $vd_nature_of_working = get_post_meta(get_the_ID(), "vd_nature_of_working", true);
-                            $vd_required_number = get_post_meta(get_the_ID(), "vd_required_number", true);
-                            $vd_gender = get_post_meta(get_the_ID(), "vd_gender", true);
-                            $vd_type_of_contract = get_post_meta(get_the_ID(), "vd_type_of_contract", true);
-                            $vd_start_date = get_post_meta(get_the_ID(), "vd_start_date", true);
-                            $vd_submission_end_date = get_post_meta(get_the_ID(), "vd_submission_end_date", true);
+                                // IS Active Or not 
+                                $end_date = new DateTime($vd_deadline);
+                                $current_date = date('Y-m-d');
+                                $end_date = $end_date->format('Y-m-d');
+                                $is_active = $current_date <= $end_date ? 'true' : 'false';
+                                // Get Result
+                                $end_date = new DateTime($vd_deadline);
+                                $end_date = $end_date->format('d M Y '); // redesign format for front end date
 
-                            $current_date = date('Y-m-d');
-                            $end_date = new DateTime($vd_submission_end_date);
-                            $end_date = $end_date->format('Y-m-d');
-                            $is_active = $current_date <= $end_date ? true : false;
-
-                    ?>
-                            <tr <?php echo $is_active ? 'data-status="active"' : ''; ?>>
-                                <td><a href="<?php echo get_permalink(get_the_ID()) ?>" class="link-in-table"> <?php the_title() ?> </a></td>
-                                <td> <?php echo $vd_requisition_number ?> </td>
-                                <td> <?php echo $vd_job_location ?> </td>
-                                <td> <?php echo $vd_nature_of_working ?> </td>
-                                <td> <?php echo $vd_required_number ?> </td>
-                                <td> <?php echo $vd_gender ?> </td>
-                                <td> <?php echo $vd_type_of_contract ?> </td>
-                                <td> <?php echo $vd_start_date ?> </td>
-                                <td> <?php echo $vd_submission_end_date ?> </td>
-                                <td> <a href="<?php echo get_permalink(get_the_ID()) ?>" class="link-in-table link-as-btn ms-3 ms-md-0"> <?php _e('Submission', 'bonyan'); ?> </a> </td>
-                            </tr>
-                    <?php
-                        }
-                    }
-
-                    ?>
-                </tbody>
-            </table>
+                                $is_urgent = (!empty($vd_is_urgent) && $vd_is_urgent == "yes") ? 'true' : 'false';
+                        ?>
+                                <tr isactive="<?php echo $is_active ?>" isurgent="<?php echo $is_urgent  ?>">
+                                    <td><a href="<?php echo get_permalink(get_the_ID()) ?>"> <?php the_title() ?><span class="urgent">Urgent</span></a></td>
+                                    <td><?php echo $is_active == "true" ? __('Active', 'bonyan') : __('Inactive', 'bonyan'); ?></td>
+                                    <td><?php echo $end_date ?></td>
+                                    <td><?php echo $vd_department ?></td>
+                                    <td><?php echo $vd_location ?></td>
+                                </tr>
+                        <?php }
+                        } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <?php
