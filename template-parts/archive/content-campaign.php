@@ -1,7 +1,7 @@
 <?php
 
 $queried_object = get_queried_object();
-$taxonomy_name = $queried_object->taxonomies[0];
+$taxonomy_name = $queried_object->taxonomies[1];
 ?>
 
 <section class="campaign-section">

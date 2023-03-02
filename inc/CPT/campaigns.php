@@ -31,7 +31,7 @@ function register_campaigns_cpt()
         'hierarchical'       => false,
         'menu_position'      => 20,
         'supports'           => array('title', 'editor', 'author', 'thumbnail', 'revisions'),
-        'taxonomies'         => array('campaigns-categories'),
+        'taxonomies'         => array('','campaigns-categories'),
         'show_in_rest'       => true
     );
 

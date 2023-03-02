@@ -3,8 +3,8 @@
 function register_reports_cpt()
 {
     $labels = array(
-        'name'                  => _x('reports', 'bonyan'),
-        'singular_name'         => _x('Media',  'bonyan'),
+        'name'                  => _x('Reports', 'bonyan'),
+        'singular_name'         => _x('Report',  'bonyan'),
         'menu_name'             => _x('reports',  'bonyan'),
         'name_admin_bar'        => _x('reports',  'bonyan'),
         'add_new'               => __('Add New', 'bonyan'),
@@ -12,7 +12,7 @@ function register_reports_cpt()
         'new_item'              => __('New reports', 'bonyan'),
         'edit_item'             => __('Edit reports', 'bonyan'),
         'view_item'             => __('View reports', 'bonyan'),
-        'all_items'             => __('All Media', 'bonyan'),
+        'all_items'             => __('All Reports', 'bonyan'),
         'search_items'          => __('Search reports', 'bonyan'),
         'parent_item_colon'     => __('Parent reports:', 'bonyan'),
         'not_found'             => __('No reports found.', 'bonyan'),
@@ -30,7 +30,7 @@ function register_reports_cpt()
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 20,
-        'supports'           => array('title', 'author', 'thumbnail'),
+        'supports'           => array('title', 'author', 'thumbnail',"editor"),
         'taxonomies'         => array('post_tag', 'reports-categories'),
         'show_in_rest'       => true
     );
@@ -44,8 +44,8 @@ function register_reports_cpt()
 
     // Add new taxonomy
     $labels = array(
-        'name'              => __('reports - Categories', 'bonyan'),
-        'singular_name'     => __('reports - Category',  'bonyan'),
+        'name'              => __('Reports - Categories', 'bonyan'),
+        'singular_name'     => __('Reports - Category',  'bonyan'),
         'search_items'      => __('Search Categories', 'bonyan'),
         'all_items'         => __('All Categories', 'bonyan'),
         'parent_item'       => __('Parent Category', 'bonyan'),
@@ -54,7 +54,7 @@ function register_reports_cpt()
         'update_item'       => __('Update Category', 'bonyan'),
         'add_new_item'      => __('Add New Category', 'bonyan'),
         'new_item_name'     => __('New Category Name', 'bonyan'),
-        'menu_name'         => __('reports Category', 'bonyan'),
+        'menu_name'         => __('Reports Category', 'bonyan'),
     );
 
     $args = array(
