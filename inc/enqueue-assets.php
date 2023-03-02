@@ -71,6 +71,9 @@ function bonyan_scripts()
     // Banner Style
     wp_enqueue_style('bonyan-banner-style', get_template_directory_uri() . "/dist/css/components/wpb/banner.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
+    // Success Story Card Style
+    wp_enqueue_style('bonyan-success-story-card-style', get_template_directory_uri() . "/dist/css/components/wpb/success-story-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
 
@@ -97,6 +100,9 @@ function bonyan_scripts()
 
     // Tenders
     wp_enqueue_script('bonyan-tenders-script', get_template_directory_uri() . '/dist/js/components/wpb/tenders.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
+
+    // Tenders
+    wp_enqueue_script('bonyan-success-story-carousel-script', get_template_directory_uri() . '/dist/js/components/wpb/success-story-carousel.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
 
     // __Ajax__
     wp_enqueue_script('ajax-scripts', get_template_directory_uri() . '/assets/js/ajax-scripts.js', array('jquery'), $GLOBALS['bonyan_version'], true);

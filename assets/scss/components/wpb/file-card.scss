@@ -53,6 +53,10 @@
         color: $light-color;
         margin-bottom: 0;
         margin-top: 1rem;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
 
         @media (max-width: 1400px) {
             font-size: 28px;
@@ -60,6 +64,10 @@
 
         @media (max-width: 768px) {
             font-size: 24px;
+        }
+
+        @media (max-width: 350px) {
+            font-size: 20px;
         }
     }
 
@@ -76,6 +84,10 @@
             padding: 0.75rem 1rem;
             text-align: center;
             border-radius: 25px;
+
+            @media (max-width: 350px) {
+                padding: 0.5rem 1rem;
+            }
 
             &.preview-file {
                 &:hover {

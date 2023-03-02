@@ -40,10 +40,54 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <?php echo get_template_part('template-parts/program-stats'); ?>
             </div>
         </div>
+
+        <div class="cards-container">
+            <!-- Success Story -->
+            <?php echo get_template_part('template-parts/success-story-card') ?>
+        </div>
+
+        <!-- Start Campaign Cards -->
+        <section class="success-story-section py-5">
+            <div class="container">
+
+                <div class="d-flex align-items-center justify-content-center justify-content-xl-strtch mb-3 ">
+                    <h2 class="bonyan-title primary-color bold">Success Stories</h2>
+
+                    <div class="custom-swiper-nav ms-auto hide-from-laptop-up">
+                        <div class="swiper-nav-btn swiper-prev-nav success-story-prev-arrow"></div>
+                        <div class="swiper-nav-btn swiper-next-nav success-story-next-arrow"></div>
+                    </div>
+                </div>
+
+
+                <div class="swiper success-story-carousel">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <?php get_template_part('template-parts/success-story-card'); ?>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <?php get_template_part('template-parts/success-story-card'); ?>
+
+                        </div>
+
+                        <div class="swiper-slide">
+                            <?php get_template_part('template-parts/success-story-card'); ?>
+
+                        </div>
+
+                        <div class="swiper-slide">
+                            <?php get_template_part('template-parts/success-story-card'); ?>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- End Campaign Cards -->
+
     </div>
 </div>
 

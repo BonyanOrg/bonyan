@@ -1,0 +1,57 @@
+@import '../../variables';
+
+.success-card {
+    display: flex;
+    flex-direction: column;
+
+    .success-img {
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        height: 280px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(109, 84, 167, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .success-title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        margin-top: 1rem;
+    }
+
+    .success-desc {
+        font-size: 20px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+
+        @media (max-width: 992px) {
+            font-size: 18px;
+        }
+    }
+
+    .success-more {
+        margin-top: auto;
+
+        span {
+            color: $primary-color;
+        }
+    }
+}

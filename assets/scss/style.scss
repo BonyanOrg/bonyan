@@ -2623,8 +2623,13 @@ header {
 /* ===[Start Single Tender]=== */
 /* __Start modify the width of info panel__ */
 .single-tender {
-  .info-panel {
+  .content-with-info-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .file-card {
     max-width: 350px;
+    width: 100%;
+    margin-left: auto;
 
     @media (max-width: 1024px) {
       margin-left: 0;

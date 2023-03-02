@@ -26,25 +26,13 @@ get_header();
     }
 
     .lottie-container {
-        height: 600px;
+        height: 500px;
         width: 100%;
     }
 
     @media (max-width: 1400px) {
         .lottie-container {
-            height: 400px;
-        }
-    }
-
-    @media (max-width: 992px) {
-        .lottie-container {
-            height: 300px;
-        }
-    }
-
-    @media (max-width: 340px) {
-        .lottie-container {
-            height: 250px;
+            height: auto;
         }
     }
 
