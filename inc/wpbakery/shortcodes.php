@@ -46,3 +46,5 @@ require_once "shortcodes/campaign_banner_view.php";
 /*  PDF Download Card  */
 require_once "shortcodes/PDF_download_card_view.php";
 
+/*  Job Details Card  */
+require_once "shortcodes/job_details_card_view.php";

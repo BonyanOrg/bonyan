@@ -72,3 +72,6 @@ require_once "vcmaps/campaign_banner_map.php";
 
 /*  PDF Download Card  */
 require_once "vcmaps/PDF_download_card_map.php";
+
+/*  Job Details Card  */
+require_once "vcmaps/job_details_card_map.php";
