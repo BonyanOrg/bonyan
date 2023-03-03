@@ -18,4 +18,11 @@
 <!-- Statistics -->
 <?php echo get_template_part('template-parts/statistics') ?>
 
+<!-- Blog Card -->
+<div class="container">
+    <div class="cards-container">
+        <?php echo get_template_part('template-parts/blog-card') ?>
+    </div>
+</div>
+
 <?php get_footer(); ?>

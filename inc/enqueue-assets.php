@@ -77,6 +77,9 @@ function bonyan_scripts()
     // Success Story Card Style
     wp_enqueue_style('bonyan-success-story-card-style', get_template_directory_uri() . "/dist/css/components/wpb/success-story-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
+    // Blog Card Style
+    wp_enqueue_style('bonyan-blog-card-style', get_template_directory_uri() . "/dist/css/components/blog-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
 

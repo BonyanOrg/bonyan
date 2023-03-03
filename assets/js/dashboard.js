@@ -35,16 +35,18 @@ window.addEventListener('DOMContentLoaded', function () {
 
     let cancelEditBtn = document.getElementById('cancel-user-information-edit');
 
-    editBtn.addEventListener('click', function () {
+    if (editBtn !== null) {
+        editBtn.addEventListener('click', function () {
 
-        myAccount.classList.add('edit-mode-active');
+            myAccount.classList.add('edit-mode-active');
 
-    });
+        });
 
-    cancelEditBtn.addEventListener('click', function () {
+        cancelEditBtn.addEventListener('click', function () {
 
-        myAccount.classList.remove('edit-mode-active');
+            myAccount.classList.remove('edit-mode-active');
 
-    });
+        });
+    }
     /* ===[End Handling View / Edit Mode for user information]=== */
 });

@@ -1,0 +1,50 @@
+@import '../variables';
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+
+    .blog-img {
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        height: 280px;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .blog-title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        margin-top: 1rem;
+    }
+
+    .blog-desc {
+        font-size: 20px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        color: $text-color;
+
+        @media (max-width: 992px) {
+            font-size: 18px;
+        }
+    }
+
+    .blog-more {
+        margin-top: auto;
+
+        span {
+            border-radius: 25px !important;
+            display: inline-flex;
+            text-align: center;
+        }
+    }
+}
