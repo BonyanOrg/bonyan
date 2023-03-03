@@ -78,3 +78,6 @@ require_once "vcmaps/job_details_card_map.php";
 
 /*  Contact Info  */
 require_once "vcmaps/contact_info_map.php";
+
+/* Posts Slider  */
+require_once "vcmaps/posts_slider_map.php";

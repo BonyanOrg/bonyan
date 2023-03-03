@@ -52,3 +52,5 @@ require_once "shortcodes/job_details_card_view.php";
 /*  Contact Info  */
 require_once "shortcodes/contact_info_view.php";
 
+/* Posts Slider  */
+require_once "shortcodes/posts_slider_view.php";
