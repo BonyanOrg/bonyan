@@ -1760,6 +1760,8 @@ header {
   background: #f7f7f7;
   max-width: 520px;
   position: relative;
+  gap: 1.5rem;
+  grid-gap: 1.5rem;
 
   .add-to-fav {
     position: absolute;
@@ -1776,6 +1778,7 @@ header {
     padding: 0.45rem;
     border-radius: $radius-10;
     box-shadow: 0 4px 10px rgba($text-color, 0.3);
+    cursor: pointer;
 
     svg {
       width: 100%;
@@ -1812,7 +1815,7 @@ header {
 
     .campaign-title {
       padding: 0 1rem;
-      margin: 1rem 0 1.5rem;
+      margin: 1rem 0 1.25rem;
 
       @media (max-width: 576px) {
         padding: 0 0.75rem;
@@ -1868,7 +1871,6 @@ header {
 
   .campaign-card-body {
     padding: 0 1rem;
-    margin-bottom: 1.5rem;
     margin-top: auto;
 
     @media (max-width: 576px) {
@@ -1876,8 +1878,6 @@ header {
     }
 
     .campaign-progress-bar-holder {
-      margin-top: 1rem;
-
       p {
         color: $primary-color;
         font-size: 28px;
