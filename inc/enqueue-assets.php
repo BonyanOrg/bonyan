@@ -35,6 +35,9 @@ function bonyan_scripts()
     // Bonyan Home Style
     wp_enqueue_style('bonyan-home-style', get_template_directory_uri() . "/dist/css/home.min.css", array('bonyan-bootstrap', 'bonyan-swiper-carousel-style'), $GLOBALS['bonyan_version']);
 
+    // Dashboard Style
+    wp_enqueue_style('bonyan-dashboard-style', get_template_directory_uri() . "/dist/css/dashboard.min.css", array(), $GLOBALS['bonyan_version']);
+
     // __WPB STYLE__
     wp_enqueue_style('bonyan-quick-donation-style', get_template_directory_uri() . "/dist/css/components/wpb/quick-donation.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
@@ -85,6 +88,9 @@ function bonyan_scripts()
     wp_enqueue_script('bonyan-swiper-carousel-script', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.4/swiper-bundle.min.js', array(), false, true);
 
     wp_enqueue_script('bonyan-script', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), $GLOBALS['bonyan_version'], true);
+
+    wp_enqueue_script('bonyan-dashboard-script', get_template_directory_uri() . '/dist/js/dashboard.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
+
 
     // Home sliders
     wp_enqueue_script('bonyan-home-sliders-script', get_template_directory_uri() . '/dist/js/home-sliders.min.js', array('bonyan-swiper-carousel-script'), $GLOBALS['bonyan_version'], true);

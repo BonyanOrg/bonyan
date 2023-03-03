@@ -120,6 +120,10 @@ function my_login_logo()
             border-radius: 10px;
         }
 
+        .user-pass-wrap {
+            width: 100%;
+        }
+
         .reset-pass-submit {
             display: flex !important;
             flex-direction: column !important;

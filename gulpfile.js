@@ -109,6 +109,17 @@ gulp.task('global-datatable-css', function () {
         .pipe(gulp.dest('./dist/css'));
 });
 
+//****************************************************
+// Dashboard css
+//****************************************************
+gulp.task('dashboard-css', function () {
+    return gulp.src('./assets/scss/dashboard.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('dashboard.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css'));
+});
 
 //****************************************************
 // ===================WPB CSS=========================
@@ -311,6 +322,18 @@ gulp.task('home-sliders-js', function () {
 });
 
 //****************************************************
+// dashboard.js
+//****************************************************
+gulp.task('dashboard-js', function () {
+    return gulp.src('./assets/js/dashboard.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('dashboard.min.js'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/js'))
+});
+
+//****************************************************
 // ===================WPB JS=========================
 //****************************************************
 
@@ -393,14 +416,14 @@ gulp.task('wpb-success-story-carousel-js', function () {
 //****************************************************
 //task for automate all styles
 //****************************************************
-gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css']));
+gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css', 'dashboard-css']));
 gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
 gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css', 'wpb-icon-title-desc-css', 'wpb-bg-title-desc-css', 'wpb-locations-css', 'wpb-file-card-css', 'wpb-program-stats-css', 'wpb-banner-css', 'wpb-success-story-card-css']));
 
 //****************************************************
 //task for automate all scripts
 //****************************************************
-gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js']));
+gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js', 'dashboard-js']));
 gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js', 'wpb-vacancies-js', 'wpb-tenders-js', 'wpb-success-story-carousel-js']));
 
 //****************************************************
