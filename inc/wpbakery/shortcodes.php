@@ -48,3 +48,7 @@ require_once "shortcodes/PDF_download_card_view.php";
 
 /*  Job Details Card  */
 require_once "shortcodes/job_details_card_view.php";
+
+/*  Contact Info  */
+require_once "shortcodes/contact_info_view.php";
+

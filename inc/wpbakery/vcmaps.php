@@ -75,3 +75,6 @@ require_once "vcmaps/PDF_download_card_map.php";
 
 /*  Job Details Card  */
 require_once "vcmaps/job_details_card_map.php";
+
+/*  Contact Info  */
+require_once "vcmaps/contact_info_map.php";
