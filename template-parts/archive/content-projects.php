@@ -1,21 +1,17 @@
 <?php
+
 $queried_object = get_queried_object();
-$taxonomy_name = $queried_object->taxonomy;
-
-
-
+$taxonomy_name = $queried_object->taxonomies[1];
 ?>
 
 
-<section class="campaign-section">
     <div class="container">
 
-        <?php get_template_part('template-parts/search-terms-header', null, array("taxonomy_name" => $taxonomy_name, "queried_object" => $queried_object)); ?>
+        <?php get_template_part('template-parts/search-terms-header', null, array("taxonomy_name" => $taxonomy_name, 'archive' => true)); ?>
 
 
-        <div class="campaign">
+        <div class="campaign my-5">
             <div class="cards-container">
-
 
                 <?php if (have_posts()) : ?>
 
@@ -23,9 +19,9 @@ $taxonomy_name = $queried_object->taxonomy;
                     /* Start the Loop */
                     while (have_posts()) :
                         the_post();
-
                     ?>
                         <?php get_template_part('template-parts/cards/content', $post->post_type); ?>
+
 
                 <?php
 
@@ -40,15 +36,10 @@ $taxonomy_name = $queried_object->taxonomy;
 
                 endif;
                 ?>
-                <?php
-
-                ?>
-
-
-
             </div>
-            <?php
-            custom_pagination();
+        </div>
+        <?php custom_pagination();
+        ?>
+    </div>
 
-            ?>
-</section>
+<?php
