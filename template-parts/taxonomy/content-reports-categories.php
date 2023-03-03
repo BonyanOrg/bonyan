@@ -25,7 +25,7 @@ $taxonomy_name = $queried_object->taxonomy;
                         the_post();
 
                     ?>
-                        <?php get_template_part('template-parts/cards/content', 'reports'); ?>
+                        <?php get_template_part('template-parts/cards/content', $post->post_type); ?>
 
                 <?php
 

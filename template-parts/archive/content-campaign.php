@@ -20,7 +20,7 @@ $taxonomy_name = $queried_object->taxonomies[1];
 					while (have_posts()) :
 						the_post();
 					?>
-						<?php get_template_part('template-parts/cards/content','campaign'); ?>
+						<?php get_template_part('template-parts/cards/content', $post->post_type); ?>
 
 
 				<?php
