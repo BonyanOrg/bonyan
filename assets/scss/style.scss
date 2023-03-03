@@ -471,22 +471,10 @@ input {
 /* __Start Contect With Info Panel__ */
 .content-with-info-panel {
   display: grid;
-  grid-template-columns: calc(60% - 5rem) calc(40% - 5rem);
+  grid-template-columns: minmax(0, 1fr);
   gap: 5rem;
   grid-gap: 5rem;
   justify-content: space-between;
-
-  @media (max-width: 1400px) {
-    grid-template-columns: calc(60% - 3rem) calc(40% - 3rem);
-    gap: 3rem;
-    grid-gap: 3rem;
-  }
-
-  @media (max-width: 1199px) {
-    grid-template-columns: calc(60% - 1.5rem) calc(40% - 1.5rem);
-    gap: 1.5rem;
-    grid-gap: 1.5rem;
-  }
 
   @media (max-width: 1024px) {
     grid-template-columns: minmax(0, 1fr);
