@@ -52,7 +52,9 @@
         margin-top: auto;
 
         span {
-            color: $primary-color;
+            border-radius: 25px !important;
+            display: inline-flex;
+            text-align: center;
         }
     }
 }

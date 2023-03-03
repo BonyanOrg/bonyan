@@ -10,6 +10,6 @@
     </p>
 
     <div class="success-more">
-        <span>More</span>
+        <span class="primary-btn no-border py-2 px-4">More</span>
     </div>
 </a>
