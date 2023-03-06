@@ -81,3 +81,6 @@ require_once "vcmaps/contact_info_map.php";
 
 /* Posts Slider  */
 require_once "vcmaps/posts_slider_map.php";
+
+/* About Bonyan Card   */
+require_once "vcmaps/about_bonyan_card_map.php";
