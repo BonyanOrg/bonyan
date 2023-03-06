@@ -2108,7 +2108,7 @@ header {
   height: 290px;
   border-radius: 20px;
   overflow: hidden;
-  padding: 3.125rem;
+  padding: 2.5rem;
 
   @media (max-width: 992px) {
     height: auto;
@@ -2158,7 +2158,7 @@ header {
   }
 
   .program-title {
-    margin-top: 1.75rem;
+    margin-top: 1.25rem;
     position: relative;
     z-index: 4;
 
@@ -2170,14 +2170,52 @@ header {
     h3 {
       color: $light-color;
       font-weight: bold;
-      font-size: 30px;
+      font-size: 28px;
       display: inline-flex;
+      transition: $general-transition;
 
       @media (max-width: 576px) {
         font-size: 24px;
       }
     }
   }
+
+  .program-desc {
+    z-index: 3;
+    position: relative;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+
+    p {
+      opacity: 0;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      margin-bottom: 0;
+      transition: $general-transition;
+      color: $light-color; 
+    }
+  }
+
+  @media (min-width: 1025px) {
+    &:not(:last-child):hover {
+      .program-title {
+        h3 {
+          font-size: 24px;
+        }
+      }
+      
+      .program-desc {
+        p {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
 }
 
 /* ===[End Program Card]=== */
