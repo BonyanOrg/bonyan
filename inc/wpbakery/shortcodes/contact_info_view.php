@@ -8,7 +8,7 @@
  * 
  */
 if (!function_exists('contact_info_shortcode')) {
-    function contact_info_shortcode($atts,$content)
+    function contact_info_shortcode($atts, $content)
     {
         extract(shortcode_atts(array(
             'contact_info_icon' => '',
@@ -31,18 +31,19 @@ if (!function_exists('contact_info_shortcode')) {
             } ?>
         </style>
 
+        <!-- This is the START of the component -->
+        <div class="contact-item">
+            <a href="javascript:void(0)" class="phone-numbers-container">
+                <div class="contact-icon">
+                    <img data-src="<?php echo wp_get_attachment_image_url($contact_info_icon); ?>" alt="<?php echo $content; ?>" class="lazyload">
+                </div>
 
-        <div class="contact-item custom-widget">
-            <div class="contact-info-item--icon">
-                <img data-src="<?php echo wp_get_attachment_image_url($contact_info_icon); ?>" alt="<?php echo $content; ?>" class="lazyload">
-            </div>
-
-            <div class="contact-info-item--value">
-                <span><?php echo $content; ?></span>
-            </div>
+                <div class="phone-numbers">
+                    <span><?php echo $content; ?></span>
+                </div>
+            </a>
         </div>
-
-
+        <!-- This is the END of the component -->
 
 <?php
         return ob_get_clean();
