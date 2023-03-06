@@ -27,6 +27,53 @@
         });
     });
 
+    // ===== [[Add To Favorites START]]
+    var keyPressTimeout, jqxhr = {
+        abort: function () { }
+    };
+    let addToFavBtns = document.querySelectorAll('.add-to-fav');
+    addToFavBtns?.forEach((addToFavBtn) => {
+
+        addToFavBtn.addEventListener('click', function () {
+            this.classList.toggle("is-fav");
+            let campaign_id = this.getAttribute('data-id');
+            // AJax
+            (function ($) {
+                jqxhr.abort();
+                clearTimeout(keyPressTimeout);
+                keyPressTimeout = setTimeout(function () {
+                    jqxhr = $.ajax({
+                        dataType: "json",
+                        method: "POST",
+                        url: ajax_script_object.ajaxurl,
+                        data: {
+                            action: "add_to_fav",
+                            nonce: ajax_script_object.nonce,
+                            user_id: ajax_script_object.user_id,
+                            campaign_id: campaign_id,
+                        },
+                        statusCode: {
+                            400: function (data) {
+
+                            },
+                            200: function (data) {
+
+                            },
+                        },
+                    });
+                }, 300);
+
+            })(jQuery);
+
+
+
+        });
+
+    });
+
+
+    // ===== [[Add To Favorites END]]
+
     $("#quick_donate_now_btn").on("click", function () {
         $("#give_form_container").remove();
         let form_id = $(this).attr("data-giveformid");
@@ -100,7 +147,7 @@
 
         });
     });
-    
+
     $('#program_select').on("change", function () {
         $("#quick_donate_now_btn").attr('data-giveformid', $(this).val());
 

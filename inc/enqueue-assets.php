@@ -118,6 +118,7 @@ function bonyan_scripts()
     wp_localize_script('ajax-scripts', 'ajax_script_object', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('ajax-nonce'),
+        'user_id' => is_user_logged_in() ? get_current_user_id() : '',
     ));
     /* =====[End Enqueue GLOBAL Assets]===== */
 

@@ -1,5 +1,17 @@
 <?php get_header();
 /* Template Name: Donor-Dashboard */
+
+
+// ====[USER DATA INIT]==== //
+if (!is_user_logged_in()) {
+
+?>
+    <h1 align="center"> <?php _e('You Must Login To See Your Dashboard', 'sema'); ?></h1>
+    <script>
+        window.location.href = "<?php echo home_url('/login') ?>";
+    </script>
+<?php
+}
 ?>
 <?php echo get_template_part('template-parts/page-head'); ?>
 
@@ -209,17 +221,34 @@
                 <div class="loader cards-container"></div>
 
                 <div class="cards-container">
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
-                    <?php echo get_template_part('template-parts/campaign-card'); ?>
+                    <?php
+
+                    $user_id = get_current_user_id();
+                    $user_fav_campaigns = get_user_meta($user_id, 'FavCampaigns', true);
+                    $fav_campaign_array = explode(",", $user_fav_campaigns);
+
+                    $args = array(
+                        'post_type' => 'campaign',
+                        'post_status ' => 'publish',
+                        'posts_per_page' => -1,
+                        'post__in' => $fav_campaign_array,
+
+                    );
+                    $favorite_user_campaigns = new WP_Query($args);
+
+                    if ($favorite_user_campaigns->have_posts()) :
+                        while ($favorite_user_campaigns->have_posts()) :
+                            $favorite_user_campaigns->the_post();
+                    ?>
+                            <?php get_template_part('template-parts/cards/content', 'campaign'); ?>
+                    <?php
+                        endwhile;
+                    endif;
+                    ?>
+
                 </div>
+                <?php //custom_pagination($favorite_user_campaigns);
+                ?>
             </div>
             <!-- End Favorite Campaigns Content -->
 
