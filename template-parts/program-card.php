@@ -13,6 +13,10 @@
             <div class="program-title">
                 <h3>Early Recovery</h3>
             </div>
+
+            <div class="program-desc">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe dolor eius ut quia eligendi non a consectetur sit aut sunt.</p>
+            </div>
         </a>
 
         <a href="#" class="program-card">
@@ -26,6 +30,10 @@
 
             <div class="program-title">
                 <h3>Protection and Sponsorship</h3>
+            </div>
+
+            <div class="program-desc">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe dolor eius ut quia eligendi non a consectetur sit aut sunt.</p>
             </div>
         </a>
 
@@ -41,6 +49,10 @@
             <div class="program-title">
                 <h3>Shelter and Non-alimentary Aid</h3>
             </div>
+
+            <div class="program-desc">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe dolor eius ut quia eligendi non a consectetur sit aut sunt.</p>
+            </div>
         </a>
 
         <a href="#" class="program-card">
@@ -54,6 +66,10 @@
 
             <div class="program-title">
                 <h3>Health</h3>
+            </div>
+
+            <div class="program-desc">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe dolor eius ut quia eligendi non a consectetur sit aut sunt.</p>
             </div>
         </a>
 
@@ -69,6 +85,10 @@
             <div class="program-title">
                 <h3>Education</h3>
             </div>
+
+            <div class="program-desc">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe dolor eius ut quia eligendi non a consectetur sit aut sunt.</p>
+            </div>
         </a>
 
         <a href="#" class="program-card">
@@ -82,6 +102,10 @@
 
             <div class="program-title">
                 <h3>Water and Sanitation</h3>
+            </div>
+
+            <div class="program-desc">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe dolor eius ut quia eligendi non a consectetur sit aut sunt.</p>
             </div>
         </a>
 
@@ -97,16 +121,20 @@
             <div class="program-title">
                 <h3>Water and Sanitation</h3>
             </div>
+
+            <div class="program-desc">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe dolor eius ut quia eligendi non a consectetur sit aut sunt.</p>
+            </div>
         </a>
 
         <!-- More about the programs -->
         <div class="program-card">
             <div class="more-program-decor left-decor">
-                <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/left-decor.png'?>" alt="left decor" class="lazyload">
+                <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/left-decor.png' ?>" alt="left decor" class="lazyload">
             </div>
 
             <div class="more-program-decor right-decor">
-                <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/right-decor.png'?>" alt="right decor" class="lazyload">
+                <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/right-decor.png' ?>" alt="right decor" class="lazyload">
             </div>
 
             <div class="program-title">
