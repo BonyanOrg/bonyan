@@ -54,3 +54,7 @@ require_once "shortcodes/contact_info_view.php";
 
 /* Posts Slider  */
 require_once "shortcodes/posts_slider_view.php";
+
+/* About Bonyan Card   */
+require_once "shortcodes/about_bonyan_card_view.php";
+
