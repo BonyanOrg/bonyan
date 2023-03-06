@@ -58,3 +58,5 @@ require_once "shortcodes/posts_slider_view.php";
 /* About Bonyan Card   */
 require_once "shortcodes/about_bonyan_card_view.php";
 
+/* Locations Bar  */
+require_once "shortcodes/locations_view.php";
