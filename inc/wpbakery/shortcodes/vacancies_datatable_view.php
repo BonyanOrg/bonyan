@@ -23,6 +23,11 @@ if (!function_exists('vacancies_datatable_shortcode')) {
         ?>
                 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
                 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css">
+                <style>
+                    <?php
+                    require_once(get_template_directory() . '/dist/css/global-datatable.min.css');
+                    ?>
+                </style>
         <?php
             }
             vacancies_datatable_register_style();
