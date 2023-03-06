@@ -80,6 +80,9 @@ function bonyan_scripts()
     // Blog Card Style
     wp_enqueue_style('bonyan-blog-card-style', get_template_directory_uri() . "/dist/css/components/blog-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
 
+    // Trustee Card Style
+    wp_enqueue_style('bonyan-trustee-card-style', get_template_directory_uri() . "/dist/css/components/wpb/trustee-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
 
