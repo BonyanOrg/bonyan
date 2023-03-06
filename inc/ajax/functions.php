@@ -36,6 +36,11 @@ require __DIR__ . '/get-user-recurring-donations.php';
 //=====================================
 require __DIR__ . '/get-campaign-by-tag-id.php';
 
+//=====================================
+//    Add Campaign To Favorites
+//=====================================
+require __DIR__ . '/add-to-fav.php';
+
 
 
 
