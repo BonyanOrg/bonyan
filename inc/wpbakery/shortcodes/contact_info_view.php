@@ -35,7 +35,9 @@ if (!function_exists('contact_info_shortcode')) {
         <div class="contact-item">
             <a href="javascript:void(0)" class="phone-numbers-container">
                 <div class="contact-icon">
-                    <img data-src="<?php echo wp_get_attachment_image_url($contact_info_icon); ?>" alt="<?php echo $content; ?>" class="lazyload">
+                    <?php if (!empty($contact_info_icon)) : ?>
+                        <img data-src="<?php echo wp_get_attachment_image_url($contact_info_icon); ?>" alt="<?php echo $content; ?>" class="lazyload">
+                    <?php endif; ?>
                 </div>
 
                 <div class="phone-numbers">
