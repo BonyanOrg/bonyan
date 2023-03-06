@@ -2201,7 +2201,7 @@ header {
   }
 
   @media (min-width: 1025px) {
-    &:not(:last-of-type):hover {
+    &:not(:last-child):hover {
       .program-title {
         h3 {
           font-size: 24px;
