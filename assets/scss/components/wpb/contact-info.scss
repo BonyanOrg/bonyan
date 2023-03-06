@@ -1,47 +1,58 @@
 @import "../../variables";
 
-.contact-info {
+.contact-item {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  grid-gap: 1rem;
-  color: $primary-color;
-  font-size: 20px;
   max-width: 450px;
-  width: 100%;
-  margin-top: 2rem;
+  color: $primary-color;
+  margin-bottom: 0.25rem;
+}
+
+a {
+  transition: $general-transition;
+  display: inline-flex;
+  gap: 0.5rem;
+  grid-gap: 0.5rem;
+  font-size: 20px;
 
   @media (max-width: 576px) {
     font-size: 16px;
   }
 
-  .contact-item {
-    display: flex;
-    gap: 0.75rem;
-    grid-gap: 0.75rem;
+  &:hover {
+    color: $secondary-color;
 
     svg {
-      width: 20px;
-      height: 20px;
-
-      @media (max-width: 576px) {
-        width: 16px;
-        height: 16px;
-      }
-
       path {
-        fill: $primary-color;
+        fill: $secondary-color;
       }
     }
+  }
+}
 
-    &.phone-numbers-container {
-      .phone-numbers {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        grid-gap: 0.25rem;
-      }
+.contact-icon {
+  width: 20px;
+  
+  svg {
+    width: 20px;
+    height: 20px;
+
+    @media (max-width: 576px) {
+      width: 16px;
+      height: 16px;
+    }
+
+    path {
+      fill: $primary-color;
+      transition: $general-transition;
+    }
+  }
+
+  &.phone-numbers-container {
+    .phone-numbers {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      grid-gap: 0.25rem;
     }
   }
 }
