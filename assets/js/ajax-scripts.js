@@ -285,8 +285,6 @@
 
 
     //=====[Login & Registration Process START]=====//
-
-
     $("#login_form").on("submit", function (e) {
         e.preventDefault();
 
@@ -387,6 +385,208 @@
     });
 
     //=====[Login & Registration Process END]=====//
+
+
+    //=====[Give Donations Getter START]=====//
+
+    let dataTableInit = false;
+    let recurringDataTableInit = false;
+    let isOpened = false;
+    let arLang;
+    $("#user-donations-tab").on("click", function () {
+        if (dataTableInit == true) { return; }
+
+        if (getDir) {
+            arLang = {
+                lengthMenu: "عرض _MENU_ مدخلات في كل صفحة",
+                zeroRecords: "لايوجد شيء - عذراً",
+                info: "اظهار صفحة _PAGE_ من _PAGES_",
+                infoEmpty: "لايوجد شيء",
+                infoFiltered: "(تمت تصفيته من _MAX_ إجمالي السجلات)",
+                search: "بحث عن: ",
+                zeroRecords: "لم يتم العثور على سجلات مطابقة",
+            };
+        }
+
+        if (!isOpened) {
+            $('.loader').css('position', 'relative');
+            $('.loader').css('height', '200px');
+            $('.loader').css('display', 'flex');
+            $.ajax({
+                dataType: "json",
+                method: "POST",
+                url: ajax_script_object.ajaxurl,
+                data: {
+                    action: "get_user_donations",
+                },
+                statusCode: {
+                    400: function (data) {
+                        toastr.error(data.responseJSON.error_message);
+
+                        $('.loader').css('position', 'absolute');
+                        $('.loader').css('height', '100%');
+                        $('.loader').css('display', 'none');
+                    },
+                    200: function (data) {
+                        $('.loader').css('position', 'absolute');
+                        $('.loader').css('height', '100%');
+                        $('.loader').css('display', 'none');
+
+                        $('.loading-recurring').css('position', 'relative');
+                        $('.loading-recurring').css('height', '200px');
+                        $('.loading-recurring').css('display', 'flex');
+
+                        dataTableInit = true;
+                        $(".donations-container").append($(data.HTML_Output));
+                        let donationTable = $('#donations-table');
+
+                        let windowWidth = $(window).innerWidth();
+                        let isResponsive = false;
+
+
+                        if (windowWidth <= 992) {
+                            isResponsive = true;
+                        }
+
+                        if (donationTable.length > 0) {
+                            donationTable.DataTable({
+                                "dom": 'rtip',
+                                "paging": true,
+                                "pageLength": 5,
+                                "searching": false,
+                                order: [[3, 'desc']],
+
+                                responsive: isResponsive,
+
+                                "language": {
+                                    ...arLang,
+                                    "paginate": {
+                                        "next": "<div></div>",
+                                        "previous": "<div></div>"
+                                    }
+                                },
+
+                                columnDefs: [{
+                                    targets: 3,
+                                    render: function (data) {
+
+                                        var status = '';
+
+                                        if (data.includes('Complete') || data.includes('مكتمل') || data.includes('başarılı')) {
+                                            status = 'publish';
+                                        }
+
+                                        if (data.includes('Pending') || data.includes('بالانتظار') || data.includes('beklemekte')) {
+                                            status = 'pending';
+                                        }
+
+                                        if (data.includes('Cancelled') || data.includes('ملغي') || data.includes('iptal')) {
+                                            status = 'cancel';
+                                        }
+
+                                        if (data.includes('Failed') || data.includes('فشل') || data.includes('başarılı')) {
+                                            status = 'failed';
+                                        }
+
+                                        if (data.includes('Abandoned') || data.includes('غير مكتمل') || data.includes('eksik')) {
+                                            status = 'abandon';
+                                        }
+
+                                        return `<span class=${status}>${data}</span>`;
+                                    }
+                                }]
+                            });
+                        }
+
+                        // Get Recurring Payments If Payments
+                        if (recurringDataTableInit == true) { return; }
+                        $.ajax({
+                            dataType: "json",
+                            method: "POST",
+                            url: ajax_script_object.ajaxurl,
+                            data: {
+                                action: "get_user_recurring_donations",
+                            },
+                            statusCode: {
+                                400: function (data) {
+                                    // Return text with no recurring found
+                                    $('.loading-recurring').css('position', 'absolute');
+                                    $('.loading-recurring').css('height', '100%');
+                                    $('.loading-recurring').css('display', 'none');
+                                },
+                                200: function (data) {
+                                    recurringDataTableInit = true;
+                                    $('.loading-recurring').css('position', 'absolute');
+                                    $('.loading-recurring').css('height', '100%');
+                                    $('.loading-recurring').css('display', 'none');
+
+                                    $(".recurring-donations-container").append($(data.HTML_Output));
+                                    let recurringDonationTable = $('#recurring-donation-table');
+
+                                    if (recurringDonationTable.length > 0) {
+                                        recurringDonationTable.DataTable({
+                                            "dom": 'rtip',
+                                            "paging": true,
+                                            "pageLength": 5,
+                                            "searching": false,
+
+                                            responsive: isResponsive,
+
+                                            "language": {
+                                                ...arLang,
+                                                "paginate": {
+                                                    "next": "<div></div>",
+                                                    "previous": "<div></div>"
+                                                }
+                                            },
+
+                                            columnDefs: [{
+                                                targets: 4,
+                                                render: function (data) {
+                                                    var status = '';
+
+                                                    if (data.includes('Complete') || data.includes('مكتمل') || data.includes('başarılı')) {
+                                                        status = 'publish';
+                                                    }
+
+                                                    if (data.includes('Pending') || data.includes('بالانتظار') || data.includes('beklemekte')) {
+                                                        status = 'pending';
+                                                    }
+
+                                                    if (data.includes('Cancelled') || data.includes('ملغي') || data.includes('iptal')) {
+                                                        status = 'cancel';
+                                                    }
+
+                                                    if (data.includes('Failed') || data.includes('فشل') || data.includes('başarılı')) {
+                                                        status = 'failed';
+                                                    }
+
+                                                    if (data.includes('Abandoned') || data.includes('غير مكتمل') || data.includes('eksik')) {
+                                                        status = 'abandon';
+                                                    }
+
+                                                    return `<span class=${status}>${data}</span>`;
+                                                }
+                                            }]
+                                        });
+                                    }
+
+                                }
+                            }
+
+
+                        });
+
+
+                    },
+                },
+
+            });
+        }
+        isOpened = true;
+
+    });
+    //=====[Give Donations Getter END]=====//
 
 
 

@@ -104,3 +104,13 @@ function is_wpml_rtl()
 {
 	return apply_filters('wpml_current_language', null) == "ar" ? true : false;
 }
+
+/**
+ * Get Current Language
+ *
+ * @return String Current Language
+ */
+function current_language()
+{
+	return apply_filters('wpml_current_language', null);
+}
