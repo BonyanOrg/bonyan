@@ -1,2 +1,3 @@
 1- Campaign Card Image [1280 x 720]
-1- Project Card Image [1280 x 720]
+2- Project Card Image [1280 x 720]
+3- Board of trustees [640 x 480]
