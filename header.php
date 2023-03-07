@@ -84,9 +84,11 @@
 										<path id="Path_305" data-name="Path 305" d="M14.833,15.356V17.62a6.5,6.5,0,0,0-8.667,6.13H4a8.667,8.667,0,0,1,10.833-8.394ZM12.667,14a6.5,6.5,0,1,1,6.5-6.5A6.5,6.5,0,0,1,12.667,14Zm0-2.167A4.333,4.333,0,1,0,8.333,7.5,4.332,4.332,0,0,0,12.667,11.833Zm7.135,6.5-1.981-1.98,1.533-1.533,4.6,4.6-4.6,4.6L17.82,22.48,19.8,20.5H15.917V18.333Z" transform="translate(0.333 0.083)" fill="#5f469a" />
 									</svg>
 								</button>
-							<?php else : ?>
+							<?php else :
+								$user_profile_photo = ($user_profile_photo = get_user_meta(get_current_user_id(), 'user_profile_photo', true)) ? $user_profile_photo : 'https://via.placeholder.com/180x180';
+							?>
 								<a href="<?php echo home_url('/dashboard'); ?>" class="secondary-outlined-btn logged-user-avatar">
-									<img data-src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="User Avatar" class="lazyload">
+									<img data-src="<?php echo $user_profile_photo ?>" alt="User Avatar" class="lazyload">
 								</a>
 							<?php endif; ?>
 						</div>

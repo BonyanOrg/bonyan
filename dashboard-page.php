@@ -8,10 +8,32 @@ if (!is_user_logged_in()) {
 ?>
     <h1 align="center"> <?php _e('You Must Login To See Your Dashboard', 'sema'); ?></h1>
     <script>
-        window.location.href = "<?php echo home_url('/login') ?>";
+        window.location.href = "<?php echo home_url('/') ?>";
     </script>
 <?php
 }
+
+$user_FirstName = get_user_meta($userdata->ID, 'first_name', true) ?? "First Name";
+$user_LastName = get_user_meta($userdata->ID, 'last_name', true) ?? "Last Name";
+$user_Website = $user_url ?? "www.2p.com.tr";
+$user_Email = $user_email ?? "info@2p.com.tr";
+$user_birth_date = ($user_birth_date = get_user_meta($userdata->ID, 'birth_date', true)) ? $user_birth_date : '';
+$user_age = ($user_age = get_user_meta($userdata->ID, 'age', true)) ? $user_age : '';
+//$user_city = ($user_city = get_user_meta($userdata->ID, 'city', true)) ? $user_city : '';
+//$user_country = ($user_country = get_user_meta($userdata->ID, 'country', true)) ? $user_country : '';
+//$user_address = ($user_address = get_user_meta($userdata->ID, 'address', true)) ? $user_address : '';
+$user_mobile_number = ($user_mobile_number = get_user_meta($userdata->ID, 'mobile_number', true)) ? $user_mobile_number : '';
+$user_profile_photo = ($user_profile_photo = get_user_meta($userdata->ID, 'user_profile_photo', true)) ? $user_profile_photo : 'https://via.placeholder.com/180x180';
+$facebook_url = ($facebook_url = get_user_meta($userdata->ID, 'facebook_url', true)) ? $facebook_url : '';
+$twitter_url = ($twitter_url = get_user_meta($userdata->ID, 'twitter_url', true)) ? $twitter_url : '';
+$instagram_url = ($instagram_url = get_user_meta($userdata->ID, 'instagram_url', true)) ? $instagram_url : '';
+
+
+
+
+
+
+
 ?>
 <?php echo get_template_part('template-parts/page-head'); ?>
 
@@ -91,41 +113,41 @@ if (!is_user_logged_in()) {
                     <div class="user-information-items">
                         <div class="user-information-item user-first-name">
                             <h4><?php _e('First Name', 'bonyan'); ?></h4>
-                            <p class="user-information-item-content view-mode">alaaeddin</p>
-                            <input type="text" value="alaaeddin" class="edit-mode-input" id="first-name-input">
+                            <p class="user-information-item-content view-mode"><?php echo $user_FirstName ?></p>
+                            <input type="text" value="<?php echo $user_FirstName ?>" class="edit-mode-input" id="first-name-input">
                         </div>
 
                         <div class="user-information-item user-last-name">
                             <h4><?php _e('Last Name', 'bonyan'); ?></h4>
-                            <p class="user-information-item-content view-mode">eddin</p>
-                            <input type="text" value="eddin" class="edit-mode-input" id="last-name-input">
+                            <p class="user-information-item-content view-mode"><?php echo $user_LastName ?></p>
+                            <input type="text" value="<?php echo $user_LastName ?>" class="edit-mode-input" id="last-name-input">
                         </div>
 
                         <div class="user-information-item user-mobile-number">
                             <h4><?php _e('Mobile Number', 'bonyan'); ?></h4>
-                            <p class="user-information-item-content view-mode">5514894948</p>
-                            <input type="text" value="5514894948" class="edit-mode-input" id="phone-input">
+                            <p class="user-information-item-content view-mode"><?php echo $user_mobile_number ?></p>
+                            <input type="text" value="<?php echo $user_mobile_number ?>" class="edit-mode-input" id="phone-input">
                         </div>
 
                         <div class="user-information-item user-email-address">
                             <h4><?php _e('Email Address', 'bonyan'); ?></h4>
-                            <p class="user-information-item-content view-mode">alaa@test.com</p>
-                            <input type="text" value="alaa@test.com" class="edit-mode-input" id="email-input">
+                            <p class="user-information-item-content view-mode"><?php echo $user_Email ?></p>
+                            <input type="text" value="<?php echo $user_Email ?>" class="edit-mode-input" id="email-input">
                         </div>
                     </div>
 
                     <div class="user-information-items">
                         <div class="user-information-item user-website">
                             <h4><?php _e('Website', 'bonyan'); ?></h4>
-                            <p class="user-information-item-content view-mode"><a href="https://alaa.com" target="_blank">alaa.com</a></p>
-                            <input type="text" value="alaa.com" class="edit-mode-input" id="website-input">
+                            <p class="user-information-item-content view-mode"><a href="https://<?php echo $user_Website ?>" target="_blank"><?php echo $user_Website ?></a></p>
+                            <input type="text" value="<?php echo $user_Website ?>" class="edit-mode-input" id="website-input">
                         </div>
 
                         <div class="user-information-item user-socialmedia">
                             <h4><?php _e('Social Media Profiles', 'bonyan'); ?></h4>
                             <div class="user-socialmedia-container view-mode">
                                 <div class="user-socialmedia-item user-social-facebook">
-                                    <a href="https://www.facebook.com" target="_blank">
+                                    <a href="<?php echo $facebook_url ?>" target="_blank">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                                             <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
                                         </svg>
@@ -133,7 +155,7 @@ if (!is_user_logged_in()) {
                                 </div>
 
                                 <div class="user-socialmedia-item user-social-instagram">
-                                    <a href="https://www.instagram.com" target="_blank">
+                                    <a href="<?php echo $instagram_url ?>" target="_blank">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                                             <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
                                         </svg>
@@ -141,7 +163,7 @@ if (!is_user_logged_in()) {
                                 </div>
 
                                 <div class="user-socialmedia-item user-social-twitter">
-                                    <a href="https://www.twitter.com" target="_blank">
+                                    <a href="<?php echo $twitter_url ?>" target="_blank">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                                             <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
                                         </svg>
@@ -152,15 +174,15 @@ if (!is_user_logged_in()) {
                             <div class="user-socialmedia-edit-mode edit-mode-input">
                                 <div class="user-socialmedia-edit-items">
                                     <div class="social-option first-social-option-container">
-                                        <input type="url" value="facebook.com" placeholder="<?php _e('Facebbok URL', 'bonyan'); ?>" id="facebook-input">
+                                        <input type="url" value="<?php echo $facebook_url ?>" placeholder="<?php _e('Facebbok URL', 'bonyan'); ?>" id="facebook-input">
                                     </div>
 
                                     <div class="social-option second-social-option-container">
-                                        <input type="url" value="instagram.com" placeholder="<?php _e('Instagram URL', 'bonyan'); ?>" id="instagram-input">
+                                        <input type="url" value="<?php echo $instagram_url ?>" placeholder="<?php _e('Instagram URL', 'bonyan'); ?>" id="instagram-input">
                                     </div>
 
                                     <div class="social-option third-social-option-container">
-                                        <input type="url" value="twitter.com" placeholder="<?php _e('Twitter URL', 'bonyan'); ?>" id="twitter-input">
+                                        <input type="url" value="<?php echo $twitter_url ?>" placeholder="<?php _e('Twitter URL', 'bonyan'); ?>" id="twitter-input">
                                     </div>
                                 </div>
                             </div>
@@ -169,22 +191,15 @@ if (!is_user_logged_in()) {
                     </div>
 
                     <div class="user-information-items">
-                        <div class="user-information-item user-country">
-                            <h4><?php _e('Country', 'bonyan'); ?></h4>
-                            <p class="user-information-item-content view-mode">Turkey</p>
-                            <input type="text" value="turkey" class="edit-mode-input" id="country-input">
+                        <div class="user-information-item user-birth-date">
+                            <h4><?php _e('Date of birth', 'bonyan'); ?></h4>
+                            <p class="user-information-item-content view-mode"><?php echo $user_birth_date ?></p>
+                            <input type="date" value="<?php echo $user_birth_date ?>" class="edit-mode-input" id="birth-date-input" max='<?php echo date("Y-m-d", strtotime("-18 year")) ?>'>
                         </div>
-
-                        <div class="user-information-item user-city">
-                            <h4><?php _e('City', 'bonyan'); ?></h4>
-                            <p class="user-information-item-content view-mode">Istanbul</p>
-                            <input type="text" value="istanbul" class="edit-mode-input" id="city-input">
-                        </div>
-
-                        <div class="user-information-item user-address">
-                            <h4><?php _e('Address', 'bonyan'); ?></h4>
-                            <p class="user-information-item-content view-mode">Basaksehir</p>
-                            <input type="text" value="basaksehir" class="edit-mode-input" id="address-input">
+                        <div class="user-information-item user-age">
+                            <h4><?php _e('Age', 'bonyan'); ?></h4>
+                            <p class="user-information-item-content view-mode"><?php echo $user_age ?></p>
+                            <input type="number" value="<?php echo $user_age ?>" class="edit-mode-input" id="age-input">
                         </div>
                     </div>
                 </div>
@@ -198,7 +213,8 @@ if (!is_user_logged_in()) {
                     <div class="tab-content-title">
                         <h3><?php _e('Donation History', 'bonyan'); ?></h3>
                     </div>
-                    <div class="loader"></div>
+                    <div class="loader loading-donations"></div>
+                    <!-- Data Table Will Load Here -->
                 </div>
 
 
@@ -207,6 +223,7 @@ if (!is_user_logged_in()) {
                         <h3><?php _e('Recurring Donations', 'bonyan'); ?></h3>
                     </div>
                     <div class="loader loading-recurring"></div>
+                    <!-- Data Table Will Load Here -->
                 </div>
 
             </div>

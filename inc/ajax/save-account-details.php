@@ -16,6 +16,10 @@ function save_user_account_details()
         wp_die();
     }
 
+    if (!wp_verify_nonce($_POST['nonce'], 'ajax-nonce')) {
+        die('Busted!');
+    }
+
     $user_id = get_current_user_id();
     $user_data = get_userdata($user_id);
 
@@ -26,21 +30,23 @@ function save_user_account_details()
     $user_mobile_number = isset($_POST['user_mobile_number']) ? sanitize_text_field($_POST['user_mobile_number']) : '';
     $user_Email = isset($_POST['user_Email']) ? sanitize_text_field($_POST['user_Email']) : '';
     $user_Website = isset($_POST['user_Website']) ? sanitize_text_field($_POST['user_Website']) : '';
-    $user_country = isset($_POST['user_country']) ? sanitize_text_field($_POST['user_country']) : '';
-    $user_city = isset($_POST['user_city']) ? sanitize_text_field($_POST['user_city']) : '';
-    $user_address = isset($_POST['user_address']) ? sanitize_text_field($_POST['user_address']) : '';
+    $user_birth_date = isset($_POST['user_birth_date']) ? sanitize_text_field($_POST['user_birth_date']) : '';
+    $user_age = isset($_POST['user_age']) ? sanitize_text_field($_POST['user_age']) : '';
+    // $user_country = isset($_POST['user_country']) ? sanitize_text_field($_POST['user_country']) : '';
+    // $user_city = isset($_POST['user_city']) ? sanitize_text_field($_POST['user_city']) : '';
+    // $user_address = isset($_POST['user_address']) ? sanitize_text_field($_POST['user_address']) : '';
     $user_facebook_url = isset($_POST['user_facebook_url']) ? sanitize_text_field($_POST['user_facebook_url']) : '';
     $user_twitter_url = isset($_POST['user_twitter_url']) ? sanitize_text_field($_POST['user_twitter_url']) : '';
     $user_instagram_url = isset($_POST['user_instagram_url']) ? sanitize_text_field($_POST['user_instagram_url']) : '';
 
 
     if (!is_email($user_Email)) {
-        wp_send_json(['error_message' => __('Email Has No Valid Value','bonyan')], 400);
+        wp_send_json(['error_message' => __('Email Has No Valid Value', 'bonyan')], 400);
         wp_die();
     }
     if ($user_Email !== $user_data->user_email) {
         if (email_exists($user_Email)) {
-            wp_send_json(['error_message' => __('User Email Is Already In Use','bonyan')], 400);
+            wp_send_json(['error_message' => __('User Email Is Already In Use', 'bonyan')], 400);
             wp_die();
         } elseif (!email_exists($user_Email)) {
             wp_update_user(array('ID' => $user_id, 'user_email' => $user_Email));
@@ -48,9 +54,18 @@ function save_user_account_details()
     }
 
 
-
     if (isset($_FILES['user_image'])) {
 
+        // Delete The Old One
+        $user_profile_photo_url = get_user_meta($user_id, 'user_profile_photo', true);
+        if (!empty($user_profile_photo_url)) {
+            $attachment_id = attachment_url_to_postid($user_profile_photo_url);
+            $attachment_path = get_attached_file($attachment_id);
+            wp_delete_attachment($attachment_id, true); // Delete Form Database
+            unlink($attachment_path); // Delete from upload directory
+        }
+
+        // Save The New One 
         $file_name = $_FILES['user_image']['name'];
         $file_temp = $_FILES['user_image']['tmp_name'];
 
@@ -77,9 +92,9 @@ function save_user_account_details()
         );
 
         $attach_id = wp_insert_attachment($attachment, $file);
-        require_once(ABSPATH . 'wp-admin/includes/image.php');
-        $attach_data = wp_generate_attachment_metadata($attach_id, $file);
-        wp_update_attachment_metadata($attach_id, $attach_data);
+        // require_once(ABSPATH . 'wp-admin/includes/image.php');
+        // $attach_data = wp_generate_attachment_metadata($attach_id, $file);
+        // wp_update_attachment_metadata($attach_id, $attach_data);
 
         // Update User Meta
         $user_image_url = wp_get_attachment_url($attach_id);
@@ -97,10 +112,12 @@ function save_user_account_details()
     wp_update_user(array('ID' => $user_id, 'user_url' => $user_Website));
     update_user_meta($user_id, 'first_name', $user_FirstName);
     update_user_meta($user_id, 'last_name', $user_LastName);
-    update_user_meta($user_id, 'city', $user_city);
-    update_user_meta($user_id, 'country', $user_country);
-    update_user_meta($user_id, 'address', $user_address);
+    // update_user_meta($user_id, 'city', $user_city);
+    // update_user_meta($user_id, 'country', $user_country);
+    // update_user_meta($user_id, 'address', $user_address);
     update_user_meta($user_id, 'mobile_number', $user_mobile_number);
+    update_user_meta($user_id, 'birth_date', $user_birth_date);
+    update_user_meta($user_id, 'age', $user_age);
     update_user_meta($user_id, 'facebook_url', $user_facebook_url);
     update_user_meta($user_id, 'twitter_url', $user_twitter_url);
     update_user_meta($user_id, 'instagram_url', $user_instagram_url);
@@ -113,9 +130,11 @@ function save_user_account_details()
         "user_mobile_number" => $user_mobile_number,
         "user_Email" => $user_Email,
         "user_Website" => $user_Website,
-        "user_country" => $user_country,
-        "user_city" => $user_city,
-        "user_address" => $user_address,
+        "user_birth_date" => $user_birth_date,
+        "user_age" => $user_age,
+        // "user_country" => $user_country,
+        // "user_city" => $user_city,
+        // "user_address" => $user_address,
         "user_facebook_url" => $user_facebook_url,
         "user_twitter_url" => $user_twitter_url,
         "user_instagram_url" => $user_instagram_url
