@@ -102,8 +102,8 @@ gulp.task('home-rtl', function () {
 gulp.task('global-datatable-css', function () {
     return gulp.src('./assets/scss/global-datatable.scss')
         .pipe(sourcemaps.init())
-        .pipe(autoprefixer())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(concat('global-datatable.min.css'))
         .pipe(sourcemaps.write('./map'))
         .pipe(gulp.dest('./dist/css'));
@@ -441,7 +441,7 @@ gulp.task('wpb-success-story-carousel-js', function () {
 //task for automate all styles
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css', 'dashboard-css']));
-gulp.task('styles-rtl', gulp.parallel(['style-rtl', 'home-rtl']));
+gulp.task('styles-rtl', gulp.parallel(['style-rtl']));
 gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css', 'wpb-icon-title-desc-css', 'wpb-bg-title-desc-css', 'wpb-locations-css', 'wpb-file-card-css', 'wpb-program-stats-css', 'wpb-banner-css', 'wpb-success-story-card-css', 'blog-card-css', 'trustee-card-css']));
 
 //****************************************************

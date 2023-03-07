@@ -8,7 +8,7 @@ function bonyan_scripts()
     // __Styles__
 
     // Bootstrap Style
-    wp_enqueue_style('bonyan-bootstrap', get_template_directory_uri() . "/dist/css/bootstrap.min.css", array(), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-bootstrap-style', get_template_directory_uri() . "/dist/css/bootstrap.min.css", array(), $GLOBALS['bonyan_version']);
 
     // Swiper Style
     wp_enqueue_style('bonyan-swiper-carousel-style', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.4/swiper-bundle.min.css', array());
@@ -30,58 +30,58 @@ function bonyan_scripts()
     wp_enqueue_style('bonyan-global-datatable-style', get_template_directory_uri() . "/dist/css/global-datatable.min.css", array('bonyan-datatable-css', 'bonyan-datatable-responsive-css'), $GLOBALS['bonyan_version']);
 
     // Bonyan Style
-    wp_enqueue_style('bonyan-style', get_template_directory_uri() . "/dist/css/style.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-style', get_template_directory_uri() . "/dist/css/style.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Bonyan Home Style
-    wp_enqueue_style('bonyan-home-style', get_template_directory_uri() . "/dist/css/home.min.css", array('bonyan-bootstrap', 'bonyan-swiper-carousel-style'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-home-style', get_template_directory_uri() . "/dist/css/home.min.css", array('bonyan-bootstrap-style', 'bonyan-swiper-carousel-style'), $GLOBALS['bonyan_version']);
 
     // Dashboard Style
     wp_enqueue_style('bonyan-dashboard-style', get_template_directory_uri() . "/dist/css/dashboard.min.css", array(), $GLOBALS['bonyan_version']);
 
     // __WPB STYLE__
-    wp_enqueue_style('bonyan-quick-donation-style', get_template_directory_uri() . "/dist/css/components/wpb/quick-donation.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-quick-donation-style', get_template_directory_uri() . "/dist/css/components/wpb/quick-donation.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Primary Carouse
-    wp_enqueue_style('bonyan-primary-carousel-style', get_template_directory_uri() . "/dist/css/components/wpb/primary-carousel.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-primary-carousel-style', get_template_directory_uri() . "/dist/css/components/wpb/primary-carousel.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Project Card 
-    wp_enqueue_style('bonyan-project-card-style', get_template_directory_uri() . "/dist/css/components/wpb/project-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-project-card-style', get_template_directory_uri() . "/dist/css/components/wpb/project-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Contact Info Style
-    wp_enqueue_style('bonyan-contact-info-style', get_template_directory_uri() . "/dist/css/components/wpb/contact-info.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-contact-info-style', get_template_directory_uri() . "/dist/css/components/wpb/contact-info.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Vacancies Style
-    wp_enqueue_style('bonyan-vacancies-style', get_template_directory_uri() . "/dist/css/components/wpb/vacancies.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-vacancies-style', get_template_directory_uri() . "/dist/css/components/wpb/vacancies.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Tenders Style
-    wp_enqueue_style('bonyan-tenders-style', get_template_directory_uri() . "/dist/css/components/wpb/tenders.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-tenders-style', get_template_directory_uri() . "/dist/css/components/wpb/tenders.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Icon Title Description Style
-    wp_enqueue_style('bonyan-icon-title-desc-style', get_template_directory_uri() . "/dist/css/components/wpb/icon-title-desc.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-icon-title-desc-style', get_template_directory_uri() . "/dist/css/components/wpb/icon-title-desc.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Background Title Description Style
-    wp_enqueue_style('bonyan-bg-title-desc-style', get_template_directory_uri() . "/dist/css/components/wpb/bg-title-desc.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-bg-title-desc-style', get_template_directory_uri() . "/dist/css/components/wpb/bg-title-desc.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Locations Style
-    wp_enqueue_style('bonyan-locations-style', get_template_directory_uri() . "/dist/css/components/wpb/locations.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-locations-style', get_template_directory_uri() . "/dist/css/components/wpb/locations.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // File Card Style
-    wp_enqueue_style('bonyan-file-card-style', get_template_directory_uri() . "/dist/css/components/wpb/file-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-file-card-style', get_template_directory_uri() . "/dist/css/components/wpb/file-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Program Stats Style
-    wp_enqueue_style('bonyan-program-stats-style', get_template_directory_uri() . "/dist/css/components/wpb/program-stats.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-program-stats-style', get_template_directory_uri() . "/dist/css/components/wpb/program-stats.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Banner Style
-    wp_enqueue_style('bonyan-banner-style', get_template_directory_uri() . "/dist/css/components/wpb/banner.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-banner-style', get_template_directory_uri() . "/dist/css/components/wpb/banner.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Success Story Card Style
-    wp_enqueue_style('bonyan-success-story-card-style', get_template_directory_uri() . "/dist/css/components/wpb/success-story-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-success-story-card-style', get_template_directory_uri() . "/dist/css/components/wpb/success-story-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Blog Card Style
-    wp_enqueue_style('bonyan-blog-card-style', get_template_directory_uri() . "/dist/css/components/blog-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-blog-card-style', get_template_directory_uri() . "/dist/css/components/blog-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Trustee Card Style
-    wp_enqueue_style('bonyan-trustee-card-style', get_template_directory_uri() . "/dist/css/components/wpb/trustee-card.min.css", array('bonyan-bootstrap'), $GLOBALS['bonyan_version']);
+    wp_enqueue_style('bonyan-trustee-card-style', get_template_directory_uri() . "/dist/css/components/wpb/trustee-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
@@ -130,7 +130,7 @@ function bonyan_scripts()
         wp_enqueue_script('comment-reply');
     }
 
-    $style_sheets_will_support_rtl = ['bonyan-style', 'bonyan-bootstrap-css'];
+    $style_sheets_will_support_rtl = ['bonyan-style', 'bonyan-bootstrap-style'];
     support_rtl($style_sheets_will_support_rtl);
 }
 
