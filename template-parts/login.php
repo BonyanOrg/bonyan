@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="not-have-account">
-                        <a href="#">Don't have account yet? <span>Sign up</span></a>
+                        <div class="user-action-btn" data-target="signup-modal">Don't have account yet? <span>Sign up</span></div>
                     </div>
                 </form>
             </div>

@@ -75,6 +75,7 @@ window.addEventListener('DOMContentLoaded', function () {
                             userActionModal.classList.remove('opened');
                             userActionModal.closest('body').classList.remove('modal-active');
                             userActionModal.style.display = 'none';
+                            userActionModal.style.opacity = '0';
                         });
                     }
 
@@ -89,17 +90,19 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
 
                 // Close
-                targetedModal.addEventListener('click', function (e) {
-                    if (e.target.classList.contains(targetedModalName) || e.target.classList.contains('back-btn')) {
-                        targetedModal.classList.remove('opened');
-                        targetedModal.closest('body').classList.remove('modal-active');
-                        targetedModal.style.opacity = '0';
-
-                        setTimeout(() => {
-                            targetedModal.style.display = 'none';
-                        }, 300);
-                    }
-                });
+                if (targetedModal !== null) {
+                    targetedModal.addEventListener('click', function (e) {
+                        if (e.target.classList.contains(targetedModalName) || e.target.classList.contains('back-btn')) {
+                            targetedModal.classList.remove('opened');
+                            targetedModal.closest('body').classList.remove('modal-active');
+                            targetedModal.style.opacity = '0';
+    
+                            setTimeout(() => {
+                                targetedModal.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                }
             });
         });
     }

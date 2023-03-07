@@ -117,7 +117,7 @@
                     </div>
 
                     <div class="not-have-account">
-                        <a href="#">Already have account? <span>Log in</span></a>
+                        <div class="user-action-btn" data-target="login-modal">Don't have account yet? <span>Sign up</span></div>
                     </div>
                 </form>
             </div>
