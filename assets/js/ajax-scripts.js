@@ -289,17 +289,15 @@
 
     $("#login_form").on("submit", function (e) {
         e.preventDefault();
-        $(this).find('button').prop("disable", true);
-        $('input').blur();
 
-        let user_name = $("#user_name").val();
+
+        let user_email = $("#user_email").val();
         let user_password = $("#user_password").val();
-        if (user_name == "" || user_password == "") {
+        if (user_email == "" || user_password == "") {
             toastr.warning(generalMsgs.fill_inputs);
             return;
         }
 
-        $('.loader').css('display', 'flex');
 
         $.ajax({
             dataType: "json",
@@ -308,7 +306,7 @@
             data: {
                 action: "custom_login",
                 nonce: ajax_script_object.nonce,
-                user_name: user_name,
+                user_email: user_email,
                 user_password: user_password,
             },
             statusCode: {

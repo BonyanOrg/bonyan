@@ -9,12 +9,16 @@ function custom_login()
 {
 
 	if ($_POST) {
+		// Check for nonce security      
+		if (!wp_verify_nonce($_POST['nonce'], 'ajax-nonce')) {
+			die('Busted!');
+		}
 
 		global $wpdb;
-		$user_name = isset($_POST['user_name']) ? sanitize_text_field($_POST['user_name']) : '';
+		$user_email = isset($_POST['user_email']) ? sanitize_text_field($_POST['user_email']) : '';
 		$user_password = isset($_POST['user_password']) ? sanitize_text_field($_POST['user_password']) : '';
-		if (empty($user_name) || empty($user_password)) wp_die();
-		$verify_user = login_to_website($user_name, $user_password);
+		if (empty($user_email) || empty($user_password)) wp_die();
+		$verify_user = login_to_website($user_email, $user_password);
 		if (!is_wp_error($verify_user)) {
 
 			do_action('wp_login', $verify_user->user_login, $verify_user);

@@ -7,7 +7,7 @@
                 <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/login.png'; ?>" alt="" class="lazyload hide-from-mobile-down">
 
                 <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/login-mobile.png'; ?>" alt="" class="lazyload hide-from-mobile-up">
-                
+
                 <div class="user-action-logo">
                     <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/bonyan-white-logo.png'; ?>" alt="" class="lazyload">
                 </div>
@@ -24,10 +24,10 @@
                 <h2 class="bonyan-title primary-color my-4">Login</h2>
 
                 <!-- Form -->
-                <form action="" method="">
+                <form id="login_form">
                     <div class="input-holder">
                         <label for="user-email">Eamil</label>
-                        <input type="email" name="user-email" id="user-email">
+                        <input type="email" name="user-email" id="user_email">
                     </div>
 
                     <div class="input-holder">
@@ -44,7 +44,7 @@
                                 <i class="fa-solid fa-eye-slash"></i>
                             </div>
 
-                            <input type="password" name="user-password" id="user-password" class="pe-5">
+                            <input type="password" name="user-password" id="user_password" class="pe-5">
                         </div>
                     </div>
 
