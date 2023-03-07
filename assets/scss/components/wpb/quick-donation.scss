@@ -187,6 +187,16 @@ html[dir="rtl"] {
   .quick-donation {
     .quick-donation--content {
       .quick-donation--amount {
+        .select-holder {
+          select {
+            padding: 1.25rem 1rem 1.25rem 2.5rem
+          }
+
+          .select-icon {
+            right: unset;
+            left: 1rem;
+          }
+        }
         .quick-donation-amount--item {
           padding: 0.75rem 1.25rem;
           font-size: 1.25em;

@@ -1744,7 +1744,10 @@ header {
       .copyrights {
         color: $light-color;
         display: flex;
+        flex-wrap: wrap;
+        text-align: center;
         align-items: center;
+        justify-content: center;
 
         @media (max-width: 1024px) {
           text-align: center;

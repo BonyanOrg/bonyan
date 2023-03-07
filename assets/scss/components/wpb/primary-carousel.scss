@@ -201,3 +201,21 @@
     }
   }
 }
+
+// RTL
+html[dir="rtl"] {
+  .primary-carousel {
+    .swiper-slide {
+      .primary-carousel-info {
+        .carousel-info--item {
+          &:not(:first-of-type) {
+            &::before {
+              left: unset;
+              right: -0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

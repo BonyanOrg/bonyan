@@ -441,7 +441,9 @@ gulp.task('wpb-success-story-carousel-js', function () {
 //task for automate all styles
 //****************************************************
 gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css', 'dashboard-css']));
+
 gulp.task('styles-rtl', gulp.parallel(['style-rtl']));
+
 gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css', 'wpb-icon-title-desc-css', 'wpb-bg-title-desc-css', 'wpb-locations-css', 'wpb-file-card-css', 'wpb-program-stats-css', 'wpb-banner-css', 'wpb-success-story-card-css', 'blog-card-css', 'trustee-card-css']));
 
 //****************************************************

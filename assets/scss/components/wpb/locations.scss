@@ -96,3 +96,30 @@
         }
     }
 }
+
+// RTL
+html[dir="rtl"] {
+    .locations {
+        .locations-helper {
+            .location-item {
+                @media (min-width: 1200px) {
+                    &:not(:first-of-type) {
+                        &::before {
+                            left: unset;
+                            right: -2.5rem;
+                        }
+                    }
+                }
+    
+                @media (min-width: 769px) and (max-width: 1199px) {
+                    &:nth-child(2n) {
+                        &::before {
+                            left: unset;
+                            right: -2.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

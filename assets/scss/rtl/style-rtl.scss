@@ -151,7 +151,7 @@ input {
   svg {
     position: absolute;
     top: 50%;
-    left: 1rem;
+    right: 1rem;
     transform: translateY(-50%);
     color: $primary-color;
     font-size: 20px;
@@ -263,6 +263,7 @@ input {
       background-repeat: no-repeat no-repeat;
       background-position: center center;
       background-size: 12px;
+      transform: rotate(180deg);
     }
 
     &.swiper-next-nav {
@@ -270,6 +271,7 @@ input {
       background-repeat: no-repeat no-repeat;
       background-position: center center;
       background-size: 12px;
+      transform: rotate(180deg);
     }
 
     &.swiper-button-disabled {
@@ -1046,6 +1048,22 @@ input {
 }
 
 /* __End Pagination__ */
+
+/* __Start Override bootstrap RTL__ */
+[type=email] {
+  direction: rtl;
+}
+
+/* __End Override bootstrap RTL__ */
+
+/* __Start RTL Datatable__ */
+table.dataTable.nowrap th,
+table.dataTable.nowrap td {
+  text-align: right;
+}
+
+/* __End RTL Datatable__ */
+
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
@@ -1744,7 +1762,11 @@ header {
       .copyrights {
         color: $light-color;
         display: flex;
+        flex-wrap: wrap;
+        text-align: center;
         align-items: center;
+        justify-content: center;
+
 
         @media (max-width: 1024px) {
           text-align: center;
@@ -1934,7 +1956,7 @@ header {
           &::before {
             content: "";
             position: absolute;
-            left: -0.5rem;
+            right: -0.5rem;
             width: 1px;
             height: 100%;
             background: #dedede;
@@ -2569,6 +2591,7 @@ header {
   flex-direction: column;
   gap: 1.25rem;
   grid-gap: 1.25rem;
+  direction: rtl;
 
   p {
     margin-bottom: 0;
@@ -2585,6 +2608,7 @@ header {
       padding: 1rem;
       outline: none;
       color: $primary-color;
+      text-align: right;
 
       &::placeholder {
         color: $primary-color;
@@ -2847,3 +2871,16 @@ header {
 }
 
 /* ===[End Single Report]=== */
+
+/* ===[Start Responsive Datatable (Mobile)]=== */
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control,
+table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control {
+  padding-right: 2.5rem !important;
+  padding-left: 0.5rem !important;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
+  right: 10px !important;
+}
+
+/* ===[End Responsive Datatable (Mobile)]=== */
