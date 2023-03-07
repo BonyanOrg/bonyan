@@ -26,8 +26,8 @@
                 <!-- Form -->
                 <form id="login_form">
                     <div class="input-holder">
-                        <label for="user-email">Eamil</label>
-                        <input type="email" name="user-email" id="user_email">
+                        <label for="user-email">User Name Or Eamil</label>
+                        <input type="text" name="user-email" id="user_email">
                     </div>
 
                     <div class="input-holder">
