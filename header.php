@@ -37,6 +37,12 @@
 	<?php echo get_template_part('template-parts/donation-modal'); ?>
 	<!-- End Donation Modal -->
 
+	<!-- Start GiveWP Modal -->
+	<div id="givewp-modal" class="givewp-modal user-action-modal">
+		<!-- GiveWP Goes Here -->
+	</div>
+	<!-- End GiveWP Modal -->
+
 	<div id="page" class="site">
 		<header id="masthead" class="site-header">
 

@@ -589,17 +589,27 @@
     //=====[Give Donations Getter END]=====//
 
 
+    // NEW
+    $(".donation-btn").on('click', function(){
+        let form_id = $(this).attr("data-giveformid");
+        let amount = $(this).attr("data-amount");
+        let tag_name = $(this).attr("data-tagName");
+        let is_quick_donation = $(this).attr("data-isquickdonation");
 
+        if ((form_id == null || form_id == "") || (amount == null || amount == "") || (tag_name == null || tag_name == "")) {
+            toastr.warning("missing");
+            return;
+        }
+    });
 
-
-
+    // OLD
     $("#quick_donate_now_btn").on("click", function () {
         $("#give_form_container").remove();
         let form_id = $(this).attr("data-giveformid");
         let amount = $(this).attr("data-amount");
         let tag_name = $(this).attr("data-tagName");
         if ((form_id == null || form_id == "") || (amount == null || amount == "") || (tag_name == null || tag_name == "")) {
-            alert("missing")
+            toastr.warning("missing");
             return;
         }
         $.ajax({
