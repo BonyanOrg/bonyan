@@ -307,6 +307,7 @@
             url: ajax_script_object.ajaxurl,
             data: {
                 action: "custom_login",
+                nonce: ajax_script_object.nonce,
                 user_name: user_name,
                 user_password: user_password,
             },
@@ -326,16 +327,24 @@
 
     $("#registration_form").on("submit", function (e) {
         e.preventDefault();
-        $('input').blur();
+        // $('input').blur();
 
-        $(this).find('button').prop("disable", true);
-        let registration_user_name = $("#registration_user_name").val();
+        // $(this).find('button').prop("disable", true);
+        let registration_user_first_name = $("#registration_user_first_name").val();
+        let registration_user_last_name = $("#registration_user_last_name").val();
         let registration_user_email = $("#registration_user_email").val();
+        let registration_user_gender = document.querySelector('input[name="gender"]:checked').id;
+        let registration_user_age = $("#registration_user_age").val();
+        let registration_user_birth_date = $("#registration_user_birth_date").val();
         let registration_user_password = $("#registration_user_password").val();
         let registration_user_password_confirm = $("#registration_user_password_confirm").val();
         if (
-            registration_user_name == "" ||
+            registration_user_first_name == "" ||
+            registration_user_last_name == "" ||
             registration_user_email == "" ||
+            registration_user_gender == "" ||
+            registration_user_age == "" ||
+            registration_user_birth_date == "" ||
             registration_user_password == "" ||
             registration_user_password_confirm == ""
         ) {
@@ -355,8 +364,13 @@
             url: ajax_script_object.ajaxurl,
             data: {
                 action: "custom_registration",
-                registration_user_name: registration_user_name,
+                nonce: ajax_script_object.nonce,
+                registration_user_first_name: registration_user_first_name,
+                registration_user_last_name: registration_user_last_name,
                 registration_user_email: registration_user_email,
+                registration_user_gender: registration_user_gender,
+                registration_user_age: registration_user_age,
+                registration_user_birth_date: registration_user_birth_date,
                 registration_user_password: registration_user_password,
                 registration_user_password_confirm: registration_user_password_confirm,
             },

@@ -24,26 +24,26 @@
                 <h2 class="bonyan-title primary-color my-4">Sign Up</h2>
 
                 <!-- Form -->
-                <form action="" method="">
+                <form id="registration_form">
                     <div class="form-inputs-container">
                         <div class="input-holder">
                             <label for="first-name">First Name</label>
-                            <input type="text" name="first-name" id="first-name" placeholder="First Name">
+                            <input type="text" name="first-name" id="registration_user_first_name" placeholder="First Name">
                         </div>
 
                         <div class="input-holder">
                             <label for="last-name">Last Name</label>
-                            <input type="text" name="last-name" id="last-name" placeholder="Last Name">
+                            <input type="text" name="last-name" id="registration_user_last_name" placeholder="Last Name">
                         </div>
 
                         <div class="input-holder">
                             <label for="register-user-email">Eamil</label>
-                            <input type="email" name="register-user-email" id="register-user-email" placeholder="Email Address">
+                            <input type="email" name="register-user-email" id="registration_user_email" placeholder="Email Address">
                         </div>
 
                         <div class="input-holder">
                             <label for="user-age">Age</label>
-                            <input type="text" name="user-age" id="user-age" placeholder="Your Age" class="only-number">
+                            <input type="text" name="user-age" id="registration_user_age" placeholder="Your Age" class="only-number">
                         </div>
 
                         <div class="input-holder">
@@ -72,7 +72,7 @@
 
                         <div class="input-holder">
                             <label for="date-of-birth">Date of birth</label>
-                            <input type="date" name="date-of-birth" id="date-of-birth" max='2005-01-01'>
+                            <input type="date" name="date-of-birth" id="registration_user_birth_date" value="<?php echo date("Y-m-d") ?>" min='<?php echo date("Y-m-d", strtotime("-100 year")) ?>' max='<?php echo date("Y-m-d", strtotime("-18 year")) ?>'>
                         </div>
 
                         <div class="input-holder">
@@ -89,7 +89,7 @@
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </div>
 
-                                <input type="password" name="register-user-password" id="register-user-password" placeholder="Insert Password" class="pe-5">
+                                <input type="password" name="register-user-password" id="registration_user_password" placeholder="Insert Password" class="pe-5">
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </div>
 
-                                <input type="password" name="confirm-user-password" id="confirm-user-password" placeholder="Confirm Password" class="pe-5">
+                                <input type="password" name="confirm-user-password" id="registration_user_password_confirm" placeholder="Confirm Password" class="pe-5">
                             </div>
                         </div>
                     </div>
