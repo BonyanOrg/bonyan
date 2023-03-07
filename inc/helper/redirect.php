@@ -73,8 +73,8 @@ function set_referer_url()
 		if ($request == "login" || $request == "wp-login.php") { // if Login Page don't save at session
 			$is_Login = true;
 		}
-		if (str_contains($request, '.min') || str_contains($request, '.js') || str_contains($request, '.map')) {
-			$is_Script = true;
+		if (str_contains($request, '.min') || str_contains($request, '.js') || str_contains($request, '.css') || str_contains($request, '.map')) {
+			$is_Script = true; // Script Or Style
 		}
 		if (str_contains($request, '.png') || str_contains($request, '.jpg')) {
 			$is_image = true;
