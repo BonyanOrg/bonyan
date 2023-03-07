@@ -590,28 +590,19 @@
 
 
     // NEW
-    $(".donation-btn").on('click', function(){
-        let form_id = $(this).attr("data-giveformid");
-        let amount = $(this).attr("data-amount");
-        let tag_name = $(this).attr("data-tagName");
-        let is_quick_donation = $(this).attr("data-isquickdonation");
-
-        if ((form_id == null || form_id == "") || (amount == null || amount == "") || (tag_name == null || tag_name == "")) {
-            toastr.warning("missing");
-            return;
-        }
-    });
-
-    // OLD
-    $("#quick_donate_now_btn").on("click", function () {
+    $(".donation-btn").on('click', function () {
         $("#give_form_container").remove();
         let form_id = $(this).attr("data-giveformid");
         let amount = $(this).attr("data-amount");
         let tag_name = $(this).attr("data-tagName");
-        if ((form_id == null || form_id == "") || (amount == null || amount == "") || (tag_name == null || tag_name == "")) {
+        //let is_quick_donation = $(this).attr("data-isquickdonation");
+
+
+        if ((form_id == null || form_id == "")) {
             toastr.warning("missing");
             return;
         }
+
         $.ajax({
             dataType: "json",
             method: "POST",
@@ -619,7 +610,7 @@
             data: {
                 action: "show_donate_form",
                 nonce: ajax_script_object.nonce,
-                type: "quick_donation",
+                type: (tag_name != null) ? "quick_donation" : "",
                 form_id: form_id,
                 amount: amount,
                 charity_type: tag_name,
@@ -631,12 +622,13 @@
                 200: function (data) {
                     // $("#give_form_container").remove();
                     // $(".give-wp-container").append(`<div id="give_form_container"> ${data.give_form} </div>`);
-                    $("body").append(`<div id="give_form_container"> ${data.give_form} </div>`);
+                    $("#givewp-modal").append(`<div id="give_form_container"> ${data.give_form} </div>`);
 
                 },
             },
 
         });
+
     });
 
     $("#charity_select").on("change", function () {
