@@ -308,7 +308,8 @@
             toastr.warning(generalMsgs.fill_inputs);
             return;
         }
-
+        
+        $('.loader').css('display', 'flex');
 
         $.ajax({
             dataType: "json",

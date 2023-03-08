@@ -799,6 +799,7 @@ input {
   .user-action-form {
     padding-top: 2rem;
     width: 45%;
+    position: relative;
 
     @media (max-width: 992px) {
       padding-top: 0;
@@ -904,6 +905,8 @@ input {
 /* __Start Sign Up Modal (override General User Action Modal)__ */
 .signup-modal {
   .user-action-form {
+    position: relative;
+    
     form {
       .form-inputs-container {
         display: grid;
