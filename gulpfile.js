@@ -433,6 +433,30 @@ gulp.task('wpb-success-story-carousel-js', function () {
         .pipe(gulp.dest('./dist/js/components/wpb'));
 });
 
+//****************************************************
+// Partners Carousel
+//****************************************************
+gulp.task('wpb-partners-carousel-js', function () {
+    return gulp.src('./assets/js/components/wpb/partners-carousel.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('partners-carousel.min.js'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/js/components/wpb'));
+});
+
+//****************************************************
+// Campaigns Carousel
+//****************************************************
+gulp.task('wpb-campaigns-carousel-js', function () {
+    return gulp.src('./assets/js/components/wpb/campaigns-carousel.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('campaigns-carousel.min.js'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/js/components/wpb'));
+});
+
 //*************************************************************
 // ===================TASKS AUTOMATION=========================
 //*************************************************************
@@ -450,7 +474,7 @@ gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-pri
 //task for automate all scripts
 //****************************************************
 gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js', 'dashboard-js']));
-gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js', 'wpb-vacancies-js', 'wpb-tenders-js', 'wpb-success-story-carousel-js']));
+gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js', 'wpb-vacancies-js', 'wpb-tenders-js', 'wpb-success-story-carousel-js', 'wpb-partners-carousel-js', 'wpb-campaigns-carousel-js']));
 
 //****************************************************
 //task for watching file
