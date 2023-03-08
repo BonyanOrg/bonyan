@@ -58,10 +58,20 @@ if (!function_exists('partners_shortcode')) {
             </div>
         </section>
         <!-- End References -->
-        <script>
-            <?php //require_once(get_template_directory() . '/dist/js/components/wpb/quick-donation.min.js'); 
-            ?>
-        </script>
+        <?php  
+        //========[{ Enqueue Widget script }]========//
+        if (!function_exists('partners_register_script')) {
+            function partners_register_script()
+            {
+        ?>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+                <script>
+                    <?php require_once(get_template_directory() . '/dist/js/components/wpb/partners-carousel.min.js'); ?>
+                </script>
+        <?php
+            }
+            partners_register_script();
+        } ?>
 
 
 

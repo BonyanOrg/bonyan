@@ -84,6 +84,7 @@ if (!function_exists('news_slider_shortcode')) {
                         <?php
                             }
                         }
+                        wp_reset_query();
                         ?>
                     </div>
                     <div class="autoplay-progress-container">
@@ -105,7 +106,7 @@ if (!function_exists('news_slider_shortcode')) {
         ?>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
                 <script>
-                    <?php require_once(get_template_directory() . '/dist/js/home-sliders.min.js'); ?>
+                    <?php require_once(get_template_directory() . '/dist/js/components/wpb/primary-carousel.min.js'); ?>
                 </script>
         <?php
             }

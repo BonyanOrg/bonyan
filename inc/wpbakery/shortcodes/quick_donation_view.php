@@ -64,7 +64,7 @@ if (!function_exists('quick_donation_shortcode')) {
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        
+
                         <div class="quick-donation--amount-btns">
 
                             <?php foreach ($quick_donation_prices as $key => $price) { ?>
@@ -92,7 +92,7 @@ if (!function_exists('quick_donation_shortcode')) {
                         </div>
 
                         <div class="quick-donation--cta btn-with-animated-icon">
-                            <button id="quick_donate_now_btn"  class="user-action-btn primary-btn donation-btn no-border radius-15" data-target="givewp-modal" data-amount="66" data-giveformid="" data-tagName="00">
+                            <button id="quick_donate_now_btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> class="user-action-btn primary-btn donation-btn no-border radius-15" data-amount="66" data-giveformid="" data-tagName="00">
                                 <span><?php _e('Donate', 'bonyan'); ?></span>
                             </button>
                         </div>

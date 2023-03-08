@@ -4,6 +4,7 @@
         <div class="swiper-wrapper">
 
             <?php
+
             $args = array(
                 'post_type' => 'main_slider',
                 'post_status' => 'publish',
@@ -12,27 +13,26 @@
             $main_slider_posts = new WP_Query($args);
 
             if ($main_slider_posts->have_posts()) {
-                while ($main_slider_posts->have_posts()) {
-                    $main_slider_posts->the_post();
-                    $mad_give_form_id = get_post_meta($post->ID, "mad_give_form_id", true);
+                foreach($main_slider_posts->posts as $slider_post) {
+                    $mad_give_form_id = get_post_meta($slider_post->ID, "mad_give_form_id", true);
 
             ?>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_the_post_thumbnail_url() ?>" alt="Main Slider" loading="lazy">
+                        <img src="<?php echo get_the_post_thumbnail_url($slider_post->ID) ?>" alt="Main Slider" loading="lazy">
                         <div class="swiper-lazy-preloader"></div>
 
                         <div class="container">
                             <div class="slide-content">
 
                                 <div class="main-carousel-sub-container">
-                                    <span class="slide-title"><?php the_title() ?></span>
+                                    <span class="slide-title"><?php echo get_the_title($slider_post->ID) ?></span>
 
                                     <span class="slide-desc mt-4">
-                                        <p><?php echo esc_html(get_the_excerpt()); ?></p>
+                                        <p><?php echo esc_html(get_the_excerpt($slider_post->ID)); ?></p>
                                     </span>
 
                                     <div class="main-carousel-cta my-4">
-                                        <button id="donate_now_btn" data-form_id="<?php echo $mad_give_form_id ?? "" ?>" class="primary-btn primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
+                                        <button  data-giveformid="<?php echo $mad_give_form_id ?? "" ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> class="user-action-btn primary-btn donation-btn primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
                                             <strong><?php _e('Donate', 'bonyan'); ?></strong>
                                         </button>
                                         <!-- <a href="#" class="primary-btn"> More</a> -->
