@@ -14,6 +14,7 @@
             </div>
 
             <div class="user-action-form login-form">
+                <div class="loader"></div>
                 <!-- Login Back Button -->
                 <div class="back-btn">
                     <i class="fa-solid fa-arrow-left"></i>
