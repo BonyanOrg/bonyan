@@ -11,6 +11,12 @@ function show_donate_form()
 
     $form_id = $_POST['form_id'];
     $give_form =  do_shortcode('[give_form id="' . $form_id . '"]', true);
+    if ($give_form == "") {
+        wp_send_json([
+            'error_message' => "No form was found",
+        ], 400);
+        wp_die();
+    }
     if (isset($_POST['amount']) && empty($_POST['type'])) {
         $give_form = str_replace('?giveDonationFormInIframe=1', '?giveDonationFormInIframe=1&amount=' . $_POST['amount'], $give_form);
     }

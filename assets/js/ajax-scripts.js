@@ -595,11 +595,9 @@
         let form_id = $(this).attr("data-giveformid");
         let amount = $(this).attr("data-amount");
         let tag_name = $(this).attr("data-tagName");
-        //let is_quick_donation = $(this).attr("data-isquickdonation");
 
 
         if ((form_id == null || form_id == "")) {
-            toastr.warning("missing");
             return;
         }
 
@@ -612,11 +610,12 @@
                 nonce: ajax_script_object.nonce,
                 type: (tag_name != null) ? "quick_donation" : "",
                 form_id: form_id,
-                amount: amount,
+                amount: (amount != null) ? amount : 50,
                 charity_type: tag_name,
             },
             statusCode: {
                 400: function (data) {
+                    toastr.error(data.responseJSON.error_message);
 
                 },
                 200: function (data) {
