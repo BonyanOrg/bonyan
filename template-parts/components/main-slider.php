@@ -32,7 +32,7 @@
                                     </span>
 
                                     <div class="main-carousel-cta my-4">
-                                        <button  data-giveformid="<?php echo $mad_give_form_id ?? "" ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> class="user-action-btn primary-btn donation-btn primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
+                                        <button  data-giveformid="<?php echo $mad_give_form_id ?? "" ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
                                             <strong><?php _e('Donate', 'bonyan'); ?></strong>
                                         </button>
                                         <!-- <a href="#" class="primary-btn"> More</a> -->
