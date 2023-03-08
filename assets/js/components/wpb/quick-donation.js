@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         quickDonationPriceBtn.addEventListener('click', function () {
             
-            let quickDonationBtn = this.closest('.quick-donation--amount').querySelector('.donation-btn');
+            let quickDonationBtn = this.closest('.quick-donation--amount').querySelector('.donation-btn, .donation-action');
 
             document.querySelectorAll('.quick-donation-amount--item').forEach((qdp) => {
 
@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     quickDonationOtherBtns?.querySelector('input').addEventListener('input', function(e){
-        let quickDonationBtn = this.closest('.quick-donation--amount').querySelector('.donation-btn');
+        let quickDonationBtn = this.closest('.quick-donation--amount').querySelector('.donation-btn, .donation-action');
         
         this.setAttribute('title', `The price is: ${this.value}`);
 

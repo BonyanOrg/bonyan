@@ -58,7 +58,7 @@
 
 						<!-- Donate button -->
 						<div class="donation-button-holder hide-from-laptop-up as-block mx-3">
-							<a href="#" class="user-action-btn primary-btn donation-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo get_option('give_form_id') ?>" data-amount="<?php echo intval(get_option("default_donation_amount")); ?>">
+							<a href="#" class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo get_option('give_form_id') ?>" data-amount="<?php echo intval(get_option("default_donation_amount")); ?>">
 								<span>Donate Now</span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
 									<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
@@ -180,7 +180,7 @@
 							<div class="mobile-header-cta hide-from-ipad-down as-flex align-items-center">
 								<!-- Donate button -->
 								<div class="donation-button-holder me-3 my-2">
-									<a href="#" class="user-action-btn primary-btn donation-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>>
+									<a href="#" class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo get_option('give_form_id') ?>" data-amount="<?php echo intval(get_option("default_donation_amount")); ?>">
 										<span>Donate Now</span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
 											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
