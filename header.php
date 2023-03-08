@@ -91,7 +91,7 @@
 									</svg>
 								</button>
 							<?php else :
-								$user_profile_photo = ($user_profile_photo = get_user_meta(get_current_user_id(), 'user_profile_photo', true)) ? $user_profile_photo : 'https://via.placeholder.com/180x180';
+								$user_profile_photo = ($user_profile_photo = get_user_meta(get_current_user_id(), 'user_profile_photo', true)) ? $user_profile_photo : 'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg';
 							?>
 								<a href="<?php echo home_url('/dashboard'); ?>" class="secondary-outlined-btn logged-user-avatar">
 									<img data-src="<?php echo $user_profile_photo ?>" alt="User Avatar" class="lazyload">
