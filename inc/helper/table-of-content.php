@@ -43,7 +43,7 @@ function get_table_of_content($content)
     $currentDepth = 0;
     ob_start();
 ?>
-    <div class="toc mt-5 mt-lg-0" style="background-color: #fff; border: 1px solid #6D54A7; padding: 0.75rem 1rem; width: 500px; max-width: 100%; margin-bottom: 1rem;border-radius: 1rem;">
+    <div class="toc mt-3 mt-lg-5" style="background-color: #fff; border: 1px solid #6D54A7; padding: 0.75rem 1rem; width: 500px; max-width: 100%; margin-bottom: 1rem;border-radius: 1rem;">
         <style>
             .toc ol li:before {
                 content: counters(item, ".") " ";
