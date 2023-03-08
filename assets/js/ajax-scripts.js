@@ -20,7 +20,9 @@
                 successful_login: "تم تسجيل الدخول بنجاح",
                 successful_register: "تم تسجيل الدخول بنجاح",
                 fill_inputs: "الرجاء تعبئة جميع الحقول",
-                saved_successfully: "تم حفظ المعلومات بنجاح"
+                saved_successfully: "تم حفظ المعلومات بنجاح",
+                adding_to_fav: "جاري أضافة الحملة إلى المفضلة",
+                added_to_fav: "تمت أضافة الحملة إلى المفضلة بنجاح"
             }
             break;
 
@@ -43,7 +45,9 @@
                 successful_login: "Giriş başarıyla yapıldı",
                 successful_register: "Hesap başarıyla kaydedildi",
                 fill_inputs: "Lütfen alanları doldurun",
-                saved_successfully: "Bilgiler başarıyla kaydedildi"
+                saved_successfully: "Bilgiler başarıyla kaydedildi",
+                adding_to_fav: "",
+                added_to_fav: ""
             }
             break;
 
@@ -56,7 +60,11 @@
                 successful_login: "Logged in successfully",
                 successful_register: "Registered successfully",
                 fill_inputs: "Please fill the fields",
-                saved_successfully: "Information saved successfully"
+                saved_successfully: "Information saved successfully",
+                adding_to_fav: "Adding the campaign to favorites",
+                removing_from_fav: "Removing the campaign from favorites",
+                //added_to_fav: "Campaign added to favorites successfully",
+                //removed_from_fav: "Campaign removed from favorites successfully",
             }
         }
     }
@@ -65,33 +73,33 @@
 
 
 
-    $("#donate_now_btn").on("click", function () {
-        $("#give_form_container").remove();
-        let form_id = $(this).attr("data-form_id");
-        let amount = $(this).attr("data-amount");
-        $.ajax({
-            dataType: "json",
-            method: "POST",
-            url: ajax_script_object.ajaxurl,
-            data: {
-                action: "show_donate_form",
-                form_id: form_id,
-                amount: amount,
-            },
-            statusCode: {
-                400: function (data) {
+    // $("#donate_now_btn").on("click", function () {
+    //     $("#give_form_container").remove();
+    //     let form_id = $(this).attr("data-form_id");
+    //     let amount = $(this).attr("data-amount");
+    //     $.ajax({
+    //         dataType: "json",
+    //         method: "POST",
+    //         url: ajax_script_object.ajaxurl,
+    //         data: {
+    //             action: "show_donate_form",
+    //             form_id: form_id,
+    //             amount: amount,
+    //         },
+    //         statusCode: {
+    //             400: function (data) {
 
-                },
-                200: function (data) {
-                    // $("#give_form_container").remove();
-                    // $(".give-wp-container").append(`<div id="give_form_container"> ${data.give_form} </div>`);
-                    $("body").append(`<div id="give_form_container"> ${data.give_form} </div>`);
+    //             },
+    //             200: function (data) {
+    //                 // $("#give_form_container").remove();
+    //                 // $(".give-wp-container").append(`<div id="give_form_container"> ${data.give_form} </div>`);
+    //                 $("body").append(`<div id="give_form_container"> ${data.give_form} </div>`);
 
-                },
-            },
+    //             },
+    //         },
 
-        });
-    });
+    //     });
+    // });
 
     // ===== [[Add To Favorites START]]
     var keyPressTimeout, jqxhr = {
@@ -101,6 +109,11 @@
     addToFavBtns?.forEach((addToFavBtn) => {
 
         addToFavBtn.addEventListener('click', function () {
+            if (this.classList.contains("is-fav")) {
+                toastr.warning(generalMsgs.removing_from_fav);
+            } else {
+                toastr.warning(generalMsgs.adding_to_fav);
+            }
             this.classList.toggle("is-fav");
             let campaign_id = this.getAttribute('data-id');
             // AJax
@@ -123,7 +136,7 @@
 
                             },
                             200: function (data) {
-
+                                toastr.success("Processed successfully");
                             },
                         },
                     });
