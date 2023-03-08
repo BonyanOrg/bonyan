@@ -39,7 +39,7 @@
 
 	<!-- Start GiveWP Modal -->
 	<div id="givewp-modal" class="givewp-modal user-action-modal">
-		<!-- GiveWP Goes Here -->
+		
 	</div>
 	<!-- End GiveWP Modal -->
 

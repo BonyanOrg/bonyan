@@ -358,6 +358,18 @@ gulp.task('dashboard-js', function () {
 });
 
 //****************************************************
+// GiveWP iFrame Style
+//****************************************************
+gulp.task('givewp-css', function () {
+    return gulp.src('./assets/scss/givewp.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('givewp-iframes-styles.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css'));
+});
+
+//****************************************************
 // ===================WPB JS=========================
 //****************************************************
 
@@ -464,7 +476,7 @@ gulp.task('wpb-campaigns-carousel-js', function () {
 //****************************************************
 //task for automate all styles
 //****************************************************
-gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css', 'dashboard-css']));
+gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css', 'dashboard-css', 'givewp-css']));
 
 gulp.task('styles-rtl', gulp.parallel(['style-rtl']));
 

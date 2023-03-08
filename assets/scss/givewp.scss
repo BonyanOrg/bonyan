@@ -1,0 +1,53 @@
+/* ===[Start Modify the container]=== */
+.give-form-templates {
+    margin: 0;
+    min-height: unset;
+}
+/* ===[End Modify the container]=== */
+
+/* ===[Start Progress bar color]=== */
+.give-progress-bar > span {
+    background: linear-gradient(180deg, #b8a1ef 0%, #6d54a7 100%),
+        linear-gradient(180deg, #fff 0%, #ccc 100%) !important;
+}
+/* ===[End Progress bar color]=== */
+
+/* RTL */
+html[dir="rtl"] {
+    /* ===[Start (RTL)] */
+    .give-form-templates {
+        // FIx Wrapper
+        .give-form-wrap {
+            direction: ltr;
+        }
+
+        .give-section,
+        .give-form-navigator,
+        .form-footer {
+            direction: rtl;
+        }
+
+        form.give-form .form-row-one-third {
+          margin-right: 0 !important;
+        }
+
+        .give-donation-summary-section th {
+          text-align: right !important;
+        }
+
+        .give-donation-summary-section td:last-child, .give-donation-summary-section th:last-child {
+          text-align: left !important;
+        }
+
+        .payment fieldset p>i {
+          left: unset !important;
+          right: 14px !important;
+        }
+
+        // Fix Currency
+        .give-donation-levels-wrap > li {
+            direction: ltr;
+        }
+    }
+    /* ===[End (RTL)] */
+}
