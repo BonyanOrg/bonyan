@@ -102,53 +102,57 @@
     // });
 
     // ===== [[Add To Favorites START]]
-    var keyPressTimeout, jqxhr = {
-        abort: function () { }
-    };
-    let addToFavBtns = document.querySelectorAll('.add-to-fav');
-    addToFavBtns?.forEach((addToFavBtn) => {
+    function addEventlistenerToFavIcons() {
+        var keyPressTimeout, jqxhr = {
+            abort: function () { }
+        };
+        let addToFavBtns = document.querySelectorAll('.add-to-fav');
+        addToFavBtns?.forEach((addToFavBtn) => {
 
-        addToFavBtn.addEventListener('click', function () {
-            if (this.classList.contains("is-fav")) {
-                toastr.warning(generalMsgs.removing_from_fav);
-            } else {
-                toastr.warning(generalMsgs.adding_to_fav);
-            }
-            this.classList.toggle("is-fav");
-            let campaign_id = this.getAttribute('data-id');
-            // AJax
-            (function ($) {
-                jqxhr.abort();
-                clearTimeout(keyPressTimeout);
-                keyPressTimeout = setTimeout(function () {
-                    jqxhr = $.ajax({
-                        dataType: "json",
-                        method: "POST",
-                        url: ajax_script_object.ajaxurl,
-                        data: {
-                            action: "add_to_fav",
-                            nonce: ajax_script_object.nonce,
-                            user_id: ajax_script_object.user_id,
-                            campaign_id: campaign_id,
-                        },
-                        statusCode: {
-                            400: function (data) {
-
+            addToFavBtn.addEventListener('click', function () {
+                if (this.classList.contains("is-fav")) {
+                    toastr.warning(generalMsgs.removing_from_fav);
+                } else {
+                    toastr.warning(generalMsgs.adding_to_fav);
+                }
+                this.classList.toggle("is-fav");
+                let campaign_id = this.getAttribute('data-id');
+                // AJax
+                (function ($) {
+                    jqxhr.abort();
+                    clearTimeout(keyPressTimeout);
+                    keyPressTimeout = setTimeout(function () {
+                        jqxhr = $.ajax({
+                            dataType: "json",
+                            method: "POST",
+                            url: ajax_script_object.ajaxurl,
+                            data: {
+                                action: "add_to_fav",
+                                nonce: ajax_script_object.nonce,
+                                user_id: ajax_script_object.user_id,
+                                campaign_id: campaign_id,
                             },
-                            200: function (data) {
-                                toastr.success("Processed successfully");
+                            statusCode: {
+                                400: function (data) {
+
+                                },
+                                200: function (data) {
+                                    toastr.success("Processed successfully");
+                                },
                             },
-                        },
-                    });
-                }, 300);
+                        });
+                    }, 300);
 
-            })(jQuery);
+                })(jQuery);
 
 
+
+            });
 
         });
+    }
+    addEventlistenerToFavIcons();
 
-    });
 
 
     // ===== [[Add To Favorites END]]
@@ -308,7 +312,7 @@
             toastr.warning(generalMsgs.fill_inputs);
             return;
         }
-        
+
         $('.loader').css('display', 'flex');
 
         $.ajax({
@@ -686,6 +690,53 @@
         $("#quick_donate_now_btn").attr('data-giveformid', $(this).val());
 
     });
+
+    let ajaxSearchInput = document.getElementById('ajax-search-input');
+    // AJax
+    (function ($) {
+        var keyPressTimeout, jqxhr = {
+            abort: function () { }
+        };
+        if (ajaxSearchInput !== null) {
+            ajaxSearchInput.addEventListener('input', function () {
+                //var page = 2;
+                let taxonomyOfSearch = this.getAttribute('data-taxonomy');
+                let termOfSearch = this.getAttribute('data-term');
+                let CPTOfSearch = this.getAttribute('data-postType');
+                let searchWord = this.value;
+                $('.cards-container').empty();
+                $('.pagination').empty();
+                jqxhr.abort();
+                clearTimeout(keyPressTimeout);
+                keyPressTimeout = setTimeout(function () {
+                    jqxhr = $.ajax({
+                        dataType: "json",
+                        method: "POST",
+                        url: ajax_script_object.ajaxurl,
+                        data: {
+                            action: "get_search_result",
+                            nonce: ajax_script_object.nonce,
+                            //page: page,
+                            postType: CPTOfSearch,
+                            taxonomy: taxonomyOfSearch,
+                            term: termOfSearch,
+                            s: searchWord,
+                        },
+                        statusCode: {
+                            400: function (data) {
+
+                            },
+                            200: function (data) {
+                                $('.cards-container').append(data.HTML_Output);
+                                addEventlistenerToFavIcons();
+                            },
+                        },
+                    });
+                }, 300);
+
+            });
+        }
+    })(jQuery);
 
 
 
