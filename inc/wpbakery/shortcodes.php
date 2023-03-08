@@ -63,3 +63,6 @@ require_once "shortcodes/locations_view.php";
 
 /* Values Section  */
 require_once "shortcodes/bonyan_values_card_view.php";
+
+/* Report Card  */
+require_once "shortcodes/report_cards_view.php";

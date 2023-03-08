@@ -90,3 +90,6 @@ require_once "vcmaps/locations_map.php";
 
 /* Values Section  */
 require_once "vcmaps/bonyan_values_card_map.php";
+
+/* Report Card  */
+require_once "vcmaps/report_cards_map.php";
