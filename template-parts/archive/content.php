@@ -24,7 +24,7 @@ $queried_object = get_queried_object();
                     the_post();
 
                 ?>
-                    <?php get_template_part('template-parts/components/cards/content', $post->post_type); ?>
+                    <?php get_template_part('template-parts/cards/content', $post->post_type); ?>
 
 
             <?php
