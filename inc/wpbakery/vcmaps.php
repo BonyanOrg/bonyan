@@ -93,3 +93,6 @@ require_once "vcmaps/bonyan_values_card_map.php";
 
 /* Report Card  */
 require_once "vcmaps/report_cards_map.php";
+
+/* Boarder Of Trustees  */
+require_once "vcmaps/board_of_trustees_map.php";
