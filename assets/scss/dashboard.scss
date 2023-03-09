@@ -363,6 +363,9 @@
   }
 
   .dashboard-datatable {
+    span {
+      border-radius: $radius-19;
+    }
     span.publish {
       background: rgba($primary-color, 0.2);
       color: $primary-color;
@@ -422,6 +425,21 @@ html[dir="rtl"] {
       .paginate_button{
         &:not(.current) {
           transform: rotateY(180deg);
+        }
+      }
+    }
+    // /Datatables
+
+    .dashboard-tab-content {
+      .tab-content-title {
+        h3 {
+          padding-left: 0;
+          padding-right: 1.5rem;
+
+          &::before {
+            left: unset;
+            right: 0;
+          }
         }
       }
     }

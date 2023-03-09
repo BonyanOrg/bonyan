@@ -61,8 +61,8 @@
                 successful_register: "Registered successfully",
                 fill_inputs: "Please fill the fields",
                 saved_successfully: "Information saved successfully",
-                adding_to_fav: "Adding the campaign to favorites",
-                removing_from_fav: "Removing the campaign from favorites",
+                adding_to_fav: "Adding the campaign to favorites...",
+                removing_from_fav: "Removing the campaign from favorites...",
             }
         }
     }
@@ -77,9 +77,9 @@
 
             addToFavBtn.addEventListener('click', function () {
                 if (this.classList.contains("is-fav")) {
-                    toastr.warning(generalMsgs.removing_from_fav);
+                    toastr.info(generalMsgs.removing_from_fav);
                 } else {
-                    toastr.warning(generalMsgs.adding_to_fav);
+                    toastr.info(generalMsgs.adding_to_fav);
                 }
                 this.classList.toggle("is-fav");
                 let campaign_id = this.getAttribute('data-id');
@@ -103,7 +103,7 @@
 
                                 },
                                 200: function (data) {
-                                    toastr.success("Processed successfully");
+                                    toastr.success("Processed Successfully");
                                 },
                             },
                         });
