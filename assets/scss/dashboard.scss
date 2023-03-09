@@ -399,7 +399,6 @@
     td {
       box-shadow: none !important;
       font-size: 1.25em;
-      font-weight: bold;
       padding: 0.75rem 0;
 
       @media (max-width: 992px) {
@@ -411,6 +410,19 @@
       & > span {
         padding: 0.5rem 1rem;
         display: inline-flex;
+      }
+    }
+  }
+}
+
+html[dir="rtl"] {
+  .dashboard {
+    // Datatables
+    .dataTables_paginate {
+      .paginate_button{
+        &:not(.current) {
+          transform: rotateY(180deg);
+        }
       }
     }
   }

@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     for (let dashboardTab of dashboardTabs) {
 
-        dashboardTab.addEventListener('click', function () {
+        dashboardTab.addEventListener('click', function () {            
 
             // Remove the active class from all tabs
             dashboardTabs.forEach((dt) => {
@@ -19,10 +19,16 @@ window.addEventListener('DOMContentLoaded', function () {
 
             // Store the value of the clicked tab to link it with the ID of the content
             let tabToBeActive = activeTab.getAttribute('data-target');
+            
 
             // Remove The active-tab-content class from all contents and add it to the active one
             dashboardTabsContents.forEach(dtc => { dtc.classList.remove('active-tab-content') });
             document.getElementById(tabToBeActive).classList.add('active-tab-content');
+
+            let loaders = document.querySelectorAll('.dashboard-tab-content:not(.active-tab-content) .loader');
+            loaders.forEach((loader) => {
+                loader.style.display = 'none';
+            });
 
         });
 
