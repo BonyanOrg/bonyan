@@ -139,6 +139,13 @@ function bonyan_scripts()
 
 add_action('wp_enqueue_scripts', 'bonyan_scripts');
 
+function load_admin_dashboard_assets()
+{
+    wp_enqueue_style('select2-css', get_stylesheet_directory_uri() . '/dist/css/select2.min.css', '', true);
+    wp_enqueue_script('select2-js', get_stylesheet_directory_uri() . '/dist/js/select2.min.js', array('jquery'), '', true);
+}
+add_action('admin_enqueue_scripts', 'load_admin_dashboard_assets');
+
 /**
  * Add RTL support to stylesheets
  *

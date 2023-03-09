@@ -32,7 +32,7 @@ function posts_slider_vc()
 			array(
 				"type"			=> "checkbox",
 				"admin_label"	=> false,
-				"heading"		=> esc_html__("Is First Button Is Donation Button", 'text_DOMAIN'),
+				"heading"		=> esc_html__("Is Stroy Slider", 'text_DOMAIN'),
 				"param_name"	=> "posts_slider_is_story",
 				"value"			=> "",
 				"description"	=> esc_html__("Type a description to show under the section title.", 'text_DOMAIN'),

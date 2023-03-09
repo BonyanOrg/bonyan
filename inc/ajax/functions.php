@@ -46,6 +46,11 @@ require __DIR__ . '/add-to-fav.php';
 //=====================================
 require __DIR__ . '/get-search-result.php';
 
+//=====================================
+//    Ajax Campaign Select2 Search
+//=====================================
+require __DIR__ . '/get-campaigns-by-name.php';
+
 
 
 

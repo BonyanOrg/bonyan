@@ -24,6 +24,10 @@ function Init_Campaign_Options($post)
             width: 350px;
             margin-left: 30px;
         }
+
+        .select-campaign {
+            width: 350px;
+        }
     </style>
 
     <table class="co_table">
@@ -40,7 +44,16 @@ function Init_Campaign_Options($post)
                 <th>
                     <label for="co_give_form_id">Give Form Id</label>
                 </th>
-                <td><input type="number" name="co_give_form_id" id="co_give_form_id" value="<?php echo $co_give_form_id; ?>"></td>
+                <td>
+
+                    <!-- <input type="number" name="co_give_form_id" id="co_give_form_id" class="select-campaign" value="<?php // echo $co_give_form_id; 
+                                                                                                                            ?>"> -->
+                    <select name="co_give_form_id" id="co_give_form_id" class="select-campaign">
+                        <?php if (!empty($co_give_form_id)) : ?>
+                            <option value="<?php echo $co_give_form_id; ?>" selected="selected"><?php echo get_the_title($co_give_form_id); ?></option>
+                        <?php endif; ?>
+                    </select>
+                </td>
             </tr>
 
             <tr class="form-field">
@@ -69,6 +82,45 @@ function Init_Campaign_Options($post)
             </tr>
         </tbody>
     </table>
+
+    <script>
+        (function($) {
+            // init select2
+            $(document).ready(function() {
+                // Init select2
+                $('.select-campaign').select2({
+                    minimumInputLength: 3,
+                    language: "ar",
+                    cache: true,
+
+                    dir: (isRtl) ? 'rtl' : 'ltr',
+                    language: {
+                        noMatches: () => ("لايوجد نتائج"),
+                        noResults: () => ("لم يتم العثور على نتائج"),
+                        inputTooShort: () => ("اكتب 3 أحرف على الأقل")
+                    },
+                    ajax: {
+                        url: ajaxurl,
+                        type: 'POST',
+                        // dataType: 'json',
+                        data: function(term) {
+                            return {
+                                action: 'get_campaigns_by_name',
+                                term: term.term,
+                            };
+                        },
+                        processResults: function(data) {
+                            // Transforms the top-level key of the response object from 'items' to 'results'
+                            console.log(data);
+                            return {
+                                results: data.campaigns
+                            };
+                        }
+                    },
+                });
+            });
+        }(jQuery));
+    </script>
 
 <?php
 }
