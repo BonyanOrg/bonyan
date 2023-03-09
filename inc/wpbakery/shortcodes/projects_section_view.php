@@ -51,7 +51,7 @@ if (!function_exists('projects_section_shortcode')) {
                         $projects_Posts->the_post();
 
                 ?>
-                                    <?php get_template_part('template-parts/cards/content', 'project') ?>
+                                    <?php get_template_part('template-parts/cards/content', 'projects') ?>
                 
 
                 <?php

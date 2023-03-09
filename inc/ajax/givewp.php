@@ -64,7 +64,7 @@ function give_populate_amount($form_id, $args)
                     .focus()
                     .trigger('blur');
             }
-            if (getdescription !== null && getdescription !== '') {
+            if (getdescription !== null && getdescription !== '' && getdescription !== false ) {
                 $('#give-comment')
                     .val(decodeURI(getdescription))
                     .focus()
