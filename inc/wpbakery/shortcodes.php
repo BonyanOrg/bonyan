@@ -66,3 +66,6 @@ require_once "shortcodes/bonyan_values_card_view.php";
 
 /* Report Card  */
 require_once "shortcodes/report_cards_view.php";
+
+/* Boarder Of Trustees  */
+require_once "shortcodes/board_of_trustees_view.php";
