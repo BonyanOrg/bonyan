@@ -83,7 +83,11 @@ if (!function_exists('vacancies_datatable_shortcode')) {
                                 $is_urgent = (!empty($vd_is_urgent) && $vd_is_urgent == "yes") ? 'true' : 'false';
                         ?>
                                 <tr isactive="<?php echo $is_active ?>" isurgent="<?php echo $is_urgent  ?>">
-                                    <td><a href="<?php echo get_permalink(get_the_ID()) ?>"> <?php the_title() ?><span class="urgent">Urgent</span></a></td>
+                                    <td>
+                                        <?php echo $is_active == "true" ? "" : "<s>"; ?>
+                                        <a href="<?php echo get_permalink(get_the_ID()) ?>"> <?php the_title() ?><span class="urgent">Urgent</span></a>
+                                        <?php echo $is_active == "true" ? "" : "<s>"; ?>
+                                    </td>
                                     <td><?php echo $is_active == "true" ? __('Active', 'bonyan') : __('Inactive', 'bonyan'); ?></td>
                                     <td><?php echo $end_date ?></td>
                                     <td><?php echo $vd_department ?></td>
