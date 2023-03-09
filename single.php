@@ -19,6 +19,7 @@ get_header();
 			$give_form_id = get_post_meta(get_the_ID(), "co_give_form_id", true);
 			if (!empty($give_form_id)) {
 				echo do_shortcode('[give_form id="' . $give_form_id . '"]', true);
+				//echo do_shortcode('[give_donor_wall form_id="' . $give_form_id . '"]');
 			}
 		} ?>
 			<?php the_content(); ?>
