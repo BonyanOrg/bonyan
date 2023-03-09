@@ -229,13 +229,11 @@ $instagram_url = ($instagram_url = get_user_meta($userdata->ID, 'instagram_url',
             </div>
             <!-- End Donation content -->
 
-            <!-- Start Favorite Campaigns Content -->
+            <!-- Start Favourite Campaigns Content -->
             <div class="dashboard-tab-content" id="favorite-campaigns">
                 <div class="tab-content-title">
                     <h3><?php _e('Favorite Campaigns', 'bonyan'); ?></h3>
                 </div>
-
-                <div class="loader cards-container"></div>
 
                 <div class="cards-container">
                     <?php
