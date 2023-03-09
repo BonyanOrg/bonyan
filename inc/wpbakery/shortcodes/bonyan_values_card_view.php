@@ -34,19 +34,19 @@ if (!function_exists('bonyan_values_card_shortcode')) {
             <?php if (!empty($bonyan_values_card_title)) : ?>
                 <!-- Background Title Description Widget for (values) -->
                 <div class="container">
-                    <h2 class="bonyan-title primary-color mb-3 mb-lg-5 text-center text-xl-start">Values</h2>
+                    <h2 class="bonyan-title primary-color mb-3 mb-lg-5 text-center text-xl-start"><?php echo $bonyan_values_card_title; ?></h2>
                 </div>
 
             <?php endif; ?>
+            <div class="container">
+                <div class="bg-title-desc-helper">
 
-            <div class="bg-title-desc-helper">
+                    <?php
 
-                <?php
+                    foreach ($bonyan_values_card_items as $card) {
+                    ?>
 
-                foreach ($bonyan_values_card_items as $card) {
-                ?>
 
-                    <div class="container">
                         <div class="bg-title-desc">
                             <!-- Image as Background -->
                             <div class="icon-title-desc-item bg-item">
@@ -65,7 +65,7 @@ if (!function_exists('bonyan_values_card_shortcode')) {
                         </div>
 
                     <?php } ?>
-                    </div>
+                </div>
             </div>
         </div>
 

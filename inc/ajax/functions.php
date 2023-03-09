@@ -41,6 +41,11 @@ require __DIR__ . '/get-campaign-by-tag-id.php';
 //=====================================
 require __DIR__ . '/add-to-fav.php';
 
+//=====================================
+//    Ajax Search
+//=====================================
+require __DIR__ . '/get-search-result.php';
+
 
 
 
