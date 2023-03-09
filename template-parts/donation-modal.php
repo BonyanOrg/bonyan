@@ -21,7 +21,7 @@
                 </div>
 
                 <!-- Title -->
-                <h2 class="bonyan-title primary-color my-4">To add this campaign to your wishlist, please log in or continue as a guest</h2>
+                <h2 class="bonyan-title donation-modal-title primary-color my-4">To add this campaign to your wishlist, please log in or continue as a guest</h2>
 
                 <!-- Login Button -->
                 <button class="secondary-btn py-3 px-4 w-100 border-0 user-action-btn mt-2" data-target="login-modal"><strong>Log in</strong></button>

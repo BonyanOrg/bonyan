@@ -7,7 +7,7 @@ jQuery(document).ready(function ($) {
     if (windowWidth <= 992) {
         isResponsive = true;
     }
-    
+
     // For Arabic Datatable
     let arLang;
 
@@ -39,8 +39,8 @@ jQuery(document).ready(function ($) {
             "language": {
                 ...arLang,
                 paginate: {
-                    "next": "<div>Next</div>",
-                    "previous": "<div>Prev</div>"
+                    "next": "<div><i class='fa-solid fa-arrow-right'></i></div>",
+                    "previous": "<div><i class='fa-solid fa-arrow-left'></i></div>"
                 }
             }
         });
@@ -50,7 +50,7 @@ jQuery(document).ready(function ($) {
         }, 500);
 
         // Custom Search
-        $('.custom-datatable-search').keyup(function(){
+        $('.custom-datatable-search').keyup(function () {
             tendersDatatable.search($(this).val()).draw();
         });
     }

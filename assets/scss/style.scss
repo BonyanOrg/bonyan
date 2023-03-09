@@ -3,6 +3,22 @@
 /* ===[Start Global]=== */
 * {
   box-sizing: border-box;
+  scrollbar-color: $primary-color $light-color;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track-piece  {
+    background-color: $light-color;
+}
+
+*::-webkit-scrollbar-thumb {
+    height: 30px;
+    background-color: $secondary-color;
 }
 
 body {
@@ -898,6 +914,16 @@ input {
       }
     }
   }
+
+  // Sepcific for donation modal
+  .donation-modal-title {
+    font-size: 32px;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+  }
+  // /Sepcific for donation modal
 }
 
 /* __End General User Action Modal__ */
@@ -1099,7 +1125,17 @@ input {
     margin-bottom: 0;
   }
 }
-/* --End All Datatables__ */
+/* __End All Datatables__ */
+
+/* __Start File Card__ */
+div:not(.cards-container) {
+  & > .file-card {
+    max-width: 350px;
+    width: 100%;
+    margin-left: auto;
+  }
+}
+/* __End File Card__ */
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */

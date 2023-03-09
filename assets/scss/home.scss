@@ -40,8 +40,11 @@
     }
 
     @media (max-width: 1199px) {
-      align-items: flex-end;
       padding-bottom: 3rem;
+    }
+
+    @media (max-width: 1024px) {
+      align-items: flex-end;
     }
 
     img {
@@ -111,12 +114,18 @@
 
       .main-carousel-cta {
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
         grid-gap: 1rem;
 
         button,
         a {
-          padding: 0.5rem 1rem;
+          padding: 0.75rem 1.25rem !important;
+          font-size: 24px;
+
+          @media (max-width: 1024px) {
+            font-size: 20px;
+          }
         }
       }
     }
