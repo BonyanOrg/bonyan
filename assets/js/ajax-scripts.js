@@ -103,7 +103,7 @@
 
                                 },
                                 200: function (data) {
-                                    toastr.success("Processed Successfully");
+                                    toastr.success(data.message);
                                 },
                             },
                         });
