@@ -33,7 +33,7 @@ $taxonomy_name = $queried_object->taxonomy;
                         $PDF_file_url = wp_get_attachment_url($PDF_file);
                         ?>
                         <a href="<?php echo $PDF_file_url ?>" class="reversed-primary-btn preview-file">Preview</a>
-                        <a href="<?php echo $PDF_file_url ?>" class="primary-btn download-file">Download the file</a>
+                        <a href="<?php echo $PDF_file_url ?>" target="_blank" download class="primary-btn download-file">Download the file</a>
                     </div>
                 </div>
             </div>
