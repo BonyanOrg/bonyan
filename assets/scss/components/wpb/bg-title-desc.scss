@@ -1,8 +1,6 @@
 @import "../../variables";
 
 .bg-title-desc-container {
-    background: rgba(#d1d3d4, 0.5);
-
     .bg-title-desc-helper {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
