@@ -636,6 +636,7 @@ input {
   h5:not(.custom-widget h5):not(h5.custom-widget),
   h6:not(.custom-widget h6):not(h6.custom-widget) {
     margin: 1rem 0 0.75rem;
+    font-weight: bold;
     color: $primary-color;
   }
 
