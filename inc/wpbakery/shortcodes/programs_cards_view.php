@@ -44,6 +44,7 @@ if (!function_exists('programs_cards_shortcode')) {
                     <h3>More about the programs</h3>
                 </div>
 
+
                 <div class="program-btn">
                     <a href="<?php echo  $a_href ?>" class="primary-btn">More</a>
                 </div>
@@ -92,6 +93,9 @@ if (!function_exists('program_card_shortcode')) {
 
             <div class="program-title">
                 <h3><?php echo $programs_cards_text ?></h3>
+            </div>
+            <div class="program-desc">
+                <p> <?php echo $content ?> </p>
             </div>
         </a>
 
