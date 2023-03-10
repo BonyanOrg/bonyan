@@ -56,8 +56,8 @@ if (is_user_logged_in()) {
                         </svg>
 
                         <span>
-                            <?php echo $days != 0 ? $days . __(" Days Left ", 'bonyan') : ""; ?>
-                            <?php echo $hours != 0 ?  $days != 0 ? $hours . __(" Hour", 'bonyan') : $hours . __(" Hour left", 'bonyan') : ""; ?>
+                            <?php echo $days > 0 ? $days % 2 != 0 ? $days . __(" Day Left ", 'bonyan') : $days . __(" Days Left ", 'bonyan') : ""; ?>
+                            <?php echo $hours != 0 ?  $days > 0 ? $hours . __(" Hour", 'bonyan') : $hours . __(" Hour left", 'bonyan') : ""; ?>
                         </span>
                     </div>
             <?php
