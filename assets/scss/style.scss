@@ -1293,6 +1293,10 @@ header {
     background: $light-color;
     box-shadow: 0 13px 10px $shadow-color;
 
+    @media (min-width: 1025px) and (max-width: 1400px) {
+      padding: 0.75rem 0;
+    }
+
     .top-header-helper {
       display: flex;
       align-items: center;
@@ -1303,6 +1307,10 @@ header {
           max-width: 233.66px;
           width: 100%;
           object-fit: contain;
+
+          @media (min-width: 1025px) and (max-width: 1400px) {
+            height: 80px;
+          }
         }
       }
 
@@ -1391,6 +1399,11 @@ header {
             font-weight: bold;
             font-size: 18px;
             padding: 0.75rem;
+
+            @media (min-width: 1025px) and (max-width: 1199px) {
+              padding: 0.5rem 0.25rem;
+              font-size: 16px;
+            }
           }
         }
 
