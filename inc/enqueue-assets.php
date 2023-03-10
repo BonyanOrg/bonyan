@@ -11,20 +11,25 @@ function bonyan_scripts()
     wp_enqueue_style('bonyan-bootstrap-style', get_template_directory_uri() . "/dist/css/bootstrap.min.css", array(), $GLOBALS['bonyan_version']);
 
     // Swiper Style
-    wp_enqueue_style('bonyan-swiper-carousel-style', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.4/swiper-bundle.min.css', array());
+    // wp_enqueue_style('bonyan-swiper-carousel-style', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.4/swiper-bundle.min.css', array());
+    wp_enqueue_style('bonyan-swiper-carousel-style',  get_template_directory_uri() . "/dist/css/cdn/swiper-bundle.min.css", array());
 
     // Roboto Font Family
     wp_enqueue_style('bonyan-en-font', 'https://fonts.googleapis.com/css2?family=Cairo:wght@800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet', array());
 
     // Fontawesome Style
     wp_enqueue_style('bonyan-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css', array());
+    //wp_enqueue_style('bonyan-fontawesome', get_template_directory_uri() . "/dist/css/cdn/all.min.css", array());
 
     // Toastr Style
-    wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
+    // wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
+    wp_enqueue_style('bonyan-toastr', get_template_directory_uri() . "/dist/css/cdn/toastr.min.css", array());
 
     // Datatable Style
-    wp_enqueue_style('bonyan-datatable-css', 'https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css', array());
-    wp_enqueue_style('bonyan-datatable-responsive-css', 'https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css', array());
+    // wp_enqueue_style('bonyan-datatable-css', 'https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css', array());
+    // wp_enqueue_style('bonyan-datatable-responsive-css', 'https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css', array());
+    wp_enqueue_style('bonyan-datatable-css', get_template_directory_uri() . "/dist/css/cdn/jquery.dataTables.min.css", array());
+    wp_enqueue_style('bonyan-datatable-responsive-css', get_template_directory_uri() . "/dist/css/cdn/responsive.dataTables.min.css", array());
 
     // Global Datatable custom style
     wp_enqueue_style('bonyan-global-datatable-style', get_template_directory_uri() . "/dist/css/global-datatable.min.css", array('bonyan-datatable-css', 'bonyan-datatable-responsive-css'), $GLOBALS['bonyan_version']);
@@ -87,14 +92,18 @@ function bonyan_scripts()
     wp_enqueue_style('bonyan-trustee-card-style', get_template_directory_uri() . "/dist/css/components/wpb/trustee-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // __Scripts__
-    wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
+    // wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
+    wp_enqueue_script('bonyan-toastr-script', get_template_directory_uri() . "/dist/js/cdn/toastr.min.js", array('jquery'), false, true);
 
     // Datatable Scripts 
-    wp_enqueue_script('bonyan-datatable-js', 'https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js', array(), false, true);
-    wp_enqueue_script('bonyan-datatable-responsive-js', 'https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js', array(), false, true);
+    // wp_enqueue_script('bonyan-datatable-js', 'https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js', array(), false, true);
+    // wp_enqueue_script('bonyan-datatable-responsive-js', 'https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js', array(), false, true);
+    wp_enqueue_script('bonyan-datatable-js', get_template_directory_uri() . "/dist/js/cdn/jquery.dataTables.min.js", array(), false, true);
+    wp_enqueue_script('bonyan-datatable-responsive-js', get_template_directory_uri() . "/dist/js/cdn/dataTables.responsive.min.js", array(), false, true);
 
     // Used in: [Home page]
-    wp_enqueue_script('bonyan-swiper-carousel-script', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.4/swiper-bundle.min.js', array(), false, true);
+    // wp_enqueue_script('bonyan-swiper-carousel-script', 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.0.4/swiper-bundle.min.js', array(), false, true);
+    wp_enqueue_script('bonyan-swiper-carousel-script', get_template_directory_uri() . "/dist/js/cdn/swiper-bundle.min.js", array(), false, true);
 
     wp_enqueue_script('bonyan-script', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), $GLOBALS['bonyan_version'], true);
 
