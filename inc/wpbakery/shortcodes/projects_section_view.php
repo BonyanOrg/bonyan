@@ -41,7 +41,7 @@ if (!function_exists('projects_section_shortcode')) {
                         array(
                             "taxonomy" => 'projects-categories',
                             'field'    => 'slug',
-                            'terms'    => $projects_categories,
+                            'terms'    => !empty($projects_categories) ? $projects_categories : 6,
                         ),
                     ),
                 );
@@ -51,8 +51,8 @@ if (!function_exists('projects_section_shortcode')) {
                         $projects_Posts->the_post();
 
                 ?>
-                                    <?php get_template_part('template-parts/cards/content', 'projects') ?>
-                
+                        <?php get_template_part('template-parts/cards/content', 'projects') ?>
+
 
                 <?php
 

@@ -6,7 +6,7 @@
     <h3 class="success-title primary-color"><strong><?php the_title(); ?></strong></h3>
 
     <p class="success-desc">
-        <?php the_excerpt() ?>
+        <?php echo get_the_excerpt() ?>
     </p>
 
     <div class="success-more">

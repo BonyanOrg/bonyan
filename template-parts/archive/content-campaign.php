@@ -18,7 +18,7 @@ $taxonomy_name = $queried_object->taxonomies[1];
 							array(
 								'taxonomy' => $taxonomy_name,
 								'field' => 'slug',
-								'terms' => "urgent-campaigns",
+								'terms' => "urgent-appeals",
 							)
 						),
 					);

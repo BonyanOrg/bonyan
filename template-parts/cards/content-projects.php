@@ -11,6 +11,8 @@
 
     <!-- Project Description -->
     <div class="project-desc">
-        <p><?php the_excerpt() ?></p>
+        <p>
+            <?php echo get_the_excerpt() ?>
+        </p>
     </div>
 </a>

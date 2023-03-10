@@ -6,7 +6,7 @@
     <h3 class="blog-title primary-color"><strong><?php the_title(); ?></strong></h3>
 
     <p class="blog-desc">
-        <?php the_excerpt() ?>
+        <?php echo get_the_excerpt() ?>
     </p>
 
     <div class="blog-more">

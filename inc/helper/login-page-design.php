@@ -137,6 +137,9 @@ function my_login_logo()
             border-radius: 10px !important;
             margin-bottom: 1rem !important;
         }
+        .wpml-login-ls {
+            display: none !important;
+        }
     </style>
     <?php wp_enqueue_script('custom-login', get_stylesheet_directory_uri() . '/dist/js/style-login.js', array(), 1, true); ?>
 <?php }
