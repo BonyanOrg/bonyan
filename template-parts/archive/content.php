@@ -2,16 +2,18 @@
 
 
 $queried_object = get_queried_object();
-
+$taxonomy_name = $queried_object->taxonomy;
 ?>
 
 
 <section class="blogs-section">
     <div class="container">
-        <div class="input-holder search my-3">
+    <?php get_template_part('template-parts/search-terms-header', null, array("taxonomy_name" => $taxonomy_name, 'archive' => true)); ?>
+
+        <!-- <div class="input-holder search my-3">
             <?php get_search_form() ?>
 
-        </div>
+        </div> -->
 
         <div class="cards-container">
 
