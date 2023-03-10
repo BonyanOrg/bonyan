@@ -646,46 +646,49 @@
     //=====[Give Donations Getter END]=====//
 
 
-    // NEW
-    $(".donation-btn").on('click', function () {
-        $("#give_form_container").remove();
-        let form_id = $(this).attr("data-giveformid");
-        let amount = $(this).attr("data-amount");
-        let tag_name = $(this).attr("data-tagName");
+    // Show Give From From Ajax
+    function giveWpGetter() {
+        $(".donation-btn").on('click', function () {
+            $("#give_form_container").remove();
+            let form_id = $(this).attr("data-giveformid");
+            let amount = $(this).attr("data-amount");
+            let tag_name = $(this).attr("data-tagName");
 
 
-        if ((form_id == null || form_id == "")) {
-            return;
-        }
+            if ((form_id == null || form_id == "")) {
+                return;
+            }
 
-        $.ajax({
-            dataType: "json",
-            method: "POST",
-            url: ajax_script_object.ajaxurl,
-            data: {
-                action: "show_donate_form",
-                nonce: ajax_script_object.nonce,
-                type: (tag_name != null) ? "quick_donation" : "",
-                form_id: form_id,
-                amount: (amount != null) ? amount : 50,
-                charity_type: tag_name,
-            },
-            statusCode: {
-                400: function (data) {
-                    toastr.error(data.responseJSON.error_message);
-
+            $.ajax({
+                dataType: "json",
+                method: "POST",
+                url: ajax_script_object.ajaxurl,
+                data: {
+                    action: "show_donate_form",
+                    nonce: ajax_script_object.nonce,
+                    type: (tag_name != 'null') ? "quick_donation" : "",
+                    form_id: form_id,
+                    amount: (amount != null) ? amount : 50,
+                    charity_type: tag_name,
                 },
-                200: function (data) {
-                    // $("#give_form_container").remove();
-                    // $(".give-wp-container").append(`<div id="give_form_container"> ${data.give_form} </div>`);
-                    $("#givewp-modal").append(`<div id="give_form_container"> ${data.give_form} </div>`);
+                statusCode: {
+                    400: function (data) {
+                        toastr.error(data.responseJSON.error_message);
 
+                    },
+                    200: function (data) {
+                        // $("#give_form_container").remove();
+                        // $(".give-wp-container").append(`<div id="give_form_container"> ${data.give_form} </div>`);
+                        $("#givewp-modal").append(`<div id="give_form_container"> ${data.give_form} </div>`);
+
+                    },
                 },
-            },
+
+            });
 
         });
-
-    });
+    }
+    giveWpGetter();
 
     $("#charity_select").on("change", function () {
         if ($(this).val() == "") {
@@ -771,9 +774,14 @@
                             },
                             200: function (data) {
                                 $('.cards-container').append(data.HTML_Output);
-                                addEventlistenerToFavIcons();
                                 $('.loader').remove();
                                 $('.cards-container').css('padding', '0');
+                                addEventlistenerToFavIcons();
+                                console.log(ajax_script_object.user_id);
+                                if (ajax_script_object.user_id != '') { // if user logged in
+                                    giveWpGetter();
+                                }
+
                                 handleModals();
                             },
                         },
