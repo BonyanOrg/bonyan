@@ -57,114 +57,79 @@ window.addEventListener('DOMContentLoaded', function () {
     /* ___End Toggle Show/Hide Password___ */
 
     /* ___Start Handle Modal___ */
-    let modalBtns = document.querySelectorAll('.user-action-btn');
+    function handleModals() {
+        let modalBtns = document.querySelectorAll('.user-action-btn');
 
-    if (modalBtns !== null) {
-        let targetedModalName;
-        let targetedModal;
-        let giveFormId;
-        let amount;
-        let charityTagName;
-
-        modalBtns.forEach((modalBtn) => {
-            modalBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                targetedModalName = modalBtn.getAttribute('data-target');
-                targetedModal = document.getElementById(targetedModalName);
-                giveFormId = this.getAttribute('data-giveformid');
-                amount = this.getAttribute('data-amount');
-                charityTagName = this.getAttribute('data-tagName');
-
-                // Check if this is donation button then check if the giveFormId not exist so don't open modal
-                if (modalBtn.classList.contains('donation-action') || modalBtn.classList.contains('donation-btn')) {
-                    if (!giveFormId) {
-                        toastr.warning('No form ID was found');
-                        return;
+        if (modalBtns !== null) {
+            let targetedModalName;
+            let targetedModal;
+            let giveFormId;
+            let amount;
+            let charityTagName;
+    
+            modalBtns.forEach((modalBtn) => {
+                modalBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    targetedModalName = modalBtn.getAttribute('data-target');
+                    targetedModal = document.getElementById(targetedModalName);
+                    giveFormId = this.getAttribute('data-giveformid');
+                    amount = this.getAttribute('data-amount');
+                    charityTagName = this.getAttribute('data-tagName');
+    
+                    // Check if this is donation button then check if the giveFormId not exist so don't open modal
+                    if (modalBtn.classList.contains('donation-action') || modalBtn.classList.contains('donation-btn')) {
+                        if (!giveFormId) {
+                            toastr.warning('No form ID was found');
+                            return;
+                        }
+    
+                        let continueAsGuest = document.querySelector('.continue-as-guest');
+                        continueAsGuest.setAttribute('data-giveformid', giveFormId);
+                        continueAsGuest.setAttribute('data-amount', amount === null ? 50 : amount);
+                        continueAsGuest.setAttribute('data-tagName', charityTagName);
                     }
-
-                    let continueAsGuest = document.querySelector('.continue-as-guest');
-                    continueAsGuest.setAttribute('data-giveformid', giveFormId);
-                    continueAsGuest.setAttribute('data-amount', amount === null ? 50 : amount);
-                    continueAsGuest.setAttribute('data-tagName', charityTagName);
-                }
-
-                if (targetedModal !== null) {
-                    // If already a modal opened
-                    if (document.body.classList.contains('modal-active')) {
-                        document.querySelectorAll('.user-action-modal').forEach((userActionModal) => {
-                            userActionModal.classList.remove('opened');
-                            userActionModal.closest('body').classList.remove('modal-active');
-                            userActionModal.style.display = 'none';
-                            userActionModal.style.opacity = '0';
+    
+                    if (targetedModal !== null) {
+                        // If already a modal opened
+                        if (document.body.classList.contains('modal-active')) {
+                            document.querySelectorAll('.user-action-modal').forEach((userActionModal) => {
+                                userActionModal.classList.remove('opened');
+                                userActionModal.closest('body').classList.remove('modal-active');
+                                userActionModal.style.display = 'none';
+                                userActionModal.style.opacity = '0';
+                            });
+                        }
+    
+                        // Open
+                        targetedModal.classList.add('opened');
+                        targetedModal.closest('body').classList.add('modal-active');
+                        targetedModal.style.display = 'flex';
+    
+                        setTimeout(() => {
+                            targetedModal.style.opacity = '1';
+                        }, 100);
+                    }
+    
+                    // Close
+                    if (targetedModal !== null) {
+                        targetedModal.addEventListener('click', function (e) {
+                            if (e.target.classList.contains(targetedModalName) || e.target.classList.contains('back-btn')) {
+                                targetedModal.classList.remove('opened');
+                                targetedModal.closest('body').classList.remove('modal-active');
+                                targetedModal.style.opacity = '0';
+        
+                                setTimeout(() => {
+                                    targetedModal.style.display = 'none';
+                                }, 300);
+                            }
                         });
                     }
-
-                    // Open
-                    targetedModal.classList.add('opened');
-                    targetedModal.closest('body').classList.add('modal-active');
-                    targetedModal.style.display = 'flex';
-
-                    setTimeout(() => {
-                        targetedModal.style.opacity = '1';
-                    }, 100);
-                }
-
-                // Close
-                if (targetedModal !== null) {
-                    targetedModal.addEventListener('click', function (e) {
-                        if (e.target.classList.contains(targetedModalName) || e.target.classList.contains('back-btn')) {
-                            targetedModal.classList.remove('opened');
-                            targetedModal.closest('body').classList.remove('modal-active');
-                            targetedModal.style.opacity = '0';
-    
-                            setTimeout(() => {
-                                targetedModal.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                }
+                });
             });
-        });
+        }
     }
 
-    ///////// After testing modal behavior and made sure it's ok I will remove this
-    // let modalBtn = document.querySelector('.login-btn');
-
-    // let targetedModal = modalBtn.getAttribute('data-target');
-
-    // if (modalBtn !== null) {
-    //     let theModal = document.getElementById(targetedModal);
-
-    //     if (theModal !== null) {
-
-    //         // Open
-    //         modalBtn.addEventListener('click', function () {
-    //             theModal.classList.add('opened');
-    //             theModal.closest('body').classList.add('modal-active');
-    //             theModal.style.display = 'flex';
-
-    //             setTimeout(() => {
-    //                 theModal.style.opacity = '1';
-    //             }, 100);
-    //         });
-
-    //         // Close
-    //         theModal.addEventListener('click', function (e) {
-    //             console.log(theModal);
-    //             console.log("Hellol");
-    //             console.log(targetedModal);
-    //             if (e.target.classList.contains(targetedModal) || e.target.classList.contains('back-btn')) {
-    //                 theModal.classList.remove('opened');
-    //                 theModal.closest('body').classList.remove('modal-active');
-    //                 theModal.style.opacity = '0';
-
-    //                 setTimeout(() => {
-    //                     theModal.style.display = 'none';
-    //                 }, 300);
-    //             }
-    //         });
-    //     }
-    // }
+    handleModals();
     /* ___End Handle Modal___ */
     /* ===[End Global]=== */
 

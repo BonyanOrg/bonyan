@@ -67,7 +67,7 @@
         }
     }
 
-    // ===== [[Add To Favorites START]]
+    // ===== [[START Add To Favorites]]
     function addEventlistenerToFavIcons() {
         var keyPressTimeout, jqxhr = {
             abort: function () { }
@@ -118,10 +118,83 @@
         });
     }
     addEventlistenerToFavIcons();
+    // ===== [[END Add To Favorites]]
 
+    // ===== [[Start Add Event Listener for Modals]]
+    /* ___Start Handle Modal___ */
+    function handleModals() {
+        let modalBtns = document.querySelectorAll('.user-action-btn');
 
+        if (modalBtns !== null) {
+            let targetedModalName;
+            let targetedModal;
+            let giveFormId;
+            let amount;
+            let charityTagName;
 
-    // ===== [[Add To Favorites END]]
+            modalBtns.forEach((modalBtn) => {
+                modalBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    targetedModalName = modalBtn.getAttribute('data-target');
+                    targetedModal = document.getElementById(targetedModalName);
+                    giveFormId = this.getAttribute('data-giveformid');
+                    amount = this.getAttribute('data-amount');
+                    charityTagName = this.getAttribute('data-tagName');
+
+                    // Check if this is donation button then check if the giveFormId not exist so don't open modal
+                    if (modalBtn.classList.contains('donation-action') || modalBtn.classList.contains('donation-btn')) {
+                        if (!giveFormId) {
+                            toastr.warning('No form ID was found');
+                            return;
+                        }
+
+                        let continueAsGuest = document.querySelector('.continue-as-guest');
+                        continueAsGuest.setAttribute('data-giveformid', giveFormId);
+                        continueAsGuest.setAttribute('data-amount', amount === null ? 50 : amount);
+                        continueAsGuest.setAttribute('data-tagName', charityTagName);
+                    }
+
+                    if (targetedModal !== null) {
+                        // If already a modal opened
+                        if (document.body.classList.contains('modal-active')) {
+                            document.querySelectorAll('.user-action-modal').forEach((userActionModal) => {
+                                userActionModal.classList.remove('opened');
+                                userActionModal.closest('body').classList.remove('modal-active');
+                                userActionModal.style.display = 'none';
+                                userActionModal.style.opacity = '0';
+                            });
+                        }
+
+                        // Open
+                        targetedModal.classList.add('opened');
+                        targetedModal.closest('body').classList.add('modal-active');
+                        targetedModal.style.display = 'flex';
+
+                        setTimeout(() => {
+                            targetedModal.style.opacity = '1';
+                        }, 100);
+                    }
+
+                    // Close
+                    if (targetedModal !== null) {
+                        targetedModal.addEventListener('click', function (e) {
+                            if (e.target.classList.contains(targetedModalName) || e.target.classList.contains('back-btn')) {
+                                targetedModal.classList.remove('opened');
+                                targetedModal.closest('body').classList.remove('modal-active');
+                                targetedModal.style.opacity = '0';
+
+                                setTimeout(() => {
+                                    targetedModal.style.display = 'none';
+                                }, 300);
+                            }
+                        });
+                    }
+                });
+            });
+        }
+    }
+    /* ___End Handle Modal___ */
+    // ===== [[End Add Event Listener for Modals]]
 
 
 
@@ -671,7 +744,9 @@
                 let CPTOfSearch = this.getAttribute('data-postType');
                 let searchWord = this.value;
                 $('.cards-container').empty();
-                $('.pagination').empty();
+                $('.cards-container').append('<div class="loader" style="display: flex;"></div>');
+                $('.cards-container').css('padding', '2rem 0');
+                $('.pagination').hide();
                 jqxhr.abort();
                 clearTimeout(keyPressTimeout);
                 keyPressTimeout = setTimeout(function () {
@@ -690,11 +765,16 @@
                         },
                         statusCode: {
                             400: function (data) {
-
+                                console.log(data.error_message);
+                                $('.cards-container').append(`<p style="font-size: 20px;" class="primary-color">${data.responseJSON.error_message}</p>`);
+                                $('.loader').remove();
                             },
                             200: function (data) {
                                 $('.cards-container').append(data.HTML_Output);
                                 addEventlistenerToFavIcons();
+                                $('.loader').remove();
+                                $('.cards-container').css('padding', '0');
+                                handleModals();
                             },
                         },
                     });

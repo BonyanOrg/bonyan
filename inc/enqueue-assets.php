@@ -120,7 +120,7 @@ function bonyan_scripts()
     wp_enqueue_script('bonyan-success-story-carousel-script', get_template_directory_uri() . '/dist/js/components/wpb/success-story-carousel.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
 
     // __Ajax__
-    wp_enqueue_script('ajax-scripts', get_template_directory_uri() . '/assets/js/ajax-scripts.js', array('jquery'), $GLOBALS['bonyan_version'], true);
+    wp_enqueue_script('ajax-scripts', get_template_directory_uri() . '/assets/js/ajax-scripts.js', array('jquery', 'bonyan-script'), $GLOBALS['bonyan_version'], true);
     wp_localize_script('ajax-scripts', 'ajax_script_object', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('ajax-nonce'),

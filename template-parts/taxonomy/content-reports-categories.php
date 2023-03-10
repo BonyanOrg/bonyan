@@ -44,7 +44,7 @@ $taxonomy_name = $queried_object->taxonomy;
 
         <div class="campaign">
             <div class="cards-container">
-
+                <div class="loader"></div>
 
                 <?php if (have_posts()) : ?>
 

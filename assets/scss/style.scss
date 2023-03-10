@@ -1893,6 +1893,7 @@ header {
   gap: 3rem;
   grid-gap: 3rem;
   margin-bottom: 2rem;
+  position: relative;
 
   @media (max-width: 1400px) {
     gap: 1.5rem;
