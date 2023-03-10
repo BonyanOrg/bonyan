@@ -38,7 +38,13 @@ function get_search_result()
     }
     ob_start();
 
-    $blog_posts = new WP_Query($args); ?>
+    $blog_posts = new WP_Query($args);
+    if (count($blog_posts->posts) <= 0){
+        wp_send_json(['error_message' => __("No results found","bonyan")], 400);
+        wp_die();
+    }
+
+?>
     <?php if ($blog_posts->have_posts()) : ?>
         <?php /* Loop Starts */
         while ($blog_posts->have_posts()) :
