@@ -45,3 +45,13 @@ require __DIR__ . '/term/category_cat_options.php';
 //    CAMPAIGN
 //==================
 require __DIR__ . '/term/campaign_cat_options.php';
+
+//==================
+//    REPORTS
+//==================
+require __DIR__ . '/term/reports_cat_options.php';
+
+//==================
+//    PROJECTS
+//==================
+require __DIR__ . '/term/projects_cat_options.php';
