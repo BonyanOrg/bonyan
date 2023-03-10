@@ -1137,6 +1137,17 @@ div:not(.cards-container) {
   }
 }
 /* __End File Card__ */
+
+/* __Start WPB__ */
+.vc_row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.vc_column_container > .vc_column-inner {
+  padding: 0;
+}
+/* __End WPB__ */
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
