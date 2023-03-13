@@ -108,6 +108,7 @@
 .content-with-info-panel {
     &.report-cat-page {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin: 1rem 0;
 
         @media (max-width: 1024px) {
             grid-template-columns: minmax(0, 1fr);
@@ -117,6 +118,28 @@
 
                 .file-card {
                     margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+// RTL
+html[dir=rtl] {
+    .content-with-info-panel {
+        &.report-cat-page {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin: 1rem 0;
+    
+            @media (max-width: 1024px) {
+                grid-template-columns: minmax(0, 1fr);
+    
+                .info-panel {
+                    margin-right: 0;
+    
+                    .file-card {
+                        margin-right: 0;
+                    }
                 }
             }
         }

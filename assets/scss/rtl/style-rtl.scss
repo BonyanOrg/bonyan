@@ -528,7 +528,7 @@ input {
   }
 
   .info-panel {
-    margin-left: auto;
+    margin-right: auto;
     max-width: 400px;
     width: 100%;
 
@@ -731,20 +731,20 @@ input {
     }
 
     h5:not(.custom-widget h5):not(h5.custom-widget) {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     h6:not(.custom-widget h6):not(h6.custom-widget) {
-      font-size: 14px;
+      font-size: 16px;
     }
 
     p:not(.custom-widget p):not(p.custom-widget),
     a:not(.custom-widget a):not(a.custom-widget) {
-      font-size: 14px;
+      font-size: 16px;
     }
 
     li:not(.custom-widget li):not(li.custom-widget) {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 }
@@ -1394,8 +1394,8 @@ header {
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 64px;
-        height: 64px;
+        width: 45px;
+        height: 45px;
         overflow: hidden;
 
         @media (max-width: 1024px) {
@@ -1503,7 +1503,7 @@ header {
             }
 
             .menu-item {
-              padding-right: 0.75rem;
+              padding-left: 0.75rem;
               border-radius: $radius-10;
 
               a {
@@ -1526,7 +1526,7 @@ header {
               position: relative;
 
               &>.sub-menu {
-                left: 100%;
+                right: 100%;
                 top: 0;
               }
             }
@@ -1711,7 +1711,7 @@ header {
                 position: relative;
 
                 &>.sub-menu {
-                  left: 0;
+                  right: 0;
                   top: 100%;
                   width: 100%;
                 }
@@ -2952,10 +2952,10 @@ header {
   .file-card {
     max-width: 350px;
     width: 100%;
-    margin-left: auto;
+    margin-right: auto;
 
     @media (max-width: 1024px) {
-      margin-left: 0;
+      margin-right: 0;
     }
 
     @media (max-width: 576px) {
