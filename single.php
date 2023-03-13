@@ -14,19 +14,14 @@ get_header();
 <div class="single-<?php echo get_post_type() ?>">
 	<div class="container">
 		<div class="inner-content">
-			<?php
-			if ($post_type === "campaign") {
-				$give_form_id = get_post_meta(get_the_ID(), "co_give_form_id", true);
-				if (!empty($give_form_id)) {
-					echo do_shortcode('[give_form id="' . $give_form_id . '"]', true);
-					echo do_shortcode('[give_donor_wall  form_id="' . $give_form_id . '"]');
-					//require_once( ABSPATH . '/wp-content/plugins/give/includes/donors/class-give-donor-wall.php');
-					//echo ABSPATH . '/wp-content/plugins/give/includes/donors/class-give-donor-wall.php';
-					//Give_Donor_Wall::get_instance();
-					//Give_Donor_Wall::get_donation_data(array('give_form_id' => $give_form_id));
-					//$var = get_donation_data(array('give_form_id' => $give_form_id));
-				}
-			} ?>
+		<?php
+		if ($post_type === "campaign") {
+			$give_form_id = get_post_meta(get_the_ID(), "co_give_form_id", true);
+			if (!empty($give_form_id)) {
+				echo do_shortcode('[give_form id="' . $give_form_id . '"]', true);
+				//echo do_shortcode('[give_donor_wall form_id="' . $give_form_id . '"]');
+			}
+		} ?>
 			<?php the_content(); ?>
 		</div>
 	</div>

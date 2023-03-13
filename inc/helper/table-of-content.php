@@ -7,6 +7,9 @@ function get_table_of_content($content)
     if ( get_post_type() !== 'post' ) {
         return $content;
     } 
+    if (str_contains($content, 'nnoo__TABLE_OF_CONTENT__ooff')) {
+        return $content;
+    }
 
     // Auto Add Id To Headers
     $content = preg_replace_callback('/(\<h[1-6]([^>]*))\>(.*)(<\/h[1-6]>)/U', function ($matches) {

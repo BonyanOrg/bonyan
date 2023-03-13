@@ -96,3 +96,6 @@ require_once "vcmaps/report_cards_map.php";
 
 /* Boarder Of Trustees  */
 require_once "vcmaps/board_of_trustees_map.php";
+
+/* Disable Table Of Content  */
+require_once "vcmaps/disable_table_of_content_map.php";
