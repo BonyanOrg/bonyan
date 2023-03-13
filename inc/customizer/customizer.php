@@ -7,23 +7,23 @@ function my_customize_register($wp_customize)
         'priority' => 10,
     ));
 
-    $wp_customize->add_panel('home_panel', array(
-        'title' => 'أعدادت الصفحة الرئيسية',
-        'description' => '',
-        'priority' => 10,
-    ));
+    // $wp_customize->add_panel('home_panel', array(
+    //     'title' => 'أعدادت الصفحة الرئيسية',
+    //     'description' => '',
+    //     'priority' => 10,
+    // ));
 
-    $wp_customize->add_panel('global_our_impact', array(
-        'title' => 'Our Impact Panel',
-        'description' => '',
-        'priority' => 10,
-    ));
+    // $wp_customize->add_panel('global_our_impact', array(
+    //     'title' => 'Our Impact Panel',
+    //     'description' => '',
+    //     'priority' => 10,
+    // ));
 
-    $wp_customize->add_panel('ar_global_our_impact', array(
-        'title' => 'Arabic Our Impact Panel',
-        'description' => '',
-        'priority' => 10,
-    ));
+    // $wp_customize->add_panel('ar_global_our_impact', array(
+    //     'title' => 'Arabic Our Impact Panel',
+    //     'description' => '',
+    //     'priority' => 10,
+    // ));
 
     //================
     // General Options
@@ -40,5 +40,9 @@ function my_customize_register($wp_customize)
     //===============
     // Contact Info
     require_once(__DIR__ . '/contact-info.php');
+    
+    //===============
+    // Campaigns Options
+    require_once(__DIR__ . '/campaigns-options.php');
 }
 add_action('customize_register', 'my_customize_register');

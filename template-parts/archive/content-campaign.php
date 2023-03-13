@@ -16,9 +16,9 @@ $taxonomy_name = $queried_object->taxonomies[1];
 						'posts_per_page' => -1,
 						'tax_query' => array(
 							array(
-								'taxonomy' => $taxonomy_name,
+								'taxonomy' =>  'campaigns-tags',
 								'field' => 'slug',
-								'terms' => "urgent-appeals",
+								'terms' =>  get_option('urgent_campaigns_tag_slug'),
 							)
 						),
 					);
