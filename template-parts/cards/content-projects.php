@@ -12,7 +12,7 @@
     <!-- Project Description -->
     <div class="project-desc">
         <p>
-            <?php echo get_the_excerpt() ?>
+            <?php echo get_the_excerpt($post) ?>
         </p>
     </div>
 </a>

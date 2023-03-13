@@ -30,7 +30,7 @@ function register_projects_cpt()
         'has_archive'        => true,
         'hierarchical'       => false,
         'menu_position'      => 20,
-        'supports'           => array('title', 'author', 'thumbnail',"editor"),
+        'supports'           => array('title', 'author', 'thumbnail',"editor","excerpt"),
         'taxonomies'         => array('post_tag', 'projects-categories'),
         'show_in_rest'       => true
     );

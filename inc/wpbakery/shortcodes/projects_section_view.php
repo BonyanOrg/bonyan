@@ -58,6 +58,7 @@ if (!function_exists('projects_section_shortcode')) {
 
                     }
                 }
+                wp_reset_postdata();
 
 
 
