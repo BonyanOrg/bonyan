@@ -42,6 +42,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
                 autoplayTimeLeft(s, time, progress) {
                     if (numberOfSlides > 1) {
+                        console.log(progress);
                         let autoplayProgress = document.querySelector('.autoplay-progress span');
                         autoplayProgress.style.width = `${100 - progress * 100}%`;
                     }
