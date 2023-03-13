@@ -6,6 +6,7 @@ function disable_table_of_content_vc() {
 		"base"					=> "disable_table_of_content",
 		'category'			    => esc_html__( 'BONYAN', 'DOMAIN' ),
 		'icon'					=> get_wpb_icon_url('disable_table_of_content'),
+		'show_settings_on_create' => false,
 	) );
 }
 add_action( 'vc_before_init', 'disable_table_of_content_vc' );
