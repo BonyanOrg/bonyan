@@ -716,20 +716,20 @@ input {
     }
 
     h5:not(.custom-widget h5):not(h5.custom-widget) {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     h6:not(.custom-widget h6):not(h6.custom-widget) {
-      font-size: 14px;
+      font-size: 16px;
     }
 
     p:not(.custom-widget p):not(p.custom-widget),
     a:not(.custom-widget a):not(a.custom-widget) {
-      font-size: 14px;
+      font-size: 16px;
     }
 
     li:not(.custom-widget li):not(li.custom-widget) {
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 }
@@ -1354,8 +1354,8 @@ header {
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 64px;
-        height: 64px;
+        width: 45px;
+        height: 45px;
         overflow: hidden;
 
         @media (max-width: 1024px) {
