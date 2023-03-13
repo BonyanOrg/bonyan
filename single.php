@@ -11,7 +11,7 @@
 get_header();
 ?>
 <?php get_template_part('template-parts/page', 'header'); ?>
-<div class="single-<?php echo get_post_type() ?>">
+<div class="single-<?php echo get_post_type() ?>" <?php echo get_post_type()=="campaign"?'style="background-color: #EAEAEA"':''; ?>>
 	<div class="container">
 		<div class="inner-content">
 			<?php

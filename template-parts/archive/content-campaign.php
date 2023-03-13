@@ -117,7 +117,7 @@ $taxonomy_name = $queried_object->taxonomies[1];
 		<?php get_template_part('template-parts/search-terms-header', null, array("taxonomy_name" => $taxonomy_name, 'archive' => true)); ?>
 
 
-		<div class="campaign my-5">
+		<div class="campaign my-2 my-lg-5">
 			<div class="cards-container">
 
 				<?php if (have_posts()) : ?>

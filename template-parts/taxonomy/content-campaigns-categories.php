@@ -13,7 +13,7 @@ $taxonomy_name = $queried_object->taxonomy;
         <?php get_template_part('template-parts/search-terms-header', null, array("taxonomy_name" => $taxonomy_name, "queried_object" => $queried_object)); ?>
 
 
-        <div class="campaign">
+        <div class="campaign my-2 my-lg-5">
             <div class="cards-container">
 
 
