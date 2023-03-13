@@ -16,7 +16,7 @@
         flex-direction: column;
         align-items: center;
         background: $primary-color;
-        padding: 2.5rem;
+        padding: 1.5rem;
         text-align: center;
         border-radius: 20px;
         color: $light-color;
@@ -78,7 +78,7 @@
                 margin: 0.75rem 0;
     
                 span {
-                    font-size: 50px;
+                    font-size: 36px;
                     font-weight: bold;
 
                     @media (max-width: 576px) {

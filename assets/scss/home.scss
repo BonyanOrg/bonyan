@@ -2,8 +2,8 @@
 
 /* ===[Start Main Slider]=== */
 .main-carousel {
-  height: calc(100vh - 128px);
-  margin-top: 128px;
+  height: calc(100vh - 118px);
+  margin-top: 60px;
 
   @media (max-width: 1199px) {
     height: 75vh;
@@ -78,7 +78,7 @@
       }
 
       .slide-title {
-        font-size: 70px;
+        font-size: 60px;
         font-weight: bold;
         color: $light-color;
         display: -webkit-box;
@@ -121,11 +121,7 @@
         button,
         a {
           padding: 0.75rem 1.25rem !important;
-          font-size: 24px;
-
-          @media (max-width: 1024px) {
-            font-size: 20px;
-          }
+          font-size: 20px;
         }
       }
     }
