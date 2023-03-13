@@ -4,10 +4,11 @@ add_filter('the_content', 'get_table_of_content', 99);
 function get_table_of_content($content)
 {
 
-    if ( get_post_type() !== 'post' ) {
+    if (get_post_type() !== 'post') {
         return $content;
-    } 
+    }
     if (str_contains($content, 'nnoo__TABLE_OF_CONTENT__ooff')) {
+        $content = str_replace('<p>nnoo__TABLE_OF_CONTENT__ooff</p>', '', $content);
         return $content;
     }
 
@@ -27,7 +28,7 @@ function get_table_of_content($content)
     $titles = $matches[3]; // Get The Content In The Header
 
     // Don't Create TOC if There Is No Headings In The Content
-	if ( empty($tag_num) ) return $content;
+    if (empty($tag_num)) return $content;
 
     foreach ($tag_num as $k => $h) {
 
@@ -95,7 +96,7 @@ function get_table_of_content($content)
     </div>
     <script type="text/javascript" defer>
         window.onload = function() {
-            jQuery(".toc-header").click(function(){
+            jQuery(".toc-header").click(function() {
                 jQuery(".toc-holder").slideToggle(500);
             });
         }

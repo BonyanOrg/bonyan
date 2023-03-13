@@ -15,7 +15,7 @@ if (!function_exists('disable_table_of_content_shortcode')) {
 
         ob_start();
 ?>
-        <p style="display:none;">nnoo__TABLE_OF_CONTENT__ooff</p>
+        <p>nnoo__TABLE_OF_CONTENT__ooff</p>
 <?php
         return ob_get_clean();
     }
