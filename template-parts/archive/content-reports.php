@@ -6,6 +6,9 @@ $taxonomy_name = $queried_object->taxonomies[1];
 
 
 <div class="container">
+    <br>
+    <br>
+    <br>
     <div class="cards-container grid-4">
         <?php if (!empty($taxonomy_name)) {
             $terms = get_terms(array(
