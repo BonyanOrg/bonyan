@@ -30,7 +30,7 @@ a {
   text-decoration: none;
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 1024px) {
 	.swap-on-mobile {
 		display: flex !important;
 		flex-direction: column-reverse;
@@ -315,7 +315,7 @@ input {
   background-position: center center;
 
   @media (max-width: 1024px) {
-    margin-top: 112px;
+    margin-top: 97px;
     min-height: 150px;
   }
 
@@ -539,12 +539,12 @@ input {
 
       .info-panel-title {
         color: $light-color;
-        font-size: 50px;
+        font-size: 40px;
         font-weight: bold;
         margin-bottom: 1.5rem;
 
-        @media (max-width: 992px) {
-          font-size: 30px;
+        @media (max-width: 1200px) {
+          font-size: 28px;
         }
       }
 
@@ -2939,9 +2939,9 @@ header {
   .info-panel {
     .info-panel--card {
       .info-box {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: baseline;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 2rem;
         grid-gap: 2rem;
 
