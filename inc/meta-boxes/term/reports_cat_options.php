@@ -75,11 +75,26 @@ function reports_edit_cover_field($term)
 
     // retrieve the existing value(s) for this meta field. This returns an array
     $term_meta = get_term_meta($t_id, 'reports-categories_cover', true);
+    $cat_description = get_term_meta($t_id, 'reports_cat_desc', true);
 
     $default_image = isset($term_meta) ? esc_attr($term_meta) : '';
 
 ?>
 
+    <tr class="form-field">
+        <th scope="row" valign="top"><label for="reports_cat_desc">Category Description</label></th>
+        <td>
+            <?php
+            wp_editor($cat_description, 'biography', array(
+                'wpautop'       => false,
+                'media_buttons' => false,
+                'textarea_name' => 'reports_cat_desc',
+                'textarea_rows' => 10,
+                'teeny'         => false
+            ));
+            ?>
+        </td>
+    </tr>
     <tr class="form-field">
         <th scope="row" valign="top"><label for="_reports_cover">reports Cover Image</label></th>
         <td>
@@ -143,7 +158,12 @@ function save_reports_custom_meta($term_id)
     if (isset($_POST['reports_cover'])) {
         update_term_meta($term_id, 'reports-categories_cover', $_POST['reports_cover']);
     }
-    update_term_meta($term_id, 'reports_arrangment', $_POST['reports_arrangment']);
+    if (isset($_POST['reports_cat_desc'])) {
+        update_term_meta($term_id, 'reports_cat_desc', $_POST['reports_cat_desc']);
+    } else {
+        update_term_meta($term_id, 'reports_cat_desc', '');
+    }
+    //update_term_meta($term_id, 'reports_arrangment', $_POST['reports_arrangment']);
 }
 add_action('edited_reports-categories', 'save_reports_custom_meta', 10, 2);
 add_action('create_reports-categories', 'save_reports_custom_meta', 10, 2);
