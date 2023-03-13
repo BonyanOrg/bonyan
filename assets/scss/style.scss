@@ -20,6 +20,7 @@
     height: 30px;
     background-color: $primary-color;
 }
+
 body {
   font-family: "Roboto", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif;
@@ -27,6 +28,14 @@ body {
 
 a {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 769px) {
+	.swap-on-mobile {
+		display: flex !important;
+		flex-direction: column-reverse;
+    padding-top: 20px;
+	}
 }
 
 /* __Start Colors__ */
