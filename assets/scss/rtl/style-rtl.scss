@@ -17,6 +17,22 @@
 /* ===[Start Global]=== */
 * {
   box-sizing: border-box;
+  scrollbar-color: $primary-color $light-color;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track-piece  {
+    background-color: $light-color;
+}
+
+*::-webkit-scrollbar-thumb {
+    height: 30px;
+    background-color: $primary-color;
 }
 
 body {
@@ -25,6 +41,14 @@ body {
 
 a {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 769px) {
+	.swap-on-mobile {
+		display: flex !important;
+		flex-direction: column-reverse;
+    padding-top: 20px;
+	}
 }
 
 /* __Start Colors__ */
