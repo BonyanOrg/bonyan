@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', function () {
             touchEventsTarget: "container",
             grabCursor: true,
             rewind: true,
+            watchSlidesProgress: true,
 
             autoplay: {
                 delay: 5000,
@@ -42,7 +43,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
                 autoplayTimeLeft(s, time, progress) {
                     if (numberOfSlides > 1) {
-                        console.log(progress);
                         let autoplayProgress = document.querySelector('.autoplay-progress span');
                         autoplayProgress.style.width = `${100 - progress * 100}%`;
                     }
