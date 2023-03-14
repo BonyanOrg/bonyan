@@ -2157,7 +2157,7 @@ header {
     gap: 1rem;
     grid-gap: 1rem;
     margin-top: auto;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
 
     @media (max-width: 576px) {
       gap: 0.75rem;
@@ -2176,9 +2176,10 @@ header {
       text-align: center;
       place-content: center;
       place-items: center;
-      border: 2px solid rgba($dark-color, 0.5);
+      border: 2px solid rgba($text-color, 0.5);
       padding: 0.75rem;
       border-radius: 25px;
+      color: $text-color;
     }
   }
 }
@@ -2688,6 +2689,10 @@ header {
 
         .stat-icon {
           height: 85px;
+
+          img {
+            height: 100%;
+          }
         }
 
         .stat-value {
@@ -2982,14 +2987,15 @@ header {
   .info-panel {
     .info-panel--card {
       .info-box {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: baseline;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 2rem;
         grid-gap: 2rem;
 
-        @media (max-width: 450px) {
-          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        @media (max-width: 576px) {
+          gap: 1rem 2rem;
+          grid-gap: 1rem 2rem;
         }
 
         .info-item {
