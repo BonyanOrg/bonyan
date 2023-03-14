@@ -4,14 +4,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2023-03-14T06:34:28+01:00\n"
+"PO-Revision-Date: 2023-03-14 08:36+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-14T06:34:28+01:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Domain: bonyan\n"
 
 #. Theme Name of the theme
@@ -31,9 +33,10 @@ msgstr ""
 msgid "Underscores.me"
 msgstr ""
 
-#: 404.php:99
-#: template-parts/content-none.php:37
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+#: 404.php:99 template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
 
 #: 404.php:106
@@ -73,8 +76,7 @@ msgstr ""
 msgid "Donations"
 msgstr ""
 
-#: dashboard-page.php:64
-#: dashboard-page.php:235
+#: dashboard-page.php:64 dashboard-page.php:235
 msgid "Favorite Campaigns"
 msgstr ""
 
@@ -98,13 +100,11 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: dashboard-page.php:115
-#: template-parts/signup.php:31
+#: dashboard-page.php:115 template-parts/signup.php:31
 msgid "First Name"
 msgstr ""
 
-#: dashboard-page.php:121
-#: template-parts/signup.php:36
+#: dashboard-page.php:121 template-parts/signup.php:36
 msgid "Last Name"
 msgstr ""
 
@@ -136,13 +136,11 @@ msgstr ""
 msgid "Twitter URL"
 msgstr ""
 
-#: dashboard-page.php:195
-#: template-parts/signup.php:75
+#: dashboard-page.php:195 template-parts/signup.php:75
 msgid "Date of birth"
 msgstr ""
 
-#: dashboard-page.php:200
-#: template-parts/signup.php:46
+#: dashboard-page.php:200 template-parts/signup.php:46
 msgid "Age"
 msgstr ""
 
@@ -182,14 +180,11 @@ msgstr ""
 msgid "Languages"
 msgstr ""
 
-#: header.php:62
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:90
+#: header.php:62 inc/wpbakery/shortcodes/zakat_calculator_view.php:90
 msgid "Donate Now"
 msgstr ""
 
-#: header.php:79
-#: header.php:180
-#: searchform.php:9
+#: header.php:79 header.php:180 searchform.php:9
 #: template-parts/search-terms-header.php:31
 #: template-parts/search-terms-header.php:97
 msgid "Search..."
@@ -199,15 +194,12 @@ msgstr ""
 msgid "Home-Page"
 msgstr ""
 
-#: inc/ajax/add-to-fav.php:21
-#: inc/ajax/add-to-fav.php:27
-#: inc/ajax/add-to-fav.php:43
-#: inc/ajax/add-to-fav.php:49
+#: inc/ajax/add-to-fav.php:21 inc/ajax/add-to-fav.php:27
+#: inc/ajax/add-to-fav.php:43 inc/ajax/add-to-fav.php:49
 msgid "Campaign Added Successfully"
 msgstr ""
 
-#: inc/ajax/add-to-fav.php:30
-#: inc/ajax/add-to-fav.php:52
+#: inc/ajax/add-to-fav.php:30 inc/ajax/add-to-fav.php:52
 msgid "Campaign Removed Successfully"
 msgstr ""
 
@@ -236,8 +228,7 @@ msgstr ""
 msgid "User Name Is Already Exist"
 msgstr ""
 
-#: inc/ajax/register.php:37
-#: inc/ajax/save-account-details.php:44
+#: inc/ajax/register.php:37 inc/ajax/save-account-details.php:44
 msgid "Email Has No Valid Value"
 msgstr ""
 
@@ -257,15 +248,10 @@ msgstr ""
 msgid "User Email Is Already In Use"
 msgstr ""
 
-#: inc/CPT/campaigns.php:10
-#: inc/CPT/main_slider.php:10
-#: inc/CPT/projects.php:10
-#: inc/CPT/reports.php:10
-#: inc/CPT/seasonal_campaigns.php:10
-#: inc/CPT/special_cases.php:10
-#: inc/CPT/stories_of_success.php:10
-#: inc/CPT/tenders.php:10
-#: inc/CPT/vacancies.php:10
+#: inc/CPT/campaigns.php:10 inc/CPT/main_slider.php:10 inc/CPT/projects.php:10
+#: inc/CPT/reports.php:10 inc/CPT/seasonal_campaigns.php:10
+#: inc/CPT/special_cases.php:10 inc/CPT/stories_of_success.php:10
+#: inc/CPT/tenders.php:10 inc/CPT/vacancies.php:10
 msgid "Add New"
 msgstr ""
 
@@ -305,86 +291,55 @@ msgstr ""
 msgid "Campaigns - Categories"
 msgstr ""
 
-#: inc/CPT/campaigns.php:48
-#: inc/CPT/campaigns.php:75
+#: inc/CPT/campaigns.php:48 inc/CPT/campaigns.php:75
 msgid "Campaign - Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:49
-#: inc/CPT/projects.php:49
-#: inc/CPT/reports.php:49
-#: inc/CPT/seasonal_campaigns.php:49
-#: inc/CPT/special_cases.php:49
+#: inc/CPT/campaigns.php:49 inc/CPT/projects.php:49 inc/CPT/reports.php:49
+#: inc/CPT/seasonal_campaigns.php:49 inc/CPT/special_cases.php:49
 #: inc/CPT/stories_of_success.php:49
 msgid "Search Categories"
 msgstr ""
 
-#: inc/CPT/campaigns.php:50
-#: inc/CPT/projects.php:50
-#: inc/CPT/reports.php:50
-#: inc/CPT/seasonal_campaigns.php:50
-#: inc/CPT/special_cases.php:50
+#: inc/CPT/campaigns.php:50 inc/CPT/projects.php:50 inc/CPT/reports.php:50
+#: inc/CPT/seasonal_campaigns.php:50 inc/CPT/special_cases.php:50
 #: inc/CPT/stories_of_success.php:50
 msgid "All Categories"
 msgstr ""
 
-#: inc/CPT/campaigns.php:51
-#: inc/CPT/campaigns.php:78
-#: inc/CPT/projects.php:51
-#: inc/CPT/reports.php:51
-#: inc/CPT/seasonal_campaigns.php:51
-#: inc/CPT/special_cases.php:51
-#: inc/CPT/stories_of_success.php:51
+#: inc/CPT/campaigns.php:51 inc/CPT/campaigns.php:78 inc/CPT/projects.php:51
+#: inc/CPT/reports.php:51 inc/CPT/seasonal_campaigns.php:51
+#: inc/CPT/special_cases.php:51 inc/CPT/stories_of_success.php:51
 msgid "Parent Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:52
-#: inc/CPT/campaigns.php:79
-#: inc/CPT/projects.php:52
-#: inc/CPT/reports.php:52
-#: inc/CPT/seasonal_campaigns.php:52
-#: inc/CPT/special_cases.php:52
-#: inc/CPT/stories_of_success.php:52
+#: inc/CPT/campaigns.php:52 inc/CPT/campaigns.php:79 inc/CPT/projects.php:52
+#: inc/CPT/reports.php:52 inc/CPT/seasonal_campaigns.php:52
+#: inc/CPT/special_cases.php:52 inc/CPT/stories_of_success.php:52
 msgid "Parent Category:"
 msgstr ""
 
-#: inc/CPT/campaigns.php:53
-#: inc/CPT/campaigns.php:80
-#: inc/CPT/projects.php:53
-#: inc/CPT/reports.php:53
-#: inc/CPT/seasonal_campaigns.php:53
-#: inc/CPT/special_cases.php:53
-#: inc/CPT/stories_of_success.php:53
+#: inc/CPT/campaigns.php:53 inc/CPT/campaigns.php:80 inc/CPT/projects.php:53
+#: inc/CPT/reports.php:53 inc/CPT/seasonal_campaigns.php:53
+#: inc/CPT/special_cases.php:53 inc/CPT/stories_of_success.php:53
 msgid "Edit Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:54
-#: inc/CPT/campaigns.php:81
-#: inc/CPT/projects.php:54
-#: inc/CPT/reports.php:54
-#: inc/CPT/seasonal_campaigns.php:54
-#: inc/CPT/special_cases.php:54
-#: inc/CPT/stories_of_success.php:54
+#: inc/CPT/campaigns.php:54 inc/CPT/campaigns.php:81 inc/CPT/projects.php:54
+#: inc/CPT/reports.php:54 inc/CPT/seasonal_campaigns.php:54
+#: inc/CPT/special_cases.php:54 inc/CPT/stories_of_success.php:54
 msgid "Update Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:55
-#: inc/CPT/campaigns.php:82
-#: inc/CPT/projects.php:55
-#: inc/CPT/reports.php:55
-#: inc/CPT/seasonal_campaigns.php:55
-#: inc/CPT/special_cases.php:55
-#: inc/CPT/stories_of_success.php:55
+#: inc/CPT/campaigns.php:55 inc/CPT/campaigns.php:82 inc/CPT/projects.php:55
+#: inc/CPT/reports.php:55 inc/CPT/seasonal_campaigns.php:55
+#: inc/CPT/special_cases.php:55 inc/CPT/stories_of_success.php:55
 msgid "Add New Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:56
-#: inc/CPT/campaigns.php:83
-#: inc/CPT/projects.php:56
-#: inc/CPT/reports.php:56
-#: inc/CPT/seasonal_campaigns.php:56
-#: inc/CPT/special_cases.php:56
-#: inc/CPT/stories_of_success.php:56
+#: inc/CPT/campaigns.php:56 inc/CPT/campaigns.php:83 inc/CPT/projects.php:56
+#: inc/CPT/reports.php:56 inc/CPT/seasonal_campaigns.php:56
+#: inc/CPT/special_cases.php:56 inc/CPT/stories_of_success.php:56
 msgid "New Category Name"
 msgstr ""
 
@@ -544,8 +499,7 @@ msgstr ""
 msgid "View seasonal_campaigns"
 msgstr ""
 
-#: inc/CPT/seasonal_campaigns.php:15
-#: inc/CPT/special_cases.php:15
+#: inc/CPT/seasonal_campaigns.php:15 inc/CPT/special_cases.php:15
 msgid "All Media"
 msgstr ""
 
@@ -952,11 +906,14 @@ msgstr ""
 
 #. translators: 1: link to WP admin new post page.
 #: template-parts/content-none.php:24
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
 #: template-parts/content-none.php:44
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
 
 #: template-parts/datatable-dashboard.php:19
@@ -997,8 +954,7 @@ msgstr ""
 msgid "Cancel Subscription"
 msgstr ""
 
-#: template-parts/donation-modal.php:20
-#: template-parts/login.php:21
+#: template-parts/donation-modal.php:20 template-parts/login.php:21
 #: template-parts/signup.php:21
 msgid "Back"
 msgstr ""
@@ -1015,19 +971,16 @@ msgstr ""
 msgid "Continue as a guest"
 msgstr ""
 
-#: template-parts/login.php:25
-#: template-parts/login.php:57
+#: template-parts/login.php:25 template-parts/login.php:57
 #: template-parts/signup.php:121
 msgid "Login"
 msgstr ""
 
-#: template-parts/login.php:30
-#: template-parts/signup.php:41
+#: template-parts/login.php:30 template-parts/signup.php:41
 msgid "Eamil"
 msgstr ""
 
-#: template-parts/login.php:35
-#: template-parts/signup.php:80
+#: template-parts/login.php:35 template-parts/signup.php:80
 msgid "Password"
 msgstr ""
 
@@ -1043,8 +996,7 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: template-parts/signup.php:25
-#: template-parts/signup.php:117
+#: template-parts/signup.php:25 template-parts/signup.php:117
 msgid "Sign Up"
 msgstr ""
 
