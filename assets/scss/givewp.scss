@@ -14,7 +14,6 @@
 
 /* RTL */
 html[dir="rtl"] {
-    /* ===[Start (RTL)] */
     .give-form-templates {
         // FIx Wrapper
         .give-form-wrap {
@@ -49,5 +48,9 @@ html[dir="rtl"] {
             direction: ltr;
         }
     }
-    /* ===[End (RTL)] */
+
+    // Fix margin for card inputs in Arabic
+    #give-recurring-form .form-row-one-third, form.give-form .form-row-one-third, form[id*=give-form] .form-row-one-third {
+      margin-right: 3%;
+    }
 }
