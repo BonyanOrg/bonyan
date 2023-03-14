@@ -35,7 +35,7 @@ if (!function_exists('job_details_card_shortcode')) {
         <div class="content-with-info-panel custom-widget">
             <div class="info-panel">
                 <div class="info-panel--card with-light">
-                    <h2 class="info-panel-title">Job Details</h2>
+                    <h2 class="info-panel-title"><?php _e('Job Details','bonyan') ?></h2>
 
                     <div class="info-box">
 
@@ -48,7 +48,7 @@ if (!function_exists('job_details_card_shortcode')) {
                     </div>
 
                     <div class="info-cta">
-                        <a href="<?php $job_link ?>" class="primary-btn">Apply for this job</a>
+                        <a href="<?php $job_link ?>" class="primary-btn"><?php _e('Apply for this job','bonyan') ?></a>
                     </div>
                 </div>
             </div>

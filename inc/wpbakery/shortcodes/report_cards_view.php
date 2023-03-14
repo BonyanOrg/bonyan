@@ -47,7 +47,7 @@ if (!function_exists('report_cards_shortcode')) {
 
                     <!-- File CTAs -->
                     <div class="file-cta">
-                        <a href="<?php echo $report_cards_btn_link  ?>" class="primary-btn download-file">More</a>
+                        <a href="<?php echo $report_cards_btn_link  ?>" class="primary-btn download-file"><?php _e('More','bonyan') ?></a>
                     </div>
                 </div>
             <?php } ?>

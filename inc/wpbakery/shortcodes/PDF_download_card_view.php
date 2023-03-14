@@ -41,8 +41,8 @@ if (!function_exists('pdf_download_card_shortcode')) {
 
                 <!-- File CTAs -->
                 <div class="file-cta">
-                    <a href="<?php echo $file_link ?>" class="reversed-primary-btn preview-file">Preview</a>
-                    <a href="<?php echo $file_link ?>" target="_blank" download class="primary-btn download-file">Download the file</a>
+                    <a href="<?php echo $file_link ?>" class="reversed-primary-btn preview-file"><?php _e('Preview','bonyan') ?></a>
+                    <a href="<?php echo $file_link ?>" target="_blank" download class="primary-btn download-file"><?php _e('Download the file','bonyan') ?></a>
                 </div>
             </div>
         </div>

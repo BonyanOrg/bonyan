@@ -37,7 +37,7 @@ if (!function_exists('vacancies_datatable_shortcode')) {
                 <h2 class="bonyan-title primary-color"><?php echo $vacancies_datatable_title ?></h2>
 
                 <div class="input-holder">
-                    <input type="search" class="custom-datatable-search" placeholder="Search in this page">
+                    <input type="search" class="custom-datatable-search" placeholder="<?php _e('Search in this page','bonyan') ?>">
                 </div>
             </div>
             <!-- Vacancies Datatable Widget -->
@@ -85,7 +85,7 @@ if (!function_exists('vacancies_datatable_shortcode')) {
                                 <tr isactive="<?php echo $is_active ?>" isurgent="<?php echo $is_urgent  ?>">
                                     <td>
                                         <?php echo $is_active == "true" ? "" : "<s>"; ?>
-                                        <a href="<?php echo get_permalink(get_the_ID()) ?>"> <?php the_title() ?><span class="urgent">Urgent</span></a>
+                                        <a href="<?php echo get_permalink(get_the_ID()) ?>"> <?php the_title() ?><span class="urgent"><?php _e('Urgent','bonyan') ?></span></a>
                                         <?php echo $is_active == "true" ? "" : "<s>"; ?>
                                     </td>
                                     <td><?php echo $is_active == "true" ? __('Active', 'bonyan') : __('Inactive', 'bonyan'); ?></td>

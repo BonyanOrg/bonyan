@@ -58,7 +58,7 @@ if (!function_exists('quick_donation_shortcode')) {
                             </div>
 
                             <select name="charity_select" id="charity_select">
-                                <option value="">Choose Charity</option>
+                                <option value=""><?php _e('Choose Charity','bonyan') ?></option>
                                 <?php foreach ($tags_list_array as $tag) : ?>
                                     <option value="<?php echo $tag->term_id; ?>"><?php echo $tag->name; ?></option>
                                 <?php endforeach; ?>
@@ -87,7 +87,7 @@ if (!function_exists('quick_donation_shortcode')) {
                                 <i class="fa-solid fa-angle-down"></i>
                             </div>
                             <select name="program_select" id="program_select">
-                                <option value="">Choose the program</option>
+                                <option value=""><?php _e('Choose the program','bonyan') ?></option>
                             </select>
                         </div>
 

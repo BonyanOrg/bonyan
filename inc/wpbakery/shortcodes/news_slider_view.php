@@ -75,9 +75,9 @@ if (!function_exists('news_slider_shortcode')) {
                                         <?php $give_form_id = get_post_meta(get_the_ID(), "po_give_form_id", true);
                                         if (!empty($give_form_id)) :
                                         ?>
-                                            <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>>Donate</button>
+                                            <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate','bonyan') ?></button>
                                         <?php endif; ?>
-                                        <a href="<?php echo get_permalink(get_the_ID()) ?>">More</a>
+                                        <a href="<?php echo get_permalink(get_the_ID()) ?>"><?php _e('More','bonyan') ?></a>
                                     </div>
                                 </div>
 

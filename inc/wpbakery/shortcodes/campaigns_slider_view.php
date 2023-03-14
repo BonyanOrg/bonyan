@@ -53,7 +53,7 @@ if (!function_exists('campaigns_slider_shortcode')) {
                         <div class="swiper-nav-btn swiper-next-nav campaigns-next-arrow"></div>
                     </div>
 
-                    <a href="<?php echo $a_href ?>" class="more-btn secondary-outlined-btn ms-3 primary-color hide-from-laptop-up">see more</a>
+                    <a href="<?php echo $a_href ?>" class="more-btn secondary-outlined-btn ms-3 primary-color hide-from-laptop-up"><?php _e('see more','bonyan') ?></a>
                 </div>
 
 
@@ -92,7 +92,7 @@ if (!function_exists('campaigns_slider_shortcode')) {
                     </div>
                 </div>
 
-                <a href="<?php echo $a_href ?>" class="more-btn secondary-outlined-btn primary-color hide-from-ipad-down mt-3 py-3 h-auto">see more</a>
+                <a href="<?php echo $a_href ?>" class="more-btn secondary-outlined-btn primary-color hide-from-ipad-down mt-3 py-3 h-auto"><?php _e('see more','bonyan') ?></a>
         </section>
         <!-- End Campaign Cards -->
 
