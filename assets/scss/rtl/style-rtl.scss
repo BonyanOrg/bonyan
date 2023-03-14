@@ -46,7 +46,7 @@ a {
 @media only screen and (max-width: 1024px) {
 	.swap-on-mobile {
 		display: flex !important;
-		flex-direction: column-reverse;
+		flex-direction: column;
     padding-top: 20px;
 	}
 }
@@ -323,7 +323,7 @@ input {
 /* __Start Page Head__ */
 .page-head {
   position: relative;
-  margin-top: 118px;
+  margin-top: 137px;
   min-height: 160px;
   padding: 2rem 0;
   background-repeat: no-repeat;
@@ -338,11 +338,11 @@ input {
   &::before {
     position: absolute;
     content: "";
-    left: 0;
+    right: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg,
+    background: linear-gradient(240deg,
         rgba($primary-color, 0.6) 0%,
         transparent 100%);
   }
@@ -673,11 +673,11 @@ input {
   }
 
   h1:not(.custom-widget h1):not(h1.custom-widget) {
-    font-size: 42px;
+    font-size: 36px;
   }
 
   h2:not(.custom-widget h2):not(h2.custom-widget) {
-    font-size: 36px;
+    font-size: 32px;
   }
 
   h3:not(.custom-widget h3):not(h3.custom-widget) {
@@ -1446,12 +1446,12 @@ header {
           &>a {
             color: $primary-color;
             font-weight: bold;
-            font-size: 17px;
+            font-size: 16px;
             padding: 0.5rem;
             
             @media (min-width: 1025px) and (max-width: 1199px) {
               padding: 0.5rem 0.25rem;
-              font-size: 16px;
+              font-size: 15px;
             }
           }
         }
