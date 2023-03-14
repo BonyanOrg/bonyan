@@ -17,6 +17,7 @@ function show_donate_form()
         ], 400);
         wp_die();
     }
+    setcookie("DonCampaign", $form_id, time() + 3600, "/");
     if (isset($_POST['amount']) && empty($_POST['type'])) {
         $give_form = str_replace('?giveDonationFormInIframe=1', '?giveDonationFormInIframe=1&amount=' . $_POST['amount'], $give_form);
     }

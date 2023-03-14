@@ -57,7 +57,7 @@
 
 			<!-- Column 2 -->
 			<div class="footer-links">
-				<h2><?php _e('Appeals','bonyan') ?></h2>
+				<h2><?php _e('Appeals', 'bonyan') ?></h2>
 				<?php
 				wp_nav_menu(
 					array(
@@ -70,7 +70,7 @@
 
 			<!-- Column 3 -->
 			<div class="footer-links">
-				<h2><?php _e('Useful Links','bonyan') ?></h2>
+				<h2><?php _e('Useful Links', 'bonyan') ?></h2>
 				<?php
 				wp_nav_menu(
 					array(
@@ -83,7 +83,7 @@
 
 			<!-- Column 4 -->
 			<div class="newsletter">
-				<h2><?php _e('Join our newsletter','bonyan') ?></h2>
+				<h2><?php _e('Join our newsletter', 'bonyan') ?></h2>
 
 				<form>
 					<div class="input-holder">
@@ -156,6 +156,19 @@
 </footer><!-- #colophon -->
 </div><!-- #page -->
 
+
+<!-- Start GiveWP Modal -->
+
+<?php
+if (isset($_COOKIE["DonCampaign"]) && isset($_GET["giveDonationAction"]) && is_singular('campaign') != true) {
+?>
+	<div id="givewp-modal-confirmation" class="givewp-modal-confirmation user-action-modal">
+		<?php echo do_shortcode('[give_form id="' . $_COOKIE["DonCampaign"] . '"]');
+		?>
+	</div>
+<?php } ?>
+
+<!-- End GiveWP Modal -->
 <?php wp_footer(); ?>
 
 </body>
