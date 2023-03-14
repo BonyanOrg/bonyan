@@ -7,6 +7,7 @@ function register_site_settings()
     foreach ($custom_post_types as $cpt) {
         register_setting('cpt-cover-image-group', $cpt . 'header_cover_image'); // new_option_name = html input name
     }
+    register_setting('cpt-cover-image-group', 'reports_archive_page_desc'); // new_option_name = html input name
 }
 
 
@@ -82,7 +83,20 @@ function theme_settings_render()
             <?php
                 $counter++;
             } ?>
-
+            <tr>
+                <th>Report Archive Page Description</th>
+                <td>
+                    <?php
+                    wp_editor(get_option('reports_archive_page_desc'), 'biography', array(
+                        'wpautop'       => false,
+                        'media_buttons' => false,
+                        'textarea_name' => 'reports_archive_page_desc',
+                        'textarea_rows' => 10,
+                        'teeny'         => false
+                    ));
+                    ?>
+                </td>
+            </tr>
         </table>
 
         <script>
@@ -96,7 +110,7 @@ function theme_settings_render()
                     alert('check url key');
                 } else {
 
-                   
+
                 }
 
 
