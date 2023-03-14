@@ -201,8 +201,8 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const donationAction = urlParams.get('giveDonationAction');
-        console.log(donationAction);
         if (donationAction !== null) {
+            document.body.classList.add('modal-active');
             document.getElementById('givewp-modal-confirmation').style.display = "block";
             document.getElementById('givewp-modal-confirmation').style.opacity = 1;
         }
