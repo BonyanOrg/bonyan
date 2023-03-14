@@ -53,4 +53,8 @@ html[dir="rtl"] {
     #give-recurring-form .form-row-one-third, form.give-form .form-row-one-third, form[id*=give-form] .form-row-one-third {
       margin-right: 3%;
     }
+
+    #give-receipt {
+      pointer-events: none !important;
+    }
 }
