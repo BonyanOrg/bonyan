@@ -8,23 +8,31 @@ function get_search_result()
     if (!wp_verify_nonce($_POST['nonce'], 'ajax-nonce')) {
         die('Busted!');
     }
-    $paged = $_POST['page'];
+    $paged = $_POST['paged'];
     $term = $_POST['term'];
     $taxonomy = $_POST['taxonomy'];
     $postType = $_POST['postType'];
     $searchWrod = $_POST['s'];
-    if (empty($searchWrod)) {
-        wp_die();
-    }
+    $no_search_word = false;
     $args = array(
         'post_type' =>  $postType,
         'post_status' => 'publish',
         'posts_per_page' => -1,
         //'paged' => $paged,
-        'order' => 'desc',
-        'orderby' => 'date',
+        // 'order' => 'desc',
+        // 'orderby' => 'date',
         's' => $searchWrod,
     );
+    if (empty($searchWrod) && !empty($paged)) { // user in 2 or higher page and the search input is empty
+        $args['paged'] = $paged;
+        $args['posts_per_page'] = get_option( 'posts_per_page' );
+        $no_search_word = true;
+    }
+    if (empty($searchWrod) && empty($paged)) { // user in first page and search input is empty
+        $args['paged'] = '1';
+        $args['posts_per_page'] = get_option( 'posts_per_page' );
+        $no_search_word = true;
+    }
     if (!empty($taxonomy)) {
         if (!empty($term)) {
             $args['tax_query'] = array(
@@ -39,8 +47,8 @@ function get_search_result()
     ob_start();
 
     $blog_posts = new WP_Query($args);
-    if (count($blog_posts->posts) <= 0){
-        wp_send_json(['error_message' => __("No results found","bonyan")], 400);
+    if (count($blog_posts->posts) <= 0) {
+        wp_send_json(['error_message' => __("No results found", "bonyan")], 400);
         wp_die();
     }
 
@@ -58,6 +66,6 @@ function get_search_result()
     wp_reset_query();
     $HTML_Output = ob_get_contents();
     ob_end_clean();
-    wp_send_json(['HTML_Output' => $HTML_Output, 200]);
+    wp_send_json(['HTML_Output' => $HTML_Output, 'No_Search_Word' => $no_search_word], 200);
     wp_die();
 }

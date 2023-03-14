@@ -770,6 +770,7 @@
                 let taxonomyOfSearch = this.getAttribute('data-taxonomy');
                 let termOfSearch = this.getAttribute('data-term');
                 let CPTOfSearch = this.getAttribute('data-postType');
+                let paged = this.getAttribute('data-paged');
                 let searchWord = this.value;
                 $('.cards-container').empty();
                 $('.cards-container').append('<div class="loader" style="display: flex;"></div>');
@@ -785,7 +786,7 @@
                         data: {
                             action: "get_search_result",
                             nonce: ajax_script_object.nonce,
-                            //page: page,
+                            paged: paged,
                             postType: CPTOfSearch,
                             taxonomy: taxonomyOfSearch,
                             term: termOfSearch,
@@ -806,8 +807,10 @@
                                 if (ajax_script_object.user_id != '') { // if user logged in
                                     giveWpGetter();
                                 }
-
                                 handleModals();
+                                if(data.No_Search_Word){
+                                    $('.pagination').show();
+                                }
                             },
                         },
                     });

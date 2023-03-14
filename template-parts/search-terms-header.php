@@ -28,7 +28,8 @@
                         <path id="Path_154" data-name="Path 154" d="M18.031,16.617,22.314,20.9,20.9,22.314l-4.282-4.283a9,9,0,1,1,1.414-1.414Zm-2.006-.742a7,7,0,1,0-.15.15l.15-.15Z" fill="#6d54a7" />
                     </svg>
                 </div>
-                <input type="search" id="ajax-search-input" data-taxonomy="<?php echo $args['taxonomy_name']; ?>" data-postType="<?php echo get_post_type(); ?>" placeholder="<?php _e('Search...', 'bonyan') ?>" class="ps-5 pe-2">
+                <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ''; ?>
+                <input type="search" id="ajax-search-input" data-paged="<?php echo $paged; ?>" data-taxonomy="<?php echo $args['taxonomy_name']; ?>" data-postType="<?php echo get_post_type(); ?>" placeholder="<?php _e('Search...', 'bonyan') ?>" class="ps-5 pe-2">
             </div>
             <?php //get_search_form() 
             ?>
@@ -40,7 +41,7 @@
             <div class="categories-filter">
                 <?php if (!empty($args['taxonomy_name'])) {
                     $parent_id = get_term($args['queried_object']->term_id, $args['taxonomy_name'])->parent;
-                    $current_term_id ="";
+                    $current_term_id = "";
                     $terms = get_terms(array(
                         'taxonomy' => $args['taxonomy_name'],
                         'hide_empty' => true,
@@ -94,7 +95,13 @@
                         <path id="Path_154" data-name="Path 154" d="M18.031,16.617,22.314,20.9,20.9,22.314l-4.282-4.283a9,9,0,1,1,1.414-1.414Zm-2.006-.742a7,7,0,1,0-.15.15l.15-.15Z" fill="#6d54a7" />
                     </svg>
                 </div>
-                <input type="search" id="ajax-search-input" data-postType="<?php echo get_post_type(); ?>" data-taxonomy="<?php echo $args['taxonomy_name']; ?>" data-term="<?php echo $current_term_id ?>" placeholder="<?php _e('Search...', 'bonyan') ?>" class="ps-5 pe-2">
+                <?php
+                $paged = (get_query_var('paged')) ? get_query_var('paged') : '';
+                if (empty($current_term_id) && empty($parent_id)) {
+                    $current_term_id = $args['queried_object']->term_id;
+                }
+                ?>
+                <input type="search" id="ajax-search-input" data-paged="<?php echo $paged; ?>" data-postType="<?php echo get_post_type(); ?>" data-taxonomy="<?php echo $args['taxonomy_name']; ?>" data-term="<?php echo $current_term_id ?>" placeholder="<?php _e('Search...', 'bonyan') ?>" class="ps-5 pe-2">
             </div>
             <?php //get_search_form() 
             ?>
