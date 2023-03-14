@@ -35,7 +35,7 @@ $instagram_url = ($instagram_url = get_user_meta($userdata->ID, 'instagram_url',
 
 
 ?>
-<?php echo get_template_part('template-parts/page-head'); ?>
+<?php echo get_template_part('template-parts/page-header'); ?>
 
 <section class="dashboard">
     <!-- Start Dashboard Tabs -->
