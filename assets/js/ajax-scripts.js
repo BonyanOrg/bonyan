@@ -206,6 +206,18 @@
             document.getElementById('givewp-modal-confirmation').style.display = "block";
             document.getElementById('givewp-modal-confirmation').style.opacity = 1;
         }
+        
+        let giveModalConfirmation = document.getElementById('givewp-modal-confirmation');
+
+        if (giveModalConfirmation !== null) {            
+            giveModalConfirmation.addEventListener('click', function(){
+                if (document.body.classList.contains('modal-active')) {
+                    giveModalConfirmation.style.opacity = 0;
+                    giveModalConfirmation.style.display = "none";
+                    document.body.classList.remove('modal-active');
+                }
+            });
+        }
     });
     /* __End Open Give Modal Confirmation  */
 
