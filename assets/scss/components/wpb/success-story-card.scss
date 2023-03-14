@@ -59,3 +59,15 @@
         }
     }
 }
+
+// RTL
+html[dir=rtl] {
+    .success-card {
+        .success-img {
+            &::before {
+                right: 0;
+                background: linear-gradient(245deg, rgba(109, 84, 167, 1) 0%, rgba(255, 255, 255, 0) 100%);
+            }
+        }
+    }
+}
