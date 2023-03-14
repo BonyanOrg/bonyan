@@ -67,7 +67,7 @@ ORDER BY FIELD( p1.ID, {$donation_ids} );
     <!-- Start Top Donations -->
     <div class="top-donation-stats-item top-donations">
 
-        <h3 class="top-donation-stats-title bonyan-title primary-color">Top Donations</h3>
+        <h3 class="top-donation-stats-title bonyan-title primary-color"><?php _e('Top Donation','bonyan') ?></h3>
 
         <div class="top-donation-stats-card">
             <div class="top-donations--amount">
@@ -104,7 +104,7 @@ ORDER BY FIELD( p1.ID, {$donation_ids} );
 
     <!-- Start Top Donors -->
     <div class="top-donation-stats-item top-donors">
-        <h3 class="top-donation-stats-title bonyan-title primary-color">Top Donor</h3>
+        <h3 class="top-donation-stats-title bonyan-title primary-color"><?php _e('Top Donor','bonyan') ?></h3>
 
         <div class="top-donation-stats-card">
             <div class="top-donors--avatar">

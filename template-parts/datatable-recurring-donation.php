@@ -32,12 +32,12 @@
     <table id="recurring-donation-table" class="display nowrap dashboard-datatable dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="donations table">
         <thead>
             <tr>
-                <th><?php _e('DONATIONS', 'sema'); ?></th>
-                <th><?php _e('RECURRING', 'sema'); ?></th>
-                <th><?php _e('DATE STARTED', 'sema'); ?></th>
-                <th><?php _e('NEXT PAYMENT', 'sema'); ?></th>
-                <th><?php _e('STATUS', 'sema'); ?></th>
-                <th><?php _e('MANAGE', 'sema'); ?></th>
+                <th><?php _e('DONATIONS', 'bonyan'); ?></th>
+                <th><?php _e('RECURRING', 'bonyan'); ?></th>
+                <th><?php _e('DATE STARTED', 'bonyan'); ?></th>
+                <th><?php _e('NEXT PAYMENT', 'bonyan'); ?></th>
+                <th><?php _e('STATUS', 'bonyan'); ?></th>
+                <th><?php _e('MANAGE', 'bonyan'); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -102,7 +102,7 @@
 
                         </td>
                         <td><?php if ($subscription->can_cancel()) : ?>
-                                <a href="<?php echo $subscription->get_cancel_url(); ?>" class="button button-small give-subscription-admin-cancel"><?php _e('Cancel Subscription', 'sema'); ?></a>
+                                <a href="<?php echo $subscription->get_cancel_url(); ?>" class="button button-small give-subscription-admin-cancel"><?php _e('Cancel Subscription', 'bonyan'); ?></a>
                             <?php endif; ?>
                         </td>
                     </tr>

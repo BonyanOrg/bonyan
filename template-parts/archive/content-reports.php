@@ -29,7 +29,7 @@ $taxonomy_name = $queried_object->taxonomies[1];
 
                         <!-- File CTAs -->
                         <div class="file-cta">
-                            <a href="<?php echo get_term_link($term->term_id) ?>" class="primary-btn download-file">More</a>
+                            <a href="<?php echo get_term_link($term->term_id) ?>" class="primary-btn download-file"><?php _e('More','bonyan') ?></a>
                         </div>
                     </div>
         <?php

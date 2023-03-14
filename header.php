@@ -59,7 +59,7 @@
 						<!-- Donate button -->
 						<div class="donation-button-holder hide-from-laptop-up as-block mx-3">
 							<a href="#" class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo get_option('give_form_id') ?>" data-amount="<?php echo intval(get_option("default_donation_amount")); ?>">
-								<span>Donate Now</span>
+								<span><?php _e('Donate Now','bonyan') ?></span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
 									<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
 								</svg>
@@ -196,7 +196,12 @@
 								<!-- Language Swicher -->
 								<div class="lang-switcher">
 									<button class="secondary-outlined-btn">
-										<span class="me-2 current-lang">En</span>
+										<span class="me-2 current-lang">
+											<?php
+											$lang = current_language();
+											echo strtoupper($lang);
+											?>
+										</span>
 
 										<svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
 											<path id="Path_213" data-name="Path 213" d="M12,22A10,10,0,1,1,22,12,10,10,0,0,1,12,22ZM9.71,19.667A17.9,17.9,0,0,1,8.027,13H4.062A8.008,8.008,0,0,0,9.71,19.667ZM10.03,13A15.915,15.915,0,0,0,12,19.752,15.9,15.9,0,0,0,13.97,13H10.03Zm9.908,0H15.973a17.9,17.9,0,0,1-1.683,6.667A8.008,8.008,0,0,0,19.938,13ZM4.062,11H8.027A17.9,17.9,0,0,1,9.71,4.333,8.008,8.008,0,0,0,4.062,11Zm5.969,0h3.938A15.9,15.9,0,0,0,12,4.248,15.9,15.9,0,0,0,10.03,11ZM14.29,4.333A17.9,17.9,0,0,1,15.973,11h3.965A8.008,8.008,0,0,0,14.29,4.333Z" transform="translate(-2 -2)" fill="#5b4795" />

@@ -96,14 +96,14 @@ get_header();
 
         <div class="content-of-404--text-cta mt-4">
             <p>
-                <?php _e("Sorry, but nothing matched your search terms. Please try again with some different keywords.", "sema") ?>
+                <?php _e("Sorry, but nothing matched your search terms. Please try again with some different keywords.", "bonyan") ?>
             </p>
 
             <div class="content-of-404-cta">
                 <?php get_search_form() ?>
                 
-                <a href="<?php echo home_url(); ?>" class="wpb-sema-btn">
-                    <span><?php _e('Back To Home', 'sema'); ?></span>
+                <a href="<?php echo home_url(); ?>" class="wpb-bonyan-btn">
+                    <span><?php _e('Back To Home', 'bonyan'); ?></span>
                 </a>
             </div>
         </div>

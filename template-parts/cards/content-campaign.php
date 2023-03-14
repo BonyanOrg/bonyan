@@ -112,7 +112,7 @@ if (is_user_logged_in()) {
 
 
     <div class="card-footer campaign-card-cta">
-        <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>>Donate</button>
-        <a href="<?php echo get_permalink($post) ?>">More</a>
+        <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate','bonyan') ?></button>
+        <a href="<?php echo get_permalink($post) ?>"><?php _e('More','bonyan') ?></a>
     </div>
 </div>

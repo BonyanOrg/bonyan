@@ -16,10 +16,10 @@
         <table id="donations-table" class="display nowrap dashboard-datatable dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="donations table">
             <thead>
                 <tr>
-                    <th><?php _e('DONATIONS', 'sema'); ?></th>
-                    <th><?php _e('CAMPAIGN', 'sema'); ?></th>
-                    <th><?php _e('DATE', 'sema'); ?></th>
-                    <th><?php _e('STATUS', 'sema'); ?></th>
+                    <th><?php _e('DONATIONS', 'bonyan'); ?></th>
+                    <th><?php _e('CAMPAIGN', 'bonyan'); ?></th>
+                    <th><?php _e('DATE', 'bonyan'); ?></th>
+                    <th><?php _e('STATUS', 'bonyan'); ?></th>
                 </tr>
             </thead>
             <tbody>

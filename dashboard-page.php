@@ -6,7 +6,7 @@
 if (!is_user_logged_in()) {
 
 ?>
-    <h1 align="center"> <?php _e('You Must Login To See Your Dashboard', 'sema'); ?></h1>
+    <h1 align="center"> <?php _e('You Must Login To See Your Dashboard', 'bonyan'); ?></h1>
     <script>
         window.location.href = "<?php echo home_url('/') ?>";
     </script>

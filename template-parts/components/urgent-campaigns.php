@@ -30,7 +30,7 @@
                             </div>
 
                             <div class="primary-carousel-item primary-carousel-label">
-                                <span>Urgent Campaigns</span>
+                                <span><?php _e('Urgent Campaigns','bonyan') ?></span>
                             </div>
 
                             <div class="primary-carousel-item primary-carousel-title">
@@ -86,8 +86,8 @@
                             </div>
 
                             <div class="primary-carousel-item primary-carousel-cta">
-                                <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>>Donate</button>
-                                <a href="<?php echo get_permalink($args['post']) ?>">More</a>
+                                <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate','bonyan') ?></button>
+                                <a href="<?php echo get_permalink($args['post']) ?>"><?php _e('More','bonyan') ?></a>
                             </div>
                         </div>
 

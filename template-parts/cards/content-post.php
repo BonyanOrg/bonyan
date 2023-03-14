@@ -10,6 +10,6 @@
     </p>
 
     <div class="blog-more">
-        <span class="primary-btn no-border py-2 px-4">More</span>
+        <span class="primary-btn no-border py-2 px-4"><?php _e('More','bonyan') ?></span>
     </div>
 </a>

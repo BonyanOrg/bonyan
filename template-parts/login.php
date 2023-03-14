@@ -18,21 +18,21 @@
                 <!-- Login Back Button -->
                 <div class="back-btn">
                     <i class="fa-solid fa-arrow-left"></i>
-                    <span>Back</span>
+                    <span><?php _e('Back','bonyan') ?></span>
                 </div>
 
                 <!-- Title -->
-                <h2 class="bonyan-title primary-color my-4">Login</h2>
+                <h2 class="bonyan-title primary-color my-4"> <?php _e('Login','bonyan') ?></h2>
 
                 <!-- Form -->
                 <form id="login_form">
                     <div class="input-holder">
-                        <label for="user-email">User Name Or Eamil</label>
+                        <label for="user-email"><?php _e('Eamil','bonyan') ?></label>
                         <input type="text" name="user-email" id="user_email">
                     </div>
 
                     <div class="input-holder">
-                        <label for="user-password">Password</label>
+                        <label for="user-password"><?php _e('Password','bonyan') ?></label>
 
                         <div class="password-holder">
                             <!-- To show password -->
@@ -50,15 +50,15 @@
                     </div>
 
                     <div class="forgot-password">
-                        <a href="<?php echo esc_url(wp_lostpassword_url()); ?>">Forgot Password?</a>
+                        <a href="<?php echo esc_url(wp_lostpassword_url()); ?>"><?php _e('Forgot Password?','bonyan') ?></a>
                     </div>
 
                     <div class="form-cta">
-                        <button class="secondary-btn">Login</button>
+                        <button class="secondary-btn"><?php _e('Login','bonyan') ?></button>
                     </div>
 
                     <div class="not-have-account">
-                        <div class="user-action-btn" data-target="signup-modal">Don't have account yet? <span>Sign up</span></div>
+                        <div class="user-action-btn" data-target="signup-modal"><?php _e('Don\'t have account yet? ','bonyan') ?><span><?php _e('Sign up','bonyan') ?></span></div>
                     </div>
                 </form>
             </div>

@@ -57,7 +57,7 @@
 
 			<!-- Column 2 -->
 			<div class="footer-links">
-				<h2>Appeals</h2>
+				<h2><?php _e('Appeals','bonyan') ?></h2>
 				<?php
 				wp_nav_menu(
 					array(
@@ -70,7 +70,7 @@
 
 			<!-- Column 3 -->
 			<div class="footer-links">
-				<h2>Useful Links</h2>
+				<h2><?php _e('Useful Links','bonyan') ?></h2>
 				<?php
 				wp_nav_menu(
 					array(
@@ -83,7 +83,7 @@
 
 			<!-- Column 4 -->
 			<div class="newsletter">
-				<h2>Join our newsletter</h2>
+				<h2><?php _e('Join our newsletter','bonyan') ?></h2>
 
 				<form>
 					<div class="input-holder">

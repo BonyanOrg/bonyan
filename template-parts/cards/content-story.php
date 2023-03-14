@@ -10,6 +10,6 @@
     </p>
 
     <div class="success-more">
-        <span>More</span>
+        <span><?php _e('More','bonyan') ?></span>
     </div>
 </a>

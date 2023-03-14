@@ -14,7 +14,7 @@ $PDF_file_url = wp_get_attachment_url($PDF_file);
 
     <!-- File CTAs -->
     <div class="file-cta">
-        <a href="<?php echo $PDF_file_url ?>"  class="reversed-primary-btn preview-file">Preview</a>
-        <a href="<?php echo $PDF_file_url ?>" target="_blank" download class="primary-btn download-file">Download the file</a>
+        <a href="<?php echo $PDF_file_url ?>"  class="reversed-primary-btn preview-file"><?php _e('Preview','bonyan') ?></a>
+        <a href="<?php echo $PDF_file_url ?>" target="_blank" download class="primary-btn download-file"><?php _e('Download the file','bonyan') ?></a>
     </div>
 </div>

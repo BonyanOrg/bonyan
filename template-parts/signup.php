@@ -18,41 +18,41 @@
                 <!-- Login Back Button -->
                 <div class="back-btn">
                     <i class="fa-solid fa-arrow-left"></i>
-                    <span>Back</span>
+                    <span><?php _e('Back','bonyan') ?></span>
                 </div>
 
                 <!-- Title -->
-                <h2 class="bonyan-title primary-color my-4">Sign Up</h2>
+                <h2 class="bonyan-title primary-color my-4"><?php _e('Sign Up','bonyan') ?></h2>
 
                 <!-- Form -->
                 <form id="registration_form">
                     <div class="form-inputs-container">
                         <div class="input-holder">
-                            <label for="first-name">First Name</label>
+                            <label for="first-name"><?php _e('First Name','bonyan') ?></label>
                             <input type="text" name="first-name" id="registration_user_first_name" placeholder="First Name">
                         </div>
 
                         <div class="input-holder">
-                            <label for="last-name">Last Name</label>
+                            <label for="last-name"><?php _e('Last Name','bonyan') ?></label>
                             <input type="text" name="last-name" id="registration_user_last_name" placeholder="Last Name">
                         </div>
 
                         <div class="input-holder">
-                            <label for="register-user-email">Eamil</label>
+                            <label for="register-user-email"><?php _e('Eamil','bonyan') ?></label>
                             <input type="email" name="register-user-email" id="registration_user_email" placeholder="Email Address">
                         </div>
 
                         <div class="input-holder">
-                            <label for="user-age">Age</label>
+                            <label for="user-age"><?php _e('Age','bonyan') ?></label>
                             <input type="text" name="user-age" id="registration_user_age" placeholder="Your Age" class="only-number">
                         </div>
 
                         <div class="input-holder">
-                            <label>Gender</label>
+                            <label><?php _e('Gender','bonyan') ?></label>
 
                             <div class="radio-btns-container gender">
                                 <div class="gender-item">
-                                    <label for="male">Male</label>
+                                    <label for="male"><?php _e('Male','bonyan') ?></label>
 
                                     <div class="radio-btn-holder">
                                         <input type="radio" name="gender" id="male">
@@ -61,7 +61,7 @@
                                 </div>
 
                                 <div class="gender-item">
-                                    <label for="female">Female</label>
+                                    <label for="female"><?php _e('Female','bonyan') ?></label>
 
                                     <div class="radio-btn-holder">
                                         <input type="radio" name="gender" id="female">
@@ -72,12 +72,12 @@
                         </div>
 
                         <div class="input-holder">
-                            <label for="date-of-birth">Date of birth</label>
+                            <label for="date-of-birth"><?php _e('Date of birth','bonyan') ?></label>
                             <input type="date" name="date-of-birth" id="registration_user_birth_date" value="<?php echo date("Y-m-d") ?>" min='<?php echo date("Y-m-d", strtotime("-100 year")) ?>' max='<?php echo date("Y-m-d", strtotime("-18 year")) ?>'>
                         </div>
 
                         <div class="input-holder">
-                            <label for="register-user-password">Password</label>
+                            <label for="register-user-password"> <?php _e('Password','bonyan') ?></label>
 
                             <div class="password-holder">
                                 <!-- To show password -->
@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="input-holder">
-                            <label for="confirm-user-password">Confirm Password</label>
+                            <label for="confirm-user-password"><?php _e('Confirm Password','bonyan') ?></label>
 
                             <div class="password-holder">
                                 <!-- To show password -->
@@ -114,11 +114,11 @@
                     </div>
 
                     <div class="form-cta">
-                        <button class="secondary-btn">Sign Up</button>
+                        <button class="secondary-btn"><?php _e('Sign Up','bonyan') ?></button>
                     </div>
 
                     <div class="not-have-account">
-                        <div class="user-action-btn" data-target="login-modal">Don't have account yet? <span>Sign up</span></div>
+                        <div class="user-action-btn" data-target="login-modal"><?php _e('Already have account? ','bonyan') ?><span><?php _e('Login','bonyan') ?></span></div>
                     </div>
                 </form>
             </div>

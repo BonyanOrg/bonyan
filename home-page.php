@@ -11,22 +11,11 @@ get_header();
 <?php get_template_part('template-parts/components/main-slider'); ?>
 <!-- End Main Slider -->
 
-
-
 <div class="entry-content inner-content container">
     <?php
     the_content();
     ?>
 </div>
 
-
-
-
-
-
-
-
-
 <?php
-
 get_footer();

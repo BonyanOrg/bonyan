@@ -34,7 +34,7 @@ get_template_part('template-parts/page', 'header');
                     the_post();
 
                 ?>
-                    <?php get_template_part('template-parts/components/cards/post'); ?>
+                    <?php get_template_part('template-parts/cards/content ', 'post'); ?>
 
 
             <?php
