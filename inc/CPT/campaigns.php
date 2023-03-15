@@ -3,10 +3,10 @@
 function register_campaigns_cpt()
 {
     $labels = array(
-        'name'                  => _x('Campaigns', 'bonyan'),
-        'singular_name'         => _x('campaign',  'bonyan'),
-        'menu_name'             => _x('Campaigns',  'bonyan'),
-        'name_admin_bar'        => _x('campaign',  'bonyan'),
+        'name'                  => __('Campaigns', 'bonyan'),
+        'singular_name'         => __('campaign',  'bonyan'),
+        'menu_name'             => __('Campaigns',  'bonyan'),
+        'name_admin_bar'        => __('campaign',  'bonyan'),
         'add_new'               => __('Add New', 'bonyan'),
         'add_new_item'          => __('Add New campaign', 'bonyan'),
         'new_item'              => __('New campaign', 'bonyan'),

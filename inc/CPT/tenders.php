@@ -3,10 +3,10 @@
 function register_tenders_cpt()
 {
     $labels = array(
-        'name'                  => _x('Tender', 'bonyan'),
-        'singular_name'         => _x('vacancie',  'bonyan'),
-        'menu_name'             => _x('Tender',  'bonyan'),
-        'name_admin_bar'        => _x('Tender',  'bonyan'),
+        'name'                  => __('Tenders', 'bonyan'),
+        'singular_name'         => __('Tender',  'bonyan'),
+        'menu_name'             => __('Tender',  'bonyan'),
+        'name_admin_bar'        => __('Tender',  'bonyan'),
         'add_new'               => __('Add New', 'bonyan'),
         'add_new_item'          => __('Add New Tender', 'bonyan'),
         'new_item'              => __('New Tender', 'bonyan'),

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-15T10:28:04+01:00\n"
-"PO-Revision-Date: 2023-03-15 12:28+0300\n"
+"POT-Creation-Date: 2023-03-15T10:36:28+01:00\n"
+"PO-Revision-Date: 2023-03-15 12:38+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -257,6 +257,14 @@ msgstr "حدث خطأ عند محاولة تسجيل الدخول"
 msgid "User Email Is Already In Use"
 msgstr "البريد الالكتروني للمستخدم قيد الاستخدام"
 
+#: inc/CPT/campaigns.php:6 inc/CPT/campaigns.php:8
+msgid "Campaigns"
+msgstr "الحملات"
+
+#: inc/CPT/campaigns.php:7 inc/CPT/campaigns.php:9
+msgid "campaign"
+msgstr "حملة"
+
 #: inc/CPT/campaigns.php:10 inc/CPT/main_slider.php:10 inc/CPT/projects.php:10
 #: inc/CPT/reports.php:10 inc/CPT/seasonal_campaigns.php:10
 #: inc/CPT/special_cases.php:10 inc/CPT/stories_of_success.php:10
@@ -460,6 +468,18 @@ msgstr ""
 msgid "Projects Category"
 msgstr ""
 
+#: inc/CPT/reports.php:6
+msgid "Reports"
+msgstr "التقارير"
+
+#: inc/CPT/reports.php:7
+msgid "Report"
+msgstr "تقرير"
+
+#: inc/CPT/reports.php:8 inc/CPT/reports.php:9
+msgid "reports"
+msgstr "التقارير"
+
 #: inc/CPT/reports.php:11
 msgid "Add New reports"
 msgstr ""
@@ -632,6 +652,14 @@ msgstr ""
 msgid "Stories Category"
 msgstr ""
 
+#: inc/CPT/tenders.php:6
+msgid "Tenders"
+msgstr "المناقصات"
+
+#: inc/CPT/tenders.php:7 inc/CPT/tenders.php:8 inc/CPT/tenders.php:9
+msgid "Tender"
+msgstr ""
+
 #: inc/CPT/tenders.php:11
 msgid "Add New Tender"
 msgstr ""
@@ -663,6 +691,14 @@ msgstr ""
 #: inc/CPT/tenders.php:18
 msgid "No Tender found."
 msgstr "لا يوجد مناقصات."
+
+#: inc/CPT/vacancies.php:6 inc/CPT/vacancies.php:8
+msgid "Vacancies"
+msgstr "الشواغر"
+
+#: inc/CPT/vacancies.php:7 inc/CPT/vacancies.php:9
+msgid "Vacancy"
+msgstr "شاغر"
 
 #: inc/CPT/vacancies.php:11
 msgid "Add New Vacancy"

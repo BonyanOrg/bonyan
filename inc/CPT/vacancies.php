@@ -3,10 +3,10 @@
 function register_vacancies_cpt()
 {
     $labels = array(
-        'name'                  => _x('Vacancies', 'bonyan'),
-        'singular_name'         => _x('Vacancy',  'bonyan'),
-        'menu_name'             => _x('Vacancies',  'bonyan'),
-        'name_admin_bar'        => _x('Vacancy',  'bonyan'),
+        'name'                  => __('Vacancies', 'bonyan'),
+        'singular_name'         => __('Vacancy',  'bonyan'),
+        'menu_name'             => __('Vacancies',  'bonyan'),
+        'name_admin_bar'        => __('Vacancy',  'bonyan'),
         'add_new'               => __('Add New', 'bonyan'),
         'add_new_item'          => __('Add New Vacancy', 'bonyan'),
         'new_item'              => __('New Vacancy', 'bonyan'),

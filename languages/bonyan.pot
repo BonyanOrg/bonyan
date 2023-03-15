@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-15T10:28:04+01:00\n"
+"POT-Creation-Date: 2023-03-15T10:36:28+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: bonyan\n"
@@ -260,6 +260,16 @@ msgstr ""
 msgid "User Email Is Already In Use"
 msgstr ""
 
+#: inc/CPT/campaigns.php:6
+#: inc/CPT/campaigns.php:8
+msgid "Campaigns"
+msgstr ""
+
+#: inc/CPT/campaigns.php:7
+#: inc/CPT/campaigns.php:9
+msgid "campaign"
+msgstr ""
+
 #: inc/CPT/campaigns.php:10
 #: inc/CPT/main_slider.php:10
 #: inc/CPT/projects.php:10
@@ -500,6 +510,19 @@ msgstr ""
 msgid "Projects Category"
 msgstr ""
 
+#: inc/CPT/reports.php:6
+msgid "Reports"
+msgstr ""
+
+#: inc/CPT/reports.php:7
+msgid "Report"
+msgstr ""
+
+#: inc/CPT/reports.php:8
+#: inc/CPT/reports.php:9
+msgid "reports"
+msgstr ""
+
 #: inc/CPT/reports.php:11
 msgid "Add New reports"
 msgstr ""
@@ -673,6 +696,16 @@ msgstr ""
 msgid "Stories Category"
 msgstr ""
 
+#: inc/CPT/tenders.php:6
+msgid "Tenders"
+msgstr ""
+
+#: inc/CPT/tenders.php:7
+#: inc/CPT/tenders.php:8
+#: inc/CPT/tenders.php:9
+msgid "Tender"
+msgstr ""
+
 #: inc/CPT/tenders.php:11
 msgid "Add New Tender"
 msgstr ""
@@ -703,6 +736,16 @@ msgstr ""
 
 #: inc/CPT/tenders.php:18
 msgid "No Tender found."
+msgstr ""
+
+#: inc/CPT/vacancies.php:6
+#: inc/CPT/vacancies.php:8
+msgid "Vacancies"
+msgstr ""
+
+#: inc/CPT/vacancies.php:7
+#: inc/CPT/vacancies.php:9
+msgid "Vacancy"
 msgstr ""
 
 #: inc/CPT/vacancies.php:11
