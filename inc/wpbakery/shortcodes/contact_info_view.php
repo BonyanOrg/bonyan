@@ -44,11 +44,11 @@ if (!function_exists('contact_info_shortcode')) {
         <!-- This is the START of the component -->
         <div class="contact-item">
             <?php if ($contact_info_is_phone) : ?>
-                <a href="tel:<?php echo $contact_info_phone_number; ?>" class="phone-numbers-container" <?php echo $in_line_style; ?>>
+                <a href="tel:<?php echo $contact_info_phone_number; ?>" class="phone-numbers-container" >
                 <?php elseif ($contact_info_is_email) : ?>
-                    <a href="mailto:<?php echo $contact_info_email; ?>" class="phone-numbers-container" <?php echo $in_line_style; ?>>
+                    <a href="mailto:<?php echo $contact_info_email; ?>" class="phone-numbers-container" >
                     <?php else : ?>
-                        <a href="#" class="phone-numbers-container" <?php echo $in_line_style; ?>>
+                        <a href="#" class="phone-numbers-container" >
                         <?php endif; ?>
                         <div class="contact-icon">
                             <?php if (!empty($contact_info_icon)) : ?>
@@ -56,7 +56,7 @@ if (!function_exists('contact_info_shortcode')) {
                             <?php endif; ?>
                         </div>
 
-                        <div class="phone-numbers">
+                        <div class="phone-numbers" <?php echo $in_line_style; ?>>
                             <span><?php echo $content; ?></span>
                         </div>
                         </a>
