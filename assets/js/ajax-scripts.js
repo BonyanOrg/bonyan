@@ -77,6 +77,14 @@
 
             addToFavBtn.addEventListener('click', function () {
                 if (this.classList.contains("is-fav")) {
+                    if (this.getAttribute('data-isDonorDashboard') == "true") {
+                        this.parentElement.style.transition = '.3s all ease-in-out';
+                        this.parentElement.style.opacity = '0';
+                        setTimeout(() => {
+                            this.parentElement.style.display = "none";
+                        }, 300);
+                        console.log(this.parentElement);
+                    }
                     toastr.info(generalMsgs.removing_from_fav);
                 } else {
                     toastr.info(generalMsgs.adding_to_fav);
@@ -206,11 +214,11 @@
             document.getElementById('givewp-modal-confirmation').style.display = "block";
             document.getElementById('givewp-modal-confirmation').style.opacity = 1;
         }
-        
+
         let giveModalConfirmation = document.getElementById('givewp-modal-confirmation');
 
-        if (giveModalConfirmation !== null) {            
-            giveModalConfirmation.addEventListener('click', function(){
+        if (giveModalConfirmation !== null) {
+            giveModalConfirmation.addEventListener('click', function () {
                 if (document.body.classList.contains('modal-active')) {
                     giveModalConfirmation.style.opacity = 0;
                     giveModalConfirmation.style.display = "none";
@@ -805,7 +813,7 @@
                                     giveWpGetter();
                                 }
                                 handleModals();
-                                if(data.No_Search_Word){
+                                if (data.No_Search_Word) {
                                     $('.pagination').show();
                                 }
                             },

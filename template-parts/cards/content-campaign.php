@@ -20,9 +20,10 @@ if (is_user_logged_in()) {
         }
     }
 }
+$is_user_dashboard = (isset($args['is_donor_dashboard']) && $args['is_donor_dashboard'] == true) ? "true" : "false";
 ?>
 <div class="campaign-card">
-    <div class="add-to-fav <?php echo $is_fav ?>" data-id="<?php echo get_the_ID(); ?>">
+    <div class="add-to-fav <?php echo $is_fav ?>" data-isDonorDashboard="<?php echo $is_user_dashboard; ?>" data-id="<?php echo get_the_ID(); ?>">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="#fff" xmlns="http://www.w3.org/2000/svg">
             <path d="M24.3134 6.37833C23.7175 5.78217 23.01 5.30925 22.2313 4.98659C21.4526 4.66394 20.618 4.49786 19.7751 4.49786C18.9322 4.49786 18.0975 4.66394 17.3188 4.98659C16.5401 5.30925 15.8326 5.78217 15.2367 6.37833L14.0001 7.61499L12.7634 6.37833C11.5598 5.17469 9.92726 4.49849 8.22506 4.49849C6.52285 4.49849 4.89037 5.17469 3.68672 6.37833C2.48308 7.58197 1.80688 9.21445 1.80688 10.9167C1.80688 12.6189 2.48308 14.2514 3.68672 15.455L4.92339 16.6917L14.0001 25.7683L23.0767 16.6917L24.3134 15.455C24.9096 14.8591 25.3825 14.1516 25.7051 13.3729C26.0278 12.5942 26.1939 11.7596 26.1939 10.9167C26.1939 10.0738 26.0278 9.23911 25.7051 8.46041C25.3825 7.68171 24.9096 6.97421 24.3134 6.37833V6.37833Z" stroke="#38C2CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
@@ -112,7 +113,7 @@ if (is_user_logged_in()) {
 
 
     <div class="card-footer campaign-card-cta">
-        <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate','bonyan') ?></button>
-        <a href="<?php echo get_permalink($post) ?>"><?php _e('More','bonyan') ?></a>
+        <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate', 'bonyan') ?></button>
+        <a href="<?php echo get_permalink($post) ?>"><?php _e('More', 'bonyan') ?></a>
     </div>
 </div>

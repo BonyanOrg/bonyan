@@ -255,7 +255,7 @@ $instagram_url = ($instagram_url = get_user_meta($userdata->ID, 'instagram_url',
                         while ($favorite_user_campaigns->have_posts()) :
                             $favorite_user_campaigns->the_post();
                     ?>
-                            <?php get_template_part('template-parts/cards/content', 'campaign'); ?>
+                            <?php get_template_part('template-parts/cards/content', 'campaign', array('is_donor_dashboard' => true)); ?>
                     <?php
                         endwhile;
                     endif;
