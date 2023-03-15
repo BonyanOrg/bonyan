@@ -61,6 +61,7 @@
                 successful_register: "Registered successfully",
                 fill_inputs: "Please fill the fields",
                 saved_successfully: "Information saved successfully",
+                adding_to_fav: "Adding the campaign from favorites...",
                 removing_from_fav: "Removing the campaign from favorites...",
             }
         }

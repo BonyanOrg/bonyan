@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
 "POT-Creation-Date: 2023-03-15T14:38:29+01:00\n"
-"PO-Revision-Date: 2023-03-15 16:38+0300\n"
+"PO-Revision-Date: 2023-03-15 18:01+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -307,7 +307,7 @@ msgstr "لم يتم العثور على حملات."
 
 #: inc/CPT/campaigns.php:47
 msgid "Campaigns - Categories"
-msgstr ""
+msgstr "تصنيفات - الحملات"
 
 #: inc/CPT/campaigns.php:48 inc/CPT/campaigns.php:75
 msgid "Campaign - Category"
