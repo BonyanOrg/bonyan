@@ -80,8 +80,30 @@
                             ?>
                             <?php echo give_donation_amount($payment->ID, ['currency' => true, 'amount'   => true, 'type'     => 'donor',])  . " / " . $frequency ?>
                         </td>
-                        <td><?php echo date_format(date_create($payment->post_date), "d M y"); ?></td>
-                        <td><?php echo date_format(date_create($subscription->expiration), "d M y"); ?></td>
+                        <td>
+
+                            <?php //echo date_format(date_create($payment->post_date), "d M y"); 
+                            ?>
+
+                            <?php
+                            $date = date_create($post->post_date);
+                            $date = date_format($date, 'd M y');
+                            echo is_wpml_rtl() ?
+                                ArabicDate($date) :
+                                $date;
+                            ?>
+
+                        </td>
+                        <td>
+                            <?php //echo date_format(date_create($subscription->expiration), "d M y"); ?>
+                            <?php
+                            $date = date_create($subscription->expiration);
+                            $date = date_format($date, 'd M y');
+                            echo is_wpml_rtl() ?
+                                ArabicDate($date) :
+                                $date;
+                            ?>
+                        </td>
 
                         <td class="donation-status <?php echo $subscription->status ?>">
                             <span><?php

@@ -37,7 +37,7 @@ if (!function_exists('vacancies_datatable_shortcode')) {
                 <h2 class="bonyan-title primary-color"><?php echo $vacancies_datatable_title ?></h2>
 
                 <div class="input-holder">
-                    <input type="search" class="custom-datatable-search" placeholder="<?php _e('Search in this page','bonyan') ?>">
+                    <input type="search" class="custom-datatable-search" placeholder="<?php _e('Search in this page', 'bonyan') ?>">
                 </div>
             </div>
             <!-- Vacancies Datatable Widget -->
@@ -85,11 +85,19 @@ if (!function_exists('vacancies_datatable_shortcode')) {
                                 <tr isactive="<?php echo $is_active ?>" isurgent="<?php echo $is_urgent  ?>">
                                     <td>
                                         <?php echo $is_active == "true" ? "" : "<s>"; ?>
-                                        <a href="<?php echo get_permalink(get_the_ID()) ?>"> <?php the_title() ?><span class="urgent"><?php _e('Urgent','bonyan') ?></span></a>
+                                        <a href="<?php echo get_permalink(get_the_ID()) ?>"> <?php the_title() ?><span class="urgent"><?php _e('Urgent', 'bonyan') ?></span></a>
                                         <?php echo $is_active == "true" ? "" : "<s>"; ?>
                                     </td>
                                     <td><?php echo $is_active == "true" ? __('Active', 'bonyan') : __('Inactive', 'bonyan'); ?></td>
-                                    <td><?php echo $end_date ?></td>
+                                    <td><?php //echo $end_date ?>
+                                        <?php
+                                        $date = date_create($end_date);
+                                        $date = date_format($date, 'd M y');
+                                        echo is_wpml_rtl() ?
+                                            ArabicDate($date) :
+                                            $date;
+                                        ?>
+                                    </td>
                                     <td><?php echo $vd_department ?></td>
                                     <td><?php echo $vd_location ?></td>
                                 </tr>

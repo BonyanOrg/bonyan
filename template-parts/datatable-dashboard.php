@@ -41,7 +41,19 @@
                                 $an_payment    = new Give_Payment($payment->ID);
                                 echo $an_payment->form_title; ?></p>
                         </td>
-                        <td><?php echo date_format(date_create($payment->post_date), "d M y"); ?></td>
+                        <td>
+
+                            <?php //echo date_format(date_create($payment->post_date), "d M y"); 
+                            ?>
+                            <?php
+                            $date = date_create($post->post_date);
+                            $date = date_format($date, 'd M y');
+                            echo is_wpml_rtl() ?
+                                ArabicDate($date) :
+                                $date;
+                            ?>
+
+                        </td>
                         <?php
                         switch (current_language()) {
                             case "ar": ?>
