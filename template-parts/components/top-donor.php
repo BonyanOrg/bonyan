@@ -18,7 +18,7 @@ ORDER BY p1.post_date DESC, p1.ID DESC";
         ? '\'' . implode('\',\'', $donation_ids) . '\''
         : '';
 
-    if (!empty($results)) {
+    if (!empty($donation_ids)) {
         $sql = "
 SELECT m1.*, p1.post_date as donation_date FROM bn_give_donationmeta as m1
 INNER JOIN bn_posts as p1 ON (m1.donation_id=p1.ID)
