@@ -36,8 +36,8 @@ if (!function_exists('contact_info_shortcode')) {
         </style>
         <?php
         $in_line_style = "";
-        if (!is_wpml_rtl()) {
-            $in_line_style = 'dir="ltr"';
+        if (is_wpml_rtl()) {
+            $in_line_style = 'dir="rtl"';
         }
         ?>
 
