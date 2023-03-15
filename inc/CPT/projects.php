@@ -3,10 +3,10 @@
 function register_projects_cpt()
 {
     $labels = array(
-        'name'                  => _x('Projects', 'bonyan'),
-        'singular_name'         => _x('Project',  'bonyan'),
-        'menu_name'             => _x('Projects',  'bonyan'),
-        'name_admin_bar'        => _x('projects',  'bonyan'),
+        'name'                  => __('Projects', 'bonyan'),
+        'singular_name'         => __('Project',  'bonyan'),
+        'menu_name'             => __('Projects',  'bonyan'),
+        'name_admin_bar'        => __('projects',  'bonyan'),
         'add_new'               => __('Add New', 'bonyan'),
         'add_new_item'          => __('Add New projects', 'bonyan'),
         'new_item'              => __('New projects', 'bonyan'),

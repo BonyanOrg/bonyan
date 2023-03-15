@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-15T08:32:05+01:00\n"
-"PO-Revision-Date: 2023-03-15 10:32+0300\n"
+"POT-Creation-Date: 2023-03-15T10:28:04+01:00\n"
+"PO-Revision-Date: 2023-03-15 12:28+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -403,6 +403,18 @@ msgstr ""
 #: inc/CPT/main_slider.php:18
 msgid "No main_slider found."
 msgstr ""
+
+#: inc/CPT/projects.php:6 inc/CPT/projects.php:8
+msgid "Projects"
+msgstr "المشاريع"
+
+#: inc/CPT/projects.php:7
+msgid "Project"
+msgstr ""
+
+#: inc/CPT/projects.php:9
+msgid "projects"
+msgstr "المشاريع"
 
 #: inc/CPT/projects.php:11
 msgid "Add New projects"
