@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-15T10:44:18+01:00\n"
-"PO-Revision-Date: 2023-03-15 12:45+0300\n"
+"POT-Creation-Date: 2023-03-15T14:38:29+01:00\n"
+"PO-Revision-Date: 2023-03-15 16:38+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -189,11 +189,12 @@ msgstr ""
 msgid "Languages"
 msgstr "اللغات"
 
-#: header.php:62 inc/wpbakery/shortcodes/zakat_calculator_view.php:90
+#: header.php:62 header.php:188
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:90
 msgid "Donate Now"
 msgstr "تبرع الأن"
 
-#: header.php:79 header.php:180 searchform.php:9
+#: header.php:79 header.php:179 searchform.php:9
 #: template-parts/search-terms-header.php:32
 #: template-parts/search-terms-header.php:104
 msgid "Search..."
@@ -744,6 +745,18 @@ msgstr "اختار ملف"
 msgid "-- Choose a Document --"
 msgstr "--اختار الملف  --"
 
+#: inc/wpbakery/shortcodes/archive_programs_cards_view.php:88
+#: inc/wpbakery/shortcodes/news_slider_view.php:80
+#: inc/wpbakery/shortcodes/programs_cards_view.php:49
+#: inc/wpbakery/shortcodes/report_cards_view.php:50
+#: template-parts/archive/content-reports.php:43
+#: template-parts/cards/content-campaign.php:116
+#: template-parts/cards/content-post.php:13
+#: template-parts/cards/content-story.php:13
+#: template-parts/components/urgent-campaigns.php:90
+msgid "More"
+msgstr "المزيد"
+
 #: inc/wpbakery/shortcodes/board_of_trustees_view.php:58
 msgid "Download CV"
 msgstr "تحميل الملف"
@@ -768,17 +781,6 @@ msgstr "تقدم لهذه الوظيفة"
 #: template-parts/components/urgent-campaigns.php:89
 msgid "Donate"
 msgstr "تبرع"
-
-#: inc/wpbakery/shortcodes/news_slider_view.php:80
-#: inc/wpbakery/shortcodes/programs_cards_view.php:49
-#: inc/wpbakery/shortcodes/report_cards_view.php:50
-#: template-parts/archive/content-reports.php:43
-#: template-parts/cards/content-campaign.php:116
-#: template-parts/cards/content-post.php:13
-#: template-parts/cards/content-story.php:13
-#: template-parts/components/urgent-campaigns.php:90
-msgid "More"
-msgstr "المزيد"
 
 #: inc/wpbakery/shortcodes/PDF_download_card_view.php:44
 #: template-parts/cards/content-reports.php:17
@@ -1013,7 +1015,7 @@ msgstr "الدفعة التالية"
 msgid "MANAGE"
 msgstr "إدارة"
 
-#: template-parts/datatable-recurring-donation.php:105
+#: template-parts/datatable-recurring-donation.php:127
 msgid "Cancel Subscription"
 msgstr "إالغاء الاشتراك"
 
