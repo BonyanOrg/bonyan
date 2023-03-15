@@ -38,7 +38,7 @@ if (!function_exists('zakat_calc_shortcode')) {
             </div>
 
             <p><strong><?php _e('Zakat Calculator', 'bonyan'); ?></strong></p>
-            <p class="mb-5"><?php echo $zakat_calc_under_head_description ?></p>
+            <p class="mb-4"><?php echo $zakat_calc_under_head_description ?></p>
 
             <div class="zakat-calculator-inputs">
                 <div class="zakat-calculator-item">

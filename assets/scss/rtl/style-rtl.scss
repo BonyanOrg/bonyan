@@ -1079,6 +1079,7 @@ input {
     &.prev {
       background: #f3f3f3;
       box-shadow: 0 0 10px rgba($dark-color, 0.01);
+      transform: rotateY(180deg);
 
       .prev-pagination-btn {
         width: 20px;
@@ -1108,6 +1109,7 @@ input {
   width: 100%;
   height: 85%;
   overflow-y: auto;
+  background: $light-color;
 }
 /* __End GiveWP__ */
 
@@ -1198,6 +1200,12 @@ div:not(.cards-container) {
   padding: 0;
 }
 /* __End WPB__ */
+
+/* __Start Fix footer phone numbers__ */
+.footer-phone-number {
+  direction: ltr;
+}
+/* __End Fix footer phone numbers__ */
 /* ===[End Global]=== */
 
 /* ===[Start Header]=== */
@@ -1818,6 +1826,7 @@ header {
         display: flex;
         gap: 0.5rem;
         grid-gap: 0.5rem;
+        align-items: baseline;
 
         svg {
           min-width: 20px;
@@ -2326,10 +2335,10 @@ header {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg,
+    background: linear-gradient(245deg,
         rgba($primary-color, 0.75) 0%,
         transparent 100%);
     z-index: 2;
@@ -2584,7 +2593,7 @@ header {
     .swiper-slide {
 
       &::before {
-        background: linear-gradient(90deg,
+        background: linear-gradient(270deg,
             rgba($primary-color, 0.75) 20%,
             transparent 100%);
       }
@@ -2760,6 +2769,11 @@ header {
   grid-gap: 1.25rem;
   direction: rtl;
 
+  @media (max-width: 1600px) {
+    gap: 0.75rem;
+    grid-gap: 0.75rem;
+  }
+
   p {
     margin-bottom: 0;
     width: 100%;
@@ -2771,8 +2785,8 @@ header {
     input,
     textarea {
       border: 1px solid $primary-color;
-      font-size: 20px;
-      padding: 1rem;
+      font-size: 16px;
+      padding: 0.75rem;
       outline: none;
       color: $primary-color;
       text-align: right;
@@ -2799,18 +2813,18 @@ header {
   .select-holder {
     select {
       border: 1px solid $primary-color;
-      padding: 1rem 2rem 1rem 1rem;
+      padding: 0.75rem 1rem 0.75rem 2rem;
       width: 100%;
       color: $primary-color;
       outline: none;
-      font-size: 20px;
+      font-size: 16px;
       border-radius: $radius-10;
       appearance: none;
       -webkit-appearance: none;
     }
 
     .select-icon {
-      right: 1rem;
+      left: 1rem;
       z-index: 1;
       color: $primary-color;
     }
@@ -2820,9 +2834,9 @@ header {
   input[type=submit] {
     border: 1px solid $primary-color;
     outline: none;
-    padding: 1rem;
+    padding: 0.75rem;
     min-width: 120px;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -3052,3 +3066,17 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
 }
 
 /* ===[End Responsive Datatable (Mobile)]=== */
+
+/* ===[Start Urgent Campaigns]=== */
+.urgent-campaigns {
+  .primary-carousel {
+    .swiper-slide {
+      &::before {
+        background: linear-gradient(270deg,
+            rgba($secondary-color, 0.6) 0%,
+            transparent 100%) !important;
+      }
+    }
+  }
+}
+/* ===[End Urgent Campaigns]=== */
