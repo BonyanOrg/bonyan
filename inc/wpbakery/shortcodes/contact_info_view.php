@@ -42,7 +42,7 @@ if (!function_exists('contact_info_shortcode')) {
         ?>
 
         <!-- This is the START of the component -->
-        <div class="contact-item">
+        <div class="contact-item custom-widget">
             <?php if ($contact_info_is_phone) : ?>
                 <a href="tel:<?php echo $contact_info_phone_number; ?>" class="phone-numbers-container" >
                 <?php elseif ($contact_info_is_email) : ?>
