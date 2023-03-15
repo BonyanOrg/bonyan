@@ -50,7 +50,7 @@ html[dir="rtl"] {
     }
 
     // Fix margin for card inputs in Arabic
-    #give-recurring-form .form-row-one-third, form.give-form .form-row-one-third, form[id*=give-form] .form-row-one-third {
-      margin-right: 3%;
+    #give-recurring-form .form-row-one-third, .give-form-templates form.give-form .form-row-one-third, form[id*=give-form] .form-row-one-third {
+      margin-right: 3% !important;
     }
 }
