@@ -101,7 +101,15 @@ if (!function_exists('tenders_datatable_shortcode')) {
                                         <?php echo $is_active == "true" ? "" : "</s>"; ?>
                                     </td>
                                     <td><?php echo $is_active == "true" ? __('Active', 'bonyan') : __('Inactive', 'bonyan'); ?></td>
-                                    
+                                    <td><?php //echo $end_date  ?>
+                                        <?php
+                                        $date = date_create($end_date);
+                                        $date = date_format($date, 'd M y');
+                                        echo is_wpml_rtl() ?
+                                            ArabicDate($date) :
+                                            $date;
+                                        ?>
+                                    </td>
                                     <td><?php echo $to_location ?></td>
                                 </tr>
 
