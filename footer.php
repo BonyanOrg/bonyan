@@ -136,20 +136,37 @@
 					<a href="<?php echo get_option("twitter_url") ?>"><i class="fa-brands fa-twitter"></i></a>
 					<a href="<?php echo get_option("youtube_url") ?>"><i class="fa-brands fa-youtube"></i></a>
 				</div>
+				<?php if (is_wpml_rtl()) : ?>
+					<div class="copyrights">
+						<span>  ©  جميع الحقوق محفوظة </span>
+						&nbsp;
+						<a href="https://2p.com.tr/" target="_blank">
+							 تطوير فريق 
+							<svg id="_2p" data-name="2p" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 29.842 19.868">
+								<path id="Path_46" data-name="Path 46" d="M50.624,5.347v0A5.939,5.939,0,0,0,44.86.5H37.044l1.7,3.93h6.069a1.965,1.965,0,1,1,0,3.93H42.895A5.925,5.925,0,0,0,37,14.255V17.53h0v2.62h3.93V14.255a1.936,1.936,0,0,1,1.354-1.878,2.192,2.192,0,0,1,.524-.087H44.86a5.88,5.88,0,0,0,5.808-5.895A4.219,4.219,0,0,0,50.624,5.347ZM37.218,16.613Zm-.131.611v.087C37.044,17.311,37.044,17.268,37.087,17.224Zm0-.175Z" transform="translate(-20.844 -0.282)" fill="#fff"></path>
+								<path id="Path_47" data-name="Path 47" d="M11.877,15.894h-7.9V13.929a1.531,1.531,0,0,1,.306-1,1.974,1.974,0,0,1,1.092-.873,2.192,2.192,0,0,1,.524-.087H7.9A5.964,5.964,0,0,0,13.8,6.026a8.479,8.479,0,0,0-.087-1.048v0A5.938,5.938,0,0,0,7.947,0H0L1.7,3.974H7.9a1.965,1.965,0,1,1,0,3.93H5.982A6.075,6.075,0,0,0,0,13.886V17.2H0v2.664H13.886V15.894H11.877Zm-11.7.393ZM.044,16.9v0Zm.044-.175Z" fill="#fff"></path>
+								<rect id="Rectangle_124" data-name="Rectangle 124" width="3.93" height="19.606" transform="translate(16.2 0.218)" fill="#fff"></rect>
+								<path id="Path_48" data-name="Path 48" d="M22.6,13.6" transform="translate(-12.732 -7.661)" fill="#fff"></path>
+							</svg>
+						</a>
+					</div>
+				<?php else : ?>
+					<div class="copyrights">
+						<span>© 2023 All Rights Reserved - </span>
+						<a href="https://2p.com.tr/" target="_blank">
+							Made by
+							<svg id="_2p" data-name="2p" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 29.842 19.868">
+								<path id="Path_46" data-name="Path 46" d="M50.624,5.347v0A5.939,5.939,0,0,0,44.86.5H37.044l1.7,3.93h6.069a1.965,1.965,0,1,1,0,3.93H42.895A5.925,5.925,0,0,0,37,14.255V17.53h0v2.62h3.93V14.255a1.936,1.936,0,0,1,1.354-1.878,2.192,2.192,0,0,1,.524-.087H44.86a5.88,5.88,0,0,0,5.808-5.895A4.219,4.219,0,0,0,50.624,5.347ZM37.218,16.613Zm-.131.611v.087C37.044,17.311,37.044,17.268,37.087,17.224Zm0-.175Z" transform="translate(-20.844 -0.282)" fill="#fff"></path>
+								<path id="Path_47" data-name="Path 47" d="M11.877,15.894h-7.9V13.929a1.531,1.531,0,0,1,.306-1,1.974,1.974,0,0,1,1.092-.873,2.192,2.192,0,0,1,.524-.087H7.9A5.964,5.964,0,0,0,13.8,6.026a8.479,8.479,0,0,0-.087-1.048v0A5.938,5.938,0,0,0,7.947,0H0L1.7,3.974H7.9a1.965,1.965,0,1,1,0,3.93H5.982A6.075,6.075,0,0,0,0,13.886V17.2H0v2.664H13.886V15.894H11.877Zm-11.7.393ZM.044,16.9v0Zm.044-.175Z" fill="#fff"></path>
+								<rect id="Rectangle_124" data-name="Rectangle 124" width="3.93" height="19.606" transform="translate(16.2 0.218)" fill="#fff"></rect>
+								<path id="Path_48" data-name="Path 48" d="M22.6,13.6" transform="translate(-12.732 -7.661)" fill="#fff"></path>
+							</svg>
+							Team
+						</a>
+					</div>
+				<?php endif; ?>
 
-				<div class="copyrights">
-					<span>© 2023 All Rights Reserved - </span>
-					<a href="https://2p.com.tr/" target="_blank">
-						Made by
-						<svg id="_2p" data-name="2p" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 29.842 19.868">
-							<path id="Path_46" data-name="Path 46" d="M50.624,5.347v0A5.939,5.939,0,0,0,44.86.5H37.044l1.7,3.93h6.069a1.965,1.965,0,1,1,0,3.93H42.895A5.925,5.925,0,0,0,37,14.255V17.53h0v2.62h3.93V14.255a1.936,1.936,0,0,1,1.354-1.878,2.192,2.192,0,0,1,.524-.087H44.86a5.88,5.88,0,0,0,5.808-5.895A4.219,4.219,0,0,0,50.624,5.347ZM37.218,16.613Zm-.131.611v.087C37.044,17.311,37.044,17.268,37.087,17.224Zm0-.175Z" transform="translate(-20.844 -0.282)" fill="#fff"></path>
-							<path id="Path_47" data-name="Path 47" d="M11.877,15.894h-7.9V13.929a1.531,1.531,0,0,1,.306-1,1.974,1.974,0,0,1,1.092-.873,2.192,2.192,0,0,1,.524-.087H7.9A5.964,5.964,0,0,0,13.8,6.026a8.479,8.479,0,0,0-.087-1.048v0A5.938,5.938,0,0,0,7.947,0H0L1.7,3.974H7.9a1.965,1.965,0,1,1,0,3.93H5.982A6.075,6.075,0,0,0,0,13.886V17.2H0v2.664H13.886V15.894H11.877Zm-11.7.393ZM.044,16.9v0Zm.044-.175Z" fill="#fff"></path>
-							<rect id="Rectangle_124" data-name="Rectangle 124" width="3.93" height="19.606" transform="translate(16.2 0.218)" fill="#fff"></rect>
-							<path id="Path_48" data-name="Path 48" d="M22.6,13.6" transform="translate(-12.732 -7.661)" fill="#fff"></path>
-						</svg>
-						Team
-					</a>
-				</div>
+
 			</div>
 		</div>
 	</div>

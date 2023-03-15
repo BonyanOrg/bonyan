@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-15T14:38:29+01:00\n"
-"PO-Revision-Date: 2023-03-15 18:01+0300\n"
+"POT-Creation-Date: 2023-03-15T16:28:03+01:00\n"
+"PO-Revision-Date: 2023-03-15 18:29+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -34,7 +34,7 @@ msgstr "الوصف"
 msgid "Underscores.me"
 msgstr ""
 
-#: 404.php:99 template-parts/content-none.php:37
+#: 404.php:103 template-parts/content-none.php:37
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -42,7 +42,7 @@ msgstr ""
 "عذرا، ولكن لا شيء يطابق عبارات البحث. أرجو المحاولة مرة أخرى بإستخدام كلمات "
 "أخرى."
 
-#: 404.php:106
+#: 404.php:114
 msgid "Back To Home"
 msgstr "العودة للرئيسية"
 
@@ -1041,8 +1041,8 @@ msgstr "الإكمال كضيف"
 msgid "Login"
 msgstr "تسجيل الدخول"
 
-#: template-parts/login.php:30 template-parts/signup.php:41
-msgid "Eamil"
+#: template-parts/login.php:30
+msgid "Email"
 msgstr "البريد الالكتروني"
 
 #: template-parts/login.php:35 template-parts/signup.php:80
@@ -1064,6 +1064,10 @@ msgstr "الاشتراك"
 #: template-parts/signup.php:25 template-parts/signup.php:117
 msgid "Sign Up"
 msgstr "الاشتراك"
+
+#: template-parts/signup.php:41
+msgid "Eamil"
+msgstr "البريد الالكتروني"
 
 #: template-parts/signup.php:47
 msgid "Your Age"

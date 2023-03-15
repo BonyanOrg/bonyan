@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-15T14:38:29+01:00\n"
+"POT-Creation-Date: 2023-03-15T16:28:03+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: bonyan\n"
@@ -31,12 +31,12 @@ msgstr ""
 msgid "Underscores.me"
 msgstr ""
 
-#: 404.php:99
+#: 404.php:103
 #: template-parts/content-none.php:37
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: 404.php:106
+#: 404.php:114
 msgid "Back To Home"
 msgstr ""
 
@@ -1089,8 +1089,7 @@ msgid "Login"
 msgstr ""
 
 #: template-parts/login.php:30
-#: template-parts/signup.php:41
-msgid "Eamil"
+msgid "Email"
 msgstr ""
 
 #: template-parts/login.php:35
@@ -1113,6 +1112,10 @@ msgstr ""
 #: template-parts/signup.php:25
 #: template-parts/signup.php:117
 msgid "Sign Up"
+msgstr ""
+
+#: template-parts/signup.php:41
+msgid "Eamil"
 msgstr ""
 
 #: template-parts/signup.php:47

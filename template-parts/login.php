@@ -27,7 +27,7 @@
                 <!-- Form -->
                 <form id="login_form">
                     <div class="input-holder">
-                        <label for="user-email"><?php _e('Eamil','bonyan') ?></label>
+                        <label for="user-email"><?php _e('Email','bonyan') ?></label>
                         <input type="text" name="user-email" id="user_email">
                     </div>
 
