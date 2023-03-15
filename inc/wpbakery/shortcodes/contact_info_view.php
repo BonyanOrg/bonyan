@@ -56,7 +56,7 @@ if (!function_exists('contact_info_shortcode')) {
                             <?php endif; ?>
                         </div>
 
-                        <div class="phone-numbers" <?php echo $in_line_style; ?>>
+                        <div class="phone-numbers" <?php if ($contact_info_is_phone) {echo $in_line_style;} ?>>
                             <span><?php echo $content; ?></span>
                         </div>
                         </a>
