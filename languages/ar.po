@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-15T10:28:04+01:00\n"
-"PO-Revision-Date: 2023-03-15 12:28+0300\n"
+"POT-Creation-Date: 2023-03-15T14:38:29+01:00\n"
+"PO-Revision-Date: 2023-03-15 16:38+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -189,11 +189,12 @@ msgstr ""
 msgid "Languages"
 msgstr "اللغات"
 
-#: header.php:62 inc/wpbakery/shortcodes/zakat_calculator_view.php:90
+#: header.php:62 header.php:188
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:90
 msgid "Donate Now"
 msgstr "تبرع الأن"
 
-#: header.php:79 header.php:180 searchform.php:9
+#: header.php:79 header.php:179 searchform.php:9
 #: template-parts/search-terms-header.php:32
 #: template-parts/search-terms-header.php:104
 msgid "Search..."
@@ -256,6 +257,14 @@ msgstr "حدث خطأ عند محاولة تسجيل الدخول"
 #: inc/ajax/save-account-details.php:49
 msgid "User Email Is Already In Use"
 msgstr "البريد الالكتروني للمستخدم قيد الاستخدام"
+
+#: inc/CPT/campaigns.php:6 inc/CPT/campaigns.php:8
+msgid "Campaigns"
+msgstr "الحملات"
+
+#: inc/CPT/campaigns.php:7 inc/CPT/campaigns.php:9
+msgid "campaign"
+msgstr "حملة"
 
 #: inc/CPT/campaigns.php:10 inc/CPT/main_slider.php:10 inc/CPT/projects.php:10
 #: inc/CPT/reports.php:10 inc/CPT/seasonal_campaigns.php:10
@@ -460,6 +469,18 @@ msgstr ""
 msgid "Projects Category"
 msgstr ""
 
+#: inc/CPT/reports.php:6
+msgid "Reports"
+msgstr "التقارير"
+
+#: inc/CPT/reports.php:7
+msgid "Report"
+msgstr "تقرير"
+
+#: inc/CPT/reports.php:8 inc/CPT/reports.php:9
+msgid "reports"
+msgstr "التقارير"
+
 #: inc/CPT/reports.php:11
 msgid "Add New reports"
 msgstr ""
@@ -632,6 +653,14 @@ msgstr ""
 msgid "Stories Category"
 msgstr ""
 
+#: inc/CPT/tenders.php:6
+msgid "Tenders"
+msgstr "المناقصات"
+
+#: inc/CPT/tenders.php:7 inc/CPT/tenders.php:8 inc/CPT/tenders.php:9
+msgid "Tender"
+msgstr ""
+
 #: inc/CPT/tenders.php:11
 msgid "Add New Tender"
 msgstr ""
@@ -663,6 +692,14 @@ msgstr ""
 #: inc/CPT/tenders.php:18
 msgid "No Tender found."
 msgstr "لا يوجد مناقصات."
+
+#: inc/CPT/vacancies.php:6 inc/CPT/vacancies.php:8
+msgid "Vacancies"
+msgstr "الشواغر"
+
+#: inc/CPT/vacancies.php:7 inc/CPT/vacancies.php:9
+msgid "Vacancy"
+msgstr "شاغر"
 
 #: inc/CPT/vacancies.php:11
 msgid "Add New Vacancy"
@@ -708,6 +745,18 @@ msgstr "اختار ملف"
 msgid "-- Choose a Document --"
 msgstr "--اختار الملف  --"
 
+#: inc/wpbakery/shortcodes/archive_programs_cards_view.php:88
+#: inc/wpbakery/shortcodes/news_slider_view.php:80
+#: inc/wpbakery/shortcodes/programs_cards_view.php:49
+#: inc/wpbakery/shortcodes/report_cards_view.php:50
+#: template-parts/archive/content-reports.php:43
+#: template-parts/cards/content-campaign.php:116
+#: template-parts/cards/content-post.php:13
+#: template-parts/cards/content-story.php:13
+#: template-parts/components/urgent-campaigns.php:90
+msgid "More"
+msgstr "المزيد"
+
 #: inc/wpbakery/shortcodes/board_of_trustees_view.php:58
 msgid "Download CV"
 msgstr "تحميل الملف"
@@ -733,24 +782,15 @@ msgstr "تقدم لهذه الوظيفة"
 msgid "Donate"
 msgstr "تبرع"
 
-#: inc/wpbakery/shortcodes/news_slider_view.php:80
-#: inc/wpbakery/shortcodes/programs_cards_view.php:49
-#: inc/wpbakery/shortcodes/report_cards_view.php:50
-#: template-parts/archive/content-reports.php:43
-#: template-parts/cards/content-campaign.php:116
-#: template-parts/cards/content-post.php:13
-#: template-parts/cards/content-story.php:13
-#: template-parts/components/urgent-campaigns.php:90
-msgid "More"
-msgstr "المزيد"
-
 #: inc/wpbakery/shortcodes/PDF_download_card_view.php:44
 #: template-parts/cards/content-reports.php:17
+#: template-parts/taxonomy/content-reports-categories.php:43
 msgid "Preview"
 msgstr "معاينة"
 
 #: inc/wpbakery/shortcodes/PDF_download_card_view.php:45
 #: template-parts/cards/content-reports.php:18
+#: template-parts/taxonomy/content-reports-categories.php:44
 msgid "Download the file"
 msgstr "تنزيل الملف"
 
@@ -975,7 +1015,7 @@ msgstr "الدفعة التالية"
 msgid "MANAGE"
 msgstr "إدارة"
 
-#: template-parts/datatable-recurring-donation.php:105
+#: template-parts/datatable-recurring-donation.php:127
 msgid "Cancel Subscription"
 msgstr "إالغاء الاشتراك"
 
@@ -1052,3 +1092,7 @@ msgstr "تأكيد كلمة المرور"
 #: template-parts/signup.php:121
 msgid "Already have account? "
 msgstr "لديك حساب بالفعل؟ "
+
+#: template-parts/taxonomy/content-reports-categories.php:34
+msgid "Last Report"
+msgstr "التقرير الأخير"

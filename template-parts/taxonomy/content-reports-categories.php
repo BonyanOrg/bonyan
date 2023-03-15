@@ -12,7 +12,7 @@ $taxonomy_name = $queried_object->taxonomy;
 
         <div class="content-with-info-panel report-cat-page">
 
-            <?php 
+            <?php
             $cat_description = get_term_meta($queried_object->term_id, 'reports_cat_desc', true);
             if ($cat_description != '') :
 
@@ -31,7 +31,7 @@ $taxonomy_name = $queried_object->taxonomy;
                     </div>
 
                     <!-- File Name -->
-                    <h3 class="file-name">Last Report</h3>
+                    <h3 class="file-name"><?php _e('Last Report', 'bonyan') ?></h3>
 
                     <!-- File CTAs -->
                     <div class="file-cta">
@@ -40,8 +40,8 @@ $taxonomy_name = $queried_object->taxonomy;
                         $PDF_file = get_post_meta($last_post_id, 'ro_reports_pdf_file', true);
                         $PDF_file_url = wp_get_attachment_url($PDF_file);
                         ?>
-                        <a href="<?php echo $PDF_file_url ?>" class="reversed-primary-btn preview-file">Preview</a>
-                        <a href="<?php echo $PDF_file_url ?>" target="_blank" download class="primary-btn download-file">Download the file</a>
+                        <a href="<?php echo $PDF_file_url ?>" class="reversed-primary-btn preview-file"><?php _e('Preview', 'bonyan') ?></a>
+                        <a href="<?php echo $PDF_file_url ?>" target="_blank" download class="primary-btn download-file"><?php _e('Download the file', 'bonyan') ?></a>
                     </div>
                 </div>
             </div>
