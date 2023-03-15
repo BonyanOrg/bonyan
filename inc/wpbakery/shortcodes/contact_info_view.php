@@ -34,15 +34,21 @@ if (!function_exists('contact_info_shortcode')) {
                 contact_info_register_style();
             } ?>
         </style>
+        <?php
+        $in_line_style = "";
+        if (!is_wpml_rtl()) {
+            $in_line_style = 'dir="ltr"';
+        }
+        ?>
 
         <!-- This is the START of the component -->
         <div class="contact-item">
             <?php if ($contact_info_is_phone) : ?>
-                <a href="tel:<?php echo $contact_info_phone_number; ?>" class="phone-numbers-container">
+                <a href="tel:<?php echo $contact_info_phone_number; ?>" class="phone-numbers-container" <?php echo $in_line_style; ?>>
                 <?php elseif ($contact_info_is_email) : ?>
-                    <a href="mailto:<?php echo $contact_info_email; ?>" class="phone-numbers-container">
+                    <a href="mailto:<?php echo $contact_info_email; ?>" class="phone-numbers-container" <?php echo $in_line_style; ?>>
                     <?php else : ?>
-                        <a href="#" class="phone-numbers-container">
+                        <a href="#" class="phone-numbers-container" <?php echo $in_line_style; ?>>
                         <?php endif; ?>
                         <div class="contact-icon">
                             <?php if (!empty($contact_info_icon)) : ?>
