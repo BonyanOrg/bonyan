@@ -5,7 +5,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package sema
+ * @package bonyan
  */
 
 get_header();
@@ -81,9 +81,13 @@ get_header();
             width: 100%;
         }
 
-        .wpb-sema-btn {
+        .wpb-bonyan-btn {
             width: 100%;
         }
+    }
+
+    .back-to-home{
+        color: #6D54A7;
     }
 </style>
 
@@ -102,7 +106,11 @@ get_header();
             <div class="content-of-404-cta">
                 <?php get_search_form() ?>
                 
+<<<<<<< HEAD
                 <a href="<?php echo home_url(); ?>" class="wpb-bonyan-btn">
+=======
+                <a href="<?php echo home_url(); ?>" class="wpb-bonyan-btn back-to-home">
+>>>>>>> bonyan-scale-75
                     <span><?php _e('Back To Home', 'bonyan'); ?></span>
                 </a>
             </div>

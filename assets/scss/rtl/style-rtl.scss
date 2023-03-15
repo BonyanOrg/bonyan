@@ -1114,7 +1114,9 @@ input {
 /* __End GiveWP__ */
 
 /* __Start Override bootstrap RTL__ */
-[type=email] {
+[type=email],
+[type=url],
+[type=number] {
   direction: rtl;
 }
 
@@ -1134,6 +1136,10 @@ input[type=date] {
   justify-content: space-between;
   align-items: center;
   text-align: right;
+}
+
+input[type=number] {
+  direction: rtl;
 }
 /* __End RTL for Date Input__ */
 

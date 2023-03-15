@@ -1,5 +1,5 @@
 (function ($) {
-    var getLang;
+    var getLang = document.documentElement.lang;
     switch (getLang) {
         // Arabic
         case 'ar':
@@ -22,12 +22,13 @@
                 fill_inputs: "الرجاء تعبئة جميع الحقول",
                 saved_successfully: "تم حفظ المعلومات بنجاح",
                 adding_to_fav: "جاري أضافة الحملة إلى المفضلة",
-                added_to_fav: "تمت أضافة الحملة إلى المفضلة بنجاح"
+                removing_from_fav: "جاري ازالة الحملة من المفضلة...",
+
             }
             break;
 
         // Turkish
-        case 'tr-TR':
+        case 'es':
             datatableLang = {
                 lengthMenu: "Sayfa başına _MENU_ kaydı görüntüle",
                 zeroRecords: "Affedersin - gösterilecek bir şey yok",
@@ -47,7 +48,6 @@
                 fill_inputs: "Lütfen alanları doldurun",
                 saved_successfully: "Bilgiler başarıyla kaydedildi",
                 adding_to_fav: "",
-                added_to_fav: ""
             }
             break;
 
@@ -61,7 +61,6 @@
                 successful_register: "Registered successfully",
                 fill_inputs: "Please fill the fields",
                 saved_successfully: "Information saved successfully",
-                adding_to_fav: "Adding the campaign to favorites...",
                 removing_from_fav: "Removing the campaign from favorites...",
             }
         }
@@ -536,7 +535,7 @@
                                 "paging": true,
                                 "pageLength": 5,
                                 "searching": false,
-                                order: [[3, 'desc']],
+                                order: [[2, 'desc']],
 
                                 responsive: isResponsive,
 
@@ -611,6 +610,7 @@
                                             "paging": true,
                                             "pageLength": 5,
                                             "searching": false,
+                                            order: [[2, 'desc']],
 
                                             responsive: isResponsive,
 
@@ -792,7 +792,6 @@
                         },
                         statusCode: {
                             400: function (data) {
-                                console.log(data.error_message);
                                 $('.cards-container').append(`<p style="font-size: 20px;" class="primary-color">${data.responseJSON.error_message}</p>`);
                                 $('.loader').remove();
                             },
@@ -801,7 +800,6 @@
                                 $('.loader').remove();
                                 $('.cards-container').css('padding', '0');
                                 addEventlistenerToFavIcons();
-                                console.log(ajax_script_object.user_id);
                                 if (ajax_script_object.user_id != '') { // if user logged in
                                     giveWpGetter();
                                 }

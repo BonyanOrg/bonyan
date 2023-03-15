@@ -80,4 +80,16 @@
 .dtr-control {
     padding-left: 2.5rem !important;
 }
+
+// RTL
+html[dir="rtl"] {
+    .dataTables_wrapper .dataTables_paginate {
+        .paginate_button {
+            &.next,
+            &.previous {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}
 /* __End Datatables__ */

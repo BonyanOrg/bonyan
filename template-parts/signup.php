@@ -16,7 +16,7 @@
             <div class="user-action-form signup-form">
                 <div class="loader"></div>
                 <!-- Login Back Button -->
-                <div class="back-btn">
+                <div class="back-btn-helper user-action-btn" data-target="login-modal">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span><?php _e('Back','bonyan') ?></span>
                 </div>

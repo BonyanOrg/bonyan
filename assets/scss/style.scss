@@ -833,7 +833,8 @@ input {
       width: 100%;
     }
 
-    .back-btn {
+    .back-btn,
+    .back-btn-helper {
       cursor: pointer;
       color: $primary-color;
       display: inline-flex;
