@@ -1778,6 +1778,7 @@ header {
         display: flex;
         gap: 0.5rem;
         grid-gap: 0.5rem;
+        align-items: baseline;
 
         svg {
           min-width: 20px;
@@ -2996,3 +2997,30 @@ header {
 }
 
 /* ===[End Single Report]=== */
+
+/* ===[Start Urgent Campaigns]=== */
+.urgent-campaigns {
+  .primary-carousel {
+    .swiper-slide {
+      &::before {
+        left: unset;
+        right: 0;
+        background: linear-gradient(90deg,
+            rgba($secondary-color, 0.6) 0%,
+            transparent 100%) !important;
+      }
+
+      .primary-carousel-info {
+        .carousel-info--item {
+          &:not(:first-of-type) {
+            &::before {
+              left: unset;
+              right: -0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* ===[End Urgent Campaigns]=== */
