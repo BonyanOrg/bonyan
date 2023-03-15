@@ -85,7 +85,7 @@ if (!function_exists('archive_program_card_shortcode')) {
 
                 <div class="program-link">
                     <div>
-                        <span>More</span>
+                        <span><?php _e('More','bonyan') ?></span>
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="9.427" height="9.427" viewBox="0 0 9.427 9.427">
                             <path id="Path_10268" data-name="Path 10268" d="M13.842,8.677l-6.75,6.75L5.983,14.318l6.749-6.75H6.784V6H15.41v8.627H13.842Z" transform="translate(-5.983 -6)" fill="#5b5b5b" />
