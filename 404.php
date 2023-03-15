@@ -5,7 +5,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package sema
+ * @package bonyan
  */
 
 get_header();
@@ -81,9 +81,13 @@ get_header();
             width: 100%;
         }
 
-        .wpb-sema-btn {
+        .wpb-bonyan-btn {
             width: 100%;
         }
+    }
+
+    .back-to-home{
+        color: #6D54A7;
     }
 </style>
 
@@ -96,14 +100,14 @@ get_header();
 
         <div class="content-of-404--text-cta mt-4">
             <p>
-                <?php _e("Sorry, but nothing matched your search terms. Please try again with some different keywords.", "sema") ?>
+                <?php _e("Sorry, but nothing matched your search terms. Please try again with some different keywords.", "bonyan") ?>
             </p>
 
             <div class="content-of-404-cta">
                 <?php get_search_form() ?>
                 
-                <a href="<?php echo home_url(); ?>" class="wpb-sema-btn">
-                    <span><?php _e('Back To Home', 'sema'); ?></span>
+                <a href="<?php echo home_url(); ?>" class="wpb-bonyan-btn back-to-home">
+                    <span><?php _e('Back To Home', 'bonyan'); ?></span>
                 </a>
             </div>
         </div>

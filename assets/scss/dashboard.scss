@@ -310,10 +310,21 @@
               grid-gap: 1rem;
               margin-top: 0.5rem;
 
-              svg {
-                width: 30px;
-                height: 30px;
-                fill: $secondary-color;
+              .user-socialmedia-item {
+                a {
+                  svg {
+                    width: 30px;
+                    height: 30px;
+                    filter: grayscale(1);
+                    fill: $secondary-color;
+                  }
+
+                  &[href] {
+                    svg {
+                      filter: grayscale(0);
+                    }
+                  }
+                }
               }
             }
           }
@@ -423,13 +434,14 @@ html[dir="rtl"] {
     // Datatables
     .dataTables_paginate {
       .paginate_button{
-        &:not(.current) {
+        &.next,
+        &.previous {
           transform: rotateY(180deg);
         }
       }
     }
-    // /Datatables
 
+    // /Datatables
     .dashboard-tab-content {
       .tab-content-title {
         h3 {
