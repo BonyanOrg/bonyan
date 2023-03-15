@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-14T06:34:28+01:00\n"
+"POT-Creation-Date: 2023-03-15T08:26:10+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: bonyan\n"
@@ -100,11 +100,13 @@ msgstr ""
 
 #: dashboard-page.php:115
 #: template-parts/signup.php:31
+#: template-parts/signup.php:32
 msgid "First Name"
 msgstr ""
 
 #: dashboard-page.php:121
 #: template-parts/signup.php:36
+#: template-parts/signup.php:37
 msgid "Last Name"
 msgstr ""
 
@@ -113,6 +115,7 @@ msgid "Mobile Number"
 msgstr ""
 
 #: dashboard-page.php:133
+#: template-parts/signup.php:42
 msgid "Email Address"
 msgstr ""
 
@@ -190,8 +193,8 @@ msgstr ""
 #: header.php:79
 #: header.php:180
 #: searchform.php:9
-#: template-parts/search-terms-header.php:31
-#: template-parts/search-terms-header.php:97
+#: template-parts/search-terms-header.php:32
+#: template-parts/search-terms-header.php:104
 msgid "Search..."
 msgstr ""
 
@@ -215,7 +218,7 @@ msgstr ""
 msgid "No Tag ID"
 msgstr ""
 
-#: inc/ajax/get-search-result.php:43
+#: inc/ajax/get-search-result.php:51
 msgid "No results found"
 msgstr ""
 
@@ -733,8 +736,8 @@ msgstr ""
 msgid "Download CV"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/campaigns_slider_view.php:56
-#: inc/wpbakery/shortcodes/campaigns_slider_view.php:95
+#: inc/wpbakery/shortcodes/campaigns_slider_view.php:55
+#: inc/wpbakery/shortcodes/campaigns_slider_view.php:94
 msgid "see more"
 msgstr ""
 
@@ -757,7 +760,7 @@ msgstr ""
 #: inc/wpbakery/shortcodes/news_slider_view.php:80
 #: inc/wpbakery/shortcodes/programs_cards_view.php:49
 #: inc/wpbakery/shortcodes/report_cards_view.php:50
-#: template-parts/archive/content-reports.php:32
+#: template-parts/archive/content-reports.php:43
 #: template-parts/cards/content-campaign.php:116
 #: template-parts/cards/content-post.php:13
 #: template-parts/cards/content-story.php:13
@@ -934,11 +937,11 @@ msgstr ""
 msgid " Hour left"
 msgstr ""
 
-#: template-parts/components/top-donor.php:70
+#: template-parts/components/top-donor.php:67
 msgid "Top Donation"
 msgstr ""
 
-#: template-parts/components/top-donor.php:107
+#: template-parts/components/top-donor.php:104
 msgid "Top Donor"
 msgstr ""
 
@@ -1048,6 +1051,10 @@ msgstr ""
 msgid "Sign Up"
 msgstr ""
 
+#: template-parts/signup.php:47
+msgid "Your Age"
+msgstr ""
+
 #: template-parts/signup.php:51
 msgid "Gender"
 msgstr ""
@@ -1060,7 +1067,12 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
+#: template-parts/signup.php:93
+msgid "Insert Password"
+msgstr ""
+
 #: template-parts/signup.php:98
+#: template-parts/signup.php:111
 msgid "Confirm Password"
 msgstr ""
 

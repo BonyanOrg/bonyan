@@ -29,22 +29,22 @@
                     <div class="form-inputs-container">
                         <div class="input-holder">
                             <label for="first-name"><?php _e('First Name','bonyan') ?></label>
-                            <input type="text" name="first-name" id="registration_user_first_name" placeholder="First Name">
+                            <input type="text" name="first-name" id="registration_user_first_name" placeholder="<?php _e('First Name','bonyan') ?>">
                         </div>
 
                         <div class="input-holder">
                             <label for="last-name"><?php _e('Last Name','bonyan') ?></label>
-                            <input type="text" name="last-name" id="registration_user_last_name" placeholder="Last Name">
+                            <input type="text" name="last-name" id="registration_user_last_name" placeholder="<?php _e('Last Name','bonyan') ?>">
                         </div>
 
                         <div class="input-holder">
                             <label for="register-user-email"><?php _e('Eamil','bonyan') ?></label>
-                            <input type="email" name="register-user-email" id="registration_user_email" placeholder="Email Address">
+                            <input type="email" name="register-user-email" id="registration_user_email" placeholder="<?php _e('Email Address','bonyan') ?>">
                         </div>
 
                         <div class="input-holder">
                             <label for="user-age"><?php _e('Age','bonyan') ?></label>
-                            <input type="text" name="user-age" id="registration_user_age" placeholder="Your Age" class="only-number">
+                            <input type="text" name="user-age" id="registration_user_age" placeholder="<?php _e('Your Age','bonyan') ?>" class="only-number">
                         </div>
 
                         <div class="input-holder">
@@ -90,7 +90,7 @@
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </div>
 
-                                <input type="password" name="register-user-password" id="registration_user_password" placeholder="Insert Password" class="pe-5">
+                                <input type="password" name="register-user-password" id="registration_user_password" placeholder="<?php _e('Insert Password','bonyan') ?>" class="pe-5">
                             </div>
                         </div>
 
@@ -108,7 +108,7 @@
                                     <i class="fa-solid fa-eye-slash"></i>
                                 </div>
 
-                                <input type="password" name="confirm-user-password" id="registration_user_password_confirm" placeholder="Confirm Password" class="pe-5">
+                                <input type="password" name="confirm-user-password" id="registration_user_password_confirm" placeholder="<?php _e('Confirm Password','bonyan') ?>" class="pe-5">
                             </div>
                         </div>
                     </div>

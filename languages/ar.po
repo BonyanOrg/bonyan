@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-14T06:34:28+01:00\n"
-"PO-Revision-Date: 2023-03-14 12:44+0300\n"
+"POT-Creation-Date: 2023-03-15T08:26:10+01:00\n"
+"PO-Revision-Date: 2023-03-15 10:29+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Domain: bonyan\n"
 
 #. Theme Name of the theme
@@ -108,10 +108,12 @@ msgid "Save"
 msgstr "حفظ"
 
 #: dashboard-page.php:115 template-parts/signup.php:31
+#: template-parts/signup.php:32
 msgid "First Name"
 msgstr "الاسم الأول"
 
 #: dashboard-page.php:121 template-parts/signup.php:36
+#: template-parts/signup.php:37
 msgid "Last Name"
 msgstr "اسم العائلة"
 
@@ -119,7 +121,7 @@ msgstr "اسم العائلة"
 msgid "Mobile Number"
 msgstr "رقم الهاتف"
 
-#: dashboard-page.php:133
+#: dashboard-page.php:133 template-parts/signup.php:42
 msgid "Email Address"
 msgstr "البريد الالكتروني"
 
@@ -192,8 +194,8 @@ msgid "Donate Now"
 msgstr "تبرع الأن"
 
 #: header.php:79 header.php:180 searchform.php:9
-#: template-parts/search-terms-header.php:31
-#: template-parts/search-terms-header.php:97
+#: template-parts/search-terms-header.php:32
+#: template-parts/search-terms-header.php:104
 msgid "Search..."
 msgstr "ابحث..."
 
@@ -214,7 +216,7 @@ msgstr "تمت إزالة الحملة بنجاح"
 msgid "No Tag ID"
 msgstr ""
 
-#: inc/ajax/get-search-result.php:43
+#: inc/ajax/get-search-result.php:51
 msgid "No results found"
 msgstr "لا يوجد نتيجة مطابقة للبحث"
 
@@ -694,8 +696,8 @@ msgstr "--اختار الملف  --"
 msgid "Download CV"
 msgstr "تحميل الملف"
 
-#: inc/wpbakery/shortcodes/campaigns_slider_view.php:56
-#: inc/wpbakery/shortcodes/campaigns_slider_view.php:95
+#: inc/wpbakery/shortcodes/campaigns_slider_view.php:55
+#: inc/wpbakery/shortcodes/campaigns_slider_view.php:94
 msgid "see more"
 msgstr "مشاهدة المزيد"
 
@@ -718,7 +720,7 @@ msgstr "تبرع"
 #: inc/wpbakery/shortcodes/news_slider_view.php:80
 #: inc/wpbakery/shortcodes/programs_cards_view.php:49
 #: inc/wpbakery/shortcodes/report_cards_view.php:50
-#: template-parts/archive/content-reports.php:32
+#: template-parts/archive/content-reports.php:43
 #: template-parts/cards/content-campaign.php:116
 #: template-parts/cards/content-post.php:13
 #: template-parts/cards/content-story.php:13
@@ -729,7 +731,7 @@ msgstr "المزيد"
 #: inc/wpbakery/shortcodes/PDF_download_card_view.php:44
 #: template-parts/cards/content-reports.php:17
 msgid "Preview"
-msgstr ""
+msgstr "معاينة"
 
 #: inc/wpbakery/shortcodes/PDF_download_card_view.php:45
 #: template-parts/cards/content-reports.php:18
@@ -895,11 +897,11 @@ msgstr " ساعة"
 msgid " Hour left"
 msgstr " ساعة متبقية"
 
-#: template-parts/components/top-donor.php:70
+#: template-parts/components/top-donor.php:67
 msgid "Top Donation"
 msgstr "أعلى التبرعات"
 
-#: template-parts/components/top-donor.php:107
+#: template-parts/components/top-donor.php:104
 msgid "Top Donor"
 msgstr "أعلى المتبرعين"
 
@@ -1007,6 +1009,10 @@ msgstr "الاشتراك"
 msgid "Sign Up"
 msgstr "الاشتراك"
 
+#: template-parts/signup.php:47
+msgid "Your Age"
+msgstr "عمرك"
+
 #: template-parts/signup.php:51
 msgid "Gender"
 msgstr "الجنس"
@@ -1019,7 +1025,11 @@ msgstr "ذكر"
 msgid "Female"
 msgstr "انثى"
 
-#: template-parts/signup.php:98
+#: template-parts/signup.php:93
+msgid "Insert Password"
+msgstr "أدخل كلمة المرور"
+
+#: template-parts/signup.php:98 template-parts/signup.php:111
 msgid "Confirm Password"
 msgstr "تأكيد كلمة المرور"
 
