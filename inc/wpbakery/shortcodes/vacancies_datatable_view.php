@@ -89,7 +89,8 @@ if (!function_exists('vacancies_datatable_shortcode')) {
                                         <?php echo $is_active == "true" ? "" : "<s>"; ?>
                                     </td>
                                     <td><?php echo $is_active == "true" ? __('Active', 'bonyan') : __('Inactive', 'bonyan'); ?></td>
-                                    <td><?php //echo $end_date ?>
+                                    <td>
+                                        <?php //echo $end_date ?>
                                         <?php
                                         $date = date_create($end_date);
                                         $date = date_format($date, 'd M y');
