@@ -68,8 +68,8 @@ window.addEventListener('DOMContentLoaded', function () {
             let charityTagName;
     
             modalBtns.forEach((modalBtn) => {
-                modalBtn.addEventListener('click', function (e) {
-                    e.preventDefault();
+                modalBtn.addEventListener('click', function () {
+                    // e.preventDefault();
                     targetedModalName = modalBtn.getAttribute('data-target');
                     targetedModal = document.getElementById(targetedModalName);
                     giveFormId = this.getAttribute('data-giveformid');

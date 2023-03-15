@@ -649,7 +649,7 @@
     // Show Give From From Ajax
     function giveWpGetter() {
         $(".donation-btn").on('click', function () {
-            $("#give_form_container").remove();
+            $("#givewp-modal").empty();
             let form_id = $(this).attr("data-giveformid");
             let amount = $(this).attr("data-amount");
             let tag_name = $(this).attr("data-tagName");
@@ -677,10 +677,8 @@
 
                     },
                     200: function (data) {
-                        // $("#give_form_container").remove();
-                        // $(".give-wp-container").append(`<div id="give_form_container"> ${data.give_form} </div>`);
+                        $("#give_form_container").remove();
                         $("#givewp-modal").append(`<div id="give_form_container"> ${data.give_form} </div>`);
-
                     },
                 },
 
