@@ -55,7 +55,7 @@ function get_table_of_content($content)
             }
         </style>
         <div class="toc-header" style="display: flex; justify-content: space-between; align-items: center; cursor:pointer">
-            <p style="margin: 0; font-size: 1.5rem; font-weight:500; color: #6D54A7;">Content</p>
+            <p style="margin: 0; font-size: 1.5rem; font-weight:500; color: #6D54A7;"><?php _e('Content','bonyan') ?></p>
             <span><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50">
                     <path id="down-chevron" d="M25,0A25,25,0,1,0,50,25,25,25,0,0,0,25,0Zm0,35.95L10.924,21.92l2.327-2.335L25,31.3l11.748-11.71,2.327,2.335Z" fill="#6D54A7" />
                 </svg></span>
