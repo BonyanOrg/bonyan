@@ -34,7 +34,7 @@
 							<path id="Path_235" data-name="Path 235" d="M17,13.438v2.75a.778.778,0,0,1-.723.776c-.34.023-.618.036-.832.036A12.444,12.444,0,0,1,3,4.556q0-.322.036-.832A.778.778,0,0,1,3.812,3h2.75a.389.389,0,0,1,.387.35c.018.179.034.321.05.429a10.812,10.812,0,0,0,.94,3.112.354.354,0,0,1-.114.441l-1.678,1.2a10.148,10.148,0,0,0,5.323,5.323l1.2-1.675a.359.359,0,0,1,.446-.116A10.812,10.812,0,0,0,16.224,13c.108.016.25.033.428.05a.389.389,0,0,1,.349.387Z" transform="translate(-3 -3)" fill="#fff" />
 						</svg>
 
-						<a href="tel:<?php echo get_option('contact_info_phone_number'); ?>"><?php echo get_option('contact_info_phone_number'); ?></a>
+						<a class="footer-phone-number" href="tel:<?php echo get_option('contact_info_phone_number'); ?>"><?php echo get_option('contact_info_phone_number'); ?></a>
 					</div>
 
 					<div class="contact-item">
@@ -42,7 +42,7 @@
 							<path id="Path_237" data-name="Path 237" d="M6.667,15.073h8.287l1.427,1.115V7.829h.81a.807.807,0,0,1,.81.8V19.5l-3.606-2.817H7.476a.807.807,0,0,1-.81-.8Zm-2.06-1.61L1,16.28V3.8A.807.807,0,0,1,1.81,3H13.952a.807.807,0,0,1,.81.8v9.659Z" transform="translate(-1 -3)" fill="#fff" />
 						</svg>
 
-						<span><?php echo get_option('contact_info_text_phone_number'); ?></span>
+						<span class="footer-phone-number"><?php echo get_option('contact_info_text_phone_number'); ?></span>
 					</div>
 
 					<div class="contact-item address">
@@ -106,7 +106,7 @@
 						<path id="Path_235" data-name="Path 235" d="M17,13.438v2.75a.778.778,0,0,1-.723.776c-.34.023-.618.036-.832.036A12.444,12.444,0,0,1,3,4.556q0-.322.036-.832A.778.778,0,0,1,3.812,3h2.75a.389.389,0,0,1,.387.35c.018.179.034.321.05.429a10.812,10.812,0,0,0,.94,3.112.354.354,0,0,1-.114.441l-1.678,1.2a10.148,10.148,0,0,0,5.323,5.323l1.2-1.675a.359.359,0,0,1,.446-.116A10.812,10.812,0,0,0,16.224,13c.108.016.25.033.428.05a.389.389,0,0,1,.349.387Z" transform="translate(-3 -3)" fill="#fff" />
 					</svg>
 
-					<a href="tel:<?php echo get_option('contact_info_phone_number'); ?>"><?php echo get_option('contact_info_phone_number'); ?></a>
+					<a class="footer-phone-number" href="tel:<?php echo get_option('contact_info_phone_number'); ?>"><?php echo get_option('contact_info_phone_number'); ?></a>
 				</div>
 
 				<div class="contact-item">
@@ -114,7 +114,7 @@
 						<path id="Path_237" data-name="Path 237" d="M6.667,15.073h8.287l1.427,1.115V7.829h.81a.807.807,0,0,1,.81.8V19.5l-3.606-2.817H7.476a.807.807,0,0,1-.81-.8Zm-2.06-1.61L1,16.28V3.8A.807.807,0,0,1,1.81,3H13.952a.807.807,0,0,1,.81.8v9.659Z" transform="translate(-1 -3)" fill="#fff" />
 					</svg>
 
-					<span><?php echo get_option('contact_info_text_phone_number'); ?></span>
+					<span class="footer-phone-number"><?php echo get_option('contact_info_text_phone_number'); ?></span>
 				</div>
 
 				<div class="contact-item address">
