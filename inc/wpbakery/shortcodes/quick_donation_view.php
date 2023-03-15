@@ -9,9 +9,7 @@ if (!function_exists('quick_donation_shortcode')) {
     {
         extract(shortcode_atts(array(
             'quick_donation_title'     => '',
-            'quick_donation_description'     => '',
             'quick_donation_form_id'     => '',
-            'quick_donation_give_loop_default_program_id'     => '',
             'quick_donation_tags_list'     => '',
         ), $atts));
 
@@ -25,6 +23,7 @@ if (!function_exists('quick_donation_shortcode')) {
 
 
         ob_start();
+        $default_price = 50;
 ?>
 
         <style>
@@ -58,7 +57,7 @@ if (!function_exists('quick_donation_shortcode')) {
                             </div>
 
                             <select name="charity_select" id="charity_select">
-                                <option value=""><?php _e('Choose Charity','bonyan') ?></option>
+                                <option value=""><?php _e('Choose Charity', 'bonyan') ?></option>
                                 <?php foreach ($tags_list_array as $tag) : ?>
                                     <option value="<?php echo $tag->term_id; ?>"><?php echo $tag->name; ?></option>
                                 <?php endforeach; ?>
@@ -74,8 +73,13 @@ if (!function_exists('quick_donation_shortcode')) {
                                         <input type="text" pattern="\d*" placeholder="<?php echo $price['donation_price_placeholder'] ?>" class="only-number">
                                     </div>
 
-                                <?php } elseif ($price['donation_price_is_custom'] == 'false') { ?>
-                                    <div class="quick-donation-amount--item" data-price_value="<?php echo $price['donation_price_value']; ?>">
+                                <?php } elseif ($price['donation_price_is_custom'] == 'false') {
+                                    $is_default_price = isset($price['donation_price_is_default_price']) ? true : false;
+                                    if ($is_default_price) {
+                                        $default_price = $price['donation_price_value'];
+                                    }
+                                ?>
+                                    <div class="quick-donation-amount--item <?php echo $is_default_price ? "selected-price" : ""; ?>" data-price_value="<?php echo $price['donation_price_value']; ?>">
                                         <span><?php echo $price['donation_price_title']; ?></span>
                                     </div>
                                 <?php } ?>
@@ -87,13 +91,13 @@ if (!function_exists('quick_donation_shortcode')) {
                                 <i class="fa-solid fa-angle-down"></i>
                             </div>
                             <select name="program_select" id="program_select">
-                                <option value=""><?php _e('Choose the program','bonyan') ?></option>
+                                <option value=""><?php _e('Choose the program', 'bonyan') ?></option>
                             </select>
                         </div>
 
                         <div class="quick-donation--cta btn-with-animated-icon">
                             <?php  ?>
-                            <button id="quick_donate_now_btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> no-border radius-15" data-amount="50" data-giveformid="" data-tagName="00">
+                            <button id="quick_donate_now_btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> no-border radius-15" data-amount="<?php echo $default_price; ?>" data-giveformid="<?php echo $quick_donation_form_id; ?>" data-tagName="00">
                                 <span><?php _e('Donate', 'bonyan'); ?></span>
                             </button>
                         </div>

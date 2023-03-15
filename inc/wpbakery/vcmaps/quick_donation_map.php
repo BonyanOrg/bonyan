@@ -58,6 +58,18 @@ function quick_donation_vc()
 						"description"	=> esc_html__("Type a description to show under the section title.", 'text_DOMAIN'),
 					),
 					array(
+						"type"			=> "checkbox",
+						"admin_label"	=> false,
+						"heading"		=> esc_html__("Is Default Price", 'text_DOMAIN'),
+						"param_name"	=> "donation_price_is_default_price",
+						"value"			=> "",
+						"description"	=> esc_html__("Type a description to show under the section title.", 'text_DOMAIN'),
+						'dependency'    => array(
+							'element'   => 'donation_price_is_custom',
+							'value' => 	"false"
+						),
+					),
+					array(
 						"type"			=> "textfield",
 						"admin_label"	=> false,
 						"heading"		=> esc_html__("Price Placeholder", 'text_DOMAIN'),
