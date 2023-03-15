@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-15T10:36:28+01:00\n"
-"PO-Revision-Date: 2023-03-15 12:38+0300\n"
+"POT-Creation-Date: 2023-03-15T10:44:18+01:00\n"
+"PO-Revision-Date: 2023-03-15 12:45+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -782,11 +782,13 @@ msgstr "المزيد"
 
 #: inc/wpbakery/shortcodes/PDF_download_card_view.php:44
 #: template-parts/cards/content-reports.php:17
+#: template-parts/taxonomy/content-reports-categories.php:43
 msgid "Preview"
 msgstr "معاينة"
 
 #: inc/wpbakery/shortcodes/PDF_download_card_view.php:45
 #: template-parts/cards/content-reports.php:18
+#: template-parts/taxonomy/content-reports-categories.php:44
 msgid "Download the file"
 msgstr "تنزيل الملف"
 
@@ -1088,3 +1090,7 @@ msgstr "تأكيد كلمة المرور"
 #: template-parts/signup.php:121
 msgid "Already have account? "
 msgstr "لديك حساب بالفعل؟ "
+
+#: template-parts/taxonomy/content-reports-categories.php:34
+msgid "Last Report"
+msgstr "التقرير الأخير"
