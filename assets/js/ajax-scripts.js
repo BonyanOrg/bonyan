@@ -23,6 +23,7 @@
                 saved_successfully: "تم حفظ المعلومات بنجاح",
                 adding_to_fav: "جاري أضافة الحملة إلى المفضلة",
                 removing_from_fav: "جاري ازالة الحملة من المفضلة...",
+                Choose_the_program: "اختر برنامج",
 
             }
             break;
@@ -63,6 +64,7 @@
                 saved_successfully: "Information saved successfully",
                 adding_to_fav: "Adding the campaign from favorites...",
                 removing_from_fav: "Removing the campaign from favorites...",
+                Choose_the_program: "Choose the program",
             }
         }
     }
@@ -723,7 +725,11 @@
     $("#charity_select").on("change", function () {
         if ($(this).val() == "") {
             $("#quick_donate_now_btn").attr('data-tagName', ""); // reset
-            alert("No Campaign In This Charity")
+            $('#program_select').empty();
+            $('#program_select').append($('<option>', {
+                value: "",
+                text: generalMsgs.Choose_the_program
+            }));
             return;
         }
         $("#quick_donate_now_btn").attr('data-tagName', ""); // reset
