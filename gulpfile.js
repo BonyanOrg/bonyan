@@ -330,6 +330,18 @@ gulp.task('trustee-card-css', function () {
 });
 
 //****************************************************
+// GiveWP iFrame Style
+//****************************************************
+gulp.task('givewp-css', function () {
+    return gulp.src('./assets/scss/givewp.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('givewp-iframes-styles.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css'));
+});
+
+//****************************************************
 // ===================SCRIPTS=========================
 //****************************************************
 
@@ -370,15 +382,15 @@ gulp.task('dashboard-js', function () {
 });
 
 //****************************************************
-// GiveWP iFrame Style
+// GiveWP iFrame Script
 //****************************************************
-gulp.task('givewp-css', function () {
-    return gulp.src('./assets/scss/givewp.scss')
+gulp.task('givewp-js', function () {
+    return gulp.src('./assets/js/givewp.js')
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(concat('givewp-iframes-styles.css'))
+        .pipe(uglify())
+        .pipe(concat('givewp-iframes-scripts.js'))
         .pipe(sourcemaps.write('./map'))
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(gulp.dest('./dist/js'))
 });
 
 //****************************************************
@@ -497,7 +509,7 @@ gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-pri
 //****************************************************
 //task for automate all scripts
 //****************************************************
-gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js', 'dashboard-js']));
+gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js', 'dashboard-js', 'givewp-js']));
 gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js', 'wpb-vacancies-js', 'wpb-tenders-js', 'wpb-success-story-carousel-js', 'wpb-partners-carousel-js', 'wpb-campaigns-carousel-js']));
 
 //****************************************************

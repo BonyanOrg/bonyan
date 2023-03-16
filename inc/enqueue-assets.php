@@ -128,6 +128,9 @@ function bonyan_scripts()
     // Tenders
     wp_enqueue_script('bonyan-success-story-carousel-script', get_template_directory_uri() . '/dist/js/components/wpb/success-story-carousel.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
 
+    // Inject JS to GiveWP iFrame
+    wp_enqueue_script('injected-givewp-script', get_template_directory_uri() . '/dist/js/givewp-iframes-scripts.js', array(), $GLOBALS['bonyan_version'], true);
+
     // __Ajax__
     wp_enqueue_script('ajax-scripts', get_template_directory_uri() . '/assets/js/ajax-scripts.js', array('jquery', 'bonyan-script'), $GLOBALS['bonyan_version'], true);
     wp_localize_script('ajax-scripts', 'ajax_script_object', array(
