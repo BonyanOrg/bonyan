@@ -83,7 +83,6 @@
                         setTimeout(() => {
                             this.parentElement.style.display = "none";
                         }, 300);
-                        console.log(this.parentElement);
                     }
                     toastr.info(generalMsgs.removing_from_fav);
                 } else {
@@ -209,6 +208,7 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const donationAction = urlParams.get('giveDonationAction');
+
         if (donationAction !== null) {
             document.body.classList.add('modal-active');
             document.getElementById('givewp-modal-confirmation').style.display = "flex";
@@ -228,8 +228,6 @@
         }
     });
     /* __End Open Give Modal Confirmation  */
-
-
 
     //=====[Save User Account Details]=====//
     const fileInput = document?.getElementById('user-avatar-input');
