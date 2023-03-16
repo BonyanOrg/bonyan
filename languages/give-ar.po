@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Give - Donation Plugin 2.25.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/givewp\n"
 "POT-Creation-Date: 2023-02-23T23:11:45+00:00\n"
-"PO-Revision-Date: 2023-03-16 10:08+0300\n"
+"PO-Revision-Date: 2023-03-16 11:43+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -3294,7 +3294,7 @@ msgstr ""
 #. translators: %s: admin title
 #: includes/admin/payments/payments-history.php:112
 msgid "Edit Donation - %s"
-msgstr ""
+msgstr "تعديل التبرع - %s"
 
 #: includes/admin/payments/view-payment-details.php:19
 msgid "Sorry, you are not allowed to access this page."
@@ -14783,7 +14783,7 @@ msgstr ""
 #: includes/post-types.php:116
 #: src/DonationSummary/resources/views/summary.php:27
 msgid "Edit Donation"
-msgstr ""
+msgstr "تعديل التبرع"
 
 #: includes/post-types.php:118
 msgid "All Donations"
@@ -15460,11 +15460,11 @@ msgstr "تكرار التبرع"
 
 #: src/DonationSummary/resources/views/summary.php:64
 msgid "Consider making this donation %srecurring%s"
-msgstr ""
+msgstr "فكر في تقديم هذا التبرع بشكل %sمتكرر%s"
 
 #: src/DonationSummary/resources/views/summary.php:77
 msgid "One time"
-msgstr ""
+msgstr "مره واحده"
 
 #: src/DonationSummary/resources/views/summary.php:88
 msgid "Cover Donation Fees"
