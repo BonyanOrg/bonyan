@@ -16,7 +16,9 @@ get_header();
 		<div class="inner-content">
 			<?php
 			if ($post_type === "campaign") {
+				 ?><div class="single-campaign-give-form-container py-lg-5 py-4"><?php 
 				get_template_part('template-parts/components/top-donor', null, array("post_id" => get_the_ID()));
+				 ?></div><?php 
 			} ?>
 			<?php the_content(); ?>
 		</div>
