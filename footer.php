@@ -180,8 +180,10 @@
 if (isset($_COOKIE["DonCampaign"]) && isset($_GET["giveDonationAction"]) && is_singular('campaign') != true) {
 ?>
 	<div id="givewp-modal-confirmation" class="givewp-modal-confirmation user-action-modal">
+		<div id="give_form_container">
 		<?php echo do_shortcode('[give_form id="' . $_COOKIE["DonCampaign"] . '"]');
 		?>
+		</div>
 	</div>
 <?php } ?>
 

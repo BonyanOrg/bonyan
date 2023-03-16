@@ -211,7 +211,7 @@
         const donationAction = urlParams.get('giveDonationAction');
         if (donationAction !== null) {
             document.body.classList.add('modal-active');
-            document.getElementById('givewp-modal-confirmation').style.display = "block";
+            document.getElementById('givewp-modal-confirmation').style.display = "flex";
             document.getElementById('givewp-modal-confirmation').style.opacity = 1;
         }
 
