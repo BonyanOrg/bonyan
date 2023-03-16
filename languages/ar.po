@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
 "POT-Creation-Date: 2023-03-15T16:28:03+01:00\n"
-"PO-Revision-Date: 2023-03-15 18:29+0300\n"
+"PO-Revision-Date: 2023-03-16 11:31+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -1017,7 +1017,7 @@ msgstr "إدارة"
 
 #: template-parts/datatable-recurring-donation.php:127
 msgid "Cancel Subscription"
-msgstr "إالغاء الاشتراك"
+msgstr "إلغاء الاشتراك"
 
 #: template-parts/donation-modal.php:20 template-parts/login.php:21
 #: template-parts/signup.php:21

@@ -85,7 +85,7 @@ ORDER BY FIELD( p1.ID, {$donation_ids} );
                                     </svg>
                                 </div>
                                 <span class="the-currency">$</span>
-                                <span class="the-amount"><?php echo number_format($top_donation, 3, ',', '') ?></span>
+                                <span class="the-amount"><?php echo number_format($top_donation, 2, ',', '') ?></span>
                             </div>
 
                             <div class="top-donation-stats-name">

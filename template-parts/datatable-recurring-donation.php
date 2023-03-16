@@ -86,7 +86,7 @@
                             ?>
 
                             <?php
-                            $date = date_create($post->post_date);
+                            $date = date_create($payment->post_date);
                             $date = date_format($date, 'd M y');
                             echo is_wpml_rtl() ?
                                 ArabicDate($date) :
@@ -95,7 +95,8 @@
 
                         </td>
                         <td>
-                            <?php //echo date_format(date_create($subscription->expiration), "d M y"); ?>
+                            <?php //echo date_format(date_create($subscription->expiration), "d M y"); 
+                            ?>
                             <?php
                             $date = date_create($subscription->expiration);
                             $date = date_format($date, 'd M y');
