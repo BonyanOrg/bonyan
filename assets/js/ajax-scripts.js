@@ -647,7 +647,7 @@
                                                 render: function (data) {
                                                     var status = '';
 
-                                                    if (data.includes('Complete') || data.includes('مكتمل') || data.includes('başarılı')) {
+                                                    if (data.includes('Active') || data.includes('مفعل') || data.includes('başarılı')) {
                                                         status = 'publish';
                                                     }
 

@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: bonyan 1.0.21\n"
+"Project-Id-Version: bonyan 1.1.01\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-15T16:28:03+01:00\n"
+"POT-Creation-Date: 2023-03-16T17:43:37+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: bonyan\n"
@@ -798,7 +798,7 @@ msgstr ""
 #: inc/wpbakery/shortcodes/programs_cards_view.php:49
 #: inc/wpbakery/shortcodes/report_cards_view.php:50
 #: template-parts/archive/content-reports.php:43
-#: template-parts/cards/content-campaign.php:116
+#: template-parts/cards/content-campaign.php:117
 #: template-parts/cards/content-post.php:13
 #: template-parts/cards/content-story.php:13
 #: template-parts/components/urgent-campaigns.php:90
@@ -823,8 +823,8 @@ msgid "Apply for this job"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/news_slider_view.php:78
-#: inc/wpbakery/shortcodes/quick_donation_view.php:97
-#: template-parts/cards/content-campaign.php:115
+#: inc/wpbakery/shortcodes/quick_donation_view.php:101
+#: template-parts/cards/content-campaign.php:116
 #: template-parts/components/main-slider.php:36
 #: template-parts/components/urgent-campaigns.php:89
 msgid "Donate"
@@ -850,11 +850,11 @@ msgstr ""
 msgid "More about the programs"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:61
+#: inc/wpbakery/shortcodes/quick_donation_view.php:60
 msgid "Choose Charity"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:90
+#: inc/wpbakery/shortcodes/quick_donation_view.php:94
 msgid "Choose the program"
 msgstr ""
 
@@ -981,22 +981,22 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: template-parts/cards/content-campaign.php:59
+#: template-parts/cards/content-campaign.php:60
 #: template-parts/components/urgent-campaigns.php:65
 msgid " Day Left "
 msgstr ""
 
-#: template-parts/cards/content-campaign.php:59
+#: template-parts/cards/content-campaign.php:60
 #: template-parts/components/urgent-campaigns.php:65
 msgid " Days Left "
 msgstr ""
 
-#: template-parts/cards/content-campaign.php:60
+#: template-parts/cards/content-campaign.php:61
 #: template-parts/components/urgent-campaigns.php:66
 msgid " Hour"
 msgstr ""
 
-#: template-parts/cards/content-campaign.php:60
+#: template-parts/cards/content-campaign.php:61
 #: template-parts/components/urgent-campaigns.php:66
 msgid " Hour left"
 msgstr ""
@@ -1057,11 +1057,11 @@ msgid "NEXT PAYMENT"
 msgstr ""
 
 #: template-parts/datatable-recurring-donation.php:40
-msgid "MANAGE"
+msgid "Cancel Subscription"
 msgstr ""
 
-#: template-parts/datatable-recurring-donation.php:127
-msgid "Cancel Subscription"
+#: template-parts/datatable-recurring-donation.php:128
+msgid "Cancel"
 msgstr ""
 
 #: template-parts/donation-modal.php:20

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-15T16:28:03+01:00\n"
-"PO-Revision-Date: 2023-03-16 11:31+0300\n"
+"POT-Creation-Date: 2023-03-16T17:43:37+01:00\n"
+"PO-Revision-Date: 2023-03-16 19:44+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -750,7 +750,7 @@ msgstr "--اختار الملف  --"
 #: inc/wpbakery/shortcodes/programs_cards_view.php:49
 #: inc/wpbakery/shortcodes/report_cards_view.php:50
 #: template-parts/archive/content-reports.php:43
-#: template-parts/cards/content-campaign.php:116
+#: template-parts/cards/content-campaign.php:117
 #: template-parts/cards/content-post.php:13
 #: template-parts/cards/content-story.php:13
 #: template-parts/components/urgent-campaigns.php:90
@@ -775,8 +775,8 @@ msgid "Apply for this job"
 msgstr "تقدم لهذه الوظيفة"
 
 #: inc/wpbakery/shortcodes/news_slider_view.php:78
-#: inc/wpbakery/shortcodes/quick_donation_view.php:97
-#: template-parts/cards/content-campaign.php:115
+#: inc/wpbakery/shortcodes/quick_donation_view.php:101
+#: template-parts/cards/content-campaign.php:116
 #: template-parts/components/main-slider.php:36
 #: template-parts/components/urgent-campaigns.php:89
 msgid "Donate"
@@ -802,11 +802,11 @@ msgstr "البرامج"
 msgid "More about the programs"
 msgstr "المزيد حول البرامج"
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:61
+#: inc/wpbakery/shortcodes/quick_donation_view.php:60
 msgid "Choose Charity"
 msgstr "اختر مؤسسة خيرية"
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:90
+#: inc/wpbakery/shortcodes/quick_donation_view.php:94
 msgid "Choose the program"
 msgstr "اختر برنامج"
 
@@ -933,22 +933,22 @@ msgstr "المدونة"
 msgid "Search"
 msgstr "البحث"
 
-#: template-parts/cards/content-campaign.php:59
+#: template-parts/cards/content-campaign.php:60
 #: template-parts/components/urgent-campaigns.php:65
 msgid " Day Left "
 msgstr " متبقي يوم "
 
-#: template-parts/cards/content-campaign.php:59
+#: template-parts/cards/content-campaign.php:60
 #: template-parts/components/urgent-campaigns.php:65
 msgid " Days Left "
 msgstr " أيام متبقية "
 
-#: template-parts/cards/content-campaign.php:60
+#: template-parts/cards/content-campaign.php:61
 #: template-parts/components/urgent-campaigns.php:66
 msgid " Hour"
 msgstr " ساعة"
 
-#: template-parts/cards/content-campaign.php:60
+#: template-parts/cards/content-campaign.php:61
 #: template-parts/components/urgent-campaigns.php:66
 msgid " Hour left"
 msgstr " ساعة متبقية"
@@ -1012,12 +1012,12 @@ msgid "NEXT PAYMENT"
 msgstr "الدفعة التالية"
 
 #: template-parts/datatable-recurring-donation.php:40
-msgid "MANAGE"
-msgstr "إدارة"
-
-#: template-parts/datatable-recurring-donation.php:127
 msgid "Cancel Subscription"
 msgstr "إلغاء الاشتراك"
+
+#: template-parts/datatable-recurring-donation.php:128
+msgid "Cancel"
+msgstr "إلغاء"
 
 #: template-parts/donation-modal.php:20 template-parts/login.php:21
 #: template-parts/signup.php:21
@@ -1100,3 +1100,6 @@ msgstr "لديك حساب بالفعل؟ "
 #: template-parts/taxonomy/content-reports-categories.php:34
 msgid "Last Report"
 msgstr "التقرير الأخير"
+
+#~ msgid "MANAGE"
+#~ msgstr "إدارة"
