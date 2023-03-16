@@ -16,6 +16,12 @@
   pointer-events: none !important;
 }
 
+/* ===[Start make form in single campaign (full width)]=== */
+.give-embed-form {
+  max-width: 100%;
+}
+/* ===[End make form in single campaign (full width)]=== */
+
 /* RTL */
 html[dir="rtl"] {
     .give-form-templates {
