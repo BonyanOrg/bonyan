@@ -15,15 +15,19 @@ function reduceImgSize() {
             height: ${height};
             padding: 0;
         `;
+
+        giveIframe.contentWindow.document.querySelector('body').style.minHeight = 'auto';
     }
 }
 
 function isIframeExist() {
     setInterval(() => {
+        // In case when iFrame load to stop Interval
         if (giveIframe !== null) {
             return;
         }
 
+        // In case when this is not the single campaign page stop Interval (This is just for protection but the script will load only in single campaign page)
         if (document.querySelector('.single-campaign') === null) {
             return;
         }
