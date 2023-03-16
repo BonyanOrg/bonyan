@@ -24,6 +24,10 @@ function bonyan_scripts()
     // Toastr Style
     // wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
     wp_enqueue_style('bonyan-toastr', get_template_directory_uri() . "/dist/css/cdn/toastr.min.css", array());
+    
+    // Sweet Alert Style
+    // wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
+    wp_enqueue_style('bonyan-sweet-alert-css', get_template_directory_uri() . "/dist/css/cdn/sweetalert2.min.css", array());
 
     // Datatable Style
     // wp_enqueue_style('bonyan-datatable-css', 'https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css', array());
@@ -94,6 +98,9 @@ function bonyan_scripts()
     // __Scripts__
     // wp_enqueue_script('bonyan-toastr-script', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js', array('jquery'), false, true);
     wp_enqueue_script('bonyan-toastr-script', get_template_directory_uri() . "/dist/js/cdn/toastr.min.js", array('jquery'), false, true);
+    
+    // wp_enqueue_script('bonyan-toastr-script', 'https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js', array('jquery'), false, true);
+    wp_enqueue_script('bonyan-sweet-alert-script', get_template_directory_uri() . "/dist/js/cdn/sweetalert2.min.js", array(), false, true);
 
     // Datatable Scripts 
     // wp_enqueue_script('bonyan-datatable-js', 'https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js', array(), false, true);

@@ -24,6 +24,11 @@
                 adding_to_fav: "جاري أضافة الحملة إلى المفضلة",
                 removing_from_fav: "جاري ازالة الحملة من المفضلة...",
                 Choose_the_program: "اختر برنامج",
+                subscription_cancel_alert_title: 'هل أنت متأكد؟',
+                subscription_cancel_alert_text: 'سيتم إلغاء الاشتراك بشكل نهائي !',
+                subscription_cancel_alert_confirm_btn_text: 'نعم، إلغاء !',
+                subscription_cancel_alert_cancel_btn_text: 'لا تهتم',
+                subscription_cancel_alert_cancel_success_mesg: 'تم إلغاء الاشتراك بنجاح',
 
             }
             break;
@@ -65,6 +70,12 @@
                 adding_to_fav: "Adding the campaign from favorites...",
                 removing_from_fav: "Removing the campaign from favorites...",
                 Choose_the_program: "Choose the program",
+                subscription_cancel_alert_title: 'Are you sure?',
+                subscription_cancel_alert_text: 'Subscription will be permanently cancelled !',
+                subscription_cancel_alert_confirm_btn_text: 'Yes, cancel it!',
+                subscription_cancel_alert_cancel_btn_text: 'Nevermind',
+                subscription_cancel_alert_cancel_success_mesg: 'Subscription canceled successfully',
+
             }
         }
     }
@@ -614,7 +625,7 @@
                                     let recurringDonationTable = $('#recurring-donation-table');
 
                                     if (recurringDonationTable.length > 0) {
-                                        recurringDonationTable.DataTable({
+                                        var dt = recurringDonationTable.DataTable({
                                             "dom": 'rtip',
                                             "paging": true,
                                             "pageLength": 5,
@@ -658,11 +669,19 @@
 
                                                     return `<span class=${status}>${data}</span>`;
                                                 }
-                                            }]
+                                            }],
+                                            "initComplete": function (settings, json) { // For Desktop
+                                                addEventListenerToCancelSubscription();
+                                            }
+                                        });
+                                        $('#recurring-donation-table tbody').on('click', 'tr', function () { // For mobile And Responsive
+                                            addEventListenerToCancelSubscription();
+
                                         });
                                     }
 
                                 }
+
                             }
 
 
@@ -679,6 +698,60 @@
     });
     //=====[Give Donations Getter END]=====//
 
+    //=====[Give Cancel Subscription Satart]=====//
+    function addEventListenerToCancelSubscription() {
+        $(".give-subscription-cancel").on('click', function () {
+            var current_btn = $(this);
+            var paymament_id = $(this).attr('data-payid'); // Get Payment ID
+
+            Swal.fire({
+                title: generalMsgs.subscription_cancel_alert_title,
+                text: generalMsgs.subscription_cancel_alert_text,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: generalMsgs.subscription_cancel_alert_confirm_btn_text,
+                cancelButtonText: generalMsgs.subscription_cancel_alert_cancel_btn_text
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('.loader').css('display', 'flex');
+                    $.ajax({
+                        dataType: "json",
+                        method: "POST",
+                        url: ajax_script_object.ajaxurl,
+                        data: {
+                            action: "cancel_give_sub",
+                            nonce: ajax_script_object.nonce,
+                            id: paymament_id
+                        },
+                        statusCode: {
+                            400: function (data) {
+                                $('.loader').css('display', 'none');
+                                Swal.fire(
+                                    "Something Wrong",
+                                    '',
+                                    'error'
+                                )
+                            },
+                            200: function (data) {
+                                current_btn.remove();
+                                $('.loader').css('display', 'none');
+                                Swal.fire(
+                                    generalMsgs.subscription_cancel_alert_cancel_success_mesg,
+                                    '',
+                                    'success'
+                                )
+                            },
+                        },
+
+                    });
+                }
+            });
+
+        });
+    }
+    //=====[Give Cancel Subscription END]=====//
 
     // Show Give From From Ajax
     function giveWpGetter() {
@@ -828,6 +901,8 @@
             });
         }
     })(jQuery);
+
+
 
 
 

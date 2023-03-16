@@ -218,7 +218,7 @@ $instagram_url = ($instagram_url = get_user_meta($userdata->ID, 'instagram_url',
                 </div>
 
 
-                <div class="recurring-donations-container mt-5">
+                <div class="recurring-donations-container mt-5" style="position: relative;">
                     <div class="tab-content-title">
                         <h3><?php _e('Recurring Donations', 'bonyan'); ?></h3>
                     </div>

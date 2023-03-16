@@ -37,7 +37,7 @@
                 <th><?php _e('DATE STARTED', 'bonyan'); ?></th>
                 <th><?php _e('NEXT PAYMENT', 'bonyan'); ?></th>
                 <th><?php _e('STATUS', 'bonyan'); ?></th>
-                <th><?php _e('MANAGE', 'bonyan'); ?></th>
+                <th><?php _e('Cancel Subscription', 'bonyan'); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -125,7 +125,7 @@
 
                         </td>
                         <td><?php if ($subscription->can_cancel()) : ?>
-                                <a href="<?php echo $subscription->get_cancel_url(); ?>" class="button button-small give-subscription-admin-cancel"><?php _e('Cancel Subscription', 'bonyan'); ?></a>
+                                <button  data-payid="<?php echo $payment->ID; ?>"  class=" swal2-confirm swal2-styled button button-small give-subscription-cancel"><?php _e('Cancel', 'bonyan'); ?></button>
                             <?php endif; ?>
                         </td>
                     </tr>

@@ -51,6 +51,11 @@ require __DIR__ . '/get-search-result.php';
 //=====================================
 require __DIR__ . '/get-campaigns-by-name.php';
 
+//=====================================
+//    Cancel Give Subscription 
+//=====================================
+require __DIR__ . '/cancel-give-sub.php';
+
 
 
 
