@@ -630,7 +630,7 @@
                                             "paging": true,
                                             "pageLength": 5,
                                             "searching": false,
-                                            order: [[4, 'desc']],
+                                            order: [[4, 'ASC']],
 
                                             responsive: isResponsive,
 
