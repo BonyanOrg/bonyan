@@ -125,7 +125,7 @@
 
                         </td>
                         <td><?php if ($subscription->can_cancel()) : ?>
-                                <button  data-payid="<?php echo $payment->ID; ?>"  class=" swal2-confirm swal2-styled button button-small give-subscription-cancel"><?php _e('Cancel', 'bonyan'); ?></button>
+                                <button id="cancel-sub-btn-<?php echo $payment->ID; ?>" data-payid="<?php echo $payment->ID; ?>"  class=" swal2-confirm swal2-styled button button-small give-subscription-cancel"><?php _e('Cancel', 'bonyan'); ?></button>
                             <?php endif; ?>
                         </td>
                     </tr>
