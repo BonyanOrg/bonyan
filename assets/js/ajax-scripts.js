@@ -625,12 +625,12 @@
                                     let recurringDonationTable = $('#recurring-donation-table');
 
                                     if (recurringDonationTable.length > 0) {
-                                        var dt = recurringDonationTable.DataTable({
+                                        var recurringDataTable = recurringDonationTable.DataTable({
                                             "dom": 'rtip',
                                             "paging": true,
                                             "pageLength": 5,
                                             "searching": false,
-                                            order: [[3, 'desc']],
+                                            order: [[4, 'desc']],
 
                                             responsive: isResponsive,
 
@@ -671,11 +671,11 @@
                                                 }
                                             }],
                                             "initComplete": function (settings, json) { // For Desktop
-                                                addEventListenerToCancelSubscription();
+                                                addEventListenerToCancelSubscription(recurringDataTable);
                                             }
                                         });
                                         $('#recurring-donation-table tbody').on('click', 'tr', function () { // For mobile And Responsive
-                                            addEventListenerToCancelSubscription();
+                                            addEventListenerToCancelSubscription(recurringDataTable);
 
                                         });
                                     }
@@ -698,60 +698,71 @@
     });
     //=====[Give Donations Getter END]=====//
 
-    //=====[Give Cancel Subscription Satart]=====//
-    function addEventListenerToCancelSubscription() {
-        $(".give-subscription-cancel").on('click', function () {
-            var current_btn = $(this);
-            var paymament_id = $(this).attr('data-payid'); // Get Payment ID
+   //=====[Give Cancel Subscription Satart]=====//
+   function addEventListenerToCancelSubscription(recurringDataTable) {
+    $(".give-subscription-cancel").on('click', function () {
+      var current_btn = $(this);
+      var paymament_id = $(this).attr('data-payid'); // Get Payment ID
 
-            Swal.fire({
-                title: generalMsgs.subscription_cancel_alert_title,
-                text: generalMsgs.subscription_cancel_alert_text,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: generalMsgs.subscription_cancel_alert_confirm_btn_text,
-                cancelButtonText: generalMsgs.subscription_cancel_alert_cancel_btn_text
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $('.loader').css('display', 'flex');
-                    $.ajax({
-                        dataType: "json",
-                        method: "POST",
-                        url: ajax_script_object.ajaxurl,
-                        data: {
-                            action: "cancel_give_sub",
-                            nonce: ajax_script_object.nonce,
-                            id: paymament_id
-                        },
-                        statusCode: {
-                            400: function (data) {
-                                $('.loader').css('display', 'none');
-                                Swal.fire(
-                                    "Something Wrong",
-                                    '',
-                                    'error'
-                                )
-                            },
-                            200: function (data) {
-                                current_btn.remove();
-                                $('.loader').css('display', 'none');
-                                Swal.fire(
-                                    generalMsgs.subscription_cancel_alert_cancel_success_mesg,
-                                    '',
-                                    'success'
-                                )
-                            },
-                        },
-
-                    });
+      Swal.fire({
+        title: generalMsgs.subscription_cancel_alert_title,
+        text: generalMsgs.subscription_cancel_alert_text,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: generalMsgs.subscription_cancel_alert_confirm_btn_text,
+        cancelButtonText: generalMsgs.subscription_cancel_alert_cancel_btn_text
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $('.loader').css('display', 'flex');
+          $.ajax({
+            dataType: "json",
+            method: "POST",
+            url: ajax_script_object.ajaxurl,
+            data: {
+              action: "cancel_give_sub",
+              nonce: ajax_script_object.nonce,
+              id: paymament_id
+            },
+            statusCode: {
+              400: function (data) {
+                $('.loader').css('display', 'none');
+                Swal.fire(
+                  "Something Wrong",
+                  data.responseJSON.error_massage,
+                  'error'
+                )
+              },
+              200: function (data) {
+                // Remove the Row From the Table
+                var row;
+                if ($(current_btn).closest('table').hasClass("collapsed")) {
+                  var child = $(current_btn).parents("tr.child");
+                  row = $(child).prevAll(".parent");
+                } else {
+                  row = $(current_btn).parents('tr');
                 }
-            });
+                recurringDataTable.row(row).remove().draw();
 
-        });
-    }
-    //=====[Give Cancel Subscription END]=====//
+                current_btn.remove(); // Remove Button From Mobile Responsive Table 
+                $("#cancel-sub-btn-" + paymament_id).remove(); // Remove Button From Desktop Table
+                $('.loader').css('display', 'none'); // Hide Loader
+                Swal.fire(
+                  generalMsgs.subscription_cancel_alert_cancel_success_mesg,
+                  '',
+                  'success'
+                )
+              },
+            },
+
+          });
+        }
+      });
+
+    });
+  }
+  //=====[Give Cancel Subscription END]=====//
 
     // Show Give From From Ajax
     function giveWpGetter() {

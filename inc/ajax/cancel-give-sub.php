@@ -15,6 +15,12 @@ function cancel_give_sub()
     $current_user = wp_get_current_user();
 
     $subscription = give_recurring_get_subscription_by('payment', $_POST['id']);
+    if (empty($subscription)) {
+        wp_send_json([
+            'error_massage' => "Error"
+        ], 400);
+        wp_die();
+    }
 
     if ($subscription->donor->user_id != $current_user->ID) {
         die('Busted!');
@@ -23,7 +29,10 @@ function cancel_give_sub()
     $gateway = give_recurring_get_gateway_from_subscription($subscription);
 
     if (!$subscription->can_cancel()) {
-        return;
+        wp_send_json([
+            'error_massage' => "Subscription Can't Cancel"
+        ], 400);
+        wp_die();
     }
 
     // Cancel the subscription with the gateway
