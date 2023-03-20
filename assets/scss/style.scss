@@ -311,8 +311,9 @@ input {
   margin-top: 132px;
   min-height: 160px;
   padding: 2rem 0;
-  background-repeat: no-repeat;
-  background-position: center center;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
 
   @media (max-width: 1024px) {
     margin-top: 97px;
