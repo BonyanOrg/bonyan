@@ -403,6 +403,23 @@ input {
   margin: 2.5rem 0;
   justify-content: space-between;
 
+    @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+
+    .search {
+      width: 100%;
+    
+      .search-form {
+        width: 100%;
+      }
+
+      .input-holder {
+        width: 100%;
+      }
+    }
+  }
+
   @media (max-width: 1024px) {
     flex-direction: column-reverse;
     align-items: flex-start;
@@ -914,6 +931,11 @@ input {
         }
 
         .hide-password {
+          display: none;
+        }
+
+        input::-ms-reveal,
+        input::-ms-clear {
           display: none;
         }
       }
