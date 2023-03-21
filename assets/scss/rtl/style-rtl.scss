@@ -1255,6 +1255,7 @@ header {
     .search-input-holder {
       input {
         height: 45px;
+        font-size: 15px;
       }
     }
   }
@@ -1282,7 +1283,7 @@ header {
     }
 
     span {
-      font-size: 18px;
+      font-size: 15px;
     }
   }
 
@@ -1301,6 +1302,7 @@ header {
       align-items: center;
       height: 45px;
       padding: 0.75rem;
+      font-size: 15px;
 
       svg:first-of-type {
         width: 18px;
