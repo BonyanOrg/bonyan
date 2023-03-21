@@ -2164,7 +2164,7 @@ header {
 
 /* ===[Start Campaign Page]=== */
 .urgent-campaigns {
-  background: $secondary-color;
+  background: #60B5C7;
   padding: 3rem 0;
 
   @media (max-width: 1024px) {
@@ -2652,6 +2652,10 @@ header {
 
         .stat-icon {
           height: 85px;
+
+          @media (max-width: 1400px) {
+            height: 70px;
+          }
           
           img {
             height: 100%;
@@ -2673,8 +2677,10 @@ header {
         }
 
         .stat-name {
+          color: #515151;
+
           @media (max-width: 1400px) {
-            font-size: 14px;
+            font-size: 18px;
           }
         }
       }
