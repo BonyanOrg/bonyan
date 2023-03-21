@@ -81,7 +81,7 @@ function get_table_of_content($content)
                 }
 
             ?>
-                <li style="display: inline-block; line-height: 1.5">
+                <li style="display: block;">
                     <a href="#<?php echo $data['bookmark'] ?>" style="font-size: 16px;"><?php echo $data['title'] ?></a>
                 <?php
 
