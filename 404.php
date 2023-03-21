@@ -105,12 +105,7 @@ get_header();
 
             <div class="content-of-404-cta">
                 <?php get_search_form() ?>
-                
-<<<<<<< HEAD
-                <a href="<?php echo home_url(); ?>" class="wpb-bonyan-btn">
-=======
                 <a href="<?php echo home_url(); ?>" class="wpb-bonyan-btn back-to-home">
->>>>>>> bonyan-scale-75
                     <span><?php _e('Back To Home', 'bonyan'); ?></span>
                 </a>
             </div>
