@@ -57,7 +57,7 @@ ORDER BY FIELD( p1.ID, {$donation_ids} );
                     }
                 }
                 $top_donor = get_user_by('email', $top_donor_email);
-                $top_donor_name = get_user_meta($userdata->ID, 'first_name', true) . ' ' . get_user_meta($userdata->ID, 'last_name', true);
+                $top_donor_name = get_user_meta($top_donor->ID, 'first_name', true) . ' ' . get_user_meta($top_donor->ID, 'last_name', true);
                 $user_profile_photo = ($user_profile_photo = get_user_meta($top_donor->ID, 'user_profile_photo', true)) ? $user_profile_photo : 'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg';
 ?>
                 <div class="top-donation-stats">
