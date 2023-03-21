@@ -51,7 +51,7 @@ function bonyan_scripts()
     wp_enqueue_style('bonyan-quick-donation-style', get_template_directory_uri() . "/dist/css/components/wpb/quick-donation.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Primary Carouse
-    wp_enqueue_style('bonyan-primary-carousel-style', get_template_directory_uri() . "/dist/css/components/wpb/primary-carousel.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
+    // wp_enqueue_style('bonyan-primary-carousel-style', get_template_directory_uri() . "/dist/css/components/wpb/primary-carousel.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Project Card 
     wp_enqueue_style('bonyan-project-card-style', get_template_directory_uri() . "/dist/css/components/wpb/project-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
@@ -124,7 +124,7 @@ function bonyan_scripts()
     wp_enqueue_script('bonyan-quick-donation-script', get_template_directory_uri() . '/dist/js/components/wpb/quick-donation.min.js', array(), $GLOBALS['bonyan_version'], true);
 
     // Primary Carousel
-    wp_enqueue_script('bonyan-primary-carousel-script', get_template_directory_uri() . '/dist/js/components/wpb/primary-carousel.min.js', array('bonyan-swiper-carousel-script'), $GLOBALS['bonyan_version'], true);
+    // wp_enqueue_script('bonyan-primary-carousel-script', get_template_directory_uri() . '/dist/js/components/wpb/primary-carousel.min.js', array('bonyan-swiper-carousel-script'), $GLOBALS['bonyan_version'], true);
 
     // Vacancies
     wp_enqueue_script('bonyan-vacancies-script', get_template_directory_uri() . '/dist/js/components/wpb/vacancies.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);

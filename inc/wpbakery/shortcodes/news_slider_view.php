@@ -26,6 +26,14 @@ if (!function_exists('news_slider_shortcode')) {
             {
         ?>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+
+                <style>
+
+                    <?php
+                    require_once(get_template_directory() . '/dist/css/components/wpb/primary-carousel.min.css');
+                    ?>
+                    
+                </style>
         <?php
             }
             news_slider_register_style();

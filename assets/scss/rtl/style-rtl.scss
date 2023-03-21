@@ -1324,7 +1324,10 @@ header {
       align-items: center;
       text-align: center;
 
-
+      @media (max-width: 1024px) {
+        top: unset;
+        bottom: calc(100% + 5px);
+      }
 
       a {
         padding: 0.5rem 1rem;
@@ -1682,7 +1685,7 @@ header {
     .bottom-header {
       display: flex;
       align-items: baseline;
-      height: calc(100svh - 150px);
+      height: 60svh;
       overflow-y: auto;
       background: $light-color;
       padding: 1rem 0;
@@ -1718,7 +1721,7 @@ header {
             position: relative;
 
             .sub-menu {
-              z-index: 2;
+              z-index: 3;
               border: 1px solid #eee;
 
               // Level 2
@@ -3093,3 +3096,15 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
   }
 }
 /* ===[End Urgent Campaigns]=== */
+
+/* ===[Start Table Of Content]=== */
+.toc-holder {
+  ol {
+    li {
+      &:not(li:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+/* ===[End Table Of Content]=== */

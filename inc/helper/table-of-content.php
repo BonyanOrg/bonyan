@@ -70,7 +70,7 @@ function get_table_of_content($content)
                 }
 
                 if ($data['header'] > $currentDepth) {
-                    echo '<ol class="px-2 px-lg-4" style="counter-reset: item; margin:0; line-height: 2;">';
+                    echo '<ol class="px-2 px-lg-4" style="counter-reset: item; margin:0;">';
                     $currentDepth = $data['header'];
                 }
 
