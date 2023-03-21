@@ -14,54 +14,51 @@ if (!function_exists('about_bonyan_card_shortcode')) {
         ob_start();
 ?>
 
-        <style>
+        <?php
+        //========[{ Enqueue Widget Style }]========//
+        if (!function_exists('about_bonyan_card_register_style')) {
+            function about_bonyan_card_register_style()
+            {
+        ?><style>
+                    <?php
+                    require_once(get_template_directory() . '/dist/css/components/wpb/icon-title-desc.min.css');
+                    ?>
+                </style><?php
+                    }
+                    about_bonyan_card_register_style();
+                } ?>
+
+
+        <div class="icon-title-desc-container custom-widget">
+
+
+
             <?php
-            //========[{ Enqueue Widget Style }]========//
-            if (!function_exists('about_bonyan_card_register_style')) {
-                function about_bonyan_card_register_style()
-                {
-                    //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
-                }
-                about_bonyan_card_register_style();
-            } ?>
-        </style>
 
+            foreach ($about_bonyan_card_items as $card) {
+            ?>
+                <div class="icon-title-desc">
+                    <!-- Icon -->
+                    <div class="icon-title-desc-item icon-item">
+                        <img data-src="<?php echo wp_get_attachment_image_url($card['about_bonyan_card_item_image'], "full"); ?>" loading="lazy" alt="test" class="lazyload">
 
-            <div class="icon-title-desc-container custom-widget">
-
-
-
-                <?php
-
-                foreach ($about_bonyan_card_items as $card) {
-                ?>
-                    <div class="icon-title-desc">
-                        <!-- Icon -->
-                        <div class="icon-title-desc-item icon-item">
-                            <img data-src="<?php echo wp_get_attachment_image_url($card['about_bonyan_card_item_image'], "full"); ?>" loading="lazy" alt="test" class="lazyload">
-
-                        </div>
-
-                        <!-- Title -->
-                        <div class="icon-title-desc-item title-item">
-                            <span><?php echo $card['about_bonyan_card_item_title']; ?></span>
-                        </div>
-
-                        <!-- Description -->
-                        <div class="icon-title-desc-item desc-item">
-                            <span><?php echo $card['about_bonyan_card_item_desc']; ?></span>
-                        </div>
                     </div>
 
-                <?php } ?>
+                    <!-- Title -->
+                    <div class="icon-title-desc-item title-item">
+                        <span><?php echo $card['about_bonyan_card_item_title']; ?></span>
+                    </div>
 
-            </div>
+                    <!-- Description -->
+                    <div class="icon-title-desc-item desc-item">
+                        <span><?php echo $card['about_bonyan_card_item_desc']; ?></span>
+                    </div>
+                </div>
 
-        <!-- End References -->
-        <script>
-            <?php //require_once(get_template_directory() . '/dist/js/components/wpb/quick-donation.min.js'); 
-            ?>
-        </script>
+            <?php } ?>
+
+        </div>
+
 
 
 

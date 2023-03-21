@@ -16,17 +16,19 @@ if (!function_exists('report_cards_shortcode')) {
         ob_start();
 ?>
 
-        <style>
-            <?php
-            //========[{ Enqueue Widget Style }]========//
-            if (!function_exists('report_cards_register_style')) {
-                function report_cards_register_style()
-                {
-                    //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
-                }
-                report_cards_register_style();
-            } ?>
-        </style>
+        <?php
+        //========[{ Enqueue Widget Style }]========//
+        if (!function_exists('report_cards_register_style')) {
+            function report_cards_register_style()
+            {
+        ?><style>
+                    <?php
+                    require_once(get_template_directory() . '/dist/css/components/wpb/file-card.min.css');
+                    ?>
+                </style><?php
+                    }
+                    report_cards_register_style();
+                } ?>
         <div class="cards-container grid-4">
             <?php
 
@@ -47,7 +49,7 @@ if (!function_exists('report_cards_shortcode')) {
 
                     <!-- File CTAs -->
                     <div class="file-cta">
-                        <a href="<?php echo $report_cards_btn_link  ?>" class="primary-btn download-file"><?php _e('More','bonyan') ?></a>
+                        <a href="<?php echo $report_cards_btn_link  ?>" class="primary-btn download-file"><?php _e('More', 'bonyan') ?></a>
                     </div>
                 </div>
             <?php } ?>

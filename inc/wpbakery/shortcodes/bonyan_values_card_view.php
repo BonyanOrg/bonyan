@@ -17,17 +17,19 @@ if (!function_exists('bonyan_values_card_shortcode')) {
         ob_start();
 ?>
 
-        <style>
-            <?php
-            //========[{ Enqueue Widget Style }]========//
-            if (!function_exists('bonyan_values_card_register_style')) {
-                function bonyan_values_card_register_style()
-                {
-                    //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
-                }
-                bonyan_values_card_register_style();
-            } ?>
-        </style>
+        <?php
+        //========[{ Enqueue Widget Style }]========//
+        if (!function_exists('bonyan_values_card_register_style')) {
+            function bonyan_values_card_register_style()
+            {
+        ?><style>
+                    <?php
+                    require_once(get_template_directory() . '/dist/css/components/wpb/bg-title-desc.min.css');
+                    ?>
+                </style><?php
+                    }
+                    bonyan_values_card_register_style();
+                } ?>
 
 
         <div class="bg-title-desc-container py-4 py-lg-5">

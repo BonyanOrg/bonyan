@@ -23,17 +23,20 @@ if (!function_exists('contact_info_shortcode')) {
         ob_start();
 ?>
 
-        <style>
-            <?php
-            //========[{ Enqueue Widget Style }]========//
-            if (!function_exists('contact_info_register_style')) {
-                function contact_info_register_style()
-                {
+
+        <?php
+        //========[{ Enqueue Widget Style }]========//
+        if (!function_exists('contact_info_register_style')) {
+            function contact_info_register_style()
+            {
+        ?><style>
+                    <?php
                     require_once(get_template_directory() . '/dist/css/components/wpb/contact-info.min.css');
-                }
-                contact_info_register_style();
-            } ?>
-        </style>
+                    ?>
+                </style><?php
+                    }
+                    contact_info_register_style();
+                } ?>
         <?php
         $in_line_style = "";
         if (is_wpml_rtl()) {
@@ -44,11 +47,11 @@ if (!function_exists('contact_info_shortcode')) {
         <!-- This is the START of the component -->
         <div class="contact-item custom-widget">
             <?php if ($contact_info_is_phone) : ?>
-                <a href="tel:<?php echo $contact_info_phone_number; ?>" class="phone-numbers-container" >
+                <a href="tel:<?php echo $contact_info_phone_number; ?>" class="phone-numbers-container">
                 <?php elseif ($contact_info_is_email) : ?>
-                    <a href="mailto:<?php echo $contact_info_email; ?>" class="phone-numbers-container" >
+                    <a href="mailto:<?php echo $contact_info_email; ?>" class="phone-numbers-container">
                     <?php else : ?>
-                        <a href="#" class="phone-numbers-container" >
+                        <a href="#" class="phone-numbers-container">
                         <?php endif; ?>
                         <div class="contact-icon">
                             <?php if (!empty($contact_info_icon)) : ?>
@@ -56,7 +59,9 @@ if (!function_exists('contact_info_shortcode')) {
                             <?php endif; ?>
                         </div>
 
-                        <div class="phone-numbers" <?php if ($contact_info_is_phone) {echo $in_line_style;} ?>>
+                        <div class="phone-numbers" <?php if ($contact_info_is_phone) {
+                                                        echo $in_line_style;
+                                                    } ?>>
                             <span><?php echo $content; ?></span>
                         </div>
                         </a>

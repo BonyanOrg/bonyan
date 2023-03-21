@@ -21,17 +21,19 @@ if (!function_exists('campaign_banner_shortcode')) {
         ob_start();
 ?>
 
-        <style>
-            <?php
-            //========[{ Enqueue Widget Style }]========//
-            if (!function_exists('campaign_banner_register_style')) {
-                function campaign_banner_register_style()
-                {
-                    //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
-                }
-                campaign_banner_register_style();
-            } ?>
-        </style>
+        <?php
+        //========[{ Enqueue Widget Style }]========//
+        if (!function_exists('campaign_banner_register_style')) {
+            function campaign_banner_register_style()
+            {
+        ?><style>
+                    <?php
+                    require_once(get_template_directory() . '/dist/css/components/wpb/banner.min.css');
+                    ?>
+                </style><?php
+                    }
+                    campaign_banner_register_style();
+                } ?>
 
         <div class="banner custom-widget">
             <!-- Banner Image -->
