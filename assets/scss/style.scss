@@ -2110,11 +2110,26 @@ header {
     }
 
     .campaign-progress-bar-holder {
-      p {
-        color: $primary-color;
-        font-size: 24px;
-        font-weight: bold;
+      .campaign-values-details {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0 0.5rem;
+        grid-gap: 0 0.5rem;
         margin-bottom: 0.25rem;
+
+        p {
+          color: $primary-color;
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 0;
+
+          &:last-of-type {
+            color: #74698D;
+            font-size: 18px;
+            font-weight: 500;
+          }
+        }
       }
 
       .progress-bar {
