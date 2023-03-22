@@ -231,4 +231,18 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     }
     /* ===[End Mobile Header]=== */
+
+    /* ===[Start Handle upload file]=== */
+    let uploadInputs = document.querySelectorAll('.upload-file-input');
+    let uploadedFileName;
+
+    if (uploadInputs !== null) {
+        uploadInputs.forEach((uploadInput) => {
+            uploadInput.addEventListener('change', function () {
+                uploadedFileName = this.files[0].name;
+                this.parentElement.parentElement.querySelector('.uploaded-file-name').textContent = uploadedFileName;
+            });
+        })
+    }
+    /* ===[End Handle upload file]=== */
 });
