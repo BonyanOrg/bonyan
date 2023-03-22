@@ -2113,7 +2113,7 @@ header {
       .campaign-values-details {
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: flex-end;
         gap: 0 0.5rem;
         grid-gap: 0 0.5rem;
         margin-bottom: 0.25rem;
