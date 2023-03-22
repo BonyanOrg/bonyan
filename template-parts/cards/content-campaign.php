@@ -101,8 +101,11 @@ $is_user_dashboard = (isset($args['is_donor_dashboard']) && $args['is_donor_dash
 
         <div class="card-body campaign-card-body">
             <div class="campaign-progress-bar-holder">
-                <p>$<?php echo formatMoney($actual, 1); ?></p>
-                <p><?php printf(__('Funded of $%s', 'bonyan'), formatMoney($total_goal, 1));  ?></p>
+                <div class="campaign-values-details">
+                    <p>$<?php echo formatMoney($actual, 1); ?></p>
+                    <p><?php printf(__('Funded of $%s', 'bonyan'), formatMoney($total_goal, 1));  ?></p>
+                </div>
+                
                 <div class="progress-bar">
                     <div class="progress-bar-value" style="width: <?php echo $progress . "%"; ?>;"></div>
                 </div>
