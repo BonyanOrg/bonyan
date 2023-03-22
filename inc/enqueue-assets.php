@@ -23,7 +23,7 @@ function bonyan_scripts()
 
     // Sweet Alert Style
     // wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
-    wp_enqueue_style('bonyan-sweet-alert-css', get_template_directory_uri() . "/dist/css/cdn/sweetaleHome pagert2.min.css", array());
+    wp_enqueue_style('bonyan-sweet-alert-css', get_template_directory_uri() . "/dist/css/cdn/sweetalert2.min.css", array());
 
 
 
