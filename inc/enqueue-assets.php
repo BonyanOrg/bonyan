@@ -163,7 +163,7 @@ function load_swiper_style($type)
         wp_enqueue_script('bonyan-swiper-carousel-script', get_template_directory_uri() . "/dist/js/cdn/swiper-bundle.min.js", array(), false, true);
     }
     if ($type == 'wp_bakery') {
-        echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">';
+        echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.1/swiper-bundle.min.css">';
     }
 }
 
@@ -176,7 +176,7 @@ function load_swiper_script($type)
         wp_enqueue_script('bonyan-swiper-carousel-script', get_template_directory_uri() . "/dist/js/cdn/swiper-bundle.min.js", array(), false, true);
     }
     if ($type == 'wp_bakery') {
-        echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>';
+        echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.1/swiper-bundle.min.js"></script>';
     }
 }
 
