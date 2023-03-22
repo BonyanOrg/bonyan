@@ -25,6 +25,7 @@ if (!function_exists('vacancies_datatable_shortcode')) {
                 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.dataTables.min.css">
                 <style>
                     <?php
+                    require_once(get_template_directory() . '/dist/css/global-datatable.min.css');
                     require_once(get_template_directory() . "/dist/css/components/wpb/vacancies.min.css");
                     ?>
                 </style>
