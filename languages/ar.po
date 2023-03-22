@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-16T17:43:37+01:00\n"
-"PO-Revision-Date: 2023-03-16 19:44+0300\n"
+"POT-Creation-Date: 2023-03-22T08:15:30+01:00\n"
+"PO-Revision-Date: 2023-03-22 10:15+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -42,7 +42,7 @@ msgstr ""
 "عذرا، ولكن لا شيء يطابق عبارات البحث. أرجو المحاولة مرة أخرى بإستخدام كلمات "
 "أخرى."
 
-#: 404.php:114
+#: 404.php:109
 msgid "Back To Home"
 msgstr "العودة للرئيسية"
 
@@ -746,23 +746,23 @@ msgid "-- Choose a Document --"
 msgstr "--اختار الملف  --"
 
 #: inc/wpbakery/shortcodes/archive_programs_cards_view.php:88
-#: inc/wpbakery/shortcodes/news_slider_view.php:80
+#: inc/wpbakery/shortcodes/news_slider_view.php:88
 #: inc/wpbakery/shortcodes/programs_cards_view.php:49
-#: inc/wpbakery/shortcodes/report_cards_view.php:50
+#: inc/wpbakery/shortcodes/report_cards_view.php:52
 #: template-parts/archive/content-reports.php:43
-#: template-parts/cards/content-campaign.php:117
+#: template-parts/cards/content-campaign.php:118
 #: template-parts/cards/content-post.php:13
 #: template-parts/cards/content-story.php:13
 #: template-parts/components/urgent-campaigns.php:90
 msgid "More"
 msgstr "المزيد"
 
-#: inc/wpbakery/shortcodes/board_of_trustees_view.php:58
+#: inc/wpbakery/shortcodes/board_of_trustees_view.php:60
 msgid "Download CV"
 msgstr "تحميل الملف"
 
-#: inc/wpbakery/shortcodes/campaigns_slider_view.php:55
-#: inc/wpbakery/shortcodes/campaigns_slider_view.php:94
+#: inc/wpbakery/shortcodes/campaigns_slider_view.php:58
+#: inc/wpbakery/shortcodes/campaigns_slider_view.php:97
 msgid "see more"
 msgstr "مشاهدة المزيد"
 
@@ -774,21 +774,21 @@ msgstr "تفاصيل العمل"
 msgid "Apply for this job"
 msgstr "تقدم لهذه الوظيفة"
 
-#: inc/wpbakery/shortcodes/news_slider_view.php:78
-#: inc/wpbakery/shortcodes/quick_donation_view.php:101
-#: template-parts/cards/content-campaign.php:116
+#: inc/wpbakery/shortcodes/news_slider_view.php:86
+#: inc/wpbakery/shortcodes/quick_donation_view.php:103
+#: template-parts/cards/content-campaign.php:117
 #: template-parts/components/main-slider.php:36
 #: template-parts/components/urgent-campaigns.php:89
 msgid "Donate"
 msgstr "تبرع"
 
-#: inc/wpbakery/shortcodes/PDF_download_card_view.php:44
+#: inc/wpbakery/shortcodes/PDF_download_card_view.php:46
 #: template-parts/cards/content-reports.php:17
 #: template-parts/taxonomy/content-reports-categories.php:43
 msgid "Preview"
 msgstr "معاينة"
 
-#: inc/wpbakery/shortcodes/PDF_download_card_view.php:45
+#: inc/wpbakery/shortcodes/PDF_download_card_view.php:47
 #: template-parts/cards/content-reports.php:18
 #: template-parts/taxonomy/content-reports-categories.php:44
 msgid "Download the file"
@@ -802,51 +802,51 @@ msgstr "البرامج"
 msgid "More about the programs"
 msgstr "المزيد حول البرامج"
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:60
+#: inc/wpbakery/shortcodes/quick_donation_view.php:62
 msgid "Choose Charity"
 msgstr "اختر مؤسسة خيرية"
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:94
+#: inc/wpbakery/shortcodes/quick_donation_view.php:96
 msgid "Choose the program"
 msgstr "اختر برنامج"
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:41
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:42
 #: inc/wpbakery/shortcodes/vacancies_datatable_view.php:40
 msgid "Search in this page"
 msgstr "بحث في هذه الصفحة"
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:50
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:51
 #: inc/wpbakery/shortcodes/vacancies_datatable_view.php:48
 msgid "Job"
 msgstr "العمل"
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:51
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:52
 #: inc/wpbakery/shortcodes/vacancies_datatable_view.php:49
 msgid "Status"
 msgstr "الحالة"
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:52
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:53
 #: inc/wpbakery/shortcodes/vacancies_datatable_view.php:50
 msgid "Deadline"
 msgstr "الموعد النهائي"
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:53
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:54
 #: inc/wpbakery/shortcodes/vacancies_datatable_view.php:52
 msgid "Location"
 msgstr "الموقع"
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:100
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:88
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:102
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:89
 msgid "Urgent"
 msgstr "عاجل"
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:103
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:91
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:106
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:93
 msgid "Active"
 msgstr "متاح"
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:103
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:91
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:106
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:93
 msgid "Inactive"
 msgstr "غير متاح"
 
@@ -952,6 +952,10 @@ msgstr " ساعة"
 #: template-parts/components/urgent-campaigns.php:66
 msgid " Hour left"
 msgstr " ساعة متبقية"
+
+#: template-parts/cards/content-campaign.php:105
+msgid "Funded of $%s"
+msgstr "حُصلت من %s$"
 
 #: template-parts/components/top-donor.php:67
 msgid "Top Donation"

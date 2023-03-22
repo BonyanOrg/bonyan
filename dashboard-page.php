@@ -23,7 +23,7 @@ $user_age = ($user_age = get_user_meta($userdata->ID, 'age', true)) ? $user_age 
 //$user_country = ($user_country = get_user_meta($userdata->ID, 'country', true)) ? $user_country : '';
 //$user_address = ($user_address = get_user_meta($userdata->ID, 'address', true)) ? $user_address : '';
 $user_mobile_number = ($user_mobile_number = get_user_meta($userdata->ID, 'mobile_number', true)) ? $user_mobile_number : '';
-$user_profile_photo = ($user_profile_photo = get_user_meta($userdata->ID, 'user_profile_photo', true)) ? $user_profile_photo : 'https://via.placeholder.com/180x180';
+$user_profile_photo = ($user_profile_photo = get_user_meta($userdata->ID, 'user_profile_photo', true)) ? $user_profile_photo : 'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg';
 $facebook_url = ($facebook_url = get_user_meta($userdata->ID, 'facebook_url', true)) ? $facebook_url : '';
 $twitter_url = ($twitter_url = get_user_meta($userdata->ID, 'twitter_url', true)) ? $twitter_url : '';
 $instagram_url = ($instagram_url = get_user_meta($userdata->ID, 'instagram_url', true)) ? $instagram_url : '';

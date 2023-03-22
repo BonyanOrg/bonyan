@@ -57,6 +57,11 @@ require __DIR__ . '/table-of-content.php';
 //================================
 require __DIR__ . '/custom-pagination.php';
 
+//================================
+//    Format Money
+//================================
+require __DIR__ . '/format-money.php';
+
 
 // Global 
 
