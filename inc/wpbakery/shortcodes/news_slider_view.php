@@ -24,15 +24,15 @@ if (!function_exists('news_slider_shortcode')) {
         if (!function_exists('news_slider_register_style')) {
             function news_slider_register_style()
             {
+                global $load_swiper_style;
+                if (!$load_swiper_style) {
+                    load_swiper_style('wp_bakery');
+                }
         ?>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
-
                 <style>
-
                     <?php
                     require_once(get_template_directory() . '/dist/css/components/wpb/primary-carousel.min.css');
                     ?>
-                    
                 </style>
         <?php
             }
@@ -83,9 +83,9 @@ if (!function_exists('news_slider_shortcode')) {
                                         <?php $give_form_id = get_post_meta(get_the_ID(), "po_give_form_id", true);
                                         if (!empty($give_form_id)) :
                                         ?>
-                                            <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate','bonyan') ?></button>
+                                            <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate', 'bonyan') ?></button>
                                         <?php endif; ?>
-                                        <a href="<?php echo get_permalink(get_the_ID()) ?>"><?php _e('More','bonyan') ?></a>
+                                        <a href="<?php echo get_permalink(get_the_ID()) ?>"><?php _e('More', 'bonyan') ?></a>
                                     </div>
                                 </div>
 
@@ -111,8 +111,11 @@ if (!function_exists('news_slider_shortcode')) {
         if (!function_exists('news_slider_register_script')) {
             function news_slider_register_script()
             {
+                global $load_swiper_script;
+                if (!$load_swiper_script) {
+                    load_swiper_script('wp_bakery');
+                }
         ?>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
                 <script>
                     <?php require_once(get_template_directory() . '/dist/js/components/wpb/primary-carousel.min.js'); ?>
                 </script>

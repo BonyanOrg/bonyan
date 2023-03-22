@@ -26,6 +26,7 @@ if (!function_exists('tenders_datatable_shortcode')) {
                 <style>
                     <?php
                     require_once(get_template_directory() . '/dist/css/global-datatable.min.css');
+                    require_once(get_template_directory() . "/dist/css/components/wpb/tenders.min.css");
                     ?>
                 </style>
         <?php
@@ -95,13 +96,16 @@ if (!function_exists('tenders_datatable_shortcode')) {
 
                                 <tr isactive="<?php echo $is_active ?>" isurgent="<?php echo $is_urgent  ?>">
                                     <td>
-                                        <?php //echo $is_active == "true" ? "" : "<s>"; ?>
+                                        <?php //echo $is_active == "true" ? "" : "<s>"; 
+                                        ?>
                                         <a href="<?php echo get_permalink(get_the_ID()) ?>"> <?php the_title() ?>
                                             <span class="urgent"><?php _e('Urgent', 'bonyan') ?></span></a>
-                                        <?php //echo $is_active == "true" ? "" : "</s>"; ?>
+                                        <?php //echo $is_active == "true" ? "" : "</s>"; 
+                                        ?>
                                     </td>
                                     <td><?php echo $is_active == "true" ? __('Active', 'bonyan') : __('Inactive', 'bonyan'); ?></td>
-                                    <td><?php //echo $end_date  ?>
+                                    <td><?php //echo $end_date  
+                                        ?>
                                         <?php
                                         $date = date_create($end_date);
                                         $date = date_format($date, 'd M y');
@@ -133,7 +137,13 @@ if (!function_exists('tenders_datatable_shortcode')) {
         ?>
                 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
                 <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+                <script>
+                    <?php
+                    require_once(get_template_directory() . '/dist/js/components/wpb/tenders.min.js');
+                    ?>
+                </script>
         <?php
+
             }
             tenders_datatable_register_script();
         } ?>

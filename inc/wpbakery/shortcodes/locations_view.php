@@ -14,17 +14,19 @@ if (!function_exists('locations_shortcode')) {
         ob_start();
 ?>
 
-        <style>
-            <?php
-            //========[{ Enqueue Widget Style }]========//
-            if (!function_exists('locations_register_style')) {
-                function locations_register_style()
-                {
-                    //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
-                }
-                locations_register_style();
-            } ?>
-        </style>
+        <?php
+        //========[{ Enqueue Widget Style }]========//
+        if (!function_exists('locations_register_style')) {
+            function locations_register_style()
+            {
+        ?><style>
+                    <?php
+                    require_once(get_template_directory() . '/dist/css/components/wpb/locations.min.css');
+                    ?>
+                </style><?php
+                    }
+                    locations_register_style();
+                } ?>
 
 
         <div class="locations custom-widget" id="locations">

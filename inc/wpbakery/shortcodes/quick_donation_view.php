@@ -26,17 +26,19 @@ if (!function_exists('quick_donation_shortcode')) {
         $default_price = 50;
 ?>
 
-        <style>
-            <?php
-            //========[{ Enqueue Widget Style }]========//
-            if (!function_exists('quick_donation_register_style')) {
-                function quick_donation_register_style()
-                {
+        <?php
+        //========[{ Enqueue Widget Style }]========//
+        if (!function_exists('quick_donation_register_style')) {
+            function quick_donation_register_style()
+            {
+        ?><style>
+                    <?php
                     require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
-                }
-                quick_donation_register_style();
-            } ?>
-        </style>
+                    ?>
+                </style><?php
+                    }
+                    quick_donation_register_style();
+                } ?>
 
 
         <!-- New -->

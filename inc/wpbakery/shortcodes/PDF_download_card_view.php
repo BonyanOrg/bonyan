@@ -18,17 +18,19 @@ if (!function_exists('pdf_download_card_shortcode')) {
         ob_start();
 ?>
 
-        <style>
-            <?php
-            //========[{ Enqueue Widget Style }]========//
-            if (!function_exists('pdf_download_card_register_style')) {
-                function pdf_download_card_register_style()
-                {
-                    //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
-                }
-                pdf_download_card_register_style();
-            } ?>
-        </style>
+        <?php
+        //========[{ Enqueue Widget Style }]========//
+        if (!function_exists('pdf_download_card_register_style')) {
+            function pdf_download_card_register_style()
+            {
+        ?><style>
+                    <?php
+                    require_once(get_template_directory() . '/dist/css/components/wpb/file-card.min.css');
+                    ?>
+                </style><?php
+                    }
+                    pdf_download_card_register_style();
+                } ?>
         <div class="content-with-info-panel">
             <div class="file-card custom-widget">
                 <!-- File Icon (No need to be dynamic) -->
@@ -41,8 +43,8 @@ if (!function_exists('pdf_download_card_shortcode')) {
 
                 <!-- File CTAs -->
                 <div class="file-cta">
-                    <a href="<?php echo $file_link ?>" class="reversed-primary-btn preview-file"><?php _e('Preview','bonyan') ?></a>
-                    <a href="<?php echo $file_link ?>" target="_blank" download class="primary-btn download-file"><?php _e('Download the file','bonyan') ?></a>
+                    <a href="<?php echo $file_link ?>" class="reversed-primary-btn preview-file"><?php _e('Preview', 'bonyan') ?></a>
+                    <a href="<?php echo $file_link ?>" target="_blank" download class="primary-btn download-file"><?php _e('Download the file', 'bonyan') ?></a>
                 </div>
             </div>
         </div>

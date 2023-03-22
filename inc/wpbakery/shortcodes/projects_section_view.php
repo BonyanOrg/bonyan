@@ -24,7 +24,7 @@ if (!function_exists('projects_section_shortcode')) {
             if (!function_exists('projects_section_register_style')) {
                 function projects_section_register_style()
                 {
-                    //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
+                    require_once(get_template_directory() . "/dist/css/components/wpb/project-card.min.css");
                 }
                 projects_section_register_style();
             } ?>
@@ -65,13 +65,6 @@ if (!function_exists('projects_section_shortcode')) {
                 ?>
             </div>
         </div>
-
-
-
-        <script>
-            <?php //require_once(get_template_directory() . '/dist/js/components/wpb/quick-donation.min.js'); 
-            ?>
-        </script>
 
 
 

@@ -17,17 +17,21 @@ if (!function_exists('partners_shortcode')) {
         ob_start();
 ?>
 
-        <style>
-            <?php
-            //========[{ Enqueue Widget Style }]========//
-            if (!function_exists('partners_register_style')) {
-                function partners_register_style()
-                {
-                    //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
+
+        <?php
+        //========[{ Enqueue Widget Style }]========//
+        if (!function_exists('partners_register_style')) {
+            function partners_register_style()
+            {
+                global $load_swiper_style;
+                if (!$load_swiper_style) {
+                    load_swiper_style('wp_bakery');
                 }
-                partners_register_style();
-            } ?>
-        </style>
+                //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
+            }
+            partners_register_style();
+        } ?>
+
 
 
         <!-- Start References -->
@@ -58,13 +62,16 @@ if (!function_exists('partners_shortcode')) {
             </div>
         </section>
         <!-- End References -->
-        <?php  
+        <?php
         //========[{ Enqueue Widget script }]========//
         if (!function_exists('partners_register_script')) {
             function partners_register_script()
             {
+                global $load_swiper_script;
+                if (!$load_swiper_script) {
+                    load_swiper_script('wp_bakery');
+                }
         ?>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
                 <script>
                     <?php require_once(get_template_directory() . '/dist/js/components/wpb/partners-carousel.min.js'); ?>
                 </script>
