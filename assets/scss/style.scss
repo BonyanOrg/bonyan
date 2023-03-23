@@ -3067,8 +3067,7 @@ header {
         .carousel-info--item {
           &:not(:first-of-type) {
             &::before {
-              left: unset;
-              right: -0.5rem;
+              left: -0.5rem;
             }
           }
         }
