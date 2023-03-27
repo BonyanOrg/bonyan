@@ -3,6 +3,8 @@
 .project-card {
   display: flex;
   flex-direction: column;
+  border-radius: 20px;
+  border: 1px solid #eee;
 
   .project-img {
     img {
@@ -15,6 +17,7 @@
 
   .project-title {
     margin: 1rem 0;
+    padding: 0 0.75rem;
 
     h3 {
       color: $primary-color;
@@ -28,6 +31,7 @@
   }
 
   .project-desc {
+    padding: 0 0.75rem;
     p {
       color: $text-color;
       font-size: 20px;

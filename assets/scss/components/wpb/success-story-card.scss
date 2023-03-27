@@ -3,6 +3,8 @@
 .success-card {
     display: flex;
     flex-direction: column;
+    border: 1px solid #eee;
+    border-radius: 20px;
 
     .success-img {
         border-radius: 20px;
@@ -33,6 +35,7 @@
         -webkit-line-clamp: 2;
         overflow: hidden;
         margin-top: 1rem;
+        padding: 0 0.75rem;
     }
 
     .success-desc {
@@ -42,6 +45,7 @@
         -webkit-line-clamp: 3;
         overflow: hidden;
         color: $text-color;
+        padding: 0 0.75rem;
 
         @media (max-width: 992px) {
             font-size: 18px;
@@ -50,6 +54,7 @@
 
     .success-more {
         margin-top: auto;
+        padding: 0 0.75rem 0.75rem;
 
         span {
             border-radius: 25px !important;
