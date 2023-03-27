@@ -57,7 +57,7 @@
 						</div>
 
 						<!-- Donate button -->
-						<div class="donation-button-holder hide-from-laptop-up as-block mx-3">
+						<div class="donation-button-holder as-block ms-2 ms-lg-3 me-1 me-lg-3">
 							<a href="#" class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo get_option('give_form_id') ?>" data-amount="<?php echo intval(get_option("default_donation_amount")); ?>">
 								<span><?php _e('Donate Now', 'bonyan') ?></span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
@@ -82,7 +82,7 @@
 						</div>
 
 						<!-- Login Button -->
-						<div class="ms-3 ms-lg-0 me-2 me-lg-3 login">
+						<div class="ms-3 ms-lg-0 me-2 me-lg-3 login hide-from-laptop-up">
 							<?php if (!is_user_logged_in()) :  ?>
 								<button class="secondary-outlined-btn user-action-btn" data-target="login-modal">
 									<svg id="Group_442" data-name="Group 442" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
@@ -181,15 +181,24 @@
 								</form>
 							</div>
 
-							<div class="mobile-header-cta hide-from-ipad-down as-flex align-items-center">
-								<!-- Donate button -->
-								<div class="donation-button-holder me-3 my-2">
-									<a href="#" class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo get_option('give_form_id') ?>" data-amount="<?php echo intval(get_option("default_donation_amount")); ?>">
-										<span><?php _e('Donate Now', 'bonyan') ?></span>
-										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
-											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
-										</svg>
-									</a>
+							<div class="mobile-header-cta mt-2 hide-from-ipad-down as-flex align-items-center">
+								<!-- Login Button -->
+								<div class="me-2 me-lg-0 login">
+									<?php if (!is_user_logged_in()) :  ?>
+										<button class="secondary-outlined-btn user-action-btn" data-target="login-modal">
+											<svg id="Group_442" data-name="Group 442" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+												<path id="Path_304" data-name="Path 304" d="M0,0H26V26H0Z" fill="none" />
+												<path id="Path_305" data-name="Path 305" d="M14.833,15.356V17.62a6.5,6.5,0,0,0-8.667,6.13H4a8.667,8.667,0,0,1,10.833-8.394ZM12.667,14a6.5,6.5,0,1,1,6.5-6.5A6.5,6.5,0,0,1,12.667,14Zm0-2.167A4.333,4.333,0,1,0,8.333,7.5,4.332,4.332,0,0,0,12.667,11.833Zm7.135,6.5-1.981-1.98,1.533-1.533,4.6,4.6-4.6,4.6L17.82,22.48,19.8,20.5H15.917V18.333Z" transform="translate(0.333 0.083)" fill="#5f469a" />
+											</svg>
+											<span><?php _e('Log in','bonyan') ?></span>
+										</button>
+									<?php else :
+										$user_profile_photo = ($user_profile_photo = get_user_meta(get_current_user_id(), 'user_profile_photo', true)) ? $user_profile_photo : 'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg';
+									?>
+										<a href="<?php echo home_url('/dashboard'); ?>" class="secondary-outlined-btn logged-user-avatar">
+											<img data-src="<?php echo $user_profile_photo ?>" alt="User Avatar" class="lazyload">
+										</a>
+									<?php endif; ?>
 								</div>
 
 								<!-- Language Swicher -->
