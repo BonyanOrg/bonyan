@@ -50,7 +50,7 @@ if (!function_exists('campaigns_slider_shortcode')) {
             <div class="d-flex align-items-center justify-content-center justify-content-xl-strtch mb-3 ">
                 <h2 class="bonyan-title primary-color bold"><?php echo $campaigns_slider_header_text ?></h2>
 
-                <div class="custom-swiper-nav ms-auto hide-from-laptop-up">
+                <div class="custom-swiper-nav ms-auto">
                     <div class="swiper-nav-btn swiper-prev-nav campaigns-prev-arrow"></div>
                     <div class="swiper-nav-btn swiper-next-nav campaigns-next-arrow"></div>
                 </div>

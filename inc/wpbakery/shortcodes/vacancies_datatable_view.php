@@ -33,7 +33,7 @@ if (!function_exists('vacancies_datatable_shortcode')) {
             }
             vacancies_datatable_register_style();
         } ?>
-        <div class="container custom-widget">
+        <div class="custom-widget">
             <div class="global-header-search">
                 <h2 class="bonyan-title primary-color"><?php echo $vacancies_datatable_title ?></h2>
 

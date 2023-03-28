@@ -30,17 +30,15 @@ window.addEventListener('DOMContentLoaded', function () {
             },
 
             500: {
-                slidesPerView: 1.4,
                 spaceBetween: 20
             },
 
             400: {
-                slidesPerView: 1.15,
                 spaceBetween: 10
             },
 
             0: {
-                slidesPerView: 1.05,
+                slidesPerView: 1,
                 spaceBetween: 10
             }
         },

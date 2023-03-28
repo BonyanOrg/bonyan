@@ -1665,8 +1665,8 @@ header {
         cursor: pointer;
 
         @media (max-width: 1024px) {
-          height: 35px;
-          width: 40px;
+          height: 40px;
+          width: 45px;
           padding: 0.25rem;
         }
 
@@ -2656,10 +2656,6 @@ header {
 
   .primary-carousel {
     height: 300px;
-
-    @media (max-width: 1024px) {
-      height: 265px;
-    }
 
     .swiper-slide {
 

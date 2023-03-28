@@ -28,7 +28,7 @@ if (!function_exists('board_of_trustees_shortcode')) {
                 } ?>
 
 
-        <div class="container my-5">
+        <div class="my-5">
             <div class="cards-container trustees-container custom-widget">
 
                 <?php
