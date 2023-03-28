@@ -2628,6 +2628,7 @@ header {
   justify-content: space-between;
   gap: 1.5rem;
   grid-gap: 1.5rem;
+  overflow-x: hidden;
 
   @media (max-width: 1024px) {
     flex-direction: column-reverse;
@@ -2642,8 +2643,6 @@ header {
       width: 100%;
       height: 267px;
     }
-
-    @media (max-width: 768px) {}
 
     img {
       width: 100%;
