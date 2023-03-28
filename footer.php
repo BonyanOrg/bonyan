@@ -85,16 +85,18 @@
 			<div class="newsletter">
 				<h2><?php _e('Join our newsletter', 'bonyan') ?></h2>
 
-				<form>
+				<form method="post" action="https://mautic.bonyan.ngo/form/submit?formId=3" id="mauticform_newslettersubscription" enctype="multipart/form-data">
+					<div class="mauticform-error" id="mauticform_newslettersubscription_error"></div>
+					<div class="mauticform-message" id="mauticform_newslettersubscription_message"></div>
 					<div class="input-holder">
-						<input type="text" name="name" placeholder="Your Name" class="mb-3">
+						<input type="text" name="mauticform[first_name]" placeholder="<?php _e('Your Name', 'bonyan') ?>" class="mb-3">
 					</div>
 
 					<div class="input-holder">
-						<input type="email" name="email" placeholder="Your Email" class="mb-4">
+						<input type="email" name="mauticform[email]" placeholder="<?php _e('Your Email', 'bonyan') ?>" class="mb-4">
 					</div>
 
-					<button>Subscribe</button>
+					<button><?php _e('Subscribe', 'bonyan') ?></button>
 				</form>
 			</div>
 
@@ -138,10 +140,10 @@
 				</div>
 				<?php if (is_wpml_rtl()) : ?>
 					<div class="copyrights">
-						<span>  ©  جميع الحقوق محفوظة </span>
+						<span> © جميع الحقوق محفوظة </span>
 						&nbsp;
 						<a href="https://2p.com.tr/" target="_blank">
-							 تطوير فريق 
+							تطوير فريق
 							<svg id="_2p" data-name="2p" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 29.842 19.868">
 								<path id="Path_46" data-name="Path 46" d="M50.624,5.347v0A5.939,5.939,0,0,0,44.86.5H37.044l1.7,3.93h6.069a1.965,1.965,0,1,1,0,3.93H42.895A5.925,5.925,0,0,0,37,14.255V17.53h0v2.62h3.93V14.255a1.936,1.936,0,0,1,1.354-1.878,2.192,2.192,0,0,1,.524-.087H44.86a5.88,5.88,0,0,0,5.808-5.895A4.219,4.219,0,0,0,50.624,5.347ZM37.218,16.613Zm-.131.611v.087C37.044,17.311,37.044,17.268,37.087,17.224Zm0-.175Z" transform="translate(-20.844 -0.282)" fill="#fff"></path>
 								<path id="Path_47" data-name="Path 47" d="M11.877,15.894h-7.9V13.929a1.531,1.531,0,0,1,.306-1,1.974,1.974,0,0,1,1.092-.873,2.192,2.192,0,0,1,.524-.087H7.9A5.964,5.964,0,0,0,13.8,6.026a8.479,8.479,0,0,0-.087-1.048v0A5.938,5.938,0,0,0,7.947,0H0L1.7,3.974H7.9a1.965,1.965,0,1,1,0,3.93H5.982A6.075,6.075,0,0,0,0,13.886V17.2H0v2.664H13.886V15.894H11.877Zm-11.7.393ZM.044,16.9v0Zm.044-.175Z" fill="#fff"></path>
@@ -181,8 +183,8 @@ if (isset($_COOKIE["DonCampaign"]) && isset($_GET["giveDonationAction"]) && is_s
 ?>
 	<div id="givewp-modal-confirmation" class="givewp-modal-confirmation user-action-modal">
 		<div id="give_form_container">
-		<?php echo do_shortcode('[give_form id="' . $_COOKIE["DonCampaign"] . '"]');
-		?>
+			<?php echo do_shortcode('[give_form id="' . $_COOKIE["DonCampaign"] . '"]');
+			?>
 		</div>
 	</div>
 <?php } ?>
