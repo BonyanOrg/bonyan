@@ -53,4 +53,28 @@ window.addEventListener('DOMContentLoaded', function () {
 
     });
 
+    // Check if quick donation is fixed and add bottom padding to body
+    let isQuickDonationFixed = document.querySelector('.fixed-quick-donation');
+
+    if (isQuickDonationFixed !== null) {
+        let quickDonationHeight = isQuickDonationFixed.clientHeight;
+        
+        if (document.documentElement.clientWidth < 993) {
+            quickDonationHeight = 62;
+        }
+        document.body.style.cssText = `
+            padding-bottom: ${quickDonationHeight}px;
+        `;
+    }
+
+    // Handle Quick Donation Toggler (Mobile)
+    let toggleQuickDonationBtn = document.querySelector('.fixed-quick-donation .quick-donation--title');
+
+    if (toggleQuickDonationBtn !== null) {
+        toggleQuickDonationBtn.addEventListener('click', function(){
+            let quickDonationParent = this.closest('.fixed-quick-donation');
+
+            quickDonationParent.classList.toggle('expanded');
+        });
+    }
 });

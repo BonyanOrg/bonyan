@@ -132,6 +132,7 @@ gulp.task('wpb-quick-donation-css', function () {
     return gulp.src('./assets/scss/components/wpb/quick-donation.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(concat('quick-donation.min.css'))
         .pipe(sourcemaps.write('./map'))
         .pipe(gulp.dest('./dist/css/components/wpb'));

@@ -42,10 +42,14 @@ if (!function_exists('quick_donation_shortcode')) {
 
 
         <!-- New -->
-        <div class="quick-donation custom-widget">
+        <div class="quick-donation custom-widget fixed-quick-donation">
             <div class="container">
-                <div class="quick-donation--title text-center text-lg-start mb-3">
+                <div class="quick-donation--title text-lg-center text-lg-start mb-2">
                     <h2><?php echo $quick_donation_title ?></h2>
+
+                    <div class="toggle-quick-donation .hide-from-mobile-up">
+                        <i class="fa-solid fa-angle-up"></i>
+                    </div>
                 </div>
                 <div class="quick-donation--content">
                     <div class="quick-donation--amount">
