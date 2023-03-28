@@ -10,6 +10,13 @@ window.addEventListener('DOMContentLoaded', function () {
             enabled: true,
             loadOnTransitionStart: true
         },
+        
+        autoplay: {
+            delay: 3000,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+            waitForTransition: true,
+        },
 
         breakpoints: {
             1200: {

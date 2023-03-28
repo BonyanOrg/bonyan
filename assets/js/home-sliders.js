@@ -13,6 +13,13 @@ window.addEventListener('DOMContentLoaded', function () {
         touchEventsTarget: "container",
         grabCursor: true,
 
+        autoplay: {
+            delay: 3000,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+            waitForTransition: true,
+        },
+
         lazy: {
             ...globalSwiperOptions
         },

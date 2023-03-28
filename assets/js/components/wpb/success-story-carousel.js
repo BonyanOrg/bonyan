@@ -17,6 +17,13 @@ window.addEventListener('DOMContentLoaded', function () {
             ...globalSwiperOptions
         },
 
+        autoplay: {
+            delay: 3000,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+            waitForTransition: true,
+        },
+
         breakpoints: {
             1200: {
                 slidesPerView: 3,
