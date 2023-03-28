@@ -161,9 +161,11 @@
           padding: 1.25rem 1rem;
           font-size: 20px;
           width: 100%;
+          font-weight: bold;
 
           @media (max-width: 1199px) {
             font-size: 16px;
+            padding: 0.75rem 1rem;
           }
         }
       }
@@ -295,6 +297,25 @@
       }
     }
   }
+
+  &:not(.fixed-quick-donation) {
+    .quick-donation--title .toggle-quick-donation {
+      display: none;
+    }
+    
+    .quick-donation--content {
+      .quick-donation--amount {
+        .quick-donation-amount--item {
+          padding: 0.75rem 1.25rem;
+          font-size: 1.25em;
+
+          @media (max-width: 768px) {
+            padding: 0.5rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 // RTL
@@ -310,21 +331,6 @@ html[dir="rtl"] {
           .select-icon {
             right: unset;
             left: 1rem;
-          }
-        }
-      }
-    }
-
-    &:not(.fixed-quick-donation) {
-      .quick-donation--content {
-        .quick-donation--amount {
-          .quick-donation-amount--item {
-            padding: 0.75rem 1.25rem;
-            font-size: 1.25em;
-  
-            @media (max-width: 768px) {
-              padding: 0.5rem;
-            }
           }
         }
       }
