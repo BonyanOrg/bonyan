@@ -11,6 +11,7 @@ if (!function_exists('quick_donation_shortcode')) {
             'quick_donation_title'     => '',
             'quick_donation_form_id'     => '',
             'quick_donation_tags_list'     => '',
+            'quick_donation_is_fixed'     => '',
         ), $atts));
 
         $quick_donation_prices = vc_param_group_parse_atts($atts['quick_donation_prices']);
@@ -42,7 +43,13 @@ if (!function_exists('quick_donation_shortcode')) {
 
 
         <!-- New -->
-        <div class="quick-donation custom-widget fixed-quick-donation">
+        <?php 
+        $fixed_class="";
+        if($quick_donation_is_fixed){
+            $fixed_class="fixed-quick-donation";
+        }
+        ?>
+        <div class="quick-donation custom-widget <?php echo $fixed_class; ?>" >
             <div class="container">
                 <div class="quick-donation--title text-lg-center text-lg-start mb-2">
                     <h2><?php echo $quick_donation_title ?></h2>

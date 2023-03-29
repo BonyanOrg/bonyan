@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-22T08:15:30+01:00\n"
-"PO-Revision-Date: 2023-03-22 10:15+0300\n"
+"POT-Creation-Date: 2023-03-29T08:32:54+02:00\n"
+"PO-Revision-Date: 2023-03-29 09:35+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -34,7 +34,7 @@ msgstr "الوصف"
 msgid "Underscores.me"
 msgstr ""
 
-#: 404.php:103 template-parts/content-none.php:37
+#: 404.php:103 template-parts/content-none.php:33
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -173,6 +173,18 @@ msgstr "روابط مفيدة"
 msgid "Join our newsletter"
 msgstr "اشترك بالنشرة البريدية"
 
+#: footer.php:92
+msgid "Your Name"
+msgstr "اسمك"
+
+#: footer.php:96
+msgid "Your Email"
+msgstr "بريدك الالكتروني"
+
+#: footer.php:99
+msgid "Subscribe"
+msgstr "اشتراك"
+
 #: functions.php:54
 msgid "Primary"
 msgstr ""
@@ -189,8 +201,7 @@ msgstr ""
 msgid "Languages"
 msgstr "اللغات"
 
-#: header.php:62 header.php:188
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:90
+#: header.php:62 inc/wpbakery/shortcodes/zakat_calculator_view.php:90
 msgid "Donate Now"
 msgstr "تبرع الأن"
 
@@ -199,6 +210,10 @@ msgstr "تبرع الأن"
 #: template-parts/search-terms-header.php:104
 msgid "Search..."
 msgstr "ابحث..."
+
+#: header.php:193 template-parts/donation-modal.php:27
+msgid "Log in"
+msgstr "تسجيل الدخول"
 
 #. Template Name of the theme
 msgid "Home-Page"
@@ -750,7 +765,7 @@ msgstr "--اختار الملف  --"
 #: inc/wpbakery/shortcodes/programs_cards_view.php:49
 #: inc/wpbakery/shortcodes/report_cards_view.php:52
 #: template-parts/archive/content-reports.php:43
-#: template-parts/cards/content-campaign.php:118
+#: template-parts/cards/content-campaign.php:121
 #: template-parts/cards/content-post.php:13
 #: template-parts/cards/content-story.php:13
 #: template-parts/components/urgent-campaigns.php:90
@@ -775,8 +790,8 @@ msgid "Apply for this job"
 msgstr "تقدم لهذه الوظيفة"
 
 #: inc/wpbakery/shortcodes/news_slider_view.php:86
-#: inc/wpbakery/shortcodes/quick_donation_view.php:103
-#: template-parts/cards/content-campaign.php:117
+#: inc/wpbakery/shortcodes/quick_donation_view.php:107
+#: template-parts/cards/content-campaign.php:120
 #: template-parts/components/main-slider.php:36
 #: template-parts/components/urgent-campaigns.php:89
 msgid "Donate"
@@ -802,55 +817,55 @@ msgstr "البرامج"
 msgid "More about the programs"
 msgstr "المزيد حول البرامج"
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:62
+#: inc/wpbakery/shortcodes/quick_donation_view.php:66
 msgid "Choose Charity"
 msgstr "اختر مؤسسة خيرية"
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:96
+#: inc/wpbakery/shortcodes/quick_donation_view.php:100
 msgid "Choose the program"
 msgstr "اختر برنامج"
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:42
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:40
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:41
 msgid "Search in this page"
 msgstr "بحث في هذه الصفحة"
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:51
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:48
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:49
 msgid "Job"
 msgstr "العمل"
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:52
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:49
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:50
 msgid "Status"
 msgstr "الحالة"
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:53
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:50
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:51
 msgid "Deadline"
 msgstr "الموعد النهائي"
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:54
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:52
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:53
 msgid "Location"
 msgstr "الموقع"
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:102
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:89
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:90
 msgid "Urgent"
 msgstr "عاجل"
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:106
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:93
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:94
 msgid "Active"
 msgstr "متاح"
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:106
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:93
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:94
 msgid "Inactive"
 msgstr "غير متاح"
 
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:51
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:52
 msgid "Department"
 msgstr "قسم"
 
@@ -953,7 +968,7 @@ msgstr " ساعة"
 msgid " Hour left"
 msgstr " ساعة متبقية"
 
-#: template-parts/cards/content-campaign.php:105
+#: template-parts/cards/content-campaign.php:106
 msgid "Funded of $%s"
 msgstr "حُصلت من %s$"
 
@@ -969,17 +984,13 @@ msgstr "أعلى المتبرعين"
 msgid "Urgent Campaigns"
 msgstr "حملات عاجلة"
 
-#: template-parts/content-none.php:14
-msgid "Nothing Found"
-msgstr "لا يوجد شيء"
-
 #. translators: 1: link to WP admin new post page.
-#: template-parts/content-none.php:24
+#: template-parts/content-none.php:20
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:44
+#: template-parts/content-none.php:40
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -1031,10 +1042,6 @@ msgstr "العودة"
 #: template-parts/donation-modal.php:24
 msgid "To donate to this campaign please log in or continue as a guest"
 msgstr "للتبرع لهذه الحملة يرجى تسجيل الدخول أو المتابعة كضيف"
-
-#: template-parts/donation-modal.php:27
-msgid "Log in"
-msgstr "تسجيل الدخول"
 
 #: template-parts/donation-modal.php:30
 msgid "Continue as a guest"
@@ -1104,6 +1111,9 @@ msgstr "لديك حساب بالفعل؟ "
 #: template-parts/taxonomy/content-reports-categories.php:34
 msgid "Last Report"
 msgstr "التقرير الأخير"
+
+#~ msgid "Nothing Found"
+#~ msgstr "لا يوجد شيء"
 
 #~ msgid "MANAGE"
 #~ msgstr "إدارة"

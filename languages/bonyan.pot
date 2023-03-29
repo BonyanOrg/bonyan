@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-03-22T08:15:30+01:00\n"
+"POT-Creation-Date: 2023-03-29T08:32:54+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: bonyan\n"
@@ -32,7 +32,7 @@ msgid "Underscores.me"
 msgstr ""
 
 #: 404.php:103
-#: template-parts/content-none.php:37
+#: template-parts/content-none.php:33
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
@@ -169,6 +169,18 @@ msgstr ""
 msgid "Join our newsletter"
 msgstr ""
 
+#: footer.php:92
+msgid "Your Name"
+msgstr ""
+
+#: footer.php:96
+msgid "Your Email"
+msgstr ""
+
+#: footer.php:99
+msgid "Subscribe"
+msgstr ""
+
 #: functions.php:54
 msgid "Primary"
 msgstr ""
@@ -186,7 +198,6 @@ msgid "Languages"
 msgstr ""
 
 #: header.php:62
-#: header.php:188
 #: inc/wpbakery/shortcodes/zakat_calculator_view.php:90
 msgid "Donate Now"
 msgstr ""
@@ -197,6 +208,11 @@ msgstr ""
 #: template-parts/search-terms-header.php:32
 #: template-parts/search-terms-header.php:104
 msgid "Search..."
+msgstr ""
+
+#: header.php:193
+#: template-parts/donation-modal.php:27
+msgid "Log in"
 msgstr ""
 
 #. Template Name of the theme
@@ -798,7 +814,7 @@ msgstr ""
 #: inc/wpbakery/shortcodes/programs_cards_view.php:49
 #: inc/wpbakery/shortcodes/report_cards_view.php:52
 #: template-parts/archive/content-reports.php:43
-#: template-parts/cards/content-campaign.php:118
+#: template-parts/cards/content-campaign.php:121
 #: template-parts/cards/content-post.php:13
 #: template-parts/cards/content-story.php:13
 #: template-parts/components/urgent-campaigns.php:90
@@ -823,8 +839,8 @@ msgid "Apply for this job"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/news_slider_view.php:86
-#: inc/wpbakery/shortcodes/quick_donation_view.php:103
-#: template-parts/cards/content-campaign.php:117
+#: inc/wpbakery/shortcodes/quick_donation_view.php:107
+#: template-parts/cards/content-campaign.php:120
 #: template-parts/components/main-slider.php:36
 #: template-parts/components/urgent-campaigns.php:89
 msgid "Donate"
@@ -850,55 +866,55 @@ msgstr ""
 msgid "More about the programs"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:62
+#: inc/wpbakery/shortcodes/quick_donation_view.php:66
 msgid "Choose Charity"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:96
+#: inc/wpbakery/shortcodes/quick_donation_view.php:100
 msgid "Choose the program"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:42
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:40
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:41
 msgid "Search in this page"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:51
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:48
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:49
 msgid "Job"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:52
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:49
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:50
 msgid "Status"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:53
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:50
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:51
 msgid "Deadline"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:54
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:52
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:53
 msgid "Location"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:102
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:89
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:90
 msgid "Urgent"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:106
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:93
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:94
 msgid "Active"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:106
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:93
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:94
 msgid "Inactive"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:51
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:52
 msgid "Department"
 msgstr ""
 
@@ -1001,7 +1017,7 @@ msgstr ""
 msgid " Hour left"
 msgstr ""
 
-#: template-parts/cards/content-campaign.php:105
+#: template-parts/cards/content-campaign.php:106
 msgid "Funded of $%s"
 msgstr ""
 
@@ -1017,16 +1033,12 @@ msgstr ""
 msgid "Urgent Campaigns"
 msgstr ""
 
-#: template-parts/content-none.php:14
-msgid "Nothing Found"
-msgstr ""
-
 #. translators: 1: link to WP admin new post page.
-#: template-parts/content-none.php:24
+#: template-parts/content-none.php:20
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:44
+#: template-parts/content-none.php:40
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
@@ -1076,10 +1088,6 @@ msgstr ""
 
 #: template-parts/donation-modal.php:24
 msgid "To donate to this campaign please log in or continue as a guest"
-msgstr ""
-
-#: template-parts/donation-modal.php:27
-msgid "Log in"
 msgstr ""
 
 #: template-parts/donation-modal.php:30

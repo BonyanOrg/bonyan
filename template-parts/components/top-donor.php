@@ -60,7 +60,7 @@ ORDER BY FIELD( p1.ID, {$donation_ids} );
                 $top_donor_name = get_user_meta($top_donor->ID, 'first_name', true) . ' ' . get_user_meta($top_donor->ID, 'last_name', true);
                 $user_profile_photo = ($user_profile_photo = get_user_meta($top_donor->ID, 'user_profile_photo', true)) ? $user_profile_photo : 'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg';
 ?>
-                <div class="top-donation-stats">
+                <div class="top-donation-stats mt-3 mt-lg-5">
                     <!-- Start Top Donations -->
                     <div class="top-donation-stats-item top-donations">
 
