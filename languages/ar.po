@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
 "POT-Creation-Date: 2023-03-29T08:32:54+02:00\n"
-"PO-Revision-Date: 2023-03-29 09:35+0300\n"
+"PO-Revision-Date: 2023-03-29 10:10+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -819,11 +819,11 @@ msgstr "المزيد حول البرامج"
 
 #: inc/wpbakery/shortcodes/quick_donation_view.php:66
 msgid "Choose Charity"
-msgstr "اختر مؤسسة خيرية"
+msgstr "اختر نوع الصدقة"
 
 #: inc/wpbakery/shortcodes/quick_donation_view.php:100
 msgid "Choose the program"
-msgstr "اختر برنامج"
+msgstr "اختر البرنامج"
 
 #: inc/wpbakery/shortcodes/tenders_datatable_view.php:42
 #: inc/wpbakery/shortcodes/vacancies_datatable_view.php:41
