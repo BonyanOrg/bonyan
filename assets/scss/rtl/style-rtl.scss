@@ -163,6 +163,23 @@ input {
   outline: none;
 }
 
+// Start Specific for Mautic
+.mauticform-innerform {
+  input {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: $radius-10;
+    outline: none;
+  }
+}
+
+.mauticform_wrapper {
+  .mauticform-message {
+    color: $light-color;
+  }
+}
+// End Specific for Mautic
+
 .select-icon {
   position: absolute;
   top: 50%;
@@ -1937,6 +1954,7 @@ header {
         font-weight: bold;
         color: #333;
         font-size: 18px;
+        line-height: normal;
       }
     }
   }
