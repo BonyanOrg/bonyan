@@ -84,57 +84,36 @@
 			<!-- Column 4 -->
 			<div class="newsletter">
 				<h2><?php _e('Join our newsletter', 'bonyan') ?></h2>
+				<?php echo do_shortcode(get_option('mautic_form'), true); ?>
 
-				<form autocomplete="false" role="form" method="post" action="https://mautic.bonyan.ngo/form/submit?formId=1" id="mauticform_testzoho" data-mautic-form="testzoho" enctype="multipart/form-data" target="mauticiframe_testzoho">
+
+				<!-- <form autocomplete="false" role="form" method="post" action="https://mautic.bonyan.ngo/form/submit?formId=1" id="mauticform_testzoho" data-mautic-form="testzoho" enctype="multipart/form-data" target="mauticiframe_testzoho">
 					<div class="mauticform-error" id="mauticform_newslettersubscription_error"></div>
 					<div class="mauticform-message" id="mauticform_newslettersubscription_message"></div>
 
 					<div class="input-holder">
-						<input type="text" id="mauticform_input_testzoho_first_name" name="mauticform[first_name]" value="" placeholder="<?php _e('First Name', 'bonyan') ?>" class="mb-3">
+						<input type="text" id="mauticform_input_testzoho_first_name" name="mauticform[first_name]" value="" placeholder="<?php //_e('First Name', 'bonyan') ?>" class="mb-3">
 						<span class="mauticform-errormsg" style="display: none;">Required</span>
 					</div>
 
 					<div class="input-holder">
-						<input id="mauticform_input_testzoho_last_name" name="mauticform[last_name]" value="" placeholder="<?php _e('Last Name', 'bonyan') ?>" class="mb-3">
+						<input id="mauticform_input_testzoho_last_name" name="mauticform[last_name]" value="" placeholder="<?php //_e('Last Name', 'bonyan') ?>" class="mb-3">
 						<span class="mauticform-errormsg" style="display: none;">Required</span>
 					</div>
 
 					<div class="input-holder">
-						<input type="email" id="mauticform_input_testzoho_email" name="mauticform[email]" value="" placeholder="<?php _e('Your Email', 'bonyan') ?>" class="mb-4">
+						<input type="email" id="mauticform_input_testzoho_email" name="mauticform[email]" value="" placeholder="<?php //_e('Your Email', 'bonyan') ?>" class="mb-4">
 						<span class="mauticform-errormsg" style="display: none;">Required</span>
 					</div>
 
-					<button type="submit" name="mauticform[submit]" id="mauticform_input_testzoho_submit" value=""><?php _e('Subscribe', 'bonyan') ?></button>
+					<button type="submit" name="mauticform[submit]" id="mauticform_input_testzoho_submit" value=""><?php //_e('Subscribe', 'bonyan') ?></button>
 
-					<input type="hidden" name="mauticform[formId]" id="mauticform_testzoho_id" value="1"> <input type="hidden" name="mauticform[return]" id="mauticform_testzoho_return" value=""> <input type="hidden" name="mauticform[formName]" id="mauticform_testzoho_name" value="testzoho"> <input type="hidden" name="mauticform[messenger]" id="mauticform_testzoho_messenger" value="1">
-				</form>
-
-
-				<!-- <form autocomplete="false" role="form" method="post" action="https://mautic.bonyan.ngo/form/submit?formId=1" id="mauticform_testzoho" data-mautic-form="testzoho" enctype="multipart/form-data" target="mauticiframe_testzoho">
-					<div class="mauticform-error" id="mauticform_testzoho_error"></div>
-					<div class="mauticform-message" id="mauticform_testzoho_message"></div>
-					<div class="mauticform-innerform">
-						<div class="mauticform-page-wrapper mauticform-page-1" data-mautic-form-page="1">
-							<div id="mauticform_testzoho_first_name" data-validate="first_name" data-validation-type="text" class="mauticform-row mauticform-text mauticform-field-1 mauticform-required">
-								<input id="mauticform_input_testzoho_first_name" name="mauticform[first_name]" value="" placeholder="First Name" class="mauticform-input" type="text">
-								<span class="mauticform-errormsg" style="display: none;">Required</span>
-							</div>
-
-							<div id="mauticform_testzoho_last_name" data-validate="last_name" data-validation-type="text" class="mauticform-row mauticform-text mauticform-field-2 mauticform-required">
-								<input id="mauticform_input_testzoho_last_name" name="mauticform[last_name]" value="" placeholder="Last Name" class="mauticform-input" type="text">
-								<span class="mauticform-errormsg" style="display: none;">Required</span>
-							</div>
-
-							<div id="mauticform_testzoho_email" data-validate="email" data-validation-type="email" class="mauticform-row mauticform-email mauticform-field-3 mauticform-required">
-								<input id="mauticform_input_testzoho_email" name="mauticform[email]" value=""  type="email">
-								<span class="mauticform-errormsg" style="display: none;">Required</span>
-							</div>
-							<div id="mauticform_testzoho_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-4">
-								<button type="submit" name="mauticform[submit]" id="mauticform_input_testzoho_submit" value="" class="mauticform-button btn btn-default">Submit</button>
-							</div>
-						</div>
-					</div> <input type="hidden" name="mauticform[formId]" id="mauticform_testzoho_id" value="1"> <input type="hidden" name="mauticform[return]" id="mauticform_testzoho_return" value=""> <input type="hidden" name="mauticform[formName]" id="mauticform_testzoho_name" value="testzoho"> <input type="hidden" name="mauticform[messenger]" id="mauticform_testzoho_messenger" value="1">
+					<input type="hidden" name="mauticform[formId]" id="mauticform_testzoho_id" value="1">
+					 <input type="hidden" name="mauticform[return]" id="mauticform_testzoho_return" value="">
+					  <input type="hidden" name="mauticform[formName]" id="mauticform_testzoho_name" value="testzoho">
+					   <input type="hidden" name="mauticform[messenger]" id="mauticform_testzoho_messenger" value="1">
 				</form> -->
+
 
 
 			</div>

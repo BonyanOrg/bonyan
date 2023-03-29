@@ -25,3 +25,22 @@ $wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'footer
     'settings' => 'footer_logo_image_url',
     'mime_type' => 'image',
 )));
+
+
+//===============================
+// Mautic Form Short code
+$wp_customize->add_setting('mautic_form', array(
+    'default' => '',
+    'section' => 'footer_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'mautic_form_shortcode',
+    array(
+        'label'    => 'Mautic Form Shortcode',
+        'section' => 'footer_section',
+        'settings' => 'mautic_form',
+        'type'     => 'text',
+    )
+);
