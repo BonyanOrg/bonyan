@@ -299,8 +299,14 @@
   }
 
   &:not(.fixed-quick-donation) {
-    .quick-donation--title .toggle-quick-donation {
-      display: none;
+    .quick-donation--title {
+      @media (max-width: 992px) {
+        text-align: center;
+      }
+      
+      .toggle-quick-donation {
+        display: none;
+      }
     }
     
     .quick-donation--content {

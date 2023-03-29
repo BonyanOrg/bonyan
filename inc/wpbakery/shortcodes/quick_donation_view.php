@@ -51,7 +51,7 @@ if (!function_exists('quick_donation_shortcode')) {
         ?>
         <div class="quick-donation custom-widget <?php echo $fixed_class; ?>" >
             <div class="container">
-                <div class="quick-donation--title text-lg-center text-lg-start mb-2">
+                <div class="quick-donation--title mb-2">
                     <h2><?php echo $quick_donation_title ?></h2>
 
                     <div class="toggle-quick-donation .hide-from-mobile-up">
