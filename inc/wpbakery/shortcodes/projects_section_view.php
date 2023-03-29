@@ -29,7 +29,7 @@ if (!function_exists('projects_section_shortcode')) {
                 projects_section_register_style();
             } ?>
         </style>
-        <div class="custom-widget">
+        <div class="container custom-widget">
             <h2 class="bonyan-title primary-color mb-4 mb-md-5"><?php echo $projects_section_header_text ?></h2>
             <div class="cards-container">
 
