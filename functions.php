@@ -191,9 +191,14 @@ if (class_exists('WPBakeryVisualComposerAbstract')) {
 require_once __DIR__ . '/inc/helper/functions.php';
 
 /**
+ * API Functions
+ */
+require_once __DIR__ . '/inc/api/functions.php';
+
+/**
  * Settings IN THE Dashboard
  */
- require __DIR__ . '/inc/settings/functions.php';
+require __DIR__ . '/inc/settings/functions.php';
 
 
 $roles = ['give_donor'];
