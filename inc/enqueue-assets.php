@@ -25,20 +25,24 @@ function bonyan_scripts()
     // wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
     wp_enqueue_style('bonyan-sweet-alert-css', get_template_directory_uri() . "/dist/css/cdn/sweetalert2.min.css", array());
 
-
-
     // Bonyan Style
     wp_enqueue_style('bonyan-style', get_template_directory_uri() . "/dist/css/style.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
-
     // Blog Card Style 
     wp_enqueue_style('bonyan-blog-card-style', get_template_directory_uri() . "/dist/css/components/blog-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
+
+    // Hirarchy
+    wp_enqueue_style('bonyan-hierarchy-style', get_template_directory_uri() . "/dist/css/components/wpb/hierarchy.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
 
     // __Scripts__
     wp_enqueue_script('bonyan-toastr-script', get_template_directory_uri() . "/dist/js/cdn/toastr.min.js", array('jquery'), false, true);
     wp_enqueue_script('bonyan-sweet-alert-script', get_template_directory_uri() . "/dist/js/cdn/sweetalert2.min.js", array(), false, true);
     wp_enqueue_script('bonyan-script', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), $GLOBALS['bonyan_version'], true);
+
+    // Hierarchy
+    wp_enqueue_script('bonyan-orgchart', get_template_directory_uri() . '/dist/js/cdn/orgchart.js', array(), $GLOBALS['bonyan_version'], true);
+    wp_enqueue_script('bonyan-hierarchy', get_template_directory_uri() . '/dist/js/components/wpb/hierarchy.min.js', array('bonyan-orgchart'), $GLOBALS['bonyan_version'], true);
 
 
     // Inject JS to GiveWP iFrame

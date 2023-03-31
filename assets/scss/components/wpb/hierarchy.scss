@@ -1,0 +1,64 @@
+@import '../../variables';
+
+.hierarchy-tree-container {
+    rect {
+        fill: $primary-color;
+    }
+
+    .boc-edit-form-header {
+        background-color: $primary-color !important;
+    }
+
+    .boc-img-button {
+        background-color: $primary-color !important;
+        display: inline-flex;
+        justify-content: center;
+    }
+
+    .boc-link {
+        color: $primary-color;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+
+    .boc-input {
+        & > label.focused {
+            color: $primary-color !important;
+        }
+    }
+
+    .boc-light {
+        .boc-input {
+            & > input:focus {
+                border-color: $primary-color !important;
+            }
+        }
+
+        .boc-button {
+            background-color: $primary-color;
+            border-color: $primary-color;
+            transition: $general-transition;
+
+            &:hover {
+                background-color: $third-color;
+                border-color: $third-color;
+            }
+
+            &.transparent {
+                color: $primary-color;
+                border-color: $primary-color;
+                background-color: transparent;
+
+                &:hover {
+                    background: $primary-color;
+                }
+            }
+        }
+    }
+
+    .boc-light .boc-chart-menu [data-item]:hover {
+        background-color: $third-color !important;
+    }
+}
