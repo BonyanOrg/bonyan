@@ -1,6 +1,10 @@
 @import '../../variables';
 
 .hierarchy-tree-container {
+    text {
+        font-family: "Roboto", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    }
+    
     rect {
         fill: $primary-color;
     }
@@ -60,5 +64,13 @@
 
     .boc-light .boc-chart-menu [data-item]:hover {
         background-color: $third-color !important;
+    }
+}
+
+html[dir="rtl"] {
+    .hierarchy-tree-container {
+        text {
+            font-family: "avenir", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+        }
     }
 }
