@@ -48,6 +48,22 @@ function give_Zoho($donation_id, $new_status, $old_status)
         'sslverify' => false
     ));
 
+    /**
+     * I dev Affiliate
+     */
+    if ($new_status == 'publish') {
+        $ch = curl_init();
+        curl_setopt(
+            $ch,
+            CURLOPT_URL,
+            "https://bonyan.idevaffiliate.com/sale.php?profile=187&idev_saleamt=" . number_format($PaymentObject->total, 2, '.', '') . "&reference=" . $PaymentObject->ID . "&ip_address=" . $PaymentObject->ip . "&idev_option_1=" . $PaymentObject->first_name . " " . $PaymentObject->last_name . "&idev_option_2=" . $PaymentObject->email . "&idev_option_3=" . $PaymentObject->total . " " . $PaymentObject->currency
+        );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_exec($ch);
+        curl_close($ch);
+    }
+
+
     if (is_wp_error($Post_Http)) {
         $error_message = $Post_Http->get_error_message();
         // handle the error
