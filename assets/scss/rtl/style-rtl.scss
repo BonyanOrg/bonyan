@@ -1654,6 +1654,28 @@ header {
       }
     }
   }
+
+  // Header logged in user
+  .logged-user-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+
+    @media (max-width: 1024px) {
+      width: 48px;
+      height: 48px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 }
 
 /* ===[End Header]=== */
