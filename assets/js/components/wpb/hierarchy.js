@@ -44,7 +44,7 @@ if (membersTree !== null) {
         enablePan: true,
     
         // Enable / Disable Drag and Drop
-        enableDragDrop: false,
+        enableDragDrop: true,
     
         // Choose the template
         template: treeTemplate,
