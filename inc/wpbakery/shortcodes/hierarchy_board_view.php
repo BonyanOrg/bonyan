@@ -114,7 +114,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
             $roles = ['administrator'];
             if (check_user_role($roles)) {
             ?>
-                <button class="primary-btn wpb-bonyan-btn" id="edit-map-btn">Save</button>
+                <button class="primary-btn wpb-bonyan-btn save-hierarchy-tree" id="edit-map-btn">Save</button>
             <?php } ?>
         </div>
         <!-- END Hierarchy HTML -->

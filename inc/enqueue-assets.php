@@ -13,17 +13,8 @@ function bonyan_scripts()
     // Roboto Font Family
     wp_enqueue_style('bonyan-en-font', 'https://fonts.googleapis.com/css2?family=Cairo:wght@800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet', array());
 
-    // Fontawesome Style
-    wp_enqueue_style('bonyan-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css', array());
+
     //wp_enqueue_style('bonyan-fontawesome', get_template_directory_uri() . "/dist/css/cdn/all.min.css", array());
-
-    // Toastr Style
-    // wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
-    wp_enqueue_style('bonyan-toastr', get_template_directory_uri() . "/dist/css/cdn/toastr.min.css", array());
-
-    // Sweet Alert Style
-    // wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
-    wp_enqueue_style('bonyan-sweet-alert-css', get_template_directory_uri() . "/dist/css/cdn/sweetalert2.min.css", array());
 
     // Bonyan Style
     wp_enqueue_style('bonyan-style', get_template_directory_uri() . "/dist/css/style.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
@@ -143,6 +134,22 @@ function load_admin_dashboard_assets()
 }
 add_action('admin_enqueue_scripts', 'load_admin_dashboard_assets');
 
+
+function load_styles_in_footer()
+{
+    // Fontawesome Style
+    wp_enqueue_style('bonyan-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css', array());
+
+    // Toastr Style
+    // wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
+    wp_enqueue_style('bonyan-toastr', get_template_directory_uri() . "/dist/css/cdn/toastr.min.css", array());
+
+    // Sweet Alert Style
+    // wp_enqueue_style('bonyan-toastr', 'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css', array());
+    wp_enqueue_style('bonyan-sweet-alert-css', get_template_directory_uri() . "/dist/css/cdn/sweetalert2.min.css", array());
+}
+
+add_action('get_footer', 'load_styles_in_footer');
 /**
  * Add RTL support to stylesheets
  *
@@ -183,4 +190,3 @@ function load_swiper_script($type)
         echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.1.1/swiper-bundle.min.js"></script>';
     }
 }
-
