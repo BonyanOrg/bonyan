@@ -106,7 +106,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
 
 
         <!-- START Hierarchy HTML -->
-        <div class="container">
+        <div class="container custom-widget">
             <div class="hierarchy-tree-container my-2 my-lg-4">
                 <div style="width:100%; height: 600px;" id="tree"></div>
             </div>
@@ -114,7 +114,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
             $roles = ['administrator'];
             if (check_user_role($roles)) {
             ?>
-                <button class="primary-btn wpb-bonyan-btn save-hierarchy-tree" id="edit-map-btn">Save</button>
+                <button class="primary-btn wpb-bonyan-btn save-hierarchy-tree" id="edit-map-btn"><?php _e("Save",'bonyan') ?></button>
             <?php } ?>
         </div>
         <!-- END Hierarchy HTML -->
@@ -152,6 +152,44 @@ if (!function_exists('hierarchy_board_shortcode')) {
 
                     let membersTree = document.getElementById('tree');
 
+                    var getLang = document.documentElement.lang;
+                    switch (getLang) {
+                        case 'ar':
+                            boardTitles = {
+                                details: "التفاصيل",
+                                edit: "تعديل",
+                                add: "أضافة",
+                                remove: "حذف",
+                                fullName: "الاسم الكامل",
+                                title: "العنوان",
+                                photoUrl: "رابط الصورة",
+                                emailAddress: "البريد الالكتروني",
+                                closeBtn: "إلغاء",
+                                saveBtn: "حفظ",
+                                shareBtn: "مشاركة",
+                                saveAsPdf: "حفظ كملف",
+                            }
+                            break;
+                        default: {
+                            boardTitles = {
+                                details: "Details",
+                                edit: "Edit",
+                                add: "Add",
+                                remove: "Remove",
+                                fullName: "Full Name",
+                                title: "Title",
+                                photoUrl: "Photo Url",
+                                emailAddress: "Email Address",
+                                closeBtn: "Close",
+                                saveBtn: "Save",
+                                shareBtn: "Share",
+                                saveAsPdf: "Save as Pdf",
+
+
+                            }
+                        }
+                    }
+
                     if (membersTree !== null) {
                         let adminJson = {
                             // Show search input or not
@@ -180,69 +218,66 @@ if (!function_exists('hierarchy_board_shortcode')) {
                             // Uncomment in case of (Admin)
                             nodeMenu: {
                                 details: {
-                                    text: "Details"
+                                    text: boardTitles.details
                                 },
                                 edit: {
-                                    text: "Edit"
+                                    text: boardTitles.edit
                                 },
                                 add: {
-                                    text: "Add"
+                                    text: boardTitles.add
                                 },
                                 remove: {
-                                    text: "Remove"
+                                    text: boardTitles.remove
                                 }
                             },
 
-                            // For (User) to hide edit button in form
-                            // editForm: {
-                            //     buttons: {
-                            //         edit: null,
-                            //     }
-                            // },
+
 
                             editForm: {
+                                cancelBtn: boardTitles.closeBtn,
+                                saveAndCloseBtn: boardTitles.saveBtn,
                                 generateElementsFromFields: false,
                                 photoBinding: "ImgUrl",
                                 elements: [{
                                         type: 'textbox',
-                                        label: 'Full Name',
+                                        label: boardTitles.fullName,
                                         binding: 'Name'
                                     },
                                     {
                                         type: 'textbox',
-                                        label: 'Title',
+                                        label: boardTitles.title,
                                         binding: 'Title'
                                     },
                                     {
                                         type: 'textbox',
-                                        label: 'Photo Url',
+                                        label: boardTitles.photoUrl,
                                         binding: 'ImgUrl',
                                         btn: 'Upload'
                                     },
                                     {
                                         type: 'textbox',
-                                        label: 'Email Address',
+                                        label: boardTitles.emailAddress,
                                         binding: 'Email',
                                     },
                                 ],
                                 buttons: {
                                     edit: {
                                         icon: OrgChart.icon.edit(24, 24, '#fff'),
-                                        text: 'Edit',
+                                        text: boardTitles.edit,
                                         hideIfEditMode: true,
                                         hideIfDetailsMode: false
                                     },
                                     share: {
                                         icon: OrgChart.icon.share(24, 24, '#fff'),
-                                        text: 'Share'
+                                        text: boardTitles.shareBtn
                                     },
                                     pdf: {
                                         icon: OrgChart.icon.pdf(24, 24, '#fff'),
-                                        text: 'Save as PDF'
+                                        text: boardTitles.saveAsPdf
                                     },
                                     remove: {
                                         icon: OrgChart.icon.remove(24, 24, '#fff'),
-                                        text: 'Remove',
+                                        text: boardTitles.remove,
                                         hideIfDetailsMode: true
                                     }
                                 }
@@ -284,7 +319,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
                             enablePan: true,
 
                             // Enable / Disable Drag and Drop
-                            enableDragDrop: true,
+                            //enableDragDrop: true,
 
                             // Choose the template
                             template: treeTemplate,
@@ -297,14 +332,43 @@ if (!function_exists('hierarchy_board_shortcode')) {
                             scaleMin: 0.5,
                             scaleMax: 2,
 
-                            // Adding a toolbar for: layout, zoom, fit, expandAll and fullscreen
-                            // toolbar: {
-                            //     layout: false,
-                            //     zoom: false,
-                            //     fit: true,
-                            //     expandAll: false,
-                            //     fullScreen: true
-                            // },
+                            // For (User) to hide edit button in form
+                            editForm: {
+                                photoBinding: "ImgUrl",
+                                buttons: {
+                                    edit: null,
+                                    share: {
+                                        icon: OrgChart.icon.share(24, 24, '#fff'),
+                                        text: boardTitles.shareBtn
+                                    },
+                                    pdf: {
+                                        icon: OrgChart.icon.pdf(24, 24, '#fff'),
+                                        text: boardTitles.saveAsPdf
+                                    },
+                                },
+                                elements: [{
+                                        type: 'textbox',
+                                        label: boardTitles.fullName,
+                                        binding: 'Name'
+                                    },
+                                    {
+                                        type: 'textbox',
+                                        label: boardTitles.title,
+                                        binding: 'Title'
+                                    },
+                                    {
+                                        type: 'textbox',
+                                        label: boardTitles.photoUrl,
+                                        binding: 'ImgUrl',
+                                        btn: 'Upload'
+                                    },
+                                    {
+                                        type: 'textbox',
+                                        label: boardTitles.emailAddress,
+                                        binding: 'Email',
+                                    },
+                                ],
+                            },
 
                             // Animations options
                             anim: {
@@ -314,9 +378,9 @@ if (!function_exists('hierarchy_board_shortcode')) {
 
                             // It's responsible for preparing the data which is going to be visible on each node
                             nodeBinding: {
-                                img_0: "img",
-                                field_0: "name",
-                                field_1: "title",
+                                img_0: "ImgUrl",
+                                field_0: "Name",
+                                field_1: "Title",
                             },
 
                             // Here the DATA
@@ -391,6 +455,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
                     (function($) {
                         $("#edit-map-btn").on('click', function() {
                             $(this).css('opacity', '0.2');
+                            $(this).prop('disabled', true);
                             let NewMap = "";
                             members.forEach(element => NewMap += JSON.stringify(element) + "|");
 
@@ -410,7 +475,8 @@ if (!function_exists('hierarchy_board_shortcode')) {
 
                                     },
                                     200: function(data) {
-                                        $(this).css('opacity', '1');
+                                        $("#edit-map-btn").css('opacity', '1');
+                                        $("#edit-map-btn").prop('disabled', false);
                                         toastr.success("Map Successfully Edited");
 
                                     },
