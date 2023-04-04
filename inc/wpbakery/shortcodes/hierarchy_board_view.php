@@ -8,8 +8,8 @@
 
 function hierarchy_board_scripts()
 {
-    // wp_enqueue_script('bonyan-orgchart', get_template_directory_uri() . '/dist/js/cdn/orgchart.js', array('jquery'), $GLOBALS['bonyan_version']);
-    wp_enqueue_script('bonyan-orgchart', 'https://balkan.app/js/OrgChart.js', array('jquery'), $GLOBALS['bonyan_version']);
+    wp_enqueue_script('bonyan-orgchart', get_template_directory_uri() . '/dist/js/cdn/orgchart.js', array(), $GLOBALS['bonyan_version']);
+    // wp_enqueue_script('bonyan-orgchart', 'https://balkan.app/js/OrgChart.js', array('jquery'), $GLOBALS['bonyan_version']);
 
 ?>
     <!-- <script>
