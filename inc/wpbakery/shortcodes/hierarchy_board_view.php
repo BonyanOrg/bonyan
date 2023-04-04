@@ -8,12 +8,15 @@
 
 function hierarchy_board_scripts()
 {
+    // wp_enqueue_script('bonyan-orgchart', get_template_directory_uri() . '/dist/js/cdn/orgchart.js', array('jquery'), $GLOBALS['bonyan_version']);
+    wp_enqueue_script('bonyan-orgchart', 'https://balkan.app/js/OrgChart.js', array('jquery'), $GLOBALS['bonyan_version']);
+
 ?>
-    <script>
+    <!-- <script>
         <?php
-        require_once(get_template_directory() . '/dist/js/cdn/orgchart.js');
+        //require_once(get_template_directory() . '/dist/js/cdn/orgchart.js');
         ?>
-    </script>
+    </script> -->
     <?php
 }
 add_action('wp_enqueue_scripts', 'hierarchy_board_scripts');
@@ -67,6 +70,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
         ), $atts));
 
         ob_start();
+        wp_enqueue_media();
     ?>
         <?php //========[{ Enqueue Widget Style }]========//
         if (!function_exists('hierarchy_board_register_style')) {
@@ -83,7 +87,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
             hierarchy_board_register_style();
         }
         if (empty($hierarchy_board_map)) { // if first initialization Set Default Value
-            $hierarchy_board_map = "{'id':'1','name':'Jack Hill','title':'Chairman and CEO','email':'amber@domain.com','img':'https://people.math.ethz.ch/~afigalli/avatar.jpg'}|";
+            $hierarchy_board_map = "{'id':'1','Name':'Jack Hill','Title':'Chairman and CEO','Email':'amber@domain.com','ImgUrl':'https://people.math.ethz.ch/~afigalli/avatar.jpg'}|";
         }
 
         $prepare_to_json = str_replace("'", "\"", $hierarchy_board_map);
@@ -160,7 +164,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
                             enablePan: true,
 
                             // Enable / Disable Drag and Drop
-                            // enableDragDrop: false,
+                            enableDragDrop: true,
 
                             // Choose the template
                             template: treeTemplate,
@@ -190,9 +194,57 @@ if (!function_exists('hierarchy_board_shortcode')) {
                             },
 
                             // For (User) to hide edit button in form
+                            // editForm: {
+                            //     buttons: {
+                            //         edit: null,
+                            //     }
+                            // },
+
                             editForm: {
+                                generateElementsFromFields: false,
+                                photoBinding: "ImgUrl",
+                                elements: [{
+                                        type: 'textbox',
+                                        label: 'Full Name',
+                                        binding: 'Name'
+                                    },
+                                    {
+                                        type: 'textbox',
+                                        label: 'Title',
+                                        binding: 'Title'
+                                    },
+                                    {
+                                        type: 'textbox',
+                                        label: 'Photo Url',
+                                        binding: 'ImgUrl',
+                                        btn: 'Upload'
+                                    },
+                                    {
+                                        type: 'textbox',
+                                        label: 'Email Address',
+                                        binding: 'Email',
+                                    },
+                                ],
                                 buttons: {
-                                    edit: null,
+                                    edit: {
+                                        icon: OrgChart.icon.edit(24, 24, '#fff'),
+                                        text: 'Edit',
+                                        hideIfEditMode: true,
+                                        hideIfDetailsMode: false
+                                    },
+                                    share: {
+                                        icon: OrgChart.icon.share(24, 24, '#fff'),
+                                        text: 'Share'
+                                    },
+                                    pdf: {
+                                        icon: OrgChart.icon.pdf(24, 24, '#fff'),
+                                        text: 'Save as PDF'
+                                    },
+                                    remove: {
+                                        icon: OrgChart.icon.remove(24, 24, '#fff'),
+                                        text: 'Remove',
+                                        hideIfDetailsMode: true
+                                    }
                                 }
                             },
 
@@ -213,9 +265,9 @@ if (!function_exists('hierarchy_board_shortcode')) {
 
                             // It's responsible for preparing the data which is going to be visible on each node
                             nodeBinding: {
-                                img_0: "img",
-                                field_0: "name",
-                                field_1: "title",
+                                img_0: "ImgUrl",
+                                field_0: "Name",
+                                field_1: "Title",
                             },
 
                             // Here the DATA
@@ -232,7 +284,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
                             enablePan: true,
 
                             // Enable / Disable Drag and Drop
-                            // enableDragDrop: false,
+                            enableDragDrop: true,
 
                             // Choose the template
                             template: treeTemplate,
@@ -244,21 +296,6 @@ if (!function_exists('hierarchy_board_shortcode')) {
                             scaleInitial: OrgChart.match.boundary,
                             scaleMin: 0.5,
                             scaleMax: 2,
-
-                            // Uncomment in case of (Admin)
-                            // nodeMenu:{
-                            //     details: {text:"Details"},
-                            //     edit: {text:"Edit"},
-                            //     add: {text:"Add"},
-                            //     remove: {text:"Remove"}
-                            // },
-
-                            // For (User) to hide edit button in form
-                            editForm: {
-                                buttons: {
-                                    edit: null,
-                                }
-                            },
 
                             // Adding a toolbar for: layout, zoom, fit, expandAll and fullscreen
                             // toolbar: {
@@ -297,6 +334,30 @@ if (!function_exists('hierarchy_board_shortcode')) {
                             }
                     ?>
                     var chart = new OrgChart(membersTree, ChartJson);
+
+                    chart.editUI.on('element-btn-click', function(sender, args) {
+
+                        // Create the media frame.
+                        file_frame_upload = wp.media.frames.file_frame = wp.media({
+                            library: {
+                                type: ['image']
+                            },
+                            multiple: false // Set to true to allow multiple files to be selected
+                        });
+                        const imglimit = 0; // images upload items limit
+                        file_frame_upload.on('select', function() {
+                            // set multiple to false so only get one image from the uploader
+                            attachment = file_frame_upload.state().get('selection').toJSON();
+                            // here are some of the variables you could use for the attachment;
+                            var url = attachment[0].url;
+                            args.input.value = url;
+
+
+                        });
+
+                        // Finally, open the modal
+                        file_frame_upload.open();
+                    });
 
                     chart.on('click', function(sender, args) {
                         // Edit Mode
