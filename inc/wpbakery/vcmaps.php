@@ -99,3 +99,6 @@ require_once "vcmaps/board_of_trustees_map.php";
 
 /* Disable Table Of Content  */
 require_once "vcmaps/disable_table_of_content_map.php";
+
+/* Hierarchy Board  */
+require_once "vcmaps/hierarchy_board_map.php";

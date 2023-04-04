@@ -73,3 +73,5 @@ require_once "shortcodes/board_of_trustees_view.php";
 /* Disable Table Of Content  */
 require_once "shortcodes/disable_table_of_content_view.php";
 
+/* Hierarchy Board  */
+require_once "shortcodes/hierarchy_board_view.php";

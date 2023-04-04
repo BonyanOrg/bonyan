@@ -32,7 +32,7 @@ function bonyan_scripts()
     wp_enqueue_style('bonyan-blog-card-style', get_template_directory_uri() . "/dist/css/components/blog-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
     // Hirarchy
-    wp_enqueue_style('bonyan-hierarchy-style', get_template_directory_uri() . "/dist/css/components/wpb/hierarchy.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
+    //wp_enqueue_style('bonyan-hierarchy-style', get_template_directory_uri() . "/dist/css/components/wpb/hierarchy.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
 
     // __Scripts__
@@ -41,8 +41,8 @@ function bonyan_scripts()
     wp_enqueue_script('bonyan-script', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), $GLOBALS['bonyan_version'], true);
 
     // Hierarchy
-    wp_enqueue_script('bonyan-orgchart', get_template_directory_uri() . '/dist/js/cdn/orgchart.js', array(), $GLOBALS['bonyan_version'], true);
-    wp_enqueue_script('bonyan-hierarchy', get_template_directory_uri() . '/dist/js/components/wpb/hierarchy.min.js', array('bonyan-orgchart'), $GLOBALS['bonyan_version'], true);
+    //wp_enqueue_script('bonyan-orgchart', get_template_directory_uri() . '/dist/js/cdn/orgchart.js', array(), $GLOBALS['bonyan_version'], true);
+    //wp_enqueue_script('bonyan-hierarchy', get_template_directory_uri() . '/dist/js/components/wpb/hierarchy.min.js', array('bonyan-orgchart'), $GLOBALS['bonyan_version'], true);
 
 
     // Inject JS to GiveWP iFrame
