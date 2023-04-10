@@ -246,3 +246,75 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     /* ===[End Handle upload file]=== */
 });
+
+/* ===[Start New Dashboard]=== */
+window.addEventListener('DOMContentLoaded', function(){
+    let dashboardSidebarToggler = document.querySelector('.sidebar-header .collapse-toggler');
+
+    if (dashboardSidebarToggler !== null) {
+        dashboardSidebarToggler.addEventListener('click', function(){
+            let dashboardBox = this.closest('.dashboard-box');
+            dashboardBox.classList.toggle('dashboard-sidebar-collapsed');
+        });
+    }
+});
+
+jQuery(document).ready(function($){
+    // Donation History DataTable
+    // Global Variables
+    let getDir = document.dir;
+    let windowWidth = $(window).innerWidth();
+    let isResponsive = false;
+
+    if (windowWidth <= 992) {
+        isResponsive = true;
+    }
+
+    // For Arabic Datatable
+    let arLang;
+
+    if (getDir) {
+        arLang = {
+            lengthMenu: "عرض _MENU_ مدخلات في كل صفحة",
+            zeroRecords: "لايوجد شيء - عذراً",
+            info: "اظهار صفحة _PAGE_ من _PAGES_",
+            infoEmpty: "لايوجد شيء",
+            infoFiltered: "(تمت تصفيته من _MAX_ إجمالي السجلات)",
+            search: "بحث عن: ",
+            zeroRecords: "لم يتم العثور على سجلات مطابقة",
+        };
+    }
+
+    let donationHistory = $('#donation-history-table');
+
+    if (donationHistory.length > 0) {
+        let donationHistoryTable = donationHistory.DataTable({
+            "dom": 'rtip',
+            "paging": true,
+            "pageLength": 4,
+            "searching": true,
+            "scrollX": true,
+            "pagingType": "simple",
+
+            responsive: isResponsive,
+
+            "language": {
+                 ...arLang,
+                paginate: {
+                    "next": "<div><i class='fa-solid fa-arrow-right'></i></div>",
+                    "previous": "<div><i class='fa-solid fa-arrow-left'></i></div>"
+                }
+            }
+        });
+
+        //  setTimeout(() => {
+        //      vacanciesDatatable.columns.adjust();
+        //  }, 500);
+
+        // Custom Search
+        //  $('.custom-datatable-search').keyup(function () {
+        //      vacanciesDatatable.search($(this).val()).draw();
+        //  });
+    }
+});
+/* ===[End New Dashboard]=== */
