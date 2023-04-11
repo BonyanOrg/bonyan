@@ -11,8 +11,8 @@ function give_Zoho($donation_id, $new_status, $old_status)
 
 
 
-    $zoho_scenario_url = "https://hook.integromat.com/mmct6ujbgs38k1sx4o5rul0d52oafre2";
-    $matic_scenario_url = "https://hook.integromat.com/16cykmkx2fxzwu5jtfnken8231wzxocy";
+    $zoho_scenario_url = get_option('zoho_crm');
+    $matic_scenario_url = get_option('mautic_lead');
     $args = array(
         "Donation id" => !empty($PaymentObject->ID) ? $PaymentObject->ID : "_",
         "Campaign Title" => !empty($PaymentObject->form_title) ? $PaymentObject->form_title : "_",
@@ -80,8 +80,8 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
     $is_sub      = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
 
-    $zoho_scenario_url = "https://hook.integromat.com/mmct6ujbgs38k1sx4o5rul0d52oafre2";
-    $matic_scenario_url = "https://hook.integromat.com/16cykmkx2fxzwu5jtfnken8231wzxocy";
+    $zoho_scenario_url = get_option('zoho_crm');
+    $matic_scenario_url = get_option('mautic_lead');
     $args = array(
         "Donation id" => !empty($PaymentObject->ID) ? $PaymentObject->ID : "_",
         "Campaign Title" => !empty($PaymentObject->form_title) ? $PaymentObject->form_title : "_",

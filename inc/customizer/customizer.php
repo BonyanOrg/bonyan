@@ -40,9 +40,13 @@ function my_customize_register($wp_customize)
     //===============
     // Contact Info
     require_once(__DIR__ . '/contact-info.php');
-    
+
     //===============
     // Campaigns Options
     require_once(__DIR__ . '/campaigns-options.php');
+
+    //===============
+    // Integration Options
+    require_once(__DIR__ . '/integration-options.php');
 }
 add_action('customize_register', 'my_customize_register');
