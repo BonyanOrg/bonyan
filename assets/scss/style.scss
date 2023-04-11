@@ -3186,3 +3186,282 @@ header {
 }
 /* [End upload input] */
 /* ===[End Upload File]=== */
+
+/* ===[Start New Dashboar]=== */
+.custom-givewp-dashboard {
+  
+  // The container that contains both sidebar with tabs and the tab content
+  .dashboard-box {
+    border-radius: 20px;
+    background: #EFEFEF;
+    display: grid;
+    grid-template-columns: 22.5% 77.5%;
+    box-shadow: -5px 8px 20px rgba($dark-color, .05);
+    transition: $general-transition;
+
+    .dashboard-donor-info-box {
+      display: flex;
+      gap: 1.5rem;
+      grid-gap: 1.5rem;
+      align-items: center;
+
+      .donor-avatar {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .donor-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        grid-gap: 0.5rem;
+
+        .donor-info-item {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+        }
+
+        .donor-info--name {
+          color: $text-color;
+          font-size: 24px;
+          font-weight: bold;
+        }
+
+        .donor-info--others {
+          margin-top: auto;
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+          grid-gap: 1.25rem;
+        }
+      } 
+    }
+
+    // Sidebar with tabs and logout
+    .dashboard-sidebar {
+      position: relative;
+      padding-top: 5rem;
+      padding-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      grid-gap: 0.5rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 700px;
+
+      .sidebar-header {
+        position: absolute;
+        top: 2rem;
+        left: 1.2rem;
+        transition: $general-transition;
+        user-select: none;
+
+        .collapse-toggler {
+          cursor: pointer;
+
+          svg {
+            width: 25px;
+            pointer-events: none;
+
+            path {
+              fill: $third-color;
+            }
+          }
+        }
+      }
+
+      .dashboard-sidebar-item {
+        padding: 0.5rem 1rem 0.5rem 1.2rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          opacity: 0;
+          position: absolute;
+          left: -1px;
+          top: 0;
+          height: 100%;
+          border-radius: 20px;
+          background: $primary-color;
+          width: 7px;
+          transition: $general-transition;
+        }
+
+        svg {
+          path {
+            transition: $general-transition;
+          }
+        }
+
+        span {
+          transition: $general-transition;
+        }
+
+        &.active, &:hover {
+          &::before {
+            opacity: 1;
+          }
+
+          svg {
+            path {
+              fill: $primary-color;
+            }
+          }
+
+          span {
+            color: $primary-color;
+            text-shadow: 0 0 0px $primary-color, 0 0 0px $primary-color, 0 0 0px $primary-color, 0 0 0px $primary-color;
+          }
+        }
+
+        &.logout {
+          margin-top: auto;
+
+          &:hover {
+            span {
+              color: #b42d2d;
+              text-shadow: 0 0 0px #b42d2d, 0 0 0px #b42d2d, 0 0 0px #b42d2d, 0 0 0px #b42d2d;
+            }
+
+            &::before {
+              background: #b42d2d;
+            }
+
+            svg {
+              path {
+                fill: #b42d2d
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Tab's content
+    .dashboard-view {
+      border-radius: 20px;
+      background: $light-color;
+      padding: 2rem 0 0;
+      max-height: 700px;
+      overflow-y: auto;
+      box-shadow: -6px 0 8px #e1e1e1;
+
+      .dashboard-tab-content {
+        .with-padding {
+          padding: 0 2rem;
+        }
+
+        .dashboard-tab-contents-holder {
+          background: rgba(#D1D3D4, 0.2);
+        }
+
+        .dashboard-content-section-heading {
+          background: rgba($primary-color, 0.1);
+          border-radius: 0 0 15px 15px;
+
+          .dashboard-content-section-heading-title {
+            display: flex;
+            gap: 0.75rem;
+            grid-gap: 0.75rem;
+            align-items: center;
+
+            svg {
+              width: 20px;
+              
+              path {
+                fill: $primary-color;
+
+                &.no-fill {
+                  fill: none;
+                }
+              }
+            }
+
+            span {
+              color: $text-color;
+            }
+          }
+        }
+
+        .dashboard-content-section-body {
+          padding: 1rem 0;
+        }
+
+        /* Start Donor Stats */
+        .donor-giving-stats {
+          .donor-giving-stats-values {
+            display: flex;
+            gap: 2.5rem;
+            grid-gap: 2.5rem;
+
+            .donor-stats-item {
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              grid-gap: 0.5rem;
+
+              span {
+                font-weight: bold;
+                text-transform: uppercase;
+
+                &:first-of-type {
+                  font-size: 24px;
+                  color: $primary-color;
+                }
+
+                &:last-of-type {
+                  font-size: 20px;
+                  color: $text-color;
+                }
+              }
+            }
+          }
+        }
+        /* End Donor Stats */
+
+        /* Start Donations History */
+        .donation-history-table {
+          @media (min-width: 1025px) {
+            width: 100% !important;
+          }
+        }
+        /* End Donations History */
+      }
+    }
+
+    // Collapsed Dashboard Box
+    &.dashboard-sidebar-collapsed {
+      grid-template-columns: 5.5% 94.5%;
+
+      .dashboard-sidebar-item {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+        justify-content: center;
+
+        span {
+          display: none;
+          opacity: 0;
+        }
+      }
+
+      .sidebar-header {
+        left: 1.2rem;
+      }
+    }
+  }
+}
+/* ===[End New Dashboar]=== */
