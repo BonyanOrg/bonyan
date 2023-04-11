@@ -3189,7 +3189,8 @@ header {
 
 /* ===[Start New Dashboar]=== */
 .custom-givewp-dashboard {
-  
+  margin-top: 180px;
+
   // The container that contains both sidebar with tabs and the tab content
   .dashboard-box {
     border-radius: 20px;
@@ -3454,7 +3455,7 @@ header {
 
     // Collapsed Dashboard Box
     &.dashboard-sidebar-collapsed {
-      grid-template-columns: 5.5% 94.5%;
+      grid-template-columns: 68px calc(100% - 68px);
 
       .dashboard-sidebar-item {
         padding-left: 1.2rem;
@@ -3500,6 +3501,7 @@ header {
     input[type=file] {
       opacity: 0;
       position: absolute;
+      z-index: -1;
     }
   }
 
@@ -3543,6 +3545,18 @@ header {
       padding: 0.75rem 1.5rem;
       min-width: 170px;
       border: none;
+    }
+  }
+
+  // Wishlist
+  #wishlist {
+    .cards-container {
+      gap: 1rem;
+      grid-gap: 1rem;
+
+      @media (max-width: 1199px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
   }
 
