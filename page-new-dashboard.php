@@ -9,7 +9,7 @@
             <div class="dashboard-sidebar">
                 <div class="sidebar-header">
                     <div class="sidebar-logo">
-						<!-- <?php the_custom_logo(); ?> -->
+                        <!-- <?php the_custom_logo(); ?> -->
                     </div>
                     <div class="collapse-toggler">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
 
-                <div class="dashboard-sidebar-item active">
+                <div class="dashboard-sidebar-item active" data-target="donor-dashboard">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18.733" viewBox="0 0 18 18.733">
                         <path id="Path_10524" data-name="Path 10524" d="M21,20a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V9.49a1,1,0,0,1,.386-.79l8-6.222a1,1,0,0,1,1.228,0l8,6.222A1,1,0,0,1,21,9.49V20Z" transform="translate(-3 -2.267)" fill="#5b5b5b" />
                     </svg>
@@ -26,7 +26,7 @@
                     <span>Donor Dashboard</span>
                 </div>
 
-                <div class="dashboard-sidebar-item">
+                <div class="dashboard-sidebar-item" data-target="donation-history">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                         <path id="Path_10527" data-name="Path 10527" d="M12,2A10,10,0,1,1,2,12H4A8,8,0,1,0,5.385,7.5H8v2H2v-6H4V6A9.981,9.981,0,0,1,12,2Zm1,5v4.585l3.243,3.243-1.415,1.415L11,12.413V7Z" transform="translate(-2 -2)" fill="#5b5b5b" />
                     </svg>
@@ -34,7 +34,7 @@
                     <span>Donation History</span>
                 </div>
 
-                <div class="dashboard-sidebar-item">
+                <div class="dashboard-sidebar-item" data-target="recurring-donations">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                         <path id="Path_10558" data-name="Path 10558" d="M18.537,19.567A9.982,9.982,0,1,1,20.19,17.74L17,12h3a8,8,0,1,0-2.46,5.772Z" transform="translate(-2 -2)" fill="#5b5b5b" />
                     </svg>
@@ -42,7 +42,7 @@
                     <span>Recurring Donations</span>
                 </div>
 
-                <div class="dashboard-sidebar-item">
+                <div class="dashboard-sidebar-item" data-target="edit-profile">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="22" viewBox="0 0 19 22">
                         <path id="Path_10530" data-name="Path 10530" d="M12,1l9.5,5.5v11L12,23,2.5,17.5V6.5Zm0,14a3,3,0,1,0-3-3A3,3,0,0,0,12,15Z" transform="translate(-2.5 -1)" fill="#5b5b5b" />
@@ -51,7 +51,7 @@
                     <span>Edit Profile</span>
                 </div>
 
-                <div class="dashboard-sidebar-item">
+                <div class="dashboard-sidebar-item" data-target="wishlist">
                     <svg xmlns="http://www.w3.org/2000/svg" width="21.579" height="18.881" viewBox="0 0 21.579 18.881">
                         <path id="Icon_awesome-heart" data-name="Icon awesome-heart" d="M19.483,3.539a5.763,5.763,0,0,0-7.864.573l-.83.856-.83-.856a5.763,5.763,0,0,0-7.864-.573A6.052,6.052,0,0,0,1.677,12.3l8.155,8.421a1.321,1.321,0,0,0,1.909,0L19.9,12.3a6.048,6.048,0,0,0-.413-8.762Z" transform="translate(0.001 -2.248)" fill="#5b5b5b" />
                     </svg>
@@ -73,8 +73,8 @@
             <div class="dashboard-view">
 
                 <!-- Start Dashboard Tab Content -->
-                <div class="dashboard-tab-content">
-                    <div class="dashboard-donor-info-box with-padding">
+                <div class="dashboard-tab-content" id="donor-dashboard">
+                    <div class="dashboard-donor-info-box with-padding pt-3">
                         <div class="donor-avatar">
                             <img src="<?php echo get_template_directory_uri() . '/dist/imgs/dashboard-donor-avatar.png' ?>" alt="Donor Avatar">
                         </div>
@@ -178,9 +178,11 @@
                                                 <td>ID:09181</td>
                                                 <td>100$</td>
                                                 <td>Donation Form</td>
-                                                <td>October 12, 2022 11:28 am</td>
-                                                <td>Complete</td>
-                                                <td>View Receipt</td>
+                                                <td>October 13, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</></button></td>
                                             </tr>
 
                                             <tr>
@@ -188,8 +190,10 @@
                                                 <td>100$</td>
                                                 <td>Donation Form</td>
                                                 <td>October 12, 2022 11:28 am</td>
-                                                <td>Complete</td>
-                                                <td>View Receipt</td>
+                                                <td>
+                                                    <div class="status"></div><span>Pending</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -197,8 +201,10 @@
                                                 <td>100$</td>
                                                 <td>Donation Form</td>
                                                 <td>October 12, 2022 11:28 am</td>
-                                                <td>Complete</td>
-                                                <td>View Receipt</td>
+                                                <td>
+                                                    <div class="status"></div><span>Abandoned</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -206,8 +212,10 @@
                                                 <td>100$</td>
                                                 <td>Donation Form</td>
                                                 <td>October 12, 2022 11:28 am</td>
-                                                <td>Complete</td>
-                                                <td>View Receipt</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -217,6 +225,392 @@
                     </div>
                 </div>
                 <!-- End Dashboard Tab Content -->
+
+                <!-- Start Donation History Tab Content -->
+                <div class="d-none dashboard-tab-content" id="donation-history">
+                    <div class="dashboard-donor-info-box with-padding pt-3">
+                        <div class="donor-avatar">
+                            <img src="<?php echo get_template_directory_uri() . '/dist/imgs/dashboard-donor-avatar.png' ?>" alt="Donor Avatar">
+                        </div>
+
+                        <div class="donor-info">
+                            <div class="donor-info-item donor-info--name">
+                                <span>Name Surname</span>
+                            </div>
+
+                            <div class="donor-info--others">
+                                <div class="donor-info-item donor-info--company">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.948" height="16.154" viewBox="0 0 17.948 16.154">
+                                        <path id="Path_10535" data-name="Path 10535" d="M8.282,17.359h2.692V11.922l-3.59-3.13-3.59,3.13v5.437H6.487v-3.59H8.282Zm10.769,1.795H2.9a.9.9,0,0,1-.9-.9V11.514a.9.9,0,0,1,.308-.677L5.59,7.975V3.9a.9.9,0,0,1,.9-.9H19.051a.9.9,0,0,1,.9.9V18.256A.9.9,0,0,1,19.051,19.154Zm-4.487-8.974v1.795h1.795V10.179Zm0,3.59v1.795h1.795V13.769Zm0-7.179V8.385h1.795V6.59Zm-3.59,0V8.385h1.795V6.59Z" transform="translate(-2 -3)" fill="#5b5b5b" />
+                                    </svg>
+
+                                    <span>2P Company</span>
+                                </div>
+
+                                <div class="donor-info-item donor-info--last-donation">
+                                    <svg id="Group_3108" data-name="Group 3108" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="Path_10536" data-name="Path 10536" d="M0,0H24V24H0Z" fill="none" />
+                                        <path id="Path_10537" data-name="Path 10537" d="M12,22A10,10,0,1,1,22,12,10,10,0,0,1,12,22Zm1-10V7H11v7h6V12Z" fill="#5b5b5b" />
+                                    </svg>
+
+                                    <span>Last donated 1 day ago</span>
+                                </div>
+
+                                <div class="donor-info-item donor-info--first-donation-date">
+                                    <svg id="Group_3109" data-name="Group 3109" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="Path_10538" data-name="Path 10538" d="M0,0H24V24H0Z" fill="none" />
+                                        <path id="Path_10539" data-name="Path 10539" d="M20,20a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V11H1L11.327,1.612a1,1,0,0,1,1.346,0L23,11H20Zm-8-3,3.359-3.359a2.25,2.25,0,0,0-3.182-3.182L12,10.636l-.177-.177a2.25,2.25,0,1,0-3.182,3.182Z" fill="#5b5b5b" />
+                                    </svg>
+
+
+                                    <span>Donor for 1 week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-tab-contents-holder">
+                        <div class="dashboard-tab-content-section donations-history">
+                            <div class="dashboard-content-section-heading mt-3 py-3">
+                                <div class="dashboard-content-section-heading-title with-padding">
+                                    <span>6 Total Donations</span>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-content-section-body">
+                                <div class="donations-history-values with-padding">
+                                    <table id="donation-history-table-in-history-tab" class="donation-history-table-in-history-tab" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Donations</th>
+                                                <th>Campaign</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Receipt</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 13, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 12, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Pending</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 12, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Abandoned</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 12, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 12, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 12, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 12, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 12, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 12, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>ID:09181</td>
+                                                <td>100$</td>
+                                                <td>Donation Form</td>
+                                                <td>October 12, 2022 11:28 am</td>
+                                                <td>
+                                                    <div class="status"></div><span>Complete</span>
+                                                </td>
+                                                <td><button>View Receipt</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Donation History Tab Content -->
+
+                <!-- Start Recurring Donations Tab Content -->
+                <div class="d-none dashboard-tab-content" id="recurring-donations">
+                    <div class="dashboard-donor-info-box with-padding pt-3">
+                        <div class="donor-avatar">
+                            <img src="<?php echo get_template_directory_uri() . '/dist/imgs/dashboard-donor-avatar.png' ?>" alt="Donor Avatar">
+                        </div>
+
+                        <div class="donor-info">
+                            <div class="donor-info-item donor-info--name">
+                                <span>Name Surname</span>
+                            </div>
+
+                            <div class="donor-info--others">
+                                <div class="donor-info-item donor-info--company">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="17.948" height="16.154" viewBox="0 0 17.948 16.154">
+                                        <path id="Path_10535" data-name="Path 10535" d="M8.282,17.359h2.692V11.922l-3.59-3.13-3.59,3.13v5.437H6.487v-3.59H8.282Zm10.769,1.795H2.9a.9.9,0,0,1-.9-.9V11.514a.9.9,0,0,1,.308-.677L5.59,7.975V3.9a.9.9,0,0,1,.9-.9H19.051a.9.9,0,0,1,.9.9V18.256A.9.9,0,0,1,19.051,19.154Zm-4.487-8.974v1.795h1.795V10.179Zm0,3.59v1.795h1.795V13.769Zm0-7.179V8.385h1.795V6.59Zm-3.59,0V8.385h1.795V6.59Z" transform="translate(-2 -3)" fill="#5b5b5b" />
+                                    </svg>
+
+                                    <span>2P Company</span>
+                                </div>
+
+                                <div class="donor-info-item donor-info--last-donation">
+                                    <svg id="Group_3108" data-name="Group 3108" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="Path_10536" data-name="Path 10536" d="M0,0H24V24H0Z" fill="none" />
+                                        <path id="Path_10537" data-name="Path 10537" d="M12,22A10,10,0,1,1,22,12,10,10,0,0,1,12,22Zm1-10V7H11v7h6V12Z" fill="#5b5b5b" />
+                                    </svg>
+
+                                    <span>Last donated 1 day ago</span>
+                                </div>
+
+                                <div class="donor-info-item donor-info--first-donation-date">
+                                    <svg id="Group_3109" data-name="Group 3109" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="Path_10538" data-name="Path 10538" d="M0,0H24V24H0Z" fill="none" />
+                                        <path id="Path_10539" data-name="Path 10539" d="M20,20a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V11H1L11.327,1.612a1,1,0,0,1,1.346,0L23,11H20Zm-8-3,3.359-3.359a2.25,2.25,0,0,0-3.182-3.182L12,10.636l-.177-.177a2.25,2.25,0,1,0-3.182,3.182Z" fill="#5b5b5b" />
+                                    </svg>
+
+
+                                    <span>Donor for 1 week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-tab-contents-holder">
+                        <div class="dashboard-tab-content-section donations-history">
+                            <div class="dashboard-content-section-heading mt-3 py-3">
+                                <div class="dashboard-content-section-heading-title with-padding">
+                                    <span>Recurring Donations</span>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-content-section-body">
+                                <div class="donations-history-values with-padding">
+                                    <table id="recurring-donations-table" class="recurring-donations-table" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Campaign</th>
+                                                <th>Recurring</th>
+                                                <th>Date Started</th>
+                                                <th>Next Payment</th>
+                                                <th>Status</th>
+                                                <th>Manage</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td>Provide Food for Syrian Refugees</td>
+                                                <td>$50.00 / Monthly</td>
+                                                <td>31 Mar 23</td>
+                                                <td>01 May 23</td>
+                                                <td>
+                                                    <div class="status"></div><span>Active</span>
+                                                </td>
+                                                <td><button>Cancel</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Provide Food for Syrian Refugees</td>
+                                                <td>$50.00 / Monthly</td>
+                                                <td>31 Mar 23</td>
+                                                <td>01 May 23</td>
+                                                <td>
+                                                    <div class="status"></div><span>Active</span>
+                                                </td>
+                                                <td><button>Cancel</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Provide Food for Syrian Refugees</td>
+                                                <td>$50.00 / Monthly</td>
+                                                <td>31 Mar 23</td>
+                                                <td>01 May 23</td>
+                                                <td>
+                                                    <div class="status"></div><span>Active</span>
+                                                </td>
+                                                <td><button>Cancel</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Provide Food for Syrian Refugees</td>
+                                                <td>$50.00 / Monthly</td>
+                                                <td>31 Mar 23</td>
+                                                <td>01 May 23</td>
+                                                <td>
+                                                    <div class="status"></div><span>Active</span>
+                                                </td>
+                                                <td><button>Cancel</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Provide Food for Syrian Refugees</td>
+                                                <td>$50.00 / Monthly</td>
+                                                <td>31 Mar 23</td>
+                                                <td>01 May 23</td>
+                                                <td>
+                                                    <div class="status"></div><span>Active</span>
+                                                </td>
+                                                <td><button>Cancel</button></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Provide Food for Syrian Refugees</td>
+                                                <td>$50.00 / Monthly</td>
+                                                <td>31 Mar 23</td>
+                                                <td>01 May 23</td>
+                                                <td>
+                                                    <div class="status"></div><span>Active</span>
+                                                </td>
+                                                <td><button>Cancel</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Recurring Donations Tab Content -->
+
+                <!-- Start Edit Profile Tab Content -->
+                <div class="d-none dashboard-tab-content" id="edit-profile">
+                    <div class="dashboard-tab-content-section donations-history">
+                        <div class="dashboard-content-section-heading py-3">
+                            <div class="dashboard-content-section-heading-title with-padding">
+                                <span>Edit Profile</span>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-content-section-body">
+                            <div class="edit-avatar with-padding">
+                                <label class="dashboard-custom-upload-file" for="dashboard-upload-avatar">
+                                    <div class="donor-avatar">
+                                        <img src="<?php echo get_template_directory_uri() . '/dist/imgs/dashboard-donor-avatar.png' ?>" alt="Donor Avatar">
+                                    </div>
+
+                                    <div class="dashboard-upload-information">
+                                        <span>This image here to set avatar of <span>Find Image</span></span>
+                                    </div>
+
+                                    <input type="file" name="dashboard-upload-avatar" id="dashboard-upload-avatar">
+                                </label>
+                            </div>
+
+                            <div class="edit-donor-info-container with-padding">
+
+                                <div class="select-holder">
+                                    <label>Prefix</label>
+                                    <select name="prefix" id="prefix">
+                                        <option value="mr.">Mr.</option>
+                                        <option value="mrs.">Mrs.</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-holder">
+                                    <label for="edit_user_info_first_name">First Name</label>
+                                    <input type="text" name="edit_user_info_first_name" id="edit_user_info_first_name">
+                                </div>
+
+                                <div class="input-holder">
+                                    <label for="edit_user_info_last_name">Last Name</label>
+                                    <input type="text" name="edit_user_info_last_name" id="edit_user_info_last_name">
+                                </div>
+
+                                <div class="input-holder full-width">
+                                    <label for="company">Company</label>
+                                    <input type="text" name="edit_user_info_company" id="edit_user_info_company">
+                                </div>
+
+                                <div class="input-holder full-width">
+                                    <label for="edit_user_info_email">Email</label>
+                                    <input type="email" name="edit_user_info_email" id="edit_user_info_email">
+                                </div>
+
+                                <button class="primary-btn">Save</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End Edit Profile Tab Content -->
 
             </div>
             <!-- ===[End Dashboard View]=== -->

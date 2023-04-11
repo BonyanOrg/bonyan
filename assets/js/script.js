@@ -145,7 +145,7 @@ window.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('click', function (e) {
         // Close Language Swicher
         if (e.target.tagName !== 'HTML') {
-            if (!e.target.parentElement.classList.contains('lang-switcher')) {
+            if (!e.target.parentElement?.classList.contains('lang-switcher')) {
                 let switcherDropdowns = document.querySelectorAll('.lang-switcher--dropdown');
 
                 switcherDropdowns.forEach((switcherDropdown) => {
@@ -249,6 +249,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 /* ===[Start New Dashboard]=== */
 window.addEventListener('DOMContentLoaded', function(){
+    // Sidebar Toggler Handler
     let dashboardSidebarToggler = document.querySelector('.sidebar-header .collapse-toggler');
 
     if (dashboardSidebarToggler !== null) {
@@ -257,6 +258,41 @@ window.addEventListener('DOMContentLoaded', function(){
             dashboardBox.classList.toggle('dashboard-sidebar-collapsed');
         });
     }
+
+    /* Start Dashboard Remove Active Class Handler & Remove all tab contents */
+    let dashboardTabs = document.querySelectorAll('.dashboard-sidebar-item:not(a)');
+    let dashboardTabsContents = document.querySelectorAll('.dashboard-tab-content');
+
+    function clearActiveClass() {
+        dashboardTabs.forEach((dashboardTab) => {
+            dashboardTab.classList.remove('active');
+        });
+
+        dashboardTabsContents.forEach((dashboardTabContent) => {
+            dashboardTabContent.classList.add('d-none');
+            dashboardTabContent.style.opacity = 0;
+        });
+    }
+    /* End Dashboard Remove Active Class Handler & Remove all tab contents */
+
+    /* Start Dashboard Add Active Class Handler & show related content */
+    for (let dashboardTab of dashboardTabs) {
+        dashboardTab.addEventListener('click', function(){
+            clearActiveClass();
+            let _this = this;
+
+            _this.classList.add('active');
+
+            let relatedContent = _this.getAttribute('data-target');
+
+            document.getElementById(relatedContent).classList.remove('d-none');
+
+            setTimeout(() => {
+                document.getElementById(relatedContent).style.opacity = 1;
+            }, 300)
+        });
+    }
+    /* End Dashboard Add Active Class Handler & show related content */
 });
 
 jQuery(document).ready(function($){
@@ -285,16 +321,24 @@ jQuery(document).ready(function($){
         };
     }
 
-    let donationHistory = $('#donation-history-table');
+    /* Start Dashboard & Donation History Datatables */
+    let donationHistory = $('#donation-history-table, #donation-history-table-in-history-tab');
 
     if (donationHistory.length > 0) {
+        let pageLength = 4;
+
+        if ($('.dashboard-sidebar-item[data-target=donation-history]').hasClass('active')) {
+            pageLength = 10;
+        }
+        
         let donationHistoryTable = donationHistory.DataTable({
             "dom": 'rtip',
             "paging": true,
-            "pageLength": 4,
+            "pageLength": pageLength,
             "searching": true,
             "scrollX": true,
             "pagingType": "simple",
+            "order": [[3, 'desc']],
 
             responsive: isResponsive,
 
@@ -304,17 +348,164 @@ jQuery(document).ready(function($){
                     "next": "<div><i class='fa-solid fa-arrow-right'></i></div>",
                     "previous": "<div><i class='fa-solid fa-arrow-left'></i></div>"
                 }
-            }
+            },
+
+            "rowCallback": function( row, data ) {
+                $('td:eq(4)', row).css({
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    grdiGap: "0.5rem"
+                });
+
+                $('td:eq(4) .status', row).css({
+                    width: "10px",
+                    height: "10px",
+                    borderRadius: "50%",
+                });
+
+                switch ($('td:eq(4) span', row).text()) {
+                    case "Complete":
+                        $('td:eq(4) .status', row).css({
+                            background: "#38C2CF"
+                        });
+
+                        break;
+
+                    case "Pending":
+                        $('td:eq(4) .status', row).css({
+                            background: "#E8B21F"
+                        });
+
+                        break;
+                        
+                    case "Abandoned":
+                        $('td:eq(4) .status', row).css({
+                            background: "#f42020"
+                        });
+
+                        break;
+                
+                    default:
+                        $('td:eq(4) .status', row).css({
+                            background: "transparent"
+                        });
+                        break;
+                }
+              }
         });
 
-        //  setTimeout(() => {
-        //      vacanciesDatatable.columns.adjust();
-        //  }, 500);
+        $('.sidebar-header').on('click', function(){
+            setTimeout(() => {
+                donationHistoryTable.draw();
+            }, 300)
+        });
 
-        // Custom Search
-        //  $('.custom-datatable-search').keyup(function () {
-        //      vacanciesDatatable.search($(this).val()).draw();
-        //  });
+        $('.dashboard-sidebar-item').on('click', function() {
+            setTimeout(() => {
+                donationHistoryTable.columns.adjust();
+                donationHistoryTable.draw();
+            }, 300);
+        });
     }
+    /* End Dashboard & Donation History Datatables */
+
+    /* Start Recurring Datatable */
+    let recurring = $('#recurring-donations-table');
+
+    if (recurring.length > 0) {
+        
+        let recurringTable = recurring.DataTable({
+            "dom": 'rtip',
+            "paging": true,
+            "pageLength": 10,
+            "searching": true,
+            "scrollX": true,
+            "pagingType": "simple",
+            "order": [[2, 'desc']],
+
+            responsive: isResponsive,
+
+            "language": {
+                 ...arLang,
+                paginate: {
+                    "next": "<div><i class='fa-solid fa-arrow-right'></i></div>",
+                    "previous": "<div><i class='fa-solid fa-arrow-left'></i></div>"
+                }
+            },
+
+            "rowCallback": function( row, data ) {
+                $('td:eq(4)', row).css({
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    grdiGap: "0.5rem"
+                });
+
+                $('td:eq(4) .status', row).css({
+                    width: "10px",
+                    height: "10px",
+                    borderRadius: "50%",
+                });
+
+                switch ($('td:eq(4) span', row).text()) {
+                    case "Active":
+                        $('td:eq(4) .status', row).css({
+                            background: "#38C2CF"
+                        });
+
+                        break;
+
+                    case "Pending":
+                        $('td:eq(4) .status', row).css({
+                            background: "#E8B21F"
+                        });
+
+                        break;
+                        
+                    case "Abandoned":
+                        $('td:eq(4) .status', row).css({
+                            background: "#f42020"
+                        });
+
+                        break;
+
+                    case "Failed":
+                        $('td:eq(4) .status', row).css({
+                            background: "#f42020"
+                        });
+
+                        break;
+
+                    case "Cancelled":
+                        $('td:eq(4) .status', row).css({
+                            background: "#b9b9b9"
+                        });
+
+                        break;
+                
+                    default:
+                        $('td:eq(4) .status', row).css({
+                            background: "transparent"
+                        });
+                        break;
+                }
+              }
+        });
+
+        $('.sidebar-header').on('click', function(){
+            setTimeout(() => {
+                recurringTable.draw();
+            }, 300)
+        });
+
+        $('.dashboard-sidebar-item').on('click', function() {
+            setTimeout(() => {
+                recurringTable.columns.adjust();
+                recurringTable.draw();
+            }, 300);
+        });
+    }
+    /* End Recurring Datatable */
 });
 /* ===[End New Dashboard]=== */
