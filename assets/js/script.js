@@ -247,6 +247,40 @@ window.addEventListener('DOMContentLoaded', function () {
     /* ===[End Handle upload file]=== */
 });
 
+/* ===[Start Toggle Zoho Desk]=== */
+let zohoDeskBtn = document.querySelector('.zoho-desk-support-btn');
+
+if (zohoDeskBtn !== null) {
+    zohoDeskBtn.addEventListener('click', function(){
+        zohoDeskParentContainer = this.parentElement;
+        zohoForm = this.nextElementSibling;
+        
+        if (zohoForm.classList.contains('zds-expanded')) {
+            
+            setTimeout(() => {
+                zohoForm.classList.add('d-none');
+                zohoDeskParentContainer.classList.remove('active');
+            }, 300);
+
+            zohoForm.classList.remove('zds-expanded');
+            zohoDeskParentContainer.querySelector('svg:first-of-type').classList.remove('d-none');
+            zohoDeskParentContainer.querySelector('svg:last-of-type').classList.add('d-none');
+        } 
+        
+        else {
+            setTimeout(() => {
+                zohoForm.classList.add('zds-expanded');                
+            }, 100);
+
+            zohoDeskParentContainer.querySelector('svg:first-of-type').classList.add('d-none');
+            zohoDeskParentContainer.querySelector('svg:last-of-type').classList.remove('d-none');
+            zohoDeskParentContainer.classList.add('active');
+            zohoForm.classList.remove('d-none');
+        }
+    });
+}
+/* ===[End Toggle Zoho Desk]=== */
+
 /* ===[Start New Dashboard]=== */
 window.addEventListener('DOMContentLoaded', function(){
     // Sidebar Toggler Handler

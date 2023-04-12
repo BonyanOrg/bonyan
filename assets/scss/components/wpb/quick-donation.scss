@@ -188,7 +188,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 9;
+    z-index: 11;
     padding: 20px 0;
     background: rgba($primary-color, 0.85);
     backdrop-filter: blur(5px);
@@ -209,10 +209,6 @@
           }
         }
       }
-    }
-
-    @media (max-height: 600px) {
-      transform: translateY(calc(100% - 46px));
     }
 
     .quick-donation--title {
