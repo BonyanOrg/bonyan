@@ -62,6 +62,11 @@ require __DIR__ . '/custom-pagination.php';
 //================================
 require __DIR__ . '/format-money.php';
 
+//================================
+//    Google Recaptcha Give Wp
+//================================
+require __DIR__ . '/add-recaptcha.php';
+
 
 // Global 
 

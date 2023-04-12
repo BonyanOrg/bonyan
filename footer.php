@@ -85,41 +85,6 @@
 			<div class="newsletter">
 				<h2><?php _e('Join our newsletter', 'bonyan') ?></h2>
 				<?php echo do_shortcode(get_option('mautic_form'), true); ?>
-
-
-				<!-- <form autocomplete="false" role="form" method="post" action="https://mautic.bonyan.ngo/form/submit?formId=1" id="mauticform_testzoho" data-mautic-form="testzoho" enctype="multipart/form-data" target="mauticiframe_testzoho">
-					<div class="mauticform-error" id="mauticform_newslettersubscription_error"></div>
-					<div class="mauticform-message" id="mauticform_newslettersubscription_message"></div>
-
-					<div class="input-holder">
-						<input type="text" id="mauticform_input_testzoho_first_name" name="mauticform[first_name]" value="" placeholder="<?php //_e('First Name', 'bonyan') 
-																																			?>" class="mb-3">
-						<span class="mauticform-errormsg" style="display: none;">Required</span>
-					</div>
-
-					<div class="input-holder">
-						<input id="mauticform_input_testzoho_last_name" name="mauticform[last_name]" value="" placeholder="<?php //_e('Last Name', 'bonyan') 
-																															?>" class="mb-3">
-						<span class="mauticform-errormsg" style="display: none;">Required</span>
-					</div>
-
-					<div class="input-holder">
-						<input type="email" id="mauticform_input_testzoho_email" name="mauticform[email]" value="" placeholder="<?php //_e('Your Email', 'bonyan') 
-																																?>" class="mb-4">
-						<span class="mauticform-errormsg" style="display: none;">Required</span>
-					</div>
-
-					<button type="submit" name="mauticform[submit]" id="mauticform_input_testzoho_submit" value=""><?php //_e('Subscribe', 'bonyan') 
-																													?></button>
-
-					<input type="hidden" name="mauticform[formId]" id="mauticform_testzoho_id" value="1">
-					 <input type="hidden" name="mauticform[return]" id="mauticform_testzoho_return" value="">
-					  <input type="hidden" name="mauticform[formName]" id="mauticform_testzoho_name" value="testzoho">
-					   <input type="hidden" name="mauticform[messenger]" id="mauticform_testzoho_messenger" value="1">
-				</form> -->
-
-
-
 			</div>
 
 
@@ -226,7 +191,7 @@ if (isset($_COOKIE["DonCampaign"]) && isset($_GET["giveDonationAction"]) && is_s
 	</div>
 
 	<div class="zoho-desk-support-form d-none">
-		<?php echo do_shortcode(get_option('zoho_desk'),true) ?>
+		<?php echo do_shortcode(get_option('zoho_desk'), true) ?>
 	</div>
 </div>
 <!-- End Zoho Desk -->
