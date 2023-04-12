@@ -49,3 +49,21 @@ $wp_customize->add_control(
     )
 );
 
+//==============
+// Zoho Desk 
+$wp_customize->add_setting('zoho_desk', array(
+    'default' => '',
+    'section' => 'integration_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'zoho_desk_shortcode',
+    array(
+        'label'    => 'Zoho Desk Short Code',
+        'section' => 'integration_section',
+        'settings' => 'zoho_desk',
+        'type'     => 'text',
+    )
+);
+

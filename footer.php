@@ -226,7 +226,7 @@ if (isset($_COOKIE["DonCampaign"]) && isset($_GET["giveDonationAction"]) && is_s
 	</div>
 
 	<div class="zoho-desk-support-form d-none">
-		<?php echo do_shortcode('[contact-form-7 id="22191" title="Zoho Desk"]') ?>
+		<?php echo do_shortcode(get_option('zoho_desk'),true) ?>
 	</div>
 </div>
 <!-- End Zoho Desk -->
