@@ -76,6 +76,10 @@
                     <div class="dashboard-donor-info-box with-padding pt-3">
                         <div class="donor-avatar">
                             <img src="<?php echo get_template_directory_uri() . '/dist/imgs/dashboard-donor-avatar.png' ?>" alt="Donor Avatar">
+
+                            <div class="donor-info-item donor-info--name">
+                                <span>Name Surname</span>
+                            </div>
                         </div>
 
                         <div class="donor-info">
@@ -181,7 +185,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</></button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -192,7 +196,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Pending</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -203,7 +207,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Abandoned</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -214,7 +218,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -299,7 +303,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -310,7 +314,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Pending</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -321,7 +325,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Abandoned</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -332,7 +336,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -343,7 +347,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -354,7 +358,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -365,7 +369,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -376,7 +380,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -387,7 +391,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
 
                                             <tr>
@@ -398,7 +402,7 @@
                                                 <td>
                                                     <div class="status"></div><span>Complete</span>
                                                 </td>
-                                                <td><button>View Receipt</button></td>
+                                                <td><button class="view-receipt-btn">View Receipt</button></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -569,7 +573,7 @@
                                         <span>This image here to set avatar of <span>Find Image</span></span>
                                     </div>
 
-                                    <input type="file" name="dashboard-upload-avatar" id="dashboard-upload-avatar" class="upload-file-input">
+                                    <input type="file" name="dashboard-upload-avatar" id="dashboard-upload-avatar" class="dashboard-upload-file-input">
                                 </label>
                             </div>
 

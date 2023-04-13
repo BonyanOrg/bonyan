@@ -286,10 +286,20 @@ window.addEventListener('DOMContentLoaded', function(){
     // Sidebar Toggler Handler
     let dashboardSidebarToggler = document.querySelector('.sidebar-header .collapse-toggler');
 
-    if (dashboardSidebarToggler !== null) {
+    if (dashboardSidebarToggler !== null && window.innerWidth > 992) {
         dashboardSidebarToggler.addEventListener('click', function(){
             let dashboardBox = this.closest('.dashboard-box');
             dashboardBox.classList.toggle('dashboard-sidebar-collapsed');
+        });
+    }
+
+    if (window.innerWidth <= 992) {
+        dashboardSidebarToggler.addEventListener('click', function(){
+            let sidebarItems = document.querySelectorAll('.dashboard-sidebar-item');
+
+            sidebarItems.forEach((sidebarItem) => {
+                sidebarItem.classList.toggle('d-none');                
+            })
         });
     }
 
@@ -312,8 +322,13 @@ window.addEventListener('DOMContentLoaded', function(){
     /* Start Dashboard Add Active Class Handler & show related content */
     for (let dashboardTab of dashboardTabs) {
         dashboardTab.addEventListener('click', function(){
-            clearActiveClass();
             let _this = this;
+            
+            if (_this.classList.contains('active')) {
+                return;
+            }
+
+            clearActiveClass();
 
             _this.classList.add('active');
 
@@ -336,7 +351,7 @@ jQuery(document).ready(function($){
     let windowWidth = $(window).innerWidth();
     let isResponsive = false;
 
-    if (windowWidth <= 992) {
+    if (windowWidth <= 768) {
         isResponsive = true;
     }
 
@@ -376,6 +391,11 @@ jQuery(document).ready(function($){
 
             responsive: isResponsive,
 
+            columnDefs: [
+                { responsivePriority: 1, targets: 2 },
+                // { responsivePriority: 2, targets: -2 }
+            ],
+
             "language": {
                  ...arLang,
                 paginate: {
@@ -385,48 +405,50 @@ jQuery(document).ready(function($){
             },
 
             "rowCallback": function( row, data ) {
-                $('td:eq(4)', row).css({
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    grdiGap: "0.5rem"
-                });
-
-                $('td:eq(4) .status', row).css({
-                    width: "10px",
-                    height: "10px",
-                    borderRadius: "50%",
-                });
-
-                switch ($('td:eq(4) span', row).text()) {
-                    case "Complete":
-                        $('td:eq(4) .status', row).css({
-                            background: "#38C2CF"
-                        });
-
-                        break;
-
-                    case "Pending":
-                        $('td:eq(4) .status', row).css({
-                            background: "#E8B21F"
-                        });
-
-                        break;
-                        
-                    case "Abandoned":
-                        $('td:eq(4) .status', row).css({
-                            background: "#f42020"
-                        });
-
-                        break;
-                
-                    default:
-                        $('td:eq(4) .status', row).css({
-                            background: "transparent"
-                        });
-                        break;
+                if (!isResponsive) {
+                    $('td:eq(4)', row).css({
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        grdiGap: "0.5rem"
+                    });
+    
+                    $('td:eq(4) .status', row).css({
+                        width: "10px",
+                        height: "10px",
+                        borderRadius: "50%",
+                    });
+    
+                    switch ($('td:eq(4) span', row).text()) {
+                        case "Complete":
+                            $('td:eq(4) .status', row).css({
+                                background: "#38C2CF"
+                            });
+    
+                            break;
+    
+                        case "Pending":
+                            $('td:eq(4) .status', row).css({
+                                background: "#E8B21F"
+                            });
+    
+                            break;
+                            
+                        case "Abandoned":
+                            $('td:eq(4) .status', row).css({
+                                background: "#f42020"
+                            });
+    
+                            break;
+                    
+                        default:
+                            $('td:eq(4) .status', row).css({
+                                background: "transparent"
+                            });
+                            break;
+                    }
                 }
-              }
+            }
         });
 
         $('.sidebar-header').on('click', function(){
@@ -468,63 +490,70 @@ jQuery(document).ready(function($){
                 }
             },
 
+            columnDefs: [
+                { responsivePriority: 1, targets: 2 },
+                // { responsivePriority: 2, targets: -2 }
+            ],
+
             "rowCallback": function( row, data ) {
-                $('td:eq(4)', row).css({
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.5rem",
-                    grdiGap: "0.5rem"
-                });
-
-                $('td:eq(4) .status', row).css({
-                    width: "10px",
-                    height: "10px",
-                    borderRadius: "50%",
-                });
-
-                switch ($('td:eq(4) span', row).text()) {
-                    case "Active":
-                        $('td:eq(4) .status', row).css({
-                            background: "#38C2CF"
-                        });
-
-                        break;
-
-                    case "Pending":
-                        $('td:eq(4) .status', row).css({
-                            background: "#E8B21F"
-                        });
-
-                        break;
-                        
-                    case "Abandoned":
-                        $('td:eq(4) .status', row).css({
-                            background: "#f42020"
-                        });
-
-                        break;
-
-                    case "Failed":
-                        $('td:eq(4) .status', row).css({
-                            background: "#f42020"
-                        });
-
-                        break;
-
-                    case "Cancelled":
-                        $('td:eq(4) .status', row).css({
-                            background: "#b9b9b9"
-                        });
-
-                        break;
-                
-                    default:
-                        $('td:eq(4) .status', row).css({
-                            background: "transparent"
-                        });
-                        break;
-                }
-              }
+                if (!isResponsive) {
+                    $('td:eq(4)', row).css({
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        grdiGap: "0.5rem"
+                    });
+    
+                    $('td:eq(4) .status', row).css({
+                        width: "10px",
+                        height: "10px",
+                        borderRadius: "50%",
+                    });
+    
+                    switch ($('td:eq(4) span', row).text()) {
+                        case "Active":
+                            $('td:eq(4) .status', row).css({
+                                background: "#38C2CF"
+                            });
+    
+                            break;
+    
+                        case "Pending":
+                            $('td:eq(4) .status', row).css({
+                                background: "#E8B21F"
+                            });
+    
+                            break;
+                            
+                        case "Abandoned":
+                            $('td:eq(4) .status', row).css({
+                                background: "#f42020"
+                            });
+    
+                            break;
+    
+                        case "Failed":
+                            $('td:eq(4) .status', row).css({
+                                background: "#f42020"
+                            });
+    
+                            break;
+    
+                        case "Cancelled":
+                            $('td:eq(4) .status', row).css({
+                                background: "#b9b9b9"
+                            });
+    
+                            break;
+                    
+                        default:
+                            $('td:eq(4) .status', row).css({
+                                background: "transparent"
+                            });
+                            break;
+                    }
+                }  
+            }
         });
 
         $('.sidebar-header').on('click', function(){
@@ -541,5 +570,19 @@ jQuery(document).ready(function($){
         });
     }
     /* End Recurring Datatable */
+
+    /* Start Handle Avatar Image Upload */
+    let uploadAvatarInput = document.querySelector('.dashboard-upload-file-input');
+    let previewAvatar = document.querySelector('.edit-avatar .donor-avatar img');
+    let previewAvatarName = document.querySelector('.dashboard-upload-information span > span');
+
+    if (uploadAvatarInput !== null) {
+        uploadAvatarInput.addEventListener('change', function(){
+            console.log(this.files[0]);
+            previewAvatar.src = URL.createObjectURL(this.files[0]);
+            previewAvatarName.textContent = this.files[0].name;
+        });
+    }
+    /* End Handle Avatar Image Upload */
 });
 /* ===[End New Dashboard]=== */

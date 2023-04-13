@@ -3389,3 +3389,558 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
   }
 }
 /* ===[End Zoho Desk]=== */
+
+/* ===[Start New Dashboar]=== */
+.custom-givewp-dashboard {
+  margin-top: 175px;
+  margin-bottom: 45px;
+
+  @media (max-width: 1024px) {
+    margin-top: 120px;
+  }
+
+  // The container that contains both sidebar with tabs and the tab content
+  .dashboard-box {
+    border-radius: 20px;
+    background: #EFEFEF;
+    display: grid;
+    grid-template-columns: 22.5% 77.5%;
+    box-shadow: -5px 8px 20px rgba($dark-color, .05);
+    transition: $general-transition;
+
+    @media (max-width: 992px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .donor-avatar {
+      width: 84px;
+      height: 84px;
+      min-width: 84px;
+      min-height: 84px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .dashboard-donor-info-box {
+      display: flex;
+      gap: 1.5rem;
+      grid-gap: 1.5rem;
+      align-items: center;
+
+      @media (max-width: 992px) {
+        flex-direction: column;
+        gap: 1rem;
+        grid-gap: 1rem;
+      }
+
+      .donor-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        grid-gap: 0.5rem;
+
+        .donor-info-item {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+        }
+
+        .donor-info--name {
+          color: $text-color;
+          font-size: 24px;
+          font-weight: bold;
+
+          @media (max-width: 992px) {
+            text-align: center;
+            justify-content: center;
+          }
+        }
+
+        .donor-info--others {
+          margin-top: auto;
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+          grid-gap: 1.25rem;
+
+          @media (max-width: 992px) {
+            flex-direction: column;
+            gap: 0.5rem;
+            grid-gap: 0.5rem;
+          }
+        }
+      } 
+    }
+
+    // Sidebar with tabs and logout
+    .dashboard-sidebar {
+      position: relative;
+      padding-top: 5rem;
+      padding-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      grid-gap: 0.5rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 600px;
+
+      @media (max-width: 992px) {
+        padding-top: 3rem;
+        padding-bottom: 0.5rem;
+      }
+
+      .sidebar-header {
+        position: absolute;
+        top: 2rem;
+        right: 1.2rem;
+        transition: $general-transition;
+        user-select: none;
+
+        @media (max-width: 992px) {
+          top: 1rem;
+        }
+
+        .collapse-toggler {
+          cursor: pointer;
+
+          svg {
+            width: 25px;
+            pointer-events: none;
+
+            path {
+              fill: $third-color;
+            }
+          }
+        }
+      }
+
+      .dashboard-sidebar-item {
+        padding: 0.5rem 1rem 0.5rem 1.2rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          opacity: 0;
+          position: absolute;
+          right: -1px;
+          top: 0;
+          height: 100%;
+          border-radius: 20px;
+          background: $primary-color;
+          width: 7px;
+          transition: $general-transition;
+        }
+
+        svg {
+          pointer-events: none;
+
+          path {
+            transition: $general-transition;
+          }
+        }
+
+        span {
+          pointer-events: none;
+          transition: $general-transition;
+        }
+
+        &.active, &:hover {
+          &::before {
+            opacity: 1;
+          }
+
+          svg {
+            path {
+              fill: $primary-color;
+            }
+          }
+
+          span {
+            color: $primary-color;
+            text-shadow: 0 0 0px $primary-color, 0 0 0px $primary-color, 0 0 0px $primary-color, 0 0 0px $primary-color;
+          }
+        }
+
+        &.logout {
+          margin-top: auto;
+
+          svg {
+            transform: rotate(180deg);
+          }
+
+          &:hover {
+            span {
+              color: #b42d2d;
+              text-shadow: 0 0 0px #b42d2d, 0 0 0px #b42d2d, 0 0 0px #b42d2d, 0 0 0px #b42d2d;
+            }
+
+            &::before {
+              background: #b42d2d;
+            }
+
+            svg {              
+              path {
+                fill: #b42d2d
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Tab's content
+    .dashboard-view {
+      border-radius: 20px;
+      background: $light-color;
+      max-height: 600px;
+      overflow-y: auto;
+      box-shadow: -6px 0 8px #e1e1e1;
+
+      &::-webkit-scrollbar-track-piece:end {
+        background: transparent;
+        margin-bottom: 20px; 
+      }
+    
+      &::-webkit-scrollbar-track-piece:start {
+          background: transparent;
+          margin-top: 20px;
+      }
+
+      @media (max-width: 992px) {
+        max-height: unset;
+      }
+
+      .dashboard-tab-content {
+        transition: $general-transition;
+
+        &:not(:first-of-type) {
+          opacity: 0;
+        }
+
+        .with-padding {
+          padding: 0 2rem;
+
+          @media (max-width: 1024px) {
+            padding: 0 1rem;
+          }
+
+          @media (max-width: 768px) {
+            padding: 0 0.75rem;
+          }
+        }
+
+        .dashboard-tab-contents-holder {
+          background: rgba(#D1D3D4, 0.2);
+        }
+
+        .dashboard-content-section-heading {
+          background: rgba($primary-color, 0.1);
+          border-radius: 0 0 15px 15px;
+
+          .dashboard-content-section-heading-title {
+            display: flex;
+            gap: 0.75rem;
+            grid-gap: 0.75rem;
+            align-items: center;
+
+            svg {
+              width: 20px;
+              
+              path {
+                fill: $primary-color;
+
+                &.no-fill {
+                  fill: none;
+                }
+              }
+            }
+
+            span {
+              color: $text-color;
+            }
+          }
+        }
+
+        .dashboard-content-section-body {
+          padding: 1rem 0;
+        }
+
+        /* Start Donor Stats */
+        .donor-giving-stats {
+          .donor-giving-stats-values {
+            display: flex;
+            gap: 1rem 2.5rem;
+            grid-gap: 1rem 2.5rem;
+
+            @media (max-width: 768px) {
+              gap: 1rem;
+              grid-gap: 1rem;
+              justify-content: space-between;
+              flex-wrap: wrap;
+            }
+
+            .donor-stats-item {
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              grid-gap: 0.5rem;
+
+              span {
+                font-weight: bold;
+                text-transform: uppercase;
+
+                &:first-of-type {
+                  font-size: 24px;
+                  color: $primary-color;
+                }
+
+                &:last-of-type {
+                  font-size: 20px;
+                  color: $text-color;
+                }
+
+                @media (max-width: 992px) {
+                  &:first-of-type {
+                    font-size: 20px;
+                  }
+  
+                  &:last-of-type {
+                    font-size: 16px;
+
+                    br {
+                      display: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        /* End Donor Stats */
+
+        /* Start Donations History */
+        .donation-history-table {
+          @media (min-width: 1025px) {
+            width: 100% !important;
+          }
+        }
+        /* End Donations History */
+      }
+    }
+
+    // Collapsed Dashboard Box
+    &.dashboard-sidebar-collapsed {
+      grid-template-columns: 68px calc(100% - 68px);
+
+      .dashboard-sidebar-item {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+        justify-content: center;
+
+        span {
+          display: none;
+          opacity: 0;
+        }
+      }
+
+      .sidebar-header {
+        right: 1.2rem;
+      }
+    }
+  }
+
+  .dashboard-custom-upload-file {
+    width: 100%;
+    position: relative;
+    display: flex;
+    gap: 1rem 3rem;
+    grid-gap: 1rem 3rem;
+    cursor: pointer;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .dashboard-upload-information {
+      flex-grow: 1;
+      flex-shrink: 0;
+      background: $third-color;
+      border-radius: 20px;
+      border: 1px solid $light-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      padding: 1rem;
+      overflow-wrap: anywhere;
+
+      span {
+        color: $light-color;
+
+        & span {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    input[type=file] {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
+  .edit-donor-info-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    grid-gap: 1rem 1.5rem;
+    margin-top: 2rem;
+
+    input:not([type=file]), select {
+      border: 1px solid #6d54a7;
+      border-radius: 20px;
+      padding: 1rem;
+      outline: none;
+      color: #6d54a7;
+      background: #fbfaff;
+    }
+
+    .select-holder,
+    .input-holder {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      &.full-width {
+        flex-basis: 100%;
+      }
+
+      label {
+        color: $text-color;
+        font-weight: bold;
+      }
+    }
+
+    .input-holder {
+      flex: 1 0 120px;
+    }
+
+    .select-holder{
+      select {
+        appearance: none;
+      }
+    }
+
+    .primary-btn {
+      padding: 0.75rem 1.5rem;
+      min-width: 170px;
+      border: none;
+      transition: $general-transition;
+
+      &:hover {
+        background: $third-color;
+      }
+
+      @media (max-width: 992px) {
+        width: 100%;
+      }
+    }
+  }
+
+  // Wishlist
+  #wishlist {
+    .campaign {
+      @media (max-width: 992px) {
+        max-height: 500px;
+        overflow-y: auto;
+      }
+    }
+
+    .cards-container {
+      gap: 1rem;
+      grid-gap: 1rem;
+
+      @media (max-width: 1199px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  }
+
+  // Any Datatable inside Dashboard
+  // .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody>table>tbody>tr>td {
+  //   vertical-align: top !important;
+  // }
+
+  // Right to left for table heading
+  table.dataTable thead th {
+    text-align: right;
+  }
+
+  // Rotation For Datatable Arrows
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    transform: rotate(180deg);
+  }
+
+  // General for view reciept button in the dashboard
+  .view-receipt-btn {
+    color: $primary-color;
+    background: none;
+    border: none;
+    text-align: unset;
+    transition: .2s color;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+
+  // Recurring Datatable inside Dashbaord
+  .recurring-donations-table {
+    button {
+      background: transparent;
+      padding: 0.5rem;
+      border-radius: 10px;
+      background: #e53a3a;
+      color: $light-color;
+      border: none;
+      transition: 0.2s all;
+
+      &:hover {
+        background: #af2525;
+      }
+    }
+  }
+
+  .dtr-control {
+    &::before {
+      background-color: $primary-color !important;
+    }
+  }
+
+  .dt-hasChild {
+    .dtr-control {
+      &::before {
+        background: $secondary-color !important;
+      }
+    }
+  }
+}
+/* ===[End New Dashboar]=== */
