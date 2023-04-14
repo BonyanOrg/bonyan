@@ -17,7 +17,7 @@
                     </div>
                 </div>
 
-                <div class="dashboard-sidebar-item active" data-target="donor-dashboard">
+                <div class="dashboard-sidebar-item active" title="Dashboard" data-target="donor-dashboard">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18.733" viewBox="0 0 18 18.733">
                         <path id="Path_10524" data-name="Path 10524" d="M21,20a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V9.49a1,1,0,0,1,.386-.79l8-6.222a1,1,0,0,1,1.228,0l8,6.222A1,1,0,0,1,21,9.49V20Z" transform="translate(-3 -2.267)" fill="#5b5b5b" />
                     </svg>
@@ -25,7 +25,7 @@
                     <span>Donor Dashboard</span>
                 </div>
 
-                <div class="dashboard-sidebar-item" data-target="donation-history">
+                <div class="dashboard-sidebar-item" title="Donation History" data-target="donation-history">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                         <path id="Path_10527" data-name="Path 10527" d="M12,2A10,10,0,1,1,2,12H4A8,8,0,1,0,5.385,7.5H8v2H2v-6H4V6A9.981,9.981,0,0,1,12,2Zm1,5v4.585l3.243,3.243-1.415,1.415L11,12.413V7Z" transform="translate(-2 -2)" fill="#5b5b5b" />
                     </svg>
@@ -33,7 +33,7 @@
                     <span>Donation History</span>
                 </div>
 
-                <div class="dashboard-sidebar-item" data-target="recurring-donations">
+                <div class="dashboard-sidebar-item" title="Recurring Donations" data-target="recurring-donations">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                         <path id="Path_10558" data-name="Path 10558" d="M18.537,19.567A9.982,9.982,0,1,1,20.19,17.74L17,12h3a8,8,0,1,0-2.46,5.772Z" transform="translate(-2 -2)" fill="#5b5b5b" />
                     </svg>
@@ -41,7 +41,7 @@
                     <span>Recurring Donations</span>
                 </div>
 
-                <div class="dashboard-sidebar-item" data-target="edit-profile">
+                <div class="dashboard-sidebar-item" title="Edit Profile" data-target="edit-profile">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="22" viewBox="0 0 19 22">
                         <path id="Path_10530" data-name="Path 10530" d="M12,1l9.5,5.5v11L12,23,2.5,17.5V6.5Zm0,14a3,3,0,1,0-3-3A3,3,0,0,0,12,15Z" transform="translate(-2.5 -1)" fill="#5b5b5b" />
@@ -50,7 +50,7 @@
                     <span>Edit Profile</span>
                 </div>
 
-                <div class="dashboard-sidebar-item" data-target="wishlist">
+                <div class="dashboard-sidebar-item" title="Favorite Campaign" data-target="wishlist">
                     <svg xmlns="http://www.w3.org/2000/svg" width="21.579" height="18.881" viewBox="0 0 21.579 18.881">
                         <path id="Icon_awesome-heart" data-name="Icon awesome-heart" d="M19.483,3.539a5.763,5.763,0,0,0-7.864.573l-.83.856-.83-.856a5.763,5.763,0,0,0-7.864-.573A6.052,6.052,0,0,0,1.677,12.3l8.155,8.421a1.321,1.321,0,0,0,1.909,0L19.9,12.3a6.048,6.048,0,0,0-.413-8.762Z" transform="translate(0.001 -2.248)" fill="#5b5b5b" />
                     </svg>
