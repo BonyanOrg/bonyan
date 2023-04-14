@@ -3240,7 +3240,7 @@ header {
       height: 100%;
 
       path {
-        fill: $primary-color;
+        fill: $secondary-color;
       }
 
       &:last-of-type {
@@ -3790,6 +3790,38 @@ header {
 
       @media (max-width: 768px) {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      .campaign-card {
+        .campaign-card-head {
+          .campaign-img {
+            img {
+              height: 150px;
+            }
+          }
+
+          .campaign-title {
+            h3 {
+              font-size: 18px;
+            }
+          }
+        }
+
+        .campaign-card-body {
+          .campaign-progress-bar-holder {
+            .campaign-values-details {
+              p {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+
+        .campaign-card-cta {
+          button,a {
+            padding: 0.25rem;
+          }
+        }
       }
     }
   }
