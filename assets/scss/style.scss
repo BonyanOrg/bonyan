@@ -3874,5 +3874,18 @@ header {
       }
     }
   }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: $secondary-color !important;
+    border: none !important;
+
+    &:hover,
+    &:active {
+      background: none;
+      color: $primary-color !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
 }
 /* ===[End New Dashboar]=== */
