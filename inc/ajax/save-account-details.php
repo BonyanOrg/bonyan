@@ -27,6 +27,8 @@ function save_user_account_details()
 
     $user_FirstName = isset($_POST['user_FirstName']) ? sanitize_text_field($_POST['user_FirstName']) : '';
     $user_LastName = isset($_POST['user_LastName']) ? sanitize_text_field($_POST['user_LastName']) : '';
+    $user_gender = isset($_POST['user_gender']) ? sanitize_text_field($_POST['user_gender']) : '';
+    $user_company = isset($_POST['user_company']) ? sanitize_text_field($_POST['user_company']) : '';
     $user_mobile_number = isset($_POST['user_mobile_number']) ? sanitize_text_field($_POST['user_mobile_number']) : '';
     $user_Email = isset($_POST['user_Email']) ? sanitize_text_field($_POST['user_Email']) : '';
     $user_Website = isset($_POST['user_Website']) ? sanitize_text_field($_POST['user_Website']) : '';
@@ -112,6 +114,8 @@ function save_user_account_details()
     wp_update_user(array('ID' => $user_id, 'user_url' => $user_Website));
     update_user_meta($user_id, 'first_name', $user_FirstName);
     update_user_meta($user_id, 'last_name', $user_LastName);
+    update_user_meta($user_id, 'gender', $user_gender);
+    update_user_meta($user_id, 'company', $user_company);
     // update_user_meta($user_id, 'city', $user_city);
     // update_user_meta($user_id, 'country', $user_country);
     // update_user_meta($user_id, 'address', $user_address);
@@ -126,6 +130,7 @@ function save_user_account_details()
     wp_send_json([
         'user_image' => $user_image_url,
         "user_FirstName" => $user_FirstName,
+        "user_company" => $user_company,
         "user_LastName" => $user_LastName,
         "user_mobile_number" => $user_mobile_number,
         "user_Email" => $user_Email,

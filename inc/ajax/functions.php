@@ -56,6 +56,12 @@ require __DIR__ . '/get-campaigns-by-name.php';
 //=====================================
 require __DIR__ . '/cancel-give-sub.php';
 
+//=====================================
+//    Modern Give Donations 
+//=====================================
+require __DIR__ . '/get-user-modern-donations.php';
+require __DIR__ . '/get-user-modern-recurring-donations.php';
+
 
 
 

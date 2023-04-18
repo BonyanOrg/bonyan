@@ -918,5 +918,424 @@
 
 
 
+    //=====[Modern Dashboard Satart]=====//
+    let modern_DontionHistory_isOpened = false;
+    let modern_DontionReacurring_isOpened = false;
+    let modern_arLang;
+    $("#donations-history-tab-btn").on("click", function () {
+
+        let windowWidth = $(window).innerWidth();
+        let isResponsive = false;
+
+
+        if (windowWidth <= 992) {
+            isResponsive = true;
+        }
+        if (getDir) {
+            modern_arLang = {
+                lengthMenu: "عرض _MENU_ مدخلات في كل صفحة",
+                zeroRecords: "لايوجد شيء - عذراً",
+                info: "اظهار صفحة _PAGE_ من _PAGES_",
+                infoEmpty: "لايوجد شيء",
+                infoFiltered: "(تمت تصفيته من _MAX_ إجمالي السجلات)",
+                search: "بحث عن: ",
+                zeroRecords: "لم يتم العثور على سجلات مطابقة",
+            };
+        }
+
+        if (!modern_DontionHistory_isOpened) {
+
+            $('.loader').css('display', 'flex');
+            $('.loader').css('position', 'fixed');
+            $.ajax({
+                dataType: "json",
+                method: "POST",
+                url: ajax_script_object.ajaxurl,
+                data: {
+                    action: "get_user_modern_donations",
+                },
+                statusCode: {
+                    400: function (data) {
+                        toastr.error(data.responseJSON.error_message);
+
+                        $('.loader').css('position', 'absolute');
+                        $('.loader').css('height', '100%');
+                        $('.loader').css('display', 'none');
+                    },
+                    200: function (data) {
+                        $('.loader').css('display', 'none');
+                        $(".donation-history-datatable").append($(data.HTML_Output));
+                        let DonationHistoryTable = $('#donation-history-table-in-history-tab');
+                        let donationHistoryTable = DonationHistoryTable.DataTable({
+                            "dom": 'rtip',
+                            "paging": true,
+                            "pageLength": 10,//pageLength,
+                            "searching": true,
+                            "scrollX": true,
+                            "pagingType": "simple",
+                            "order": [[3, 'desc']],
+
+                            responsive: isResponsive,
+
+                            columnDefs: [
+                                { responsivePriority: 1, targets: 2 },
+                                // { responsivePriority: 2, targets: -2 }
+                            ],
+
+                            "language": {
+                                ...arLang,
+                                paginate: {
+                                    "next": "<div><i class='fa-solid fa-arrow-right'></i></div>",
+                                    "previous": "<div><i class='fa-solid fa-arrow-left'></i></div>"
+                                }
+                            },
+
+                            "rowCallback": function (row, data) {
+                                if (!isResponsive) {
+                                    $('td:eq(4)', row).css({
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "0.5rem",
+                                        grdiGap: "0.5rem"
+                                    });
+
+                                    $('td:eq(4) .status', row).css({
+                                        width: "10px",
+                                        height: "10px",
+                                        borderRadius: "50%",
+                                    });
+
+                                    switch ($('td:eq(4) span', row).text()) {
+                                        case "Complete":
+                                            $('td:eq(4) .status', row).css({
+                                                background: "#38C2CF"
+                                            });
+
+                                            break;
+
+                                        case "Pending":
+                                            $('td:eq(4) .status', row).css({
+                                                background: "#E8B21F"
+                                            });
+
+                                            break;
+
+                                        case "Abandoned":
+                                            $('td:eq(4) .status', row).css({
+                                                background: "#f42020"
+                                            });
+
+                                            break;
+
+                                        default:
+                                            $('td:eq(4) .status', row).css({
+                                                background: "transparent"
+                                            });
+                                            break;
+                                    }
+                                }
+                            }
+                        });
+                        setTimeout(() => {
+                            donationHistoryTable.columns.adjust();
+                            donationHistoryTable.draw();
+                        }, 300);
+                    }
+                },
+
+            });
+        }
+        modern_DontionHistory_isOpened = true;
+    });
+
+    $("#recurring-donations-tab-btn").on("click", function () {
+
+        if(modern_DontionReacurring_isOpened){return;}
+        modern_DontionReacurring_isOpened=true;
+        $('.loader').css('display', 'flex');
+        $('.loader').css('position', 'fixed');
+
+
+
+        let windowWidth = $(window).innerWidth();
+        let isResponsive = false;
+
+
+        if (windowWidth <= 992) {
+            isResponsive = true;
+        }
+        $.ajax({
+            dataType: "json",
+            method: "POST",
+            url: ajax_script_object.ajaxurl,
+            data: {
+                action: "get_user_modern_recurring_donations",
+            },
+            statusCode: {
+                400: function (data) {
+                    // Return text with no recurring found
+                    $('.loader').css('display', 'none');
+                },
+                200: function (data) {
+                    $('.loader').css('display', 'none');
+
+
+                    $(".recurring-donations-datatable").append($(data.HTML_Output));
+                    let recurringDonationTable = $('#recurring-donations-table');
+                    console.log(recurringDonationTable);
+
+                    if (recurringDonationTable.length > 0) {
+
+                        var modernRecurringDataTable = recurringDonationTable.DataTable({
+                            "dom": 'rtip',
+                            "paging": true,
+                            "pageLength": 10,
+                            "searching": true,
+                            "scrollX": true,
+                            "pagingType": "simple",
+                            "order": [[2, 'desc']],
+
+                            responsive: isResponsive,
+
+                            "language": {
+                                ...arLang,
+                                paginate: {
+                                    "next": "<div><i class='fa-solid fa-arrow-right'></i></div>",
+                                    "previous": "<div><i class='fa-solid fa-arrow-left'></i></div>"
+                                }
+                            },
+
+                            columnDefs: [
+                                { responsivePriority: 1, targets: 2 },
+                                // { responsivePriority: 2, targets: -2 }
+                            ],
+
+                            "rowCallback": function (row, data) {
+                                if (!isResponsive) {
+                                    $('td:eq(4)', row).css({
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "0.5rem",
+                                        grdiGap: "0.5rem"
+                                    });
+
+                                    $('td:eq(4) .status', row).css({
+                                        width: "10px",
+                                        height: "10px",
+                                        borderRadius: "50%",
+                                    });
+                                    
+                                    switch ($('td:eq(4) span', row).text().trim()) {
+                                        case "Active":
+                                            $('td:eq(4) .status', row).css({
+                                                background: "#38C2CF"
+                                            });
+
+                                            break;
+
+                                        case "Pending":
+                                            $('td:eq(4) .status', row).css({
+                                                background: "#E8B21F"
+                                            });
+
+                                            break;
+
+                                        case "Abandoned":
+                                            $('td:eq(4) .status', row).css({
+                                                background: "#f42020"
+                                            });
+
+                                            break;
+
+                                        case "Failed":
+                                            $('td:eq(4) .status', row).css({
+                                                background: "#f42020"
+                                            });
+
+                                            break;
+
+                                        case "Cancelled":
+                                            $('td:eq(4) .status', row).css({
+                                                background: "#b9b9b9"
+                                            });
+
+                                            break;
+
+                                        default:
+                                            $('td:eq(4) .status', row).css({
+                                                background: "transparent"
+                                            });
+                                            break;
+                                    }
+                                }
+                            },
+                            "initComplete": function (settings, json) { // For Desktop
+                                addEventListenerToCancelSubscription(modernRecurringDataTable);
+                            }
+                        });
+
+                        // setTimeout(() => {
+                        //     recurringDataTable.columns.adjust();
+                        //     recurringDataTable.draw();
+                        // }, 300);
+
+                        $('#recurring-donations-table tbody').on('click', 'tr', function () { // For mobile And Responsive
+                            addEventListenerToCancelSubscription(modernRecurringDataTable);
+
+                        });
+                    }
+
+                }
+
+            }
+
+
+        });
+
+
+    });
+
+    //=====[Save User Account Details]=====//
+    const modern_fileInput = document?.getElementById('dashboard-upload-avatar');
+    function returnFileSize(number) {
+        if (number < 1024) {
+            return `${number} bytes`;
+        } else if (number >= 1024 && number < 1048576) {
+            return `${(number / 1024).toFixed(1)} KB`;
+        } else if (number >= 1048576) {
+            return `${(number / 1048576).toFixed(1)} MB`;
+        }
+    }
+    function reset_user_avatar() {
+        document.getElementById('dashboard-upload-avatar').value = "";
+        document.getElementById('user-avatar').src = "https://via.placeholder.com/180x180";
+    }
+
+
+    if (modern_fileInput != null) {
+        modern_fileInput.addEventListener("change", function () {
+            const file = modern_fileInput.files;
+            // alert
+            if (file.length > 1) {
+                alert("Please select just one image");
+                reset_user_avatar();
+            }
+            // alert
+            if (file[0].size > 2000000) {
+                alert("Max size is 2 MB" + ", your image size is " + returnFileSize(file[0].size));
+                reset_user_avatar();
+
+            }
+
+            // On success
+            if (file.length == 1 && file[0].size < 2000000) {
+                //document.getElementById('user-avatar').src = URL.createObjectURL(file[0]);
+            }
+
+        });
+    }
+
+    $("#edit-save-user-information").on("click", function () {
+        $('.loader').css('display', 'flex');
+        $('.loader').css('position', 'fixed');
+
+
+        var formData = new FormData();
+        const modern_fileInput = document.getElementById('dashboard-upload-avatar');
+        const file = modern_fileInput.files;
+        let user_FirstName = document.getElementById('edit_user_info_first_name');
+        let user_LastName = document.getElementById('edit_user_info_last_name');
+        let user_gender = document.getElementById('prefix');
+        let user_company = document.getElementById('edit_user_info_company');
+        let user_Email = document.getElementById('edit_user_info_email');
+
+
+        if (file.length == 1) {
+            if (file.length > 1) {
+                alert("Please select just one image");
+                reset_user_avatar();
+            }
+            if (file[0].size > 2000000) {
+                alert("Max size is 2 MB" + ", your image size is " + returnFileSize(file[0].size));
+                reset_user_avatar();
+            }
+            formData.append("user_image", file[0]);
+        }
+        // Fill Form Data
+        formData.append("user_FirstName", user_FirstName.value);
+        formData.append("user_LastName", user_LastName.value);
+        formData.append("user_gender", user_gender.value);
+        formData.append("user_company", user_company.value);
+        formData.append("user_Email", user_Email.value);
+        // formData.append("user_mobile_number", user_mobile_number.value);
+        // formData.append("user_Website", user_Website.value);
+        // formData.append("user_birth_date", user_birth_date.value);
+        // formData.append("user_age", user_age.value);
+        // formData.append("user_country", user_country.value);
+        // formData.append("user_city", user_city.value);
+        // formData.append("user_address", user_address.value);
+        // formData.append("user_facebook_url", user_facebook.value);
+        // formData.append("user_instagram_url", user_instagram.value);
+        // formData.append("user_twitter_url", user_twitter.value);
+        formData.append("nonce", ajax_script_object.nonce);
+        formData.append("action", 'save_user_account_details');
+
+        $('.loader').css('display', 'flex');
+        $('.loader').css('position', 'fixed');
+
+        $.ajax({
+            dataType: "json",
+            method: "POST",
+            url: ajax_script_object.ajaxurl,
+            processData: false,
+            contentType: false,
+            data: formData,
+            statusCode: {
+                400: function (data) {
+                    toastr.error(data.responseJSON.error_message);
+                    $('.loader').css('display', 'none');
+                },
+
+                200: function (data) {
+                    $('.loader').css('display', 'none');
+                    toastr.success(generalMsgs.saved_successfully);
+                    user_FirstName = data.user_FirstName;
+                    user_LastName = data.user_LastName;
+                    user_company = data.user_company;
+                    user_mobile_number = data.user_mobile_number;
+                    user_Email = data.user_Email;
+                    user_Website = data.user_Website;
+                    user_birth_date = data.user_birth_date;
+                    user_age = data.user_age;
+                    // user_country = data.user_country;
+                    // user_city = data.user_city;
+                    // user_address = data.user_address;
+                    user_facebook_url = data.user_facebook_url;
+                    user_instagram_url = data.user_instagram_url;
+                    user_twitter_url = data.user_twitter_url;
+
+
+                    // document.querySelector('.user-first-name p').textContent = user_FirstName;
+                    // document.querySelector('.user-last-name p').textContent = user_LastName;
+                    // document.querySelector('.user-mobile-number p').textContent = user_mobile_number;
+                    // document.querySelector('.user-email-address p').textContent = user_Email;
+                    // document.querySelector('.user-website p').textContent = user_Website;
+                    // document.querySelector('.user-birth-date p').textContent = user_birth_date;
+                    // document.querySelector('.user-age p').textContent = user_age;
+                    // // document.querySelector('.user-country p').textContent = user_country;
+                    // // document.querySelector('.user-city p').textContent = user_city;
+                    // // document.querySelector('.user-address p').textContent = user_address;
+                    // document.querySelector('.user-social-facebook a').href = user_facebook_url;
+                    // document.querySelector('.user-social-instagram a').href = user_instagram_url;
+                    // document.querySelector('.user-social-twitter a').href = user_twitter_url;
+                },
+            },
+
+        });
+    });
+    //=====[Save User Account Details END]=====//
+
+    //=====[Modern Dashboard End]=====//
+
 
 })(jQuery);
