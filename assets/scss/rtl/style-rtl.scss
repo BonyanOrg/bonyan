@@ -3989,3 +3989,41 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
   }
 }
 /* ===[End New Dashboar]=== */
+
+/* ===[Start Login By Social Media]=== */
+div.nsl-container[data-align="left"] {
+  text-align: right !important;
+}
+
+div.nsl-container .nsl-button-default div.nsl-button-label-container {
+  margin: 0 12px 0 24px;
+}
+
+div.nsl-container .nsl-button-default {
+  border: 1px solid #ddd !important;
+  padding: 0.25rem 0.5rem !important;
+  border: 1px solid #ddd !important;
+  border-radius: 10px !important;
+  align-items: center !important;
+
+  svg {
+    width: 34px !important;
+    height:34px !important; 
+  }
+}
+
+.nsl-button-facebook {
+  background-color: transparent !important;
+  color: $text-color !important;
+
+  svg {
+    path {
+      fill: #1198F5 !important;
+    }
+  }
+}
+
+div.nsl-container .nsl-button-google {
+  box-shadow: none !important;
+}
+/* ===[End Login By Social Media]=== */
