@@ -60,6 +60,7 @@
                     <div class="not-have-account">
                         <div class="user-action-btn" data-target="signup-modal"><?php _e('Don\'t have account yet? ','bonyan') ?><span><?php _e('Sign up','bonyan') ?></span></div>
                     </div>
+                    <?php echo do_shortcode('[nextend_social_login]'); ?>
                 </form>
             </div>
         </div>
