@@ -372,6 +372,18 @@ jQuery(document).ready(function($){
 
     /* Start Dashboard & Donation History Datatables */
     let donationHistory = $('#donation-history-table, #donation-history-table-in-history-tab');
+    let getPageDir = document.documentElement.dir;
+
+    let statusPosition = {
+        left: 0
+    }
+    
+    if (getPageDir === 'rtl') {
+        statusPosition = {
+            left: "unset",
+            right: 0
+        }
+    }
 
     if (donationHistory.length > 0) {
         let pageLength = 4;
@@ -407,18 +419,20 @@ jQuery(document).ready(function($){
             "rowCallback": function( row, data ) {
                 if (!isResponsive) {
                     $('td:eq(4)', row).css({
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.5rem",
-                        grdiGap: "0.5rem"
+                        position: "relative",
+                        padding: "0 1rem",
                     });
-    
+
                     $('td:eq(4) .status', row).css({
                         width: "10px",
                         height: "10px",
                         borderRadius: "50%",
+                        position: "absolute",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        ...statusPosition
                     });
-    
+                    
                     switch ($('td:eq(4) span', row).text()) {
                         case "Complete":
                             $('td:eq(4) .status', row).css({
@@ -498,16 +512,18 @@ jQuery(document).ready(function($){
             "rowCallback": function( row, data ) {
                 if (!isResponsive) {
                     $('td:eq(4)', row).css({
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.5rem",
-                        grdiGap: "0.5rem"
+                        position: "relative",
+                        padding: "0 1rem",
                     });
-    
+
                     $('td:eq(4) .status', row).css({
                         width: "10px",
                         height: "10px",
                         borderRadius: "50%",
+                        position: "absolute",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        ...statusPosition
                     });
     
                     switch ($('td:eq(4) span', row).text()) {
@@ -578,7 +594,6 @@ jQuery(document).ready(function($){
 
     if (uploadAvatarInput !== null) {
         uploadAvatarInput.addEventListener('change', function(){
-            console.log(this.files[0]);
             previewAvatar.src = URL.createObjectURL(this.files[0]);
             previewAvatarName.textContent = this.files[0].name;
         });
