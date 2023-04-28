@@ -134,6 +134,18 @@ gulp.task('timer-css', function () {
 });
 
 //****************************************************
+// Advanced-Search css
+//****************************************************
+gulp.task('advanced-search-css', function () {
+    return gulp.src('./assets/scss/advanced-search.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('timer.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css'));
+});
+
+//****************************************************
 // ===================WPB CSS=========================
 //****************************************************
 

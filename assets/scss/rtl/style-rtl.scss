@@ -3489,11 +3489,12 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
       grid-gap: 0.5rem;
       overflow-y: auto;
       overflow-x: hidden;
-      max-height: 600px;
+      height: 600px;
 
       @media (max-width: 992px) {
         padding-top: 3rem;
         padding-bottom: 0.5rem;
+        height: auto;
       }
 
       .sidebar-header {
@@ -3544,6 +3545,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
 
         svg {
           pointer-events: none;
+          min-width: 24px;
 
           path {
             transition: $general-transition;
@@ -3562,7 +3564,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
 
           svg {
             path {
-              fill: $primary-color;
+              fill: $primary-color !important;
             }
           }
 
@@ -3591,7 +3593,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
 
             svg {              
               path {
-                fill: #b42d2d
+                fill: #b42d2d !important;
               }
             }
           }
@@ -3600,10 +3602,67 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
     }
 
     // Tab's content
+    .custom-inputs {
+      input:not([type=file]), select {
+        border: 1px solid #6d54a7;
+        border-radius: 20px;
+        padding: 1rem;
+        outline: none;
+        color: #6d54a7;
+        background: #fbfaff;
+      }
+
+      textarea {
+        resize: none;
+        width: 100%;
+      }
+  
+      .select-holder,
+      .input-holder {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+  
+        &.full-width {
+          flex-basis: 100%;
+        }
+  
+        label {
+          color: $text-color;
+          font-weight: bold;
+        }
+      }
+  
+      .input-holder {
+        flex: 1 0 120px;
+      }
+  
+      .select-holder{
+        select {
+          appearance: none;
+        }
+      }
+  
+      .primary-btn {
+        padding: 0.75rem 1.5rem;
+        min-width: 170px;
+        border: none;
+        transition: $general-transition;
+  
+        &:hover {
+          background: $third-color;
+        }
+  
+        @media (max-width: 992px) {
+          width: 100%;
+        }
+      }
+    }
+
     .dashboard-view {
       border-radius: 20px;
       background: $light-color;
-      max-height: 600px;
+      height: 601px;
       overflow-y: auto;
       box-shadow: 6px 0 8px #e1e1e1;
 
@@ -3618,7 +3677,8 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
       }
 
       @media (max-width: 992px) {
-        max-height: unset;
+        height: auto;
+        max-height: 700px;
       }
 
       .dashboard-tab-content {
@@ -3809,56 +3869,6 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
     gap: 1rem 1.5rem;
     grid-gap: 1rem 1.5rem;
     margin-top: 2rem;
-
-    input:not([type=file]), select {
-      border: 1px solid #6d54a7;
-      border-radius: 20px;
-      padding: 1rem;
-      outline: none;
-      color: #6d54a7;
-      background: #fbfaff;
-    }
-
-    .select-holder,
-    .input-holder {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-
-      &.full-width {
-        flex-basis: 100%;
-      }
-
-      label {
-        color: $text-color;
-        font-weight: bold;
-      }
-    }
-
-    .input-holder {
-      flex: 1 0 120px;
-    }
-
-    .select-holder{
-      select {
-        appearance: none;
-      }
-    }
-
-    .primary-btn {
-      padding: 0.75rem 1.5rem;
-      min-width: 170px;
-      border: none;
-      transition: $general-transition;
-
-      &:hover {
-        background: $third-color;
-      }
-
-      @media (max-width: 992px) {
-        width: 100%;
-      }
-    }
   }
 
   // Wishlist
@@ -3913,6 +3923,65 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
           }
         }
       }
+    }
+  }
+
+  // Contribution Invitation
+  #contribution-invitation {
+    .contribution-details-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      grid-gap: 1.5rem;
+    }
+
+    .select-holder {
+      width: 50%;
+
+      @media (max-width: 992px) {
+        width: 100%;
+      }
+    }
+
+    .invite-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      grid-gap: 1rem;
+
+      a.invite-btn {
+        width: 45px;
+        height: 45px;
+        background: $primary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+
+        i {
+          color: $light-color;
+          font-size: 30px;
+        }
+      }
+    }
+
+    .select2-container--default .select2-selection--single {
+      border: 1px solid #6d54a7;
+      border-radius: 20px;
+      padding: 0.75rem;
+      outline: none;
+      color: #6d54a7;
+      background: #fbfaff;
+      height: auto;
+      display: flex;
+
+      &[aria-expanded=true] {
+        border-radius: 20px 20px 0 0;
+      }
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+      top: unset;
     }
   }
 
@@ -3987,6 +4056,13 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataT
       box-shadow: none !important;
     }
   }
+}
+
+
+// Global Select2 Override style
+span.select2-dropdown.select2-dropdown--below {
+  border: 1px solid $primary-color;
+  margin-top: 1.5rem !important;
 }
 /* ===[End New Dashboar]=== */
 

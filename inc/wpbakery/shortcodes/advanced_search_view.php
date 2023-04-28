@@ -33,7 +33,7 @@ if (!function_exists('advanced_search_shortcode')) {
 
             $posts_types = get_CPTs_with_name(['exclude' => ['main_slider', 'give_forms']]);
         } ?>
-        <div class="custom-widget">
+        <div class="advanced-search-container custom-widget">
             <form action="<?php echo home_url('/'); ?>" method="GET" class="">
                 <input type="text" name="s">
                 <select name="post_type" id="adv-post-type" class="">

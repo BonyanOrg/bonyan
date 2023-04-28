@@ -51,6 +51,7 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
 <?php //echo get_template_part('template-parts/page-header'); 
 ?>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="container my-3 my-lg-5">
     <div class="custom-givewp-dashboard">
         <div class="dashboard-box">
@@ -69,7 +70,7 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
                 </div>
 
                 <div class="dashboard-sidebar-item active" title="Dashboard" data-target="donor-dashboard">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18.733" viewBox="0 0 18 18.733">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path id="Path_10524" data-name="Path 10524" d="M21,20a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V9.49a1,1,0,0,1,.386-.79l8-6.222a1,1,0,0,1,1.228,0l8,6.222A1,1,0,0,1,21,9.49V20Z" transform="translate(-3 -2.267)" fill="#5b5b5b" />
                     </svg>
 
@@ -77,7 +78,7 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
                 </div>
 
                 <div class="dashboard-sidebar-item" id="donations-history-tab-btn" title="Donation History" data-target="donation-history">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path id="Path_10527" data-name="Path 10527" d="M12,2A10,10,0,1,1,2,12H4A8,8,0,1,0,5.385,7.5H8v2H2v-6H4V6A9.981,9.981,0,0,1,12,2Zm1,5v4.585l3.243,3.243-1.415,1.415L11,12.413V7Z" transform="translate(-2 -2)" fill="#5b5b5b" />
                     </svg>
 
@@ -85,7 +86,7 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
                 </div>
 
                 <div class="dashboard-sidebar-item" id="recurring-donations-tab-btn" title="Recurring Donations" data-target="recurring-donations">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path id="Path_10558" data-name="Path 10558" d="M18.537,19.567A9.982,9.982,0,1,1,20.19,17.74L17,12h3a8,8,0,1,0-2.46,5.772Z" transform="translate(-2 -2)" fill="#5b5b5b" />
                     </svg>
 
@@ -94,7 +95,7 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
 
                 <div class="dashboard-sidebar-item" title="Edit Profile" data-target="edit-profile">
 
-                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="22" viewBox="0 0 19 22">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path id="Path_10530" data-name="Path 10530" d="M12,1l9.5,5.5v11L12,23,2.5,17.5V6.5Zm0,14a3,3,0,1,0-3-3A3,3,0,0,0,12,15Z" transform="translate(-2.5 -1)" fill="#5b5b5b" />
                     </svg>
 
@@ -102,11 +103,24 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
                 </div>
 
                 <div class="dashboard-sidebar-item" title="Favorite Campaign" data-target="wishlist">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="21.579" height="18.881" viewBox="0 0 21.579 18.881">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18.881" viewBox="0 0 24 18.881">
                         <path id="Icon_awesome-heart" data-name="Icon awesome-heart" d="M19.483,3.539a5.763,5.763,0,0,0-7.864.573l-.83.856-.83-.856a5.763,5.763,0,0,0-7.864-.573A6.052,6.052,0,0,0,1.677,12.3l8.155,8.421a1.321,1.321,0,0,0,1.909,0L19.9,12.3a6.048,6.048,0,0,0-.413-8.762Z" transform="translate(0.001 -2.248)" fill="#5b5b5b" />
                     </svg>
 
                     <span>Wishlist</span>
+                </div>
+
+                <div class="dashboard-sidebar-item" title="Invitation to contribute" data-target="contribution-invitation">
+                    <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" id="campaign" class="icon glyph" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M22,4.28V15.72a2,2,0,0,1-.77,1.58,2.05,2.05,0,0,1-1.23.42,2,2,0,0,1-.48-.06L10,15.28,8.88,15H7a5,5,0,0,1-3.5-1.43A5,5,0,0,1,7,5H8.88L19.52,2.34a2,2,0,0,1,1.71.36A2,2,0,0,1,22,4.28Z" style="fill:#5b5b5b"></path>
+                            <path d="M10,16.31V20a2,2,0,0,1-2,2H6.82a2,2,0,0,1-2-1.61L3.8,15.08a5.68,5.68,0,0,0,1.74.74A5.9,5.9,0,0,0,7,16H8.76Z" style="fill:#5b5b5b"></path>
+                        </g>
+                    </svg>
+
+                    <span>Contribution Invitation</span>
                 </div>
 
                 <a href="<?php echo wp_logout_url() ?>" class="dashboard-sidebar-item logout">
@@ -390,7 +404,7 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
                                 </label>
                             </div>
 
-                            <div class="edit-donor-info-container with-padding">
+                            <div class="edit-donor-info-container custom-inputs with-padding">
                                 <div class="select-holder">
                                     <label>Prefix</label>
                                     <select name="prefix" id="prefix">
@@ -469,11 +483,99 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
                 </div>
                 <!-- End Wishlist Tab Conent -->
 
+                <!-- Start Edit Profile Tab Content -->
+                <div class="d-none dashboard-tab-content" id="contribution-invitation">
+                    <div class="dashboard-tab-content-section donations-history">
+                        <div class="dashboard-content-section-heading py-3">
+                            <div class="dashboard-content-section-heading-title with-padding">
+                                <span>Contribution Invitation</span>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-content-section-body">
+                            <div class="with-padding">
+                                <p><b>Fill the information then choose where you want to send the invitation</b></p>
+                                <hr>
+                            </div>
+                            <div class="contribution-details-form custom-inputs with-padding">
+
+
+                                <div class="select-holder">
+                                    <label>Select Campaign To Contribute*</label>
+                                    <select name="select_campaign_to_contribute" id="select_campaign_to_contribute">
+                                        <option value="campaign1">campaign1</option>
+                                        <option value="campaign2">campaign2</option>
+                                        <option value="campaign3">campaign3</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-holder">
+                                    <label for="contribution_value">Contribution Value</label>
+                                    <input type="number" name="contribution_value" id="contribution_value" value="<?php echo $user_LastName  ?>">
+                                </div>
+
+                                <div class="input-holder full-width">
+                                    <label for="invitation_message">Invitation Message</label>
+                                    <textarea name="invitation_message" id="invitation_message" cols="30" rows="7"></textarea>
+                                </div>
+
+                                <!-- <button id="edit-save-user-information" class="primary-btn">Save</button> -->
+                            </div>
+
+                            <div class="invite-container mt-lg-4 mt-3 mb-3 with-padding">
+                                <p><b>Invite Via</b></p>
+                                <div class="invite-btns">
+                                    <a href="#" class="invite-btn by-whatsapp" title="Invite by WhatsApp">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </a>
+
+                                    <a href="#" class="invite-btn by-facebook" title="Invite by Facebook">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+
+                                    <a href="#" class="invite-btn by-instagram" title="Invite by Instagram">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </a>
+
+                                    <a href="#" class="invite-btn by-twitter" title="Invite by Twitter">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </a>
+
+                                    <a href="#" class="invite-btn by-email" title="Invite by Email">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End Edit Profile Tab Content -->
+
             </div>
             <!-- ===[End Dashboard View]=== -->
 
         </div>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    jQuery(document).ready(function($) {
+        $('#select_campaign_to_contribute').select2({
+            minimumInputLength: 3,
+            language: "ar",
+            cache: true,
+
+            // // dir: 'rtl',
+            // language: {
+            //     noMatches: () => ("لايوجد نتائج"),
+            //     noResults: () => ("لم يتم العثور على نتائج"),
+            //     inputTooShort: () => ("اكتب 3 أحرف على الأقل")
+            // },
+        });
+    });
+</script>
 
 <?php get_footer();
