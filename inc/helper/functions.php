@@ -75,16 +75,41 @@ require __DIR__ . '/add-recaptcha.php';
  *
  * @return array custom_post_types
  */
-function get_custom_post_types()
+function get_custom_post_types($exclude = [])
 {
-	$default_post_types_array = ["post", "page", "attachment", "revision", "nav_menu_item", "custom_css", "customize_changeset", "oembed_cache", "user_request", "wp_block", "wp_template", "wp_template_part", "wp_global_styles", "wp_navigation", "vc4_templates", "vc_grid_item", "give_payment", "give_forms"];
-	$post_types_array = get_post_types();
+	//$default_post_types_array = ["post", "page", "attachment", "revision", "nav_menu_item", "custom_css", "customize_changeset", "oembed_cache", "user_request", "wp_block", "wp_template", "wp_template_part", "wp_global_styles", "wp_navigation", "vc4_templates", "vc_grid_item", "give_payment", "give_forms"];
+	$post_types_array = get_post_types(['public' => true, '_builtin' => false], 'names', 'and');
 	$custom_post_types = array();
 	foreach ($post_types_array as $post_type) {
-		if (in_array($post_type, $default_post_types_array)) continue;
+		if (in_array($post_type, $exclude)) continue;
 		array_push($custom_post_types, $post_type);
 	}
 	return $custom_post_types;
+}
+
+function get_CPTs_with_name($exclude = [])
+{
+	$post_types = [];
+	$CPTs = get_post_types(['public' => true, '_builtin' => false], 'names', 'and');
+
+	$CPTs['post'] = 'post'; // Add Posts To The List
+	//$CPTs['page'] = 'page'; // Add Posts To The List
+
+
+	if (isset($exclude['exclude']) && is_array($exclude['exclude'])) {
+		foreach ($exclude['exclude'] as $cpt) {
+			unset($CPTs[$cpt]);
+		}
+	}
+
+	sort($CPTs);
+
+	foreach ($CPTs as $post_type) {
+		$pt = get_post_type_object($post_type);
+		$post_types += [$post_type => __($pt->labels->menu_name)];
+	}
+
+	return $post_types;
 }
 
 

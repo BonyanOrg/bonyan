@@ -52,7 +52,7 @@ function theme_settings_render()
         do_settings_sections('cpt-cover-image-group');
         $cpt_header_cover_image = array();
         // banners
-        $custom_post_types = get_custom_post_types();
+        $custom_post_types = get_custom_post_types(['give_forms']);
         foreach ($custom_post_types as $cpt) {
 
             array_push($cpt_header_cover_image, get_option($cpt . 'header_cover_image') ?? '');
