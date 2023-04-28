@@ -122,6 +122,18 @@ gulp.task('dashboard-css', function () {
 });
 
 //****************************************************
+// Timer css
+//****************************************************
+gulp.task('timer-css', function () {
+    return gulp.src('./assets/scss/timer.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('timer.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css'));
+});
+
+//****************************************************
 // ===================WPB CSS=========================
 //****************************************************
 
@@ -408,6 +420,18 @@ gulp.task('givewp-js', function () {
 });
 
 //****************************************************
+// Timer iFrame Script
+//****************************************************
+gulp.task('timer-js', function () {
+    return gulp.src('./assets/js/timer.js')
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('timer.min.js'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/js'))
+});
+
+//****************************************************
 // ===================WPB JS=========================
 //****************************************************
 
@@ -526,7 +550,7 @@ gulp.task('hierarchy-js', function () {
 //****************************************************
 //task for automate all styles
 //****************************************************
-gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css', 'dashboard-css', 'givewp-css']));
+gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css', 'dashboard-css', 'givewp-css', 'timer-css']));
 
 gulp.task('styles-rtl', gulp.parallel(['style-rtl']));
 
@@ -535,7 +559,7 @@ gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-pri
 //****************************************************
 //task for automate all scripts
 //****************************************************
-gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js', 'dashboard-js', 'givewp-js']));
+gulp.task('scripts', gulp.parallel(['script-js', 'home-sliders-js', 'dashboard-js', 'givewp-js', 'timer-js']));
 gulp.task('components-scripts', gulp.parallel(['wpb-quick-donation-js', 'wpb-primary-carousel-js', 'wpb-zakat-js', 'wpb-vacancies-js', 'wpb-tenders-js', 'wpb-success-story-carousel-js', 'wpb-partners-carousel-js', 'wpb-campaigns-carousel-js', 'hierarchy-js']));
 
 //****************************************************
