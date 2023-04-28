@@ -1338,4 +1338,25 @@
     //=====[Modern Dashboard End]=====//
 
 
+
+    $('#adv-post-type').on('change', function() {
+		const postType = $(this).val();
+		
+		$.ajax({
+			dataType: 'json',
+			method: "POST",
+			url: ajax_script_object.ajaxurl,
+			data: {
+				'action': 'adv_categories',
+                'nonce': ajax_script_object.nonce,
+				'post_type': postType,
+			},
+			success: function (data) {
+				$('#adv-cats').find('option').remove().end();
+				$('#adv-cats').html(data.output);
+			}
+		});
+	});
+
+
 })(jQuery);

@@ -75,3 +75,6 @@ require_once "shortcodes/disable_table_of_content_view.php";
 
 /* Hierarchy Board  */
 require_once "shortcodes/hierarchy_board_view.php";
+
+/* Advanced Search   */
+require_once "shortcodes/advanced_search_view.php";

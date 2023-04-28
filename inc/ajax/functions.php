@@ -62,6 +62,8 @@ require __DIR__ . '/cancel-give-sub.php';
 require __DIR__ . '/get-user-modern-donations.php';
 require __DIR__ . '/get-user-modern-recurring-donations.php';
 
-
-
+//=====================================
+//    Advanced Search
+//=====================================
+require __DIR__ . '/advanced_search.php';
 

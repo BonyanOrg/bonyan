@@ -102,3 +102,6 @@ require_once "vcmaps/disable_table_of_content_map.php";
 
 /* Hierarchy Board  */
 require_once "vcmaps/hierarchy_board_map.php";
+
+/* Advanced Search  */
+require_once "vcmaps/advanced_search_map.php";
