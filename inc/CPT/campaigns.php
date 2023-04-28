@@ -31,7 +31,7 @@ function register_campaigns_cpt()
         'hierarchical'       => false,
         'menu_position'      => 20,
         'supports'           => array('title', 'editor', 'author', 'thumbnail', 'revisions'),
-        'taxonomies'         => array('','campaigns-categories'),
+        'taxonomies'         => array('campaigns-tags', 'campaigns-categories'),
         'show_in_rest'       => true
     );
 
@@ -39,6 +39,37 @@ function register_campaigns_cpt()
 
 
 
+
+
+
+
+
+    // Add new TAG
+    $labels = array(
+        'name'              => __('Campaigns - Tags', 'bonyan'),
+        'singular_name'     => __('Campaign - Category',  'bonyan'),
+        'search_items'      => __('Search Tags', 'bonyan'),
+        'all_items'         => __('All Tags', 'bonyan'),
+        'parent_item'       => __('Parent Category', 'bonyan'),
+        'parent_item_colon' => __('Parent Category:', 'bonyan'),
+        'edit_item'         => __('Edit Category', 'bonyan'),
+        'update_item'       => __('Update Category', 'bonyan'),
+        'add_new_item'      => __('Add New Category', 'bonyan'),
+        'new_item_name'     => __('New Category Name', 'bonyan'),
+        'menu_name'         => __('Tags', 'bonyan'),
+    );
+
+    $args = array(
+        'hierarchical'      => false,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'tag', 'with_front' => false),
+    );
+
+    register_taxonomy('campaigns-tags', 'campaign', $args);
 
 
 
@@ -68,32 +99,5 @@ function register_campaigns_cpt()
     );
 
     register_taxonomy('campaigns-categories', 'campaign', $args);
-
-    // Add new TAG
-    $labels = array(
-        'name'              => __('Campaigns - Tags', 'bonyan'),
-        'singular_name'     => __('Campaign - Category',  'bonyan'),
-        'search_items'      => __('Search Tags', 'bonyan'),
-        'all_items'         => __('All Tags', 'bonyan'),
-        'parent_item'       => __('Parent Category', 'bonyan'),
-        'parent_item_colon' => __('Parent Category:', 'bonyan'),
-        'edit_item'         => __('Edit Category', 'bonyan'),
-        'update_item'       => __('Update Category', 'bonyan'),
-        'add_new_item'      => __('Add New Category', 'bonyan'),
-        'new_item_name'     => __('New Category Name', 'bonyan'),
-        'menu_name'         => __('Tags', 'bonyan'),
-    );
-
-    $args = array(
-        'hierarchical'      => false,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_in_rest'      => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        'rewrite'           => array('slug' => 'tag', 'with_front' => false),
-    );
-
-    register_taxonomy('campaigns-tags', 'campaign', $args);
 }
 add_action('init', 'register_campaigns_cpt');

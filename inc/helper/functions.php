@@ -73,6 +73,7 @@ require __DIR__ . '/add-recaptcha.php';
 /**
  * get_custom_post_types
  *
+ * @param mixed $exclude
  * @return array custom_post_types
  */
 function get_custom_post_types($exclude = [])
@@ -86,7 +87,12 @@ function get_custom_post_types($exclude = [])
 	}
 	return $custom_post_types;
 }
-
+/**
+ * get_CPTs_with_name
+ *
+ * @param mixed $exclude
+ * @return array custom_post_types
+ */
 function get_CPTs_with_name($exclude = [])
 {
 	$post_types = [];
@@ -122,7 +128,7 @@ function add_CPTs_to_search($query)
 
 
 	if ($query->is_search() || is_tag() && $query->is_main_query()) {
-		$cpt_array = get_custom_post_types();
+		$cpt_array = get_custom_post_types(['main_slider', 'give_forms']);
 		array_push($cpt_array, "post", "page");
 		$query->set(
 			'post_type',
