@@ -1,5 +1,5 @@
 <?php
-$give_form_id = get_post_meta($args['post_id'], "co_give_form_id", true);
+$give_form_id = get_post_meta(get_the_ID(), "co_give_form_id", true);
 if (!empty($give_form_id)) {
     echo do_shortcode('[give_form id="' . $give_form_id . '"]', true);
     global $wpdb;
@@ -61,30 +61,30 @@ ORDER BY FIELD( p1.ID, {$donation_ids} );
                 $user_profile_photo = ($user_profile_photo = get_user_meta($top_donor->ID, 'user_profile_photo', true)) ? $user_profile_photo : 'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg';
 ?>
 
-            <?php get_template_part('template-parts/components/campaign-timer'); ?>
-			<div class="data-and-share mt-4">
-				<div class="post-share">
-					<span><?php _e('Share via', 'bonyan'); ?></span>
+                <?php get_template_part('template-parts/components/campaign-timer'); ?>
+                <div class="data-and-share mt-4">
+                    <div class="post-share">
+                        <span><?php _e('Share via', 'bonyan'); ?></span>
 
-					<div class="share-socialmedia">
-						<a rel="noreferrer" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php echo home_url() . '?p=' . get_the_ID(); ?>"><i class="fa-brands fa-facebook-f"></i></a>
+                        <div class="share-socialmedia">
+                            <a rel="noreferrer" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php echo home_url() . '?p=' . get_the_ID(); ?>"><i class="fa-brands fa-facebook-f"></i></a>
 
-						<a rel="noreferrer" target="_blank" href="https://twitter.com/intent/tweet?text=<?php the_title(); ?>&url=<?php echo home_url() . '?p=' . get_the_ID(); ?>"><i class="fa-brands fa-twitter"></i></a>
+                            <a rel="noreferrer" target="_blank" href="https://twitter.com/intent/tweet?text=<?php the_title(); ?>&url=<?php echo home_url() . '?p=' . get_the_ID(); ?>"><i class="fa-brands fa-twitter"></i></a>
 
-						<!-- <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/cws/share?url=<?php //echo get_permalink(); 
-																												?>"><i class="fa-brands fa-linkedin"></i></a> -->
+                            <!-- <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/cws/share?url=<?php //echo get_permalink(); 
+                                                                                                                    ?>"><i class="fa-brands fa-linkedin"></i></a> -->
 
-						<!-- <a rel="noreferrer" target="_blank" href="https://t.me/share/url?url=<?php //echo get_permalink(); 
-																									?>&text=<?php //the_title(); 
-																											?>"><i class="fa-brands fa-telegram"></i></a> -->
+                            <!-- <a rel="noreferrer" target="_blank" href="https://t.me/share/url?url=<?php //echo get_permalink(); 
+                                                                                                        ?>&text=<?php //the_title(); 
+                                                                                                            ?>"><i class="fa-brands fa-telegram"></i></a> -->
 
-						<!-- <a rel="noreferrer" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php //echo urlencode(get_permalink()); 
-																															?>"><i class="fa-brands fa-twitter"></i></a> -->
+                            <!-- <a rel="noreferrer" target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url=<?php //echo urlencode(get_permalink()); 
+                                                                                                                                ?>"><i class="fa-brands fa-twitter"></i></a> -->
 
-						<a rel="noreferrer" target="_blank" href="mailto:?subject=<?php the_title(); ?>&body=<?php echo home_url() . '?p=' . get_the_ID(); ?>"><i class="fa-solid fa-envelope"></i></a>
-					</div>
-				</div>
-			</div>
+                            <a rel="noreferrer" target="_blank" href="mailto:?subject=<?php the_title(); ?>&body=<?php echo home_url() . '?p=' . get_the_ID(); ?>"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
                 <div class="top-donation-stats mt-3 mt-lg-4">
                     <!-- Start Top Donations -->
                     <div class="top-donation-stats-item top-donations">

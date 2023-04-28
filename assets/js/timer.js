@@ -1,30 +1,9 @@
 let deadline;
+let timeInMin = document.getElementById('counter-ul').getAttribute('data-timeInMin');
+const timeInMinutes = timeInMin;
+const currentTime = Date.parse(new Date());
+deadline = new Date(currentTime + timeInMinutes * 60 * 1000);
 
-function setCookie() {
-  // create deadline 10 minutes from now
-  const timeInMinutes = 55;
-  const currentTime = Date.parse(new Date());
-  deadline = new Date(currentTime + timeInMinutes * 60 * 1000);
-
-  // store deadline in cookie for future reference
-  document.cookie = "myClock=" + deadline + "; path=/; domain=.berenherbal.com";
-}
-// if there's a cookie with the name myClock, use that value as the deadline
-if (document.cookie && document.cookie.match("myClock")) {
-  // get deadline value from cookie
-  deadline = document.cookie.match(/(^|;) myClock=([^;]+)/)[2];
-  distance = new Date(deadline).getTime() - new Date().getTime(); //now.addMinutes(5).getTime() - now.getTime();
-  if (distance < 0) {
-    setCookie();
-  }
-} else {
-  // otherwise, set a deadline 10 minutes from now and
-  // save it in a cookie with that name
-
-  setCookie();
-}
-
-console.log("Hello");
 
 var timeinterval = 0;
 function getTimeRemaining(endtime) {
@@ -59,7 +38,7 @@ function initializeClock(id, endtime) {
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-	*/
+  */
     document.querySelectorAll(".days").forEach((span) => {
       span.innerText = t.days;
     });
@@ -92,20 +71,19 @@ let openCampaignTimerBtn = document.querySelector('.toggle-campaign-timer');
 let closeCampaignTimerBtn = document.querySelector('.hide-campaign-timer');
 
 function openCampaignTimer() {
-    this.closest('.campaign-timer').classList.add('timer-visible');
+  this.closest('.campaign-timer').classList.add('timer-visible');
 };
 
 function closeCampaignTimer() {
-    console.log(this.closest('.campaign-timer'));
-    this.closest('.campaign-timer').classList.remove('timer-visible');
+  console.log(this.closest('.campaign-timer'));
+  this.closest('.campaign-timer').classList.remove('timer-visible');
 }
 
 if (openCampaignTimerBtn !== null) {
-    openCampaignTimerBtn.addEventListener('click', openCampaignTimer);
+  openCampaignTimerBtn.addEventListener('click', openCampaignTimer);
 }
 
 if (closeCampaignTimerBtn !== null) {
-    closeCampaignTimerBtn.addEventListener('click', closeCampaignTimer);
+  closeCampaignTimerBtn.addEventListener('click', closeCampaignTimer);
 }
 /* ===[End Toggle Campaign Timer]=== */
- 

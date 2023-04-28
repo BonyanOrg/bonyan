@@ -86,6 +86,11 @@ function bonyan_scripts()
     if (is_singular('campaign')) {
         // __Styles__ 
         wp_enqueue_style('bonyan-top-donation-stats-style', get_template_directory_uri() . "/dist/css/components/top-donation-stats.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
+        wp_enqueue_style('bonyan-timer-style', get_template_directory_uri() . "/dist/css/timer.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
+
+        
+        // __Scripts__
+        wp_enqueue_script('bonyan-timer-script', get_template_directory_uri() . '/dist/js/timer.min.js', array(), $GLOBALS['bonyan_version'], true);
     }
     /* =====[End Enqueue Campaign Assets]===== */
 
