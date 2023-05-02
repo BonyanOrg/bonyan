@@ -24,7 +24,7 @@ if (!function_exists('advanced_search_shortcode')) {
                 <style>
                     <?php
                     //require_once(get_template_directory() . '/dist/css/global-datatable.min.css');
-                    //require_once(get_template_directory() . "/dist/css/components/wpb/vacancies.min.css");
+                    require_once(get_template_directory() . "/dist/css/components/wpb/advanced-search.min.css");
                     ?>
                 </style>
         <?php
@@ -34,26 +34,44 @@ if (!function_exists('advanced_search_shortcode')) {
             $posts_types = get_CPTs_with_name(['exclude' => ['main_slider', 'give_forms']]);
         } ?>
         <div class="advanced-search-container custom-widget">
-            <form action="<?php echo home_url('/'); ?>" method="GET" class="">
-                <input type="text" name="s">
-                <select name="post_type" id="adv-post-type" class="">
-                    <option value=""><?php _e('-- Search all items --', 'bonyan'); ?></option>
-                    <?php
+            <form action="<?php echo home_url('/'); ?>" method="GET" class="advanced-search-form">
+                <div class="input-holder">
+                    <input type="text" id="search_keyword" name="s" placeholder="Search Keyword">
+                </div>
 
-                    foreach ($posts_types as $key => $value) {
-                        echo '<option value="' . $key . '" ' . selected($post_type, $key) . '>' . $value . '</option>';
-                    }
+                <div class="select-holder">
+                    <div class="select-icon">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
 
-                    ?>
-                </select>
-                <select name="cats" id="adv-cats" class="">
-                    <option value=""><?php _e('-- Search all items --', 'bonyan'); ?></option>
+                    <select name="post_type" id="adv-post-type" class="">
+                        <option value=""><?php _e('-- Search all items --', 'bonyan'); ?></option>
+                        <?php
 
-                </select>
+                        foreach ($posts_types as $key => $value) {
+                            echo '<option value="' . $key . '" ' . selected($post_type, $key) . '>' . $value . '</option>';
+                        }
 
-                <input type="date" name="from" placeholder="<?php _e('Without specifying a specific time', 'bonyan'); ?>" id="datepicker-input" class="" autocomplete="off">
+                        ?>
+                    </select>
+                </div>
 
-                <button type="submit" class=""><?php _e('Search', 'bonyan'); ?></button>
+                <div class="select-holder">
+                    <div class="select-icon">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+
+                    <select name="cats" id="adv-cats" class="">
+                        <option value=""><?php _e('-- Search all items --', 'bonyan'); ?></option>
+
+                    </select>
+                </div>
+
+                <div class="input-holder">
+                    <input type="date" name="from" placeholder="<?php _e('Without specifying a specific time', 'bonyan'); ?>" id="datepicker-input" class="" autocomplete="off">
+                </div>
+
+                <button type="submit" class="secondary-btn"><?php _e('Search', 'bonyan'); ?></button>
 
 
             </form>
