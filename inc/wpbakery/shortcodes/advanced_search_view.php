@@ -36,7 +36,7 @@ if (!function_exists('advanced_search_shortcode')) {
         <div class="advanced-search-container custom-widget">
             <form action="<?php echo home_url('/'); ?>" method="GET" class="advanced-search-form">
                 <div class="input-holder">
-                    <input type="text" id="search_keyword" name="s" placeholder="Search Keyword">
+                    <input type="text" id="search_keyword" name="s" placeholder="<?php _e('Search Keyword', 'bonyan'); ?>">
                 </div>
 
                 <div class="select-holder">

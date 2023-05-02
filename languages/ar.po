@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-05-02T22:48:01+02:00\n"
-"PO-Revision-Date: 2023-05-02 23:48+0300\n"
+"POT-Creation-Date: 2023-05-02T22:52:04+02:00\n"
+"PO-Revision-Date: 2023-05-02 23:52+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -757,6 +757,12 @@ msgstr "اختار ملف"
 #: inc/meta-boxes/reports.php:48
 msgid "-- Choose a Document --"
 msgstr "--اختار الملف  --"
+
+#: inc/wpbakery/shortcodes/advanced_search_view.php:39
+#, fuzzy
+#| msgid "Search"
+msgid "Search Keyword"
+msgstr "البحث"
 
 #: inc/wpbakery/shortcodes/advanced_search_view.php:48
 #: inc/wpbakery/shortcodes/advanced_search_view.php:65
