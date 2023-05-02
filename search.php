@@ -36,11 +36,12 @@ $search_cats = isset($_GET['cats']) ? $_GET['cats'] : '';
 $search_from = $_GET['from'] ?? '';
 $args = [
 	's'	=> $search,
-	'post_type' => $post_type,
 	'post_status' => 'publish',
 	'posts_per_page' => get_option('posts_per_page'),
 ];
-
+if (!empty($post_type)) {
+	$args['post_type'] = $post_type;
+}
 $taxonomy_index = ($post_type == 'post') ? 0 : 1; // for CPT the first taxonomy is tag
 $taxonomy = !empty($post_type) ? get_object_taxonomies($post_type)[$taxonomy_index] : '';
 
