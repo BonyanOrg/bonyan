@@ -36,43 +36,57 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
 ?>
 <?php //echo get_template_part('template-parts/page-header'); 
 ?>
-
 <div class="container my-3 my-lg-5">
     <div class="custom-givewp-dashboard">
         <div class="dashboard-box">
 
             <!-- Start Dashboard sidebar -->
-            <?php require_once(get_template_directory() . '/template-parts/user-dashboard/sidebar.php'); ?>
+            <?php // LINK ./template-parts/user-dashboard/sidebar.php
+            require_once(get_template_directory() . '/template-parts/user-dashboard/sidebar.php'); ?>
             <!-- End Dashboard sidebar -->
 
             <!-- ===[Start Dashboard View]=== -->
             <div class="dashboard-view position-relative">
                 <p class="loader"></p>
+
+
                 <!-- Start Dashboard Tab Content -->
-                <?php require_once(get_template_directory() . '/template-parts/user-dashboard/main-tab.php'); ?>
+                <?php // LINK ./template-parts/user-dashboard/main-tab.php
+                require_once(get_template_directory() . '/template-parts/user-dashboard/main-tab.php'); ?>
                 <!-- End Dashboard Tab Content -->
 
+
                 <!-- Start Donation History Tab Content -->
-                <?php require_once(get_template_directory() . '/template-parts/user-dashboard/donations-history.php'); ?>
+                <?php // LINK ./template-parts/user-dashboard/donations-history.php
+                require_once(get_template_directory() . '/template-parts/user-dashboard/donations-history.php'); ?>
                 <!-- End Donation History Tab Content -->
 
 
                 <!-- Start Recurring Donations Tab Content -->
-                <?php require_once(get_template_directory() . '/template-parts/user-dashboard/recurring-donations.php'); ?>
+                <?php // LINK ./template-parts/user-dashboard/recurring-donations.php
+                require_once(get_template_directory() . '/template-parts/user-dashboard/recurring-donations.php'); ?>
                 <!-- End Recurring Donations Tab Content -->
 
+
                 <!-- Start Edit Profile Tab Content -->
-                <?php require_once(get_template_directory() . '/template-parts/user-dashboard/edit-profile.php'); ?>
+                <?php // LINK ./template-parts/user-dashboard/edit-profile.php
+                require_once(get_template_directory() . '/template-parts/user-dashboard/edit-profile.php'); ?>
                 <!-- End Edit Profile Tab Content -->
 
 
+
                 <!-- Start Wishlist Tab Content -->
-                <?php require_once(get_template_directory() . '/template-parts/user-dashboard/wishlist-tab.php'); ?>
+                <?php // LINK ./template-parts/user-dashboard/wishlist-tab.php
+                require_once(get_template_directory() . '/template-parts/user-dashboard/wishlist-tab.php'); ?>
                 <!-- End Wishlist Tab Content -->
 
+
                 <!-- Start Contribution Invitation Tab Content -->
-                <?php require_once(get_template_directory() . '/template-parts/user-dashboard/contribution-invitation.php'); ?>
+
+                <?php // LINK ./template-parts/user-dashboard/contribution-invitation.php
+                require_once(get_template_directory() . '/template-parts/user-dashboard/contribution-invitation.php'); ?>
                 <!-- End Contribution Invitation Tab Content -->
+
 
             </div>
             <!-- ===[End Dashboard View]=== -->
@@ -80,23 +94,4 @@ $donor_registered_by_days = floor((time() - strtotime($donor->date_created)) / (
         </div>
     </div>
 </div>
-
-
-<script>
-    jQuery(document).ready(function($) {
-        $('#select_campaign_to_contribute').select2({
-            minimumInputLength: 3,
-            language: "ar",
-            cache: true,
-
-            // // dir: 'rtl',
-            // language: {
-            //     noMatches: () => ("لايوجد نتائج"),
-            //     noResults: () => ("لم يتم العثور على نتائج"),
-            //     inputTooShort: () => ("اكتب 3 أحرف على الأقل")
-            // },
-        });
-    });
-</script>
-
 <?php get_footer();

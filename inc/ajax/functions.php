@@ -50,6 +50,7 @@ require __DIR__ . '/get-search-result.php';
 //    Ajax Campaign Select2 Search
 //=====================================
 require __DIR__ . '/get-campaigns-by-name.php';
+require __DIR__ . '/get-campaigns.php';
 
 //=====================================
 //    Cancel Give Subscription 
