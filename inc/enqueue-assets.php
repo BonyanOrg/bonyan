@@ -88,11 +88,18 @@ function bonyan_scripts()
         wp_enqueue_style('bonyan-top-donation-stats-style', get_template_directory_uri() . "/dist/css/components/top-donation-stats.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
         wp_enqueue_style('bonyan-timer-style', get_template_directory_uri() . "/dist/css/timer.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
-        
+
         // __Scripts__
         wp_enqueue_script('bonyan-timer-script', get_template_directory_uri() . '/dist/js/timer.min.js', array(), $GLOBALS['bonyan_version'], true);
     }
     /* =====[End Enqueue Campaign Assets]===== */
+
+    /* =====[Start Enqueue Modern Dashboard Assets]===== */
+    if (is_page_template('modern-dashboard-page.php')) {
+        wp_enqueue_style('select2-css', get_stylesheet_directory_uri() . '/dist/css/select2.min.css', '', true);
+        wp_enqueue_script('select2-js', get_stylesheet_directory_uri() . '/dist/js/select2.min.js', array('jquery'), '', true);
+    }
+    /* =====[End Enqueue Modern Dashboard Assets]===== */
 
     /* =====[Enqueue Dashboard Assets]===== */
     if (is_page_template('dashboard-page.php')) {
