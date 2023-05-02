@@ -25,7 +25,9 @@ $user_profile_photo = ($user_profile_photo = get_user_meta($userdata->ID, 'user_
 
 
 $donor = new Give_Donor($userdata->ID, true); // Get Donor By User ID
+
 // == Get Last Donation Date
+$donor_total_donations = give_currency_filter(give_format_amount($donor->get_total_donation_amount()));
 $last_donate_time = give()->donors->getDonorLatestDonationDate($donor->id); // Last Donate Days
 $date = strtotime($last_donate_time); // Converted to a PHP date (a second count)
 $time_left =  time() - $date; //time returns current time in seconds

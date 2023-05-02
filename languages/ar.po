@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
-"POT-Creation-Date: 2023-03-29T08:32:54+02:00\n"
-"PO-Revision-Date: 2023-03-29 10:10+0300\n"
+"POT-Creation-Date: 2023-05-02T22:48:01+02:00\n"
+"PO-Revision-Date: 2023-05-02 23:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -71,7 +71,7 @@ msgstr "التعليقات مغلقة."
 msgid "Donor-Dashboard"
 msgstr "لوحة تحكم المتبرع"
 
-#: dashboard-page.php:9
+#: dashboard-page.php:9 modern-dashboard-page.php:8
 msgid "You Must Login To See Your Dashboard"
 msgstr "يجب عليك تسجيل الدخول للوصول إلى لوحة التحكم"
 
@@ -87,7 +87,8 @@ msgstr "التبرعات"
 msgid "Favorite Campaigns"
 msgstr "الحملات المفضلة"
 
-#: dashboard-page.php:76
+#: dashboard-page.php:76 page-new-dashboard.php:66
+#: template-parts/user-dashboard/sidebar.php:73
 msgid "Logout"
 msgstr "تسجيل الخروج"
 
@@ -103,17 +104,20 @@ msgstr "تعديل"
 msgid "Cancle"
 msgstr "إلغاء"
 
-#: dashboard-page.php:103
+#: dashboard-page.php:103 inc/wpbakery/shortcodes/hierarchy_board_view.php:117
+#: template-parts/user-dashboard/edit-profile.php:54
 msgid "Save"
 msgstr "حفظ"
 
 #: dashboard-page.php:115 template-parts/signup.php:31
 #: template-parts/signup.php:32
+#: template-parts/user-dashboard/edit-profile.php:35
 msgid "First Name"
 msgstr "الاسم الأول"
 
 #: dashboard-page.php:121 template-parts/signup.php:36
 #: template-parts/signup.php:37
+#: template-parts/user-dashboard/edit-profile.php:40
 msgid "Last Name"
 msgstr "اسم العائلة"
 
@@ -153,11 +157,15 @@ msgstr "تاريخ الميلاد"
 msgid "Age"
 msgstr "العمر"
 
-#: dashboard-page.php:214
+#: dashboard-page.php:214 template-parts/user-dashboard/sidebar.php:22
+#: template-parts/user-dashboard/sidebar.php:27
 msgid "Donation History"
 msgstr "سجل التبرعات"
 
 #: dashboard-page.php:223
+#: template-parts/user-dashboard/recurring-donations.php:58
+#: template-parts/user-dashboard/sidebar.php:30
+#: template-parts/user-dashboard/sidebar.php:35
 msgid "Recurring Donations"
 msgstr "التبرعات المتكررة"
 
@@ -172,18 +180,6 @@ msgstr "روابط مفيدة"
 #: footer.php:86
 msgid "Join our newsletter"
 msgstr "اشترك بالنشرة البريدية"
-
-#: footer.php:92
-msgid "Your Name"
-msgstr "اسمك"
-
-#: footer.php:96
-msgid "Your Email"
-msgstr "بريدك الالكتروني"
-
-#: footer.php:99
-msgid "Subscribe"
-msgstr "اشتراك"
 
 #: functions.php:54
 msgid "Primary"
@@ -236,40 +232,42 @@ msgstr ""
 msgid "No results found"
 msgstr "لا يوجد نتيجة مطابقة للبحث"
 
-#: inc/ajax/get-user-donations.php:21
+#: inc/ajax/get-user-donations.php:21 inc/ajax/get-user-modern-donations.php:21
+#: inc/ajax/get-user-modern-recurring-donations.php:19
 #: inc/ajax/get-user-recurring-donations.php:19
 msgid "No donations found"
 msgstr "لا يوجد تبرعات"
 
+#: inc/ajax/get-user-modern-recurring-donations.php:32
 #: inc/ajax/get-user-recurring-donations.php:32
 msgid "No recurring donations found"
 msgstr "لم يتم العثور على تبرعات متكررة"
 
-#: inc/ajax/register.php:29
+#: inc/ajax/register.php:31
 msgid "User Name Must Not Contain Spaces"
 msgstr "يجب ألا يحتوي اسم المستخدم على مسافات"
 
-#: inc/ajax/register.php:33
+#: inc/ajax/register.php:35
 msgid "User Name Is Already Exist"
 msgstr "اسم المستخدم موجود بالفعل"
 
-#: inc/ajax/register.php:37 inc/ajax/save-account-details.php:44
+#: inc/ajax/register.php:39 inc/ajax/save-account-details.php:46
 msgid "Email Has No Valid Value"
 msgstr "البريد الإلكتروني ليس صالح"
 
-#: inc/ajax/register.php:41
+#: inc/ajax/register.php:43
 msgid "User Email Is Already Exist"
 msgstr "البريد الإلكتروني للمستخدم موجود بالفعل"
 
-#: inc/ajax/register.php:45
+#: inc/ajax/register.php:47
 msgid "Password Didn't Match"
 msgstr "كلمة المرور غير متطابقة"
 
-#: inc/ajax/register.php:64
+#: inc/ajax/register.php:66
 msgid "Error Happened When Tyr To Login"
 msgstr "حدث خطأ عند محاولة تسجيل الدخول"
 
-#: inc/ajax/save-account-details.php:49
+#: inc/ajax/save-account-details.php:51
 msgid "User Email Is Already In Use"
 msgstr "البريد الالكتروني للمستخدم قيد الاستخدام"
 
@@ -320,80 +318,80 @@ msgstr ""
 msgid "No Campaigns found."
 msgstr "لم يتم العثور على حملات."
 
-#: inc/CPT/campaigns.php:47
-msgid "Campaigns - Categories"
-msgstr "تصنيفات - الحملات"
+#: inc/CPT/campaigns.php:49
+msgid "Campaigns - Tags"
+msgstr ""
 
-#: inc/CPT/campaigns.php:48 inc/CPT/campaigns.php:75
+#: inc/CPT/campaigns.php:50 inc/CPT/campaigns.php:79
 msgid "Campaign - Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:49 inc/CPT/projects.php:49 inc/CPT/reports.php:49
-#: inc/CPT/seasonal_campaigns.php:49 inc/CPT/special_cases.php:49
-#: inc/CPT/stories_of_success.php:49
-msgid "Search Categories"
+#: inc/CPT/campaigns.php:51
+msgid "Search Tags"
 msgstr ""
 
-#: inc/CPT/campaigns.php:50 inc/CPT/projects.php:50 inc/CPT/reports.php:50
-#: inc/CPT/seasonal_campaigns.php:50 inc/CPT/special_cases.php:50
-#: inc/CPT/stories_of_success.php:50
-msgid "All Categories"
+#: inc/CPT/campaigns.php:52
+msgid "All Tags"
 msgstr ""
 
-#: inc/CPT/campaigns.php:51 inc/CPT/campaigns.php:78 inc/CPT/projects.php:51
+#: inc/CPT/campaigns.php:53 inc/CPT/campaigns.php:82 inc/CPT/projects.php:51
 #: inc/CPT/reports.php:51 inc/CPT/seasonal_campaigns.php:51
 #: inc/CPT/special_cases.php:51 inc/CPT/stories_of_success.php:51
 msgid "Parent Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:52 inc/CPT/campaigns.php:79 inc/CPT/projects.php:52
+#: inc/CPT/campaigns.php:54 inc/CPT/campaigns.php:83 inc/CPT/projects.php:52
 #: inc/CPT/reports.php:52 inc/CPT/seasonal_campaigns.php:52
 #: inc/CPT/special_cases.php:52 inc/CPT/stories_of_success.php:52
 msgid "Parent Category:"
 msgstr ""
 
-#: inc/CPT/campaigns.php:53 inc/CPT/campaigns.php:80 inc/CPT/projects.php:53
+#: inc/CPT/campaigns.php:55 inc/CPT/campaigns.php:84 inc/CPT/projects.php:53
 #: inc/CPT/reports.php:53 inc/CPT/seasonal_campaigns.php:53
 #: inc/CPT/special_cases.php:53 inc/CPT/stories_of_success.php:53
 msgid "Edit Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:54 inc/CPT/campaigns.php:81 inc/CPT/projects.php:54
+#: inc/CPT/campaigns.php:56 inc/CPT/campaigns.php:85 inc/CPT/projects.php:54
 #: inc/CPT/reports.php:54 inc/CPT/seasonal_campaigns.php:54
 #: inc/CPT/special_cases.php:54 inc/CPT/stories_of_success.php:54
 msgid "Update Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:55 inc/CPT/campaigns.php:82 inc/CPT/projects.php:55
+#: inc/CPT/campaigns.php:57 inc/CPT/campaigns.php:86 inc/CPT/projects.php:55
 #: inc/CPT/reports.php:55 inc/CPT/seasonal_campaigns.php:55
 #: inc/CPT/special_cases.php:55 inc/CPT/stories_of_success.php:55
 msgid "Add New Category"
 msgstr ""
 
-#: inc/CPT/campaigns.php:56 inc/CPT/campaigns.php:83 inc/CPT/projects.php:56
+#: inc/CPT/campaigns.php:58 inc/CPT/campaigns.php:87 inc/CPT/projects.php:56
 #: inc/CPT/reports.php:56 inc/CPT/seasonal_campaigns.php:56
 #: inc/CPT/special_cases.php:56 inc/CPT/stories_of_success.php:56
 msgid "New Category Name"
 msgstr ""
 
-#: inc/CPT/campaigns.php:57
-msgid "Category"
-msgstr ""
-
-#: inc/CPT/campaigns.php:74
-msgid "Campaigns - Tags"
-msgstr ""
-
-#: inc/CPT/campaigns.php:76
-msgid "Search Tags"
-msgstr ""
-
-#: inc/CPT/campaigns.php:77
-msgid "All Tags"
-msgstr ""
-
-#: inc/CPT/campaigns.php:84
+#: inc/CPT/campaigns.php:59
 msgid "Tags"
+msgstr ""
+
+#: inc/CPT/campaigns.php:78
+msgid "Campaigns - Categories"
+msgstr "تصنيفات - الحملات"
+
+#: inc/CPT/campaigns.php:80 inc/CPT/projects.php:49 inc/CPT/reports.php:49
+#: inc/CPT/seasonal_campaigns.php:49 inc/CPT/special_cases.php:49
+#: inc/CPT/stories_of_success.php:49
+msgid "Search Categories"
+msgstr ""
+
+#: inc/CPT/campaigns.php:81 inc/CPT/projects.php:50 inc/CPT/reports.php:50
+#: inc/CPT/seasonal_campaigns.php:50 inc/CPT/special_cases.php:50
+#: inc/CPT/stories_of_success.php:50
+msgid "All Categories"
+msgstr ""
+
+#: inc/CPT/campaigns.php:88
+msgid "Category"
 msgstr ""
 
 #: inc/CPT/main_slider.php:11
@@ -484,7 +482,7 @@ msgstr ""
 msgid "Projects Category"
 msgstr ""
 
-#: inc/CPT/reports.php:6
+#: inc/CPT/reports.php:6 inc/CPT/reports.php:8
 msgid "Reports"
 msgstr "التقارير"
 
@@ -492,7 +490,7 @@ msgstr "التقارير"
 msgid "Report"
 msgstr "تقرير"
 
-#: inc/CPT/reports.php:8 inc/CPT/reports.php:9
+#: inc/CPT/reports.php:9
 msgid "reports"
 msgstr "التقارير"
 
@@ -760,6 +758,19 @@ msgstr "اختار ملف"
 msgid "-- Choose a Document --"
 msgstr "--اختار الملف  --"
 
+#: inc/wpbakery/shortcodes/advanced_search_view.php:48
+#: inc/wpbakery/shortcodes/advanced_search_view.php:65
+msgid "-- Search all items --"
+msgstr ""
+
+#: inc/wpbakery/shortcodes/advanced_search_view.php:71
+msgid "Without specifying a specific time"
+msgstr ""
+
+#: inc/wpbakery/shortcodes/advanced_search_view.php:74 search.php:23
+msgid "Search"
+msgstr "البحث"
+
 #: inc/wpbakery/shortcodes/archive_programs_cards_view.php:88
 #: inc/wpbakery/shortcodes/news_slider_view.php:88
 #: inc/wpbakery/shortcodes/programs_cards_view.php:49
@@ -790,7 +801,7 @@ msgid "Apply for this job"
 msgstr "تقدم لهذه الوظيفة"
 
 #: inc/wpbakery/shortcodes/news_slider_view.php:86
-#: inc/wpbakery/shortcodes/quick_donation_view.php:107
+#: inc/wpbakery/shortcodes/quick_donation_view.php:114
 #: template-parts/cards/content-campaign.php:120
 #: template-parts/components/main-slider.php:36
 #: template-parts/components/urgent-campaigns.php:89
@@ -817,11 +828,11 @@ msgstr "البرامج"
 msgid "More about the programs"
 msgstr "المزيد حول البرامج"
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:66
+#: inc/wpbakery/shortcodes/quick_donation_view.php:73
 msgid "Choose Charity"
 msgstr "اختر نوع الصدقة"
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:100
+#: inc/wpbakery/shortcodes/quick_donation_view.php:107
 msgid "Choose the program"
 msgstr "اختر البرنامج"
 
@@ -944,9 +955,11 @@ msgstr "يفوق النصاب"
 msgid "Blog"
 msgstr "المدونة"
 
-#: search.php:19
-msgid "Search"
-msgstr "البحث"
+#. Template Name of the theme
+#, fuzzy
+#| msgid "Donor-Dashboard"
+msgid "Modern-Dashboard"
+msgstr "لوحة تحكم المتبرع"
 
 #: template-parts/cards/content-campaign.php:60
 #: template-parts/components/urgent-campaigns.php:65
@@ -973,10 +986,16 @@ msgid "Funded of $%s"
 msgstr "حُصلت من %s$"
 
 #: template-parts/components/top-donor.php:67
+#, fuzzy
+#| msgid "Shares"
+msgid "Share via"
+msgstr "شارك"
+
+#: template-parts/components/top-donor.php:92
 msgid "Top Donation"
 msgstr "أعلى التبرعات"
 
-#: template-parts/components/top-donor.php:104
+#: template-parts/components/top-donor.php:129
 msgid "Top Donor"
 msgstr "أعلى المتبرعين"
 
@@ -997,39 +1016,59 @@ msgid ""
 msgstr ""
 
 #: template-parts/datatable-dashboard.php:19
+#: template-parts/datatable-modern-dashboard.php:19
+#: template-parts/datatable-modern-recent-dashboard.php:21
+#: template-parts/datatable-modern-recurring-donation.php:35
 #: template-parts/datatable-recurring-donation.php:35
 msgid "DONATIONS"
 msgstr "التبرعات"
 
 #: template-parts/datatable-dashboard.php:20
+#: template-parts/datatable-modern-dashboard.php:20
+#: template-parts/datatable-modern-recent-dashboard.php:22
 msgid "CAMPAIGN"
 msgstr "الحملات"
 
 #: template-parts/datatable-dashboard.php:21
+#: template-parts/datatable-modern-dashboard.php:21
+#: template-parts/datatable-modern-recent-dashboard.php:23
 msgid "DATE"
 msgstr "التاريخ"
 
 #: template-parts/datatable-dashboard.php:22
+#: template-parts/datatable-modern-dashboard.php:22
+#: template-parts/datatable-modern-recent-dashboard.php:24
+#: template-parts/datatable-modern-recurring-donation.php:39
 #: template-parts/datatable-recurring-donation.php:39
 msgid "STATUS"
 msgstr "الحالة"
 
+#: template-parts/datatable-modern-dashboard.php:18
+#: template-parts/datatable-modern-recent-dashboard.php:20
+msgid "ID"
+msgstr ""
+
+#: template-parts/datatable-modern-recurring-donation.php:36
 #: template-parts/datatable-recurring-donation.php:36
 msgid "RECURRING"
 msgstr "متكرر"
 
+#: template-parts/datatable-modern-recurring-donation.php:37
 #: template-parts/datatable-recurring-donation.php:37
 msgid "DATE STARTED"
 msgstr "تاريخ البدء"
 
+#: template-parts/datatable-modern-recurring-donation.php:38
 #: template-parts/datatable-recurring-donation.php:38
 msgid "NEXT PAYMENT"
 msgstr "الدفعة التالية"
 
+#: template-parts/datatable-modern-recurring-donation.php:40
 #: template-parts/datatable-recurring-donation.php:40
 msgid "Cancel Subscription"
 msgstr "إلغاء الاشتراك"
 
+#: template-parts/datatable-modern-recurring-donation.php:129
 #: template-parts/datatable-recurring-donation.php:128
 msgid "Cancel"
 msgstr "إلغاء"
@@ -1053,6 +1092,7 @@ msgid "Login"
 msgstr "تسجيل الدخول"
 
 #: template-parts/login.php:30
+#: template-parts/user-dashboard/edit-profile.php:50
 msgid "Email"
 msgstr "البريد الالكتروني"
 
@@ -1111,6 +1151,169 @@ msgstr "لديك حساب بالفعل؟ "
 #: template-parts/taxonomy/content-reports-categories.php:34
 msgid "Last Report"
 msgstr "التقرير الأخير"
+
+#: template-parts/user-dashboard/contribution-invitation.php:6
+#: template-parts/user-dashboard/sidebar.php:65
+msgid "Contribution Invitation"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:12
+msgid "Fill the information then choose where you want to send the invitation"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:19
+msgid "Select Campaign To Contribute*"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:21
+#, fuzzy
+#| msgid "Favorite Campaigns"
+msgid "Search For a Campaign"
+msgstr "الحملات المفضلة"
+
+#: template-parts/user-dashboard/contribution-invitation.php:26
+msgid "Contribution Value"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:31
+msgid "Invitation Message"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:39
+msgid "Invite Via"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:41
+msgid "Invite by WhatsApp"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:44
+msgid "Invite by Telegram"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:48
+msgid "Invite by Facebook"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:52
+msgid "Invite by Twitter"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:56
+msgid "Invite by Reddit"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:60
+msgid "Invite by Gmail"
+msgstr ""
+
+#: template-parts/user-dashboard/contribution-invitation.php:64
+msgid "Invite by Email"
+msgstr ""
+
+#: template-parts/user-dashboard/donations-history.php:30
+#: template-parts/user-dashboard/main-tab.php:34
+#: template-parts/user-dashboard/recurring-donations.php:30
+msgid "Last donated %s day ago"
+msgstr "أخر تبرع منذ %s يوم"
+
+#: template-parts/user-dashboard/donations-history.php:45
+#: template-parts/user-dashboard/main-tab.php:49
+#: template-parts/user-dashboard/recurring-donations.php:45
+msgid "Donor For %s days"
+msgstr ""
+
+#: template-parts/user-dashboard/donations-history.php:58
+#, fuzzy
+#| msgid "Top Donation"
+msgid "Total Donations"
+msgstr "أعلى التبرعات"
+
+#: template-parts/user-dashboard/edit-profile.php:6
+#: template-parts/user-dashboard/sidebar.php:38
+#: template-parts/user-dashboard/sidebar.php:44
+#, fuzzy
+#| msgid "Social Media Profiles"
+msgid "Edit Profile"
+msgstr "حسابات التواصل الاجتماعي"
+
+#: template-parts/user-dashboard/edit-profile.php:18
+msgid "This image here to set avatar of"
+msgstr ""
+
+#: template-parts/user-dashboard/edit-profile.php:18
+msgid "Find Image"
+msgstr ""
+
+#: template-parts/user-dashboard/edit-profile.php:27
+msgid "Prefix"
+msgstr ""
+
+#: template-parts/user-dashboard/edit-profile.php:29
+msgid "Mr."
+msgstr ""
+
+#: template-parts/user-dashboard/edit-profile.php:30
+msgid "Mrs."
+msgstr ""
+
+#: template-parts/user-dashboard/edit-profile.php:45
+msgid "Company"
+msgstr ""
+
+#: template-parts/user-dashboard/main-tab.php:66
+msgid "Your Giving Stats"
+msgstr ""
+
+#: template-parts/user-dashboard/main-tab.php:74
+#, fuzzy
+#| msgid "Mobile Number"
+msgid "Number"
+msgstr "رقم الهاتف"
+
+#: template-parts/user-dashboard/main-tab.php:74
+#: template-parts/user-dashboard/main-tab.php:78
+#, fuzzy
+#| msgid "Donations"
+msgid "of donations"
+msgstr "التبرعات"
+
+#: template-parts/user-dashboard/main-tab.php:78
+msgid "Total"
+msgstr ""
+
+#: template-parts/user-dashboard/main-tab.php:92
+#, fuzzy
+#| msgid "Recurring Donations"
+msgid "Recent Donations"
+msgstr "التبرعات المتكررة"
+
+#: template-parts/user-dashboard/sidebar.php:14
+#: template-parts/user-dashboard/sidebar.php:19
+#, fuzzy
+#| msgid "Donor-Dashboard"
+msgid "Donor Dashboard"
+msgstr "لوحة تحكم المتبرع"
+
+#: template-parts/user-dashboard/sidebar.php:47
+#, fuzzy
+#| msgid "Favorite Campaigns"
+msgid "Favorite Campaign"
+msgstr "الحملات المفضلة"
+
+#: template-parts/user-dashboard/sidebar.php:52
+#: template-parts/user-dashboard/wishlist-tab.php:5
+msgid "Wishlist"
+msgstr ""
+
+#~ msgid "Your Name"
+#~ msgstr "اسمك"
+
+#~ msgid "Your Email"
+#~ msgstr "بريدك الالكتروني"
+
+#~ msgid "Subscribe"
+#~ msgstr "اشتراك"
 
 #~ msgid "Nothing Found"
 #~ msgstr "لا يوجد شيء"

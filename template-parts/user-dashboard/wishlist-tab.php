@@ -2,7 +2,7 @@
          <div class="d-none dashboard-tab-content" id="wishlist">
              <div class="dashboard-content-section-heading py-3">
                  <div class="dashboard-content-section-heading-title with-padding">
-                     <span>Wishlist</span>
+                     <span><?php _e('Wishlist', 'bonyan'); ?></span>
                  </div>
              </div>
 

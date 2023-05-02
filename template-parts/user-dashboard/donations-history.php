@@ -25,11 +25,12 @@
                                       <path id="Path_10537" data-name="Path 10537" d="M12,22A10,10,0,1,1,22,12,10,10,0,0,1,12,22Zm1-10V7H11v7h6V12Z" fill="#5b5b5b" />
                                   </svg>
 
-                                  <span>
-                                      <?php
-                                        echo "Last donated " . $last_donate_days . " day ago";
-                                        ?>
-                                  </span>
+                                  <span><?php
+                                        echo sprintf(
+                                            __('Last donated %s day ago', 'bonyan'),
+                                            $last_donate_days
+                                        );
+                                        ?></span>
                               </div>
 
                               <div class="donor-info-item donor-info--first-donation-date">
@@ -39,7 +40,12 @@
                                   </svg>
 
 
-                                  <span><?php echo "Donor For " . $donor_registered_by_days . " days" ?></span>
+                                  <span><?php
+                                        echo sprintf(
+                                            __('Donor For %s days', 'bonyan'),
+                                            $donor_registered_by_days
+                                        );
+                                        ?></span>
                               </div>
                           </div>
                       </div>
@@ -49,7 +55,7 @@
                       <div class="dashboard-tab-content-section donations-history">
                           <div class="dashboard-content-section-heading mt-3 py-3">
                               <div class="dashboard-content-section-heading-title with-padding">
-                                  <span><?php echo $donor->purchase_count; ?> Total Donations</span>
+                                  <span><?php echo $donor->purchase_count; ?> <?php _e('Total Donations', 'bonyan'); ?></span>
                               </div>
                           </div>
 

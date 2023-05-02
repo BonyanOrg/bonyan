@@ -4,12 +4,14 @@
         'Abandoned' => 'غير مكتمل',
         'Complete' => 'مكتمل',
         'Failed' => 'فشل',
+        'Renewal' => 'تجديد',
     ];
     $tr_status_array = [
         'Pending' => 'beklemekte',
         'Abandoned' => 'eksik',
         'Complete' => 'başarılı',
         'Failed' => 'başarısız',
+        'Renewal' => 'yenileme',
     ]; ?>
 
     <table id="donation-history-table" class="donation-history-table display nowrap dashboard-datatable dataTable dtr-inline collapsed" style="width: 100%;" aria-describedby="donations table">

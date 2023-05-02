@@ -26,7 +26,10 @@
                         </svg>
 
                         <span><?php
-                                echo "Last donated " . $last_donate_days . " day ago";
+                                echo sprintf(
+                                    __('Last donated %s day ago', 'bonyan'),
+                                    $last_donate_days
+                                );
                                 ?></span>
                     </div>
 
@@ -37,7 +40,12 @@
                         </svg>
 
 
-                        <span><?php echo "Donor For " . $donor_registered_by_days . " days" ?></span>
+                        <span><?php
+                                echo sprintf(
+                                    __('Donor For %s days', 'bonyan'),
+                                    $donor_registered_by_days
+                                );
+                                ?></span>
                     </div>
                 </div>
             </div>
@@ -47,7 +55,7 @@
             <div class="dashboard-tab-content-section donations-history">
                 <div class="dashboard-content-section-heading mt-3 py-3">
                     <div class="dashboard-content-section-heading-title with-padding">
-                        <span>Recurring Donations</span>
+                        <span><?php _e('Recurring Donations', 'bonyan'); ?></span>
                     </div>
                 </div>
 

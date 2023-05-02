@@ -30,7 +30,10 @@
                     </svg>
 
                     <span><?php
-                            echo "Last donated " . $last_donate_days . " day ago";
+                            echo sprintf(
+                                __('Last donated %s day ago', 'bonyan'),
+                                $last_donate_days
+                            );
                             ?></span>
                 </div>
 
@@ -41,7 +44,12 @@
                     </svg>
 
 
-                    <span><?php echo "Donor For " . $donor_registered_by_days . " days" ?></span>
+                    <span><?php
+                            echo sprintf(
+                                __('Donor For %s days', 'bonyan'),
+                                $donor_registered_by_days
+                            );
+                            ?></span>
                 </div>
             </div>
         </div>
@@ -55,7 +63,7 @@
                         <path fill="currentColor" d="M496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM464 96H345.94c-21.38 0-32.09 25.85-16.97 40.97l32.4 32.4L288 242.75l-73.37-73.37c-12.5-12.5-32.76-12.5-45.25 0l-68.69 68.69c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0L192 237.25l73.37 73.37c12.5 12.5 32.76 12.5 45.25 0l96-96 32.4 32.4c15.12 15.12 40.97 4.41 40.97-16.97V112c.01-8.84-7.15-16-15.99-16z"></path>
                     </svg>
 
-                    <span>Your Giving Stats</span>
+                    <span><?php _e('Your Giving Stats', 'bonyan'); ?></span>
                 </div>
             </div>
 
@@ -63,18 +71,12 @@
                 <div class="donor-giving-stats-values with-padding">
                     <div class="donor-stats-item">
                         <span><?php echo $donor->purchase_count; ?></span>
-                        <span>Number <br /> of donations</span>
+                        <span><?php _e('Number', 'bonyan'); ?> <br /> <?php _e('of donations', 'bonyan'); ?></span>
                     </div>
-
-                    <!-- <div class="donor-stats-item">
-                        <span>7</span>
-                        <span>LIFETIME<br /> DONATIONS</span>
-                    </div>
-
                     <div class="donor-stats-item">
-                        <span>7</span>
-                        <span>AVERAGE<br /> DONATION</span>
-                    </div> -->
+                        <span><?php echo $donor_total_donations; ?></span>
+                        <span><?php _e('Total', 'bonyan'); ?> <br /> <?php _e('of donations', 'bonyan'); ?></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -87,7 +89,7 @@
                         <path id="Path_10547" data-name="Path 10547" d="M2,11H22v9a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1ZM17,3h4a1,1,0,0,1,1,1V9H2V4A1,1,0,0,1,3,3H7V1H9V3h6V1h2Z" fill="#6d54a7" />
                     </svg>
 
-                    <span>Recent Donations</span>
+                    <span><?php _e('Recent Donations', 'bonyan'); ?></span>
                 </div>
             </div>
 
