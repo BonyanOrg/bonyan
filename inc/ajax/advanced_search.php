@@ -13,7 +13,7 @@ function adv_categories()
     $output = '';
     $post_types = array_keys(get_CPTs_with_name());
     if (in_array($post_type, $post_types)) {
-        $no_categories = '<option value="">' . esc_html__('No Categories', 'palscholars') . '</option>';
+        $no_categories = '<option value="">' . esc_html__('No Categories', 'bonyan') . '</option>';
 
         $taxes = get_object_taxonomies($post_type);
         $has_terms = false;
@@ -27,7 +27,7 @@ function adv_categories()
                 ]);
                 if (!empty($terms)) {
                     $has_terms = true;
-                    $output .= '<option value="all">' . __('-- Choose Category --', 'palscholars') . '</option>';
+                    $output .= '<option value="all">' . __('-- Choose Category --', 'bonyan') . '</option>';
                     foreach ($terms as $term) {
                         $output .= '<option value="' . esc_attr($term->term_id) . '">' . esc_html($term->name) . '</option>';
                     }

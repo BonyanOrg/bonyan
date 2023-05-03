@@ -90,6 +90,8 @@
                                     noResults: "لم يتم العثور على نتائج",
                                     inputTooShort: "اكتب 3 أحرف على الأقل",
                                     searching: "جاري البحث ...",
+                                    noSelectedCampaign: "يرجى تحديد الحملة",
+
 
                                 }
                                 break;
@@ -99,6 +101,7 @@
                                     noMatches: "There are no results",
                                     noResults: "No results found",
                                     inputTooShort: "You must enter more characters...",
+                                    noSelectedCampaign: "Please Select Campaign",
 
                                 }
 
@@ -111,6 +114,7 @@
                                     noMatches: "There are no results",
                                     noResults: "No results found",
                                     inputTooShort: "You must enter more characters...",
+                                    noSelectedCampaign: "Please Select Campaign",
 
 
                                 }
@@ -119,7 +123,7 @@
 
                         $('.invite-btn').on('click', function() {
                             if (SelectedCampaignURL == "") {
-                                toastr.info('Please Select Campaign');
+                                toastr.info(select2Sentences.noSelectedCampaign);
                             }
                         });
                         CampaignSelect2.select2({

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: bonyan 1.0.21\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
 "POT-Creation-Date: 2023-05-02T22:52:04+02:00\n"
-"PO-Revision-Date: 2023-05-02 23:52+0300\n"
+"PO-Revision-Date: 2023-05-03 09:01+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -672,7 +672,7 @@ msgstr "المناقصات"
 
 #: inc/CPT/tenders.php:7 inc/CPT/tenders.php:8 inc/CPT/tenders.php:9
 msgid "Tender"
-msgstr ""
+msgstr "مناقصة"
 
 #: inc/CPT/tenders.php:11
 msgid "Add New Tender"
@@ -759,19 +759,17 @@ msgid "-- Choose a Document --"
 msgstr "--اختار الملف  --"
 
 #: inc/wpbakery/shortcodes/advanced_search_view.php:39
-#, fuzzy
-#| msgid "Search"
 msgid "Search Keyword"
-msgstr "البحث"
+msgstr "كلمة البحث"
 
 #: inc/wpbakery/shortcodes/advanced_search_view.php:48
 #: inc/wpbakery/shortcodes/advanced_search_view.php:65
 msgid "-- Search all items --"
-msgstr ""
+msgstr "-- بحث في كل العناصر --"
 
 #: inc/wpbakery/shortcodes/advanced_search_view.php:71
 msgid "Without specifying a specific time"
-msgstr ""
+msgstr "دون تحديد وقت محدد"
 
 #: inc/wpbakery/shortcodes/advanced_search_view.php:74 search.php:23
 msgid "Search"
@@ -962,10 +960,8 @@ msgid "Blog"
 msgstr "المدونة"
 
 #. Template Name of the theme
-#, fuzzy
-#| msgid "Donor-Dashboard"
 msgid "Modern-Dashboard"
-msgstr "لوحة تحكم المتبرع"
+msgstr "لوحة التحكم الحديثة"
 
 #: template-parts/cards/content-campaign.php:60
 #: template-parts/components/urgent-campaigns.php:65
@@ -992,10 +988,8 @@ msgid "Funded of $%s"
 msgstr "حُصلت من %s$"
 
 #: template-parts/components/top-donor.php:67
-#, fuzzy
-#| msgid "Shares"
 msgid "Share via"
-msgstr "شارك"
+msgstr "شارك عبر"
 
 #: template-parts/components/top-donor.php:92
 msgid "Top Donation"
@@ -1161,61 +1155,59 @@ msgstr "التقرير الأخير"
 #: template-parts/user-dashboard/contribution-invitation.php:6
 #: template-parts/user-dashboard/sidebar.php:65
 msgid "Contribution Invitation"
-msgstr ""
+msgstr "دعوة مساهمة"
 
 #: template-parts/user-dashboard/contribution-invitation.php:12
 msgid "Fill the information then choose where you want to send the invitation"
-msgstr ""
+msgstr "املأ المعلومات ثم اختر المكان الذي تريد إرسال الدعوة إليه"
 
 #: template-parts/user-dashboard/contribution-invitation.php:19
 msgid "Select Campaign To Contribute*"
-msgstr ""
+msgstr "حدد حملة للمساهمة *"
 
 #: template-parts/user-dashboard/contribution-invitation.php:21
-#, fuzzy
-#| msgid "Favorite Campaigns"
 msgid "Search For a Campaign"
-msgstr "الحملات المفضلة"
+msgstr "ابحث عن حملة"
 
 #: template-parts/user-dashboard/contribution-invitation.php:26
 msgid "Contribution Value"
-msgstr ""
+msgstr "قيمة المساهمة"
 
 #: template-parts/user-dashboard/contribution-invitation.php:31
 msgid "Invitation Message"
-msgstr ""
+msgstr "رسالة الدعوة"
 
 #: template-parts/user-dashboard/contribution-invitation.php:39
 msgid "Invite Via"
-msgstr ""
+msgstr "شارك عبر"
 
 #: template-parts/user-dashboard/contribution-invitation.php:41
 msgid "Invite by WhatsApp"
-msgstr ""
+msgstr "دعوة عبر WhatsApp"
 
 #: template-parts/user-dashboard/contribution-invitation.php:44
 msgid "Invite by Telegram"
-msgstr ""
+msgstr "دعوة عن طريق Telegram"
 
 #: template-parts/user-dashboard/contribution-invitation.php:48
 msgid "Invite by Facebook"
-msgstr ""
+msgstr "دعوة عن طريق الفيسبوك"
 
 #: template-parts/user-dashboard/contribution-invitation.php:52
 msgid "Invite by Twitter"
-msgstr ""
+msgstr "دعوة عبر Twitter"
 
 #: template-parts/user-dashboard/contribution-invitation.php:56
 msgid "Invite by Reddit"
-msgstr ""
+msgstr "دعوة بواسطة Reddit"
 
 #: template-parts/user-dashboard/contribution-invitation.php:60
 msgid "Invite by Gmail"
-msgstr ""
+msgstr "دعوة من Gmail"
 
 #: template-parts/user-dashboard/contribution-invitation.php:64
 msgid "Invite by Email"
-msgstr ""
+msgstr "ادعو بواسطة البريد الإلكتروني"
 
 #: template-parts/user-dashboard/donations-history.php:30
 #: template-parts/user-dashboard/main-tab.php:34
@@ -1227,90 +1219,76 @@ msgstr "أخر تبرع منذ %s يوم"
 #: template-parts/user-dashboard/main-tab.php:49
 #: template-parts/user-dashboard/recurring-donations.php:45
 msgid "Donor For %s days"
-msgstr ""
+msgstr "متبرع لمدة %s يوم"
 
 #: template-parts/user-dashboard/donations-history.php:58
-#, fuzzy
-#| msgid "Top Donation"
 msgid "Total Donations"
-msgstr "أعلى التبرعات"
+msgstr "إجمالي التبرعات"
 
 #: template-parts/user-dashboard/edit-profile.php:6
 #: template-parts/user-dashboard/sidebar.php:38
 #: template-parts/user-dashboard/sidebar.php:44
-#, fuzzy
-#| msgid "Social Media Profiles"
 msgid "Edit Profile"
-msgstr "حسابات التواصل الاجتماعي"
+msgstr "تعديل الملف الشخصي"
 
 #: template-parts/user-dashboard/edit-profile.php:18
 msgid "This image here to set avatar of"
-msgstr ""
+msgstr "هذه الصورة هنا لتعيين الصورة الرمزية لـ"
 
 #: template-parts/user-dashboard/edit-profile.php:18
 msgid "Find Image"
-msgstr ""
+msgstr "البحث عن الصورة"
 
 #: template-parts/user-dashboard/edit-profile.php:27
 msgid "Prefix"
-msgstr ""
+msgstr "البادئة"
 
 #: template-parts/user-dashboard/edit-profile.php:29
 msgid "Mr."
-msgstr ""
+msgstr "السيد."
 
 #: template-parts/user-dashboard/edit-profile.php:30
 msgid "Mrs."
-msgstr ""
+msgstr "السّيدة."
 
 #: template-parts/user-dashboard/edit-profile.php:45
 msgid "Company"
-msgstr ""
+msgstr "شركة"
 
 #: template-parts/user-dashboard/main-tab.php:66
 msgid "Your Giving Stats"
-msgstr ""
+msgstr "احصائيات العطاء الخاصة بك"
 
 #: template-parts/user-dashboard/main-tab.php:74
-#, fuzzy
-#| msgid "Mobile Number"
 msgid "Number"
-msgstr "رقم الهاتف"
+msgstr "عدد"
 
 #: template-parts/user-dashboard/main-tab.php:74
 #: template-parts/user-dashboard/main-tab.php:78
-#, fuzzy
-#| msgid "Donations"
 msgid "of donations"
 msgstr "التبرعات"
 
 #: template-parts/user-dashboard/main-tab.php:78
 msgid "Total"
-msgstr ""
+msgstr "مجموع"
 
 #: template-parts/user-dashboard/main-tab.php:92
-#, fuzzy
-#| msgid "Recurring Donations"
 msgid "Recent Donations"
-msgstr "التبرعات المتكررة"
+msgstr "التبرعات الأخيرة"
 
 #: template-parts/user-dashboard/sidebar.php:14
 #: template-parts/user-dashboard/sidebar.php:19
-#, fuzzy
-#| msgid "Donor-Dashboard"
 msgid "Donor Dashboard"
-msgstr "لوحة تحكم المتبرع"
+msgstr "لوحة بيانات المتبرع"
 
 #: template-parts/user-dashboard/sidebar.php:47
-#, fuzzy
-#| msgid "Favorite Campaigns"
 msgid "Favorite Campaign"
 msgstr "الحملات المفضلة"
 
 #: template-parts/user-dashboard/sidebar.php:52
 #: template-parts/user-dashboard/wishlist-tab.php:5
 msgid "Wishlist"
-msgstr ""
+msgstr "قائمة الأمنيات"
 
 #~ msgid "Your Name"
 #~ msgstr "اسمك"
