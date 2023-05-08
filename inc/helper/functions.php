@@ -67,6 +67,16 @@ require __DIR__ . '/format-money.php';
 //================================
 require __DIR__ . '/add-recaptcha.php';
 
+//================================
+//    Select2 For WpBakery
+//================================
+require __DIR__ . '/wpbakery-select2.php';
+
+//================================
+//  One Signal Push Notification
+//================================
+require __DIR__ . '/onesignal.php';
+
 
 // Global 
 
@@ -82,7 +92,8 @@ function get_custom_post_types($exclude = [])
 	$post_types_array = get_post_types(['public' => true, '_builtin' => false], 'names', 'and');
 	$custom_post_types = array();
 	foreach ($post_types_array as $post_type) {
-		if (in_array($post_type, $exclude)) continue;
+		if (in_array($post_type, $exclude))
+			continue;
 		array_push($custom_post_types, $post_type);
 	}
 	return $custom_post_types;
@@ -125,8 +136,6 @@ function add_CPTs_to_search($query)
 	if (is_admin() || !$query->is_main_query()) {
 		return;
 	}
-
-
 	if ($query->is_search() || is_tag() && $query->is_main_query()) {
 		$cpt_array = get_custom_post_types(['main_slider', 'give_forms']);
 		array_push($cpt_array, "post", "page");
@@ -136,7 +145,6 @@ function add_CPTs_to_search($query)
 		);
 	}
 }
-
 add_filter('pre_get_posts', 'add_CPTs_to_search');
 
 
@@ -154,4 +162,16 @@ function is_wpml_rtl()
 function current_language()
 {
 	return apply_filters('wpml_current_language', null);
+}
+
+
+function generateRandomString($length = 10)
+{
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$charactersLength = strlen($characters);
+	$randomString = '';
+	for ($i = 0; $i < $length; $i++) {
+		$randomString .= $characters[random_int(0, $charactersLength - 1)];
+	}
+	return $randomString;
 }

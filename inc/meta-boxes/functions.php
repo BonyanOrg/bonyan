@@ -30,6 +30,11 @@ require __DIR__ . '/tenders.php';
 //====================
 require __DIR__ . '/vacancies.php';
 
+//====================
+//    Events
+//====================
+require __DIR__ . '/events.php';
+
 
 
 //================================================
@@ -55,3 +60,8 @@ require __DIR__ . '/term/reports_cat_options.php';
 //    PROJECTS
 //==================
 require __DIR__ . '/term/projects_cat_options.php';
+
+//==================
+//    EVENTS
+//==================
+require __DIR__ . '/term/events_categories_options.php';

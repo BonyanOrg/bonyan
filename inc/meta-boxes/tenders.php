@@ -86,10 +86,17 @@ function save_tender_options($post_id)
     } else {
         update_post_meta($post_id, 'to_is_urgent', '');
     }
-
-    if (!empty($_POST['to_location']))
+    if (isset($_POST['to_location'])) {
         update_post_meta($post_id, 'to_location', $_POST['to_location']);
-    if (!empty($_POST['to_deadline']))
+    } else {
+        update_post_meta($post_id, 'to_location', '');
+    }
+
+    if (isset($_POST['to_deadline'])) {
         update_post_meta($post_id, 'to_deadline', $_POST['to_deadline']);
+    } else {
+        update_post_meta($post_id, 'to_deadline', '');
+    }
+
 }
 add_action('save_post', 'save_tender_options', 10, 2);

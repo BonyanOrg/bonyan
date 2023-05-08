@@ -11,7 +11,7 @@ function hierarchy_board_scripts()
     wp_enqueue_script('bonyan-orgchart', get_template_directory_uri() . '/dist/js/cdn/orgchart.js', array(), $GLOBALS['bonyan_version']);
     // wp_enqueue_script('bonyan-orgchart', 'https://balkan.app/js/OrgChart.js', array('jquery'), $GLOBALS['bonyan_version']);
 
-?>
+    ?>
     <!-- <script>
         <?php
         //require_once(get_template_directory() . '/dist/js/cdn/orgchart.js');
@@ -35,11 +35,11 @@ function edit_hierarchy_map()
         die('Busted!');
     }
 
-    $current_page_id = $_POST['current_page_id'];   // Get Current Page ID From Ajax Request
-    $new_map = $_POST['new_map'];                   // Get Edited Map From Ajax Request
-    $new_map = str_replace("\"", "'", $new_map);    // remove " and replace it with ' to be compatible with Wpbakery Context
+    $current_page_id = $_POST['current_page_id']; // Get Current Page ID From Ajax Request
+    $new_map = $_POST['new_map']; // Get Edited Map From Ajax Request
+    $new_map = str_replace("\"", "'", $new_map); // remove " and replace it with ' to be compatible with Wpbakery Context
     if (!empty($current_page_id) && !empty($new_map)) { // Check The Data Who Are Send From Ajax Request
-        $post_will_edit = get_post($current_page_id);  // Get Current Page Data By ID
+        $post_will_edit = get_post($current_page_id); // Get Current Page Data By ID
         $post_content = $post_will_edit->post_content; // get the current content
         $default_content_check = str_contains("hierarchy_board_map", $post_content); // Check if the content contain the default value
 
@@ -48,14 +48,19 @@ function edit_hierarchy_map()
         }
 
         $search = "/hierarchy_board_map=\"[^\"]*\"/"; // Set Regular Expression
-        $replace = "hierarchy_board_map=\"{$new_map}\"";    // Set The New Field Data With New Map 
+        $replace = "hierarchy_board_map=\"{$new_map}\""; // Set The New Field Data With New Map 
         $new_post_content = preg_replace($search, $replace, $post_content); // Replace old map With new One  Based On Regular Expression
         // Set Array To Update Post (Page)
         $new_edited_post_content = array(
-            'ID'           => $current_page_id,
+            'ID' => $current_page_id,
             'post_content' => $new_post_content
         );
-        wp_update_post($new_edited_post_content);
+        $updated = wp_update_post($new_edited_post_content);
+        if (is_wp_error($updated)) {
+            wp_send_json_error('Error', 400);
+        } else {
+            wp_send_json(['Result' => true, 200]);
+        }
     }
 }
 
@@ -65,44 +70,49 @@ if (!function_exists('hierarchy_board_shortcode')) {
     function hierarchy_board_shortcode($atts)
     {
 
-        extract(shortcode_atts(array(
-            'hierarchy_board_map'     => ''
-        ), $atts));
+        extract(
+            shortcode_atts(
+                array(
+                    'hierarchy_board_map' => ''
+                ),
+                $atts
+            )
+        );
 
         ob_start();
         wp_enqueue_media();
-    ?>
-        <?php //========[{ Enqueue Widget Style }]========//
-        if (!function_exists('hierarchy_board_register_style')) {
-            function hierarchy_board_register_style()
-            {
         ?>
+        <?php //========[{ Enqueue Widget Style }]========//
+                if (!function_exists('hierarchy_board_register_style')) {
+                    function hierarchy_board_register_style()
+                    {
+                        ?>
                 <style>
                     <?php
                     require_once(get_template_directory() . "/dist/css/components/wpb/hierarchy.min.css");
                     ?>
                 </style>
-        <?php
-            }
-            hierarchy_board_register_style();
-        }
-        if (empty($hierarchy_board_map)) { // if first initialization Set Default Value
-            $hierarchy_board_map = "{'id':'1','Name':'Jack Hill','Title':'Chairman and CEO','Email':'amber@domain.com','ImgUrl':'https://people.math.ethz.ch/~afigalli/avatar.jpg'}|";
-        }
+                <?php
+                    }
+                    hierarchy_board_register_style();
+                }
+                if (empty($hierarchy_board_map)) { // if first initialization Set Default Value
+                    $hierarchy_board_map = "{'id':'1','Name':'Jack Hill','Title':'Chairman and CEO','Email':'amber@domain.com','ImgUrl':'https://people.math.ethz.ch/~afigalli/avatar.jpg'}|";
+                }
 
-        $prepare_to_json = str_replace("'", "\"", $hierarchy_board_map);
-        $objects_array = explode("|", $prepare_to_json);
-        $array_of_objects_to_js = array();
-        foreach ($objects_array as $key => $object) {
-            if ($key == count($objects_array) - 1) {
-                continue;
-            }
-            $temp_object = json_decode($object);
-            array_push($array_of_objects_to_js, $temp_object);
-        }
+                $prepare_to_json = str_replace("'", "\"", $hierarchy_board_map);
+                $objects_array = explode("|", $prepare_to_json);
+                $array_of_objects_to_js = array();
+                foreach ($objects_array as $key => $object) {
+                    if ($key == count($objects_array) - 1) {
+                        continue;
+                    }
+                    $temp_object = json_decode($object);
+                    array_push($array_of_objects_to_js, $temp_object);
+                }
 
 
-        ?>
+                ?>
 
 
         <!-- START Hierarchy HTML -->
@@ -113,8 +123,10 @@ if (!function_exists('hierarchy_board_shortcode')) {
             <?php
             $roles = ['administrator'];
             if (check_user_role($roles)) {
-            ?>
-                <button class="primary-btn wpb-bonyan-btn save-hierarchy-tree" id="edit-map-btn"><?php _e("Save",'bonyan') ?></button>
+                ?>
+                <button class="primary-btn wpb-bonyan-btn save-hierarchy-tree" id="edit-map-btn">
+                    <?php _e("Save", 'bonyan') ?>
+                </button>
             <?php } ?>
         </div>
         <!-- END Hierarchy HTML -->
@@ -127,7 +139,7 @@ if (!function_exists('hierarchy_board_shortcode')) {
             {
                 global $post;
 
-        ?>
+                ?>
                 <script>
                     // Screen Width
                     const screenWidth = document.documentElement.clientWidth;
@@ -239,26 +251,26 @@ if (!function_exists('hierarchy_board_shortcode')) {
                                 generateElementsFromFields: false,
                                 photoBinding: "ImgUrl",
                                 elements: [{
-                                        type: 'textbox',
-                                        label: boardTitles.fullName,
-                                        binding: 'Name'
-                                    },
-                                    {
-                                        type: 'textbox',
-                                        label: boardTitles.title,
-                                        binding: 'Title'
-                                    },
-                                    {
-                                        type: 'textbox',
-                                        label: boardTitles.photoUrl,
-                                        binding: 'ImgUrl',
-                                        btn: 'Upload'
-                                    },
-                                    {
-                                        type: 'textbox',
-                                        label: boardTitles.emailAddress,
-                                        binding: 'Email',
-                                    },
+                                    type: 'textbox',
+                                    label: boardTitles.fullName,
+                                    binding: 'Name'
+                                },
+                                {
+                                    type: 'textbox',
+                                    label: boardTitles.title,
+                                    binding: 'Title'
+                                },
+                                {
+                                    type: 'textbox',
+                                    label: boardTitles.photoUrl,
+                                    binding: 'ImgUrl',
+                                    btn: 'Upload'
+                                },
+                                {
+                                    type: 'textbox',
+                                    label: boardTitles.emailAddress,
+                                    binding: 'Email',
+                                },
                                 ],
                                 buttons: {
                                     edit: {
@@ -347,26 +359,26 @@ if (!function_exists('hierarchy_board_shortcode')) {
                                     },
                                 },
                                 elements: [{
-                                        type: 'textbox',
-                                        label: boardTitles.fullName,
-                                        binding: 'Name'
-                                    },
-                                    {
-                                        type: 'textbox',
-                                        label: boardTitles.title,
-                                        binding: 'Title'
-                                    },
-                                    {
-                                        type: 'textbox',
-                                        label: boardTitles.photoUrl,
-                                        binding: 'ImgUrl',
-                                        btn: 'Upload'
-                                    },
-                                    {
-                                        type: 'textbox',
-                                        label: boardTitles.emailAddress,
-                                        binding: 'Email',
-                                    },
+                                    type: 'textbox',
+                                    label: boardTitles.fullName,
+                                    binding: 'Name'
+                                },
+                                {
+                                    type: 'textbox',
+                                    label: boardTitles.title,
+                                    binding: 'Title'
+                                },
+                                {
+                                    type: 'textbox',
+                                    label: boardTitles.photoUrl,
+                                    binding: 'ImgUrl',
+                                    btn: 'Upload'
+                                },
+                                {
+                                    type: 'textbox',
+                                    label: boardTitles.emailAddress,
+                                    binding: 'Email',
+                                },
                                 ],
                             },
 
@@ -387,73 +399,73 @@ if (!function_exists('hierarchy_board_shortcode')) {
                             nodes: members
                         }
                         let ChartJson =
-                            <?php
-                            $roles = ['administrator'];
-                            if (check_user_role($roles)) {
-                            ?>adminJson;
-                        <?php
-                            } else {
-                        ?>userJson;
-                    <?php
-                            }
-                    ?>
-                    var chart = new OrgChart(membersTree, ChartJson);
+                                                                                                            <?php
+                                                                                                            $roles = ['administrator'];
+                                                                                                            if (check_user_role($roles)) {
+                                                                                                                ?> adminJson;
+                                                                                                                            <?php
+                                                                                                            } else {
+                                                                                                                ?> userJson;
+                                                                                                                        <?php
+                                                                                                            }
+                                                                                                            ?>
+                                                                                                    var chart = new OrgChart(membersTree, ChartJson);
 
-                    chart.editUI.on('element-btn-click', function(sender, args) {
+                        chart.editUI.on('element-btn-click', function (sender, args) {
 
-                        // Create the media frame.
-                        file_frame_upload = wp.media.frames.file_frame = wp.media({
-                            library: {
-                                type: ['image']
-                            },
-                            multiple: false // Set to true to allow multiple files to be selected
+                            // Create the media frame.
+                            file_frame_upload = wp.media.frames.file_frame = wp.media({
+                                library: {
+                                    type: ['image']
+                                },
+                                multiple: false // Set to true to allow multiple files to be selected
+                            });
+                            const imglimit = 0; // images upload items limit
+                            file_frame_upload.on('select', function () {
+                                // set multiple to false so only get one image from the uploader
+                                attachment = file_frame_upload.state().get('selection').toJSON();
+                                // here are some of the variables you could use for the attachment;
+                                var url = attachment[0].url;
+                                args.input.value = url;
+
+
+                            });
+
+                            // Finally, open the modal
+                            file_frame_upload.open();
                         });
-                        const imglimit = 0; // images upload items limit
-                        file_frame_upload.on('select', function() {
-                            // set multiple to false so only get one image from the uploader
-                            attachment = file_frame_upload.state().get('selection').toJSON();
-                            // here are some of the variables you could use for the attachment;
-                            var url = attachment[0].url;
-                            args.input.value = url;
 
+                        chart.on('click', function (sender, args) {
+                            // Edit Mode
+                            // sender.editUI.show(args.node.id, false);
 
+                            //details mode
+                            sender.editUI.show(args.node.id, true);
+                            return false; //to cansel the click event
                         });
 
-                        // Finally, open the modal
-                        file_frame_upload.open();
-                    });
+                        // On Initialize
+                        chart.on('init', (treeObject) => { });
 
-                    chart.on('click', function(sender, args) {
-                        // Edit Mode
-                        // sender.editUI.show(args.node.id, false);
+                        // On Update, This will be fired once an information changed (On clicking save and close button)
+                        chart.on('update', (treeObject) => {
+                            members = treeObject.config.nodes;
+                        });
 
-                        //details mode
-                        sender.editUI.show(args.node.id, true);
-                        return false; //to cansel the click event
-                    });
+                        // On Add
+                        chart.on('add', (treeObject) => {
+                            members = treeObject.config.nodes;
+                        })
 
-                    // On Initialize
-                    chart.on('init', (treeObject) => {});
-
-                    // On Update, This will be fired once an information changed (On clicking save and close button)
-                    chart.on('update', (treeObject) => {
-                        members = treeObject.config.nodes;
-                    });
-
-                    // On Add
-                    chart.on('add', (treeObject) => {
-                        members = treeObject.config.nodes;
-                    })
-
-                    // On Remove
-                    chart.on('remove', (treeObject) => {
-                        members = treeObject.config.nodes;
-                    })
+                        // On Remove
+                        chart.on('remove', (treeObject) => {
+                            members = treeObject.config.nodes;
+                        })
                     }
 
 
-                    (function($) {
-                        $("#edit-map-btn").on('click', function() {
+                    (function ($) {
+                        $("#edit-map-btn").on('click', function () {
                             $(this).css('opacity', '0.2');
                             $(this).prop('disabled', true);
                             let NewMap = "";
@@ -470,11 +482,11 @@ if (!function_exists('hierarchy_board_shortcode')) {
                                     new_map: NewMap
                                 },
                                 statusCode: {
-                                    400: function(data) {
+                                    400: function (data) {
                                         toastr.error(data.responseJSON.error_message);
 
                                     },
-                                    200: function(data) {
+                                    200: function (data) {
                                         $("#edit-map-btn").css('opacity', '1');
                                         $("#edit-map-btn").prop('disabled', false);
                                         toastr.success("Map Successfully Edited");
@@ -490,13 +502,13 @@ if (!function_exists('hierarchy_board_shortcode')) {
                     })(jQuery);
                 </script>
 
-        <?php
+                <?php
 
             }
             hierarchy_board_register_script($array_of_objects_to_js);
         } ?>
 
-<?php
+        <?php
         return ob_get_clean();
     }
 }

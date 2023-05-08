@@ -68,3 +68,9 @@ require __DIR__ . '/get-user-modern-recurring-donations.php';
 //=====================================
 require __DIR__ . '/advanced_search.php';
 
+
+//=====================================
+//    Event Categories Getter 
+//=====================================
+require __DIR__ . '/get_events_categories.php';
+

@@ -78,3 +78,6 @@ require_once "shortcodes/hierarchy_board_view.php";
 
 /* Advanced Search   */
 require_once "shortcodes/advanced_search_view.php";
+
+/* Events Calendar   */
+require_once "shortcodes/events_calendar_view.php";

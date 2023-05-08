@@ -26,3 +26,6 @@ require __DIR__ . '/projects.php';
 
 // Reports Cpt
 require __DIR__ . '/reports.php';
+
+// Events Cpt
+require __DIR__ . '/events.php';

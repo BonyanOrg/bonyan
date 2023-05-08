@@ -105,3 +105,6 @@ require_once "vcmaps/hierarchy_board_map.php";
 
 /* Advanced Search  */
 require_once "vcmaps/advanced_search_map.php";
+
+/* Events Calendar  */
+require_once "vcmaps/events_calendar_map.php";
