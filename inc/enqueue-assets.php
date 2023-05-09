@@ -41,11 +41,15 @@ function bonyan_scripts()
 
     // __Ajax__
     wp_enqueue_script('ajax-scripts', get_template_directory_uri() . '/assets/js/ajax-scripts.js', array('jquery', 'bonyan-script'), $GLOBALS['bonyan_version'], true);
-    wp_localize_script('ajax-scripts', 'ajax_script_object', array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-        'nonce' => wp_create_nonce('ajax-nonce'),
-        'user_id' => is_user_logged_in() ? get_current_user_id() : '',
-    ));
+    wp_localize_script(
+        'ajax-scripts',
+        'ajax_script_object',
+        array(
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('ajax-nonce'),
+            'user_id' => is_user_logged_in() ? get_current_user_id() : '',
+        )
+    );
     /* =====[End Enqueue GLOBAL Assets]===== */
 
     // __CDN__
@@ -55,6 +59,11 @@ function bonyan_scripts()
     wp_enqueue_script('bonyan-datatable-js', get_template_directory_uri() . "/dist/js/cdn/jquery.dataTables.min.js", array(), false, true);
     wp_enqueue_script('bonyan-datatable-responsive-js', get_template_directory_uri() . "/dist/js/cdn/dataTables.responsive.min.js", array(), false, true);
 
+    /* =====[Enqueue Search Page]===== */
+    if (is_search()) {
+        wp_enqueue_style('bonyan-advanced-search', get_template_directory_uri() . "/dist/css/components/wpb/advanced-search.min.css", array(), $GLOBALS['bonyan_version']);
+    }
+    /* =====[End Enqueue Search Page]===== */
     /* =====[Enqueue Reports Assets]===== */
     if (is_post_type_archive('reports') || is_tax('reports-categories')) {
         // __Styles__ 
@@ -177,7 +186,7 @@ add_action('get_footer', 'load_styles_in_footer');
  */
 function support_rtl($styles_ids)
 {
-    foreach ($styles_ids as $style_id) :
+    foreach ($styles_ids as $style_id):
         wp_style_add_data($style_id, 'rtl', 'replace');
         wp_style_add_data($style_id, 'suffix', '.min');
     endforeach;
@@ -189,7 +198,7 @@ function load_swiper_style($type)
     $load_swiper_style = true;
     if ($type == 'enqueue_action') {
         // __CDN__
-        wp_enqueue_style('bonyan-swiper-carousel-style',  get_template_directory_uri() . "/dist/css/cdn/swiper-bundle.min.css", array());
+        wp_enqueue_style('bonyan-swiper-carousel-style', get_template_directory_uri() . "/dist/css/cdn/swiper-bundle.min.css", array());
         wp_enqueue_script('bonyan-swiper-carousel-script', get_template_directory_uri() . "/dist/js/cdn/swiper-bundle.min.js", array(), false, true);
     }
     if ($type == 'wp_bakery') {
