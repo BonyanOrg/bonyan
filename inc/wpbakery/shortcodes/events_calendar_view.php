@@ -110,7 +110,7 @@ if (!function_exists('events_calendar_shortcode')) {
                         $temp_event = new \stdClass;
                         $temp_event->id = get_the_ID();
                         $temp_event->calendarId = $term->term_id;
-                        $temp_event->title = get_the_title();
+                        $temp_event->title = '<a href="' . get_permalink(get_the_ID()) . '">' . get_the_title() . '</a>';
 
                         $evento_bgcolor = get_post_meta(get_the_ID(), "evento_bgcolor", true);
                         $temp_event->start = get_post_meta(get_the_ID(), "evento_startDate", true);
