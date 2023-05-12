@@ -77,6 +77,11 @@ require __DIR__ . '/wpbakery-select2.php';
 //================================
 require __DIR__ . '/onesignal.php';
 
+//================================
+//  Users Tracking
+//================================
+require __DIR__ . '/user-tracking.php';
+
 
 // Global 
 
@@ -98,13 +103,15 @@ function get_custom_post_types($exclude = [])
 	}
 	return $custom_post_types;
 }
+
 /**
  * get_CPTs_with_name
  *
- * @param mixed $exclude
+ * @param mixed $args exclude[] array, ex ['exclude' => ['main_slider', 'give_forms']]
+ * @param bool $for_wpbakery_widgets
  * @return array custom_post_types
  */
-function get_CPTs_with_name($exclude = [])
+function get_CPTs_with_name($args = [], $for_wpbakery_widgets = false)
 {
 	$post_types = [];
 	$CPTs = get_post_types(['public' => true, '_builtin' => false], 'names', 'and');
@@ -113,8 +120,8 @@ function get_CPTs_with_name($exclude = [])
 	//$CPTs['page'] = 'page'; // Add Posts To The List
 
 
-	if (isset($exclude['exclude']) && is_array($exclude['exclude'])) {
-		foreach ($exclude['exclude'] as $cpt) {
+	if (isset($args['exclude']) && is_array($args['exclude'])) {
+		foreach ($args['exclude'] as $cpt) {
 			unset($CPTs[$cpt]);
 		}
 	}
@@ -123,7 +130,11 @@ function get_CPTs_with_name($exclude = [])
 
 	foreach ($CPTs as $post_type) {
 		$pt = get_post_type_object($post_type);
-		$post_types += [$post_type => __($pt->labels->menu_name)];
+		if ($for_wpbakery_widgets == true) {
+			$post_types[$pt->labels->menu_name] = $post_type;
+		} else {
+			$post_types += [$post_type => __($pt->labels->menu_name)];
+		}
 	}
 
 	return $post_types;
@@ -163,6 +174,63 @@ function current_language()
 {
 	return apply_filters('wpml_current_language', null);
 }
+
+
+function custom_admin_cpts_menu()
+{
+	global $wp_admin_bar;
+
+	// Add the parent menu item
+	$wp_admin_bar->add_node(
+		array(
+			'id' => 'custom-cpts-menu',
+			'title' => 'Custom Post Types',
+		)
+	);
+	$post_types = get_CPTs_with_name();
+	foreach ($post_types as $key => $post_type) {
+		// Add the child menu items as sub-menu of the parent
+		$wp_admin_bar->add_node(
+			array(
+				'id' => $key,
+				'title' => $post_type,
+				'href' => admin_url('edit.php?post_type=' . $key),
+				'parent' => 'custom-cpts-menu',
+			)
+		);
+		$wp_admin_bar->add_node(
+			array(
+				'id' => $key . 'all',
+				'title' => 'All ' . $post_type,
+				'href' => admin_url('edit.php?post_type=' . $key),
+				'parent' => $key,
+			)
+		);
+		$wp_admin_bar->add_node(
+			array(
+				'id' => $key . 'add-new',
+				'title' => 'Add New ' . $post_type,
+				'href' => admin_url('post-new.php?post_type=' . $key),
+				'parent' => $key,
+			)
+		);
+		$taxonomies = get_object_taxonomies($key, 'objects');
+		foreach ($taxonomies as $taxonomy) {
+			$wp_admin_bar->add_node(
+				array(
+					'id' => $taxonomy->name . 'all' . $post_type,
+					'title' => $taxonomy->label,
+					'href' => admin_url('edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $key),
+					'parent' => $key,
+				)
+			);
+		}
+	}
+
+}
+add_action('admin_bar_menu', 'custom_admin_cpts_menu', 999);
+
+
 
 
 function generateRandomString($length = 10)

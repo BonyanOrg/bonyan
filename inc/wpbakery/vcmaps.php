@@ -108,3 +108,6 @@ require_once "vcmaps/advanced_search_map.php";
 
 /* Events Calendar  */
 require_once "vcmaps/events_calendar_map.php";
+
+/* Recommended Content  */
+require_once "vcmaps/recommended-content_map.php";

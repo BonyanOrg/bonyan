@@ -81,3 +81,6 @@ require_once "shortcodes/advanced_search_view.php";
 
 /* Events Calendar   */
 require_once "shortcodes/events_calendar_view.php";
+
+/* Recommended Content  */
+require_once "shortcodes/recommended_content_view.php";
