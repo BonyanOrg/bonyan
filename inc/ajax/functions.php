@@ -74,3 +74,9 @@ require __DIR__ . '/advanced_search.php';
 //=====================================
 require __DIR__ . '/get_events_categories.php';
 
+//=====================================
+//             Send Email 
+//=====================================
+require __DIR__ . '/send-email.php';
+require __DIR__ . '/preview-email.php';
+
