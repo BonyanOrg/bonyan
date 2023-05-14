@@ -137,7 +137,8 @@ if (!function_exists('recommended_content_shortcode')) {
             } ?>
         </style>
         <div class="container custom-widget">
-            <h2 class="bonyan-title primary-color mb-4 mb-md-5">Recommended For You
+            <h2 class="bonyan-title primary-color mb-4 mb-md-5">
+                <?php _e('Recommended For You', 'bonyan') ?>
                 <?php //echo $recommended_content_header_text 
                         ?>
             </h2>
@@ -217,6 +218,7 @@ if (!function_exists('recommended_content_shortcode')) {
                     // If User Visits CATEGORIES
                     //=============================
                     if (!empty($visited_categories_ids)) {
+
                         $args = array(
                             'post_type' => $recommended_content_post_type,
                             'post_status' => 'publish',
@@ -251,7 +253,10 @@ if (!function_exists('recommended_content_shortcode')) {
                             }
                         }
                         wp_reset_postdata();
-                        $recommended_content_printed = true;
+                        if ($recommended_posts_by_terms->post_count > 0) {
+
+                            $recommended_content_printed = true;
+                        }
 
                     }
 

@@ -6,7 +6,7 @@ function register_reports_cpt()
         'name'                  => __('Reports', 'bonyan'),
         'singular_name'         => __('Report',  'bonyan'),
         'menu_name'             => __('Reports',  'bonyan'),
-        'name_admin_bar'        => __('reports',  'bonyan'),
+        'name_admin_bar'        => __('Reports',  'bonyan'),
         'add_new'               => __('Add New', 'bonyan'),
         'add_new_item'          => __('Add New reports', 'bonyan'),
         'new_item'              => __('New reports', 'bonyan'),

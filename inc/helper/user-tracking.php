@@ -16,6 +16,29 @@ function user_tracker()
     } else {
         $ip_address = $_SERVER['REMOTE_ADDR'];
     }
+    
+    global $wpdb;
+    $prefix = $wpdb->prefix;
+    $table_name = $prefix . 'users_log';
+    // Check if the table exists
+    $table_exists = $wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name;
+    if (!$table_exists) {
+        $charset_collate = $wpdb->get_charset_collate();
+        $sql = "CREATE TABLE $table_name (
+        `ID` int(11) NOT NULL AUTO_INCREMENT,
+        `user_id` int(11) DEFAULT NULL,
+        `post_id` int(11) DEFAULT NULL,
+        `post_type` varchar(50) DEFAULT NULL,
+        `term_id` int(11) DEFAULT NULL,
+        `event_type` varchar(255) DEFAULT NULL,
+        `ip` varchar(15) DEFAULT NULL,
+        `date` date NOT NULL,
+        PRIMARY KEY (ID)
+    ) $charset_collate;";
+
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        dbDelta($sql);
+    }
 
     // On Visit Post Or Page
     if (is_singular()) {

@@ -20,7 +20,7 @@ function register_events_cpt()
     $args = array(
         'labels' => $labels,
         'description' => 'Events custom post type.',
-        'menu_icon' => 'dashicons-megaphone',
+        'menu_icon' => 'dashicons-groups',
         'public' => true,
         'publicly_queryable' => true,
         'show_ui' => true,
@@ -42,8 +42,8 @@ function register_events_cpt()
 
     // Add new taxonomy
     $labels = array(
-        'name' => __('events - Categories', 'bonyan'),
-        'singular_name' => __('events - Category', 'bonyan'),
+        'name' => __('Events - Categories', 'bonyan'),
+        'singular_name' => __('Event - Category', 'bonyan'),
         'search_items' => __('Search Categories', 'bonyan'),
         'all_items' => __('All Categories', 'bonyan'),
         'parent_item' => __('Parent Category', 'bonyan'),
