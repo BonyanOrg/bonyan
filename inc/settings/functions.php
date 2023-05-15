@@ -25,6 +25,14 @@ function theme_settings_page_register()
         'administrator',
         'theme_settings'
     );
+    add_submenu_page(
+        'theme_settings',
+        "User tracker",
+        "User Tracker",
+        'administrator',
+        'user_tracker',
+        'user_tracker_function',
+    );
 
     add_menu_page(
         'Mail Maker',
@@ -37,7 +45,7 @@ function theme_settings_page_register()
         // menu slug
         'mail_maker_page_callback',
         // callback function
-        'dashicons-email' // callback function
+        'dashicons-email' // Icon
     );
 }
 //==================
@@ -49,3 +57,8 @@ require __DIR__ . '/CPT-cat-cover-image.php';
 //    Mail Maker
 //==================
 require __DIR__ . '/mail-maker.php';
+
+//==================
+//    User tracker
+//==================
+require __DIR__ . '/user-tracker.php';
