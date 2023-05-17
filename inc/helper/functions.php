@@ -243,3 +243,10 @@ function generateRandomString($length = 10)
 	}
 	return $randomString;
 }
+
+add_action('nsl_facebook_register_new_user', 'uwp_RoleFunction', 11);
+add_action('nsl_google_register_new_user', 'uwp_RoleFunction', 11);
+function uwp_RoleFunction($user_id){
+        $user = new WP_User($user_id);
+        $user->set_role('give_donor');
+}
