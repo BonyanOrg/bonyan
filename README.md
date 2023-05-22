@@ -1,70 +1,138 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+# Fudrasing platform based on WordPress - Give WP plugin
 
-_s
-===
+## Basic information, the scope of work, and achievable goals
+A. Developing and designing the website of Bonyan Organization
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+B. Scope of work: technical and electronic services
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
 
-* A modern workflow with a pre-made command-line interface to turn your project into a more pleasant experience.
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A custom header implementation in `inc/custom-header.php`. Just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/template-functions.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample layouts in `sass/layouts/` made using CSS Grid for a sidebar on either side of your content. Just uncomment the layout of your choice in `sass/style.scss`.
-Note: `.no-sidebar` styles are automatically loaded.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
 
-Installation
----------------
+## Core functions
 
-### Requirements
+1. Account management: account creation, login, profile, settings, personal information, and personal dashboard (password-protected admin access).
 
-`_s` requires the following dependencies:
+2. Campaign management.
 
-- [Node.js](https://nodejs.org/)
-- [Composer](https://getcomposer.org/)
+3. Sharing: The campaign can be shared via social media, such as Facebook, Instagram, LinkedIn, Twitter, and possibly Pinterest and Google (share option via WhatsApp).
 
-### Quick Start
+4. Payment: Donors must be able to pay their tickets through credit card with payment gateways (Stripe / PayPal) and support for recurring payments.
 
-Clone or download this repository, change its name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a six-step find and replace on the name in all the templates.
+5. Review: Donors should have the opportunity to provide reviews of and interact with the events that occurred.
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain and replace with: `'megatherium-is-awesome'`.
-2. Search for `_s_` to capture all the functions names and replace with: `megatherium_is_awesome_`.
-3. Search for `Text Domain: _s` in `style.css` and replace with: `Text Domain: megatherium-is-awesome`.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks and replace with: <code>&nbsp;Megatherium_is_Awesome</code>.
-5. Search for `_s-` to capture prefixed handles and replace with: `megatherium-is-awesome-`.
-6. Search for `_S_` (in uppercase) to capture constants and replace with: `MEGATHERIUM_IS_AWESOME_`.
+6. Countdown timer: a timer that shows how much time is left for the campaign to end.
 
-Then, update the stylesheet header in `style.css`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
+7. Current overview: Each campaign should show, e.g., the number of tickets sold / number of investors, the amount of money raised so far, and the target amount to be raised.
 
-### Setup
+8. Manage the Frequently Asked Questions section
 
-To start using all the tools that come with `_s`  you need to install the necessary Node.js and Composer dependencies :
+9. Blog
 
-```sh
-$ composer install
-$ npm install
-```
+10. Checkout supports Multiple Currencies and includes the following options:
 
-### Available CLI commands
+- Donate as a visitor without logging in
 
-`_s` comes packed with CLI commands tailored for WordPress theme development :
+- Donate now - in one click.
 
-- `composer lint:wpcs` : checks all PHP files against [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
-- `composer lint:php` : checks all PHP files for syntax errors.
-- `composer make-pot` : generates a .pot file in the `languages/` directory.
-- `npm run compile:css` : compiles SASS files to css.
-- `npm run compile:rtl` : generates an RTL stylesheet.
-- `npm run watch` : watches all SASS files and recompiles them to css when they change.
-- `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
-- `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
-- `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
+- One page to complete your donation
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+11. Advanced / Custom Search
 
-Good luck!
+12. Wish List Management
+
+
+
+## User functions
+
+1. Invitation to Contribute: Send specific requests to contribute a certain amount within the personal social network.
+
+2. Personal Recommendations (Recommendation System): The system will provide advice and suggestion or make specific offers. Logged-in visitors see a personalized recommendation based on social profiles, platform web page content, and actions.
+
+3. Login with your social account.
+
+4. Real-time notifications: reminders and/or messages related to upcoming events and event updates.
+
+5. Agenda/Calendar: An overview showing the dates of events to be held (including those that have taken place).
+
+6. Promotion function: the function of exchanging and promoting events at various levels:
+
+Community (everyone), Events (only participants in a specific event), Social Media (within social networks).
+
+7. Reports and Statistics: Data analytics and tools for advanced analysis of web page visits.
+
+
+
+## Donation services and marketing functions
+
+- Online helpdesk: chatting with a technical support employee (Facebook Messenger \ Tawk).
+
+- Preparing and analyzing reports on donations.
+
+- Linking the site to the e-mail marketing tools (Mailchimp).
+
+Linking the website to CRM (Zoho).
+
+Linking the site to the affiliation system.
+
+Set up Breadcrumbs for SEO.
+
+- Highly compatible with search engine optimization (SEO).
+
+- Links compatible with search engines.
+
+Create an HTML sitemap.
+
+Set up and connect the Google Analytics tool.
+
+Set up Google Search Console.
+
+Create and submit an XML sitemap.
+
+Email templates for the registration and donation process.
+
+
+
+
+
+## Resources
+
+- Tools that will be used in the website (CRM - HelpDesk - Affiliation - MA)
+
+- Final Design
+
+- Website wireframes
+
+- Client’s Modifications Study
+
+- Sitemap
+
+- Design guideline
+
+- Github
+
+- Zoho, Mautic, iDev and GiveWP Credentials Zoho, Integromat
+
+
+## Installation
+
+- Step 1: Download and Extract
+- Step 2: Download and Extract 
+``Using phpMyAdmin``
+- Step 3: Set up wp-config.php
+- Step 4: Upload the files
+`` In the Root Directory ``
+
+- Step 5: Run the Install Script
+``Setup configuration file. ``
+
+- Finishing installation
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
