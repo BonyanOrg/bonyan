@@ -1,7 +1,7 @@
 <?php
 
 /* Template Name: Home-Page */
-
+ echo phpinfo();
 get_header();
 
 ?>
