@@ -4,11 +4,11 @@ add_action('give_update_payment_status', 'give_Zoho', 200, 3);
 function give_Zoho($donation_id, $new_status, $old_status)
 {
 
-    $PaymentObject    = new Give_Payment($donation_id);
+    $PaymentObject = new Give_Payment($donation_id);
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
-    $is_sub      = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
+    $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
-
+    $var = give_get_meta($PaymentObject->ID, 'give_engraving_message', true);
 
 
     $zoho_scenario_url = get_option('zoho_crm');
@@ -29,25 +29,30 @@ function give_Zoho($donation_id, $new_status, $old_status)
         "Subscription" => "_",
         "Every" => "_",
     );
-    if ($is_sub) :
+    if ($is_sub):
         $subscription = give_recurring_get_subscription_by('payment', $PaymentObject->ID);
         $args["Subscription"] = "Yes";
         $args["Every"] = $subscription->frequency . "/" . $subscription->period;
-    //$args["Recurring Amount"] = number_format($subscription->recurring_amount,2);
+        //$args["Recurring Amount"] = number_format($subscription->recurring_amount,2);
 
     endif;
-    $Post_Http = wp_remote_post($zoho_scenario_url, array(
-        'body' => $args,
-        'timeout' => 45,
-        'sslverify' => false
-    ));
+    $Post_Http = wp_remote_post(
+        $zoho_scenario_url,
+        array(
+            'body' => $args,
+            'timeout' => 45,
+            'sslverify' => false
+        )
+    );
 
-    $Post_Http = wp_remote_post($matic_scenario_url, array(
-        'body' => $args,
-        'timeout' => 45,
-        'sslverify' => false
-    ));
-
+    $Post_Http = wp_remote_post(
+        $matic_scenario_url,
+        array(
+            'body' => $args,
+            'timeout' => 45,
+            'sslverify' => false
+        )
+    );
     /**
      * I dev Affiliate
      */
@@ -75,9 +80,9 @@ function give_Zoho($donation_id, $new_status, $old_status)
 function give_To_Zoho_On_Save($donation_id, $PaymentObject)
 {
 
-    $PaymentObject    = new Give_Payment($donation_id);
+    $PaymentObject = new Give_Payment($donation_id);
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
-    $is_sub      = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
+    $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
 
     $zoho_scenario_url = get_option('zoho_crm');
@@ -98,23 +103,29 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
         "Subscription" => "_",
         "Every" => "_",
     );
-    if ($is_sub) :
+    if ($is_sub):
         $subscription = give_recurring_get_subscription_by('payment', $PaymentObject->ID);
         $args["Subscription"] = "Yes";
         $args["Every"] = $subscription->frequency . "/" . $subscription->period;
-    //$args["Recurring Amount"] = number_format($subscription->recurring_amount,2);
+        //$args["Recurring Amount"] = number_format($subscription->recurring_amount,2);
 
     endif;
-    $Post_Http = wp_remote_post($zoho_scenario_url, array(
-        'body' => $args,
-        'timeout' => 45,
-        'sslverify' => false
-    ));
+    $Post_Http = wp_remote_post(
+        $zoho_scenario_url,
+        array(
+            'body' => $args,
+            'timeout' => 45,
+            'sslverify' => false
+        )
+    );
 
-    $Post_Http = wp_remote_post($matic_scenario_url, array(
-        'body' => $args,
-        'timeout' => 45,
-        'sslverify' => false
-    ));
+    $Post_Http = wp_remote_post(
+        $matic_scenario_url,
+        array(
+            'body' => $args,
+            'timeout' => 45,
+            'sslverify' => false
+        )
+    );
 }
 add_action('give_insert_payment', 'give_To_Zoho_On_Save', 200, 2);
