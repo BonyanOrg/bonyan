@@ -65,7 +65,7 @@ require __DIR__ . '/format-money.php';
 //================================
 //    Google Recaptcha Give Wp
 //================================
-require __DIR__ . '/add-recaptcha.php';
+//require __DIR__ . '/add-recaptcha.php';
 
 //================================
 //    Select2 For WpBakery
@@ -81,6 +81,10 @@ require __DIR__ . '/onesignal.php';
 //  Users Tracking
 //================================
 require __DIR__ . '/user-tracking.php';
+//================================
+//  Redirect TO Post By Slug
+//================================
+require __DIR__ . '/redirect_post_by_slug.php';
 
 
 // Global 
@@ -246,7 +250,81 @@ function generateRandomString($length = 10)
 
 add_action('nsl_facebook_register_new_user', 'uwp_RoleFunction', 11);
 add_action('nsl_google_register_new_user', 'uwp_RoleFunction', 11);
-function uwp_RoleFunction($user_id){
-        $user = new WP_User($user_id);
-        $user->set_role('give_donor');
+function uwp_RoleFunction($user_id)
+{
+	$user = new WP_User($user_id);
+	$user->set_role('give_donor');
 }
+
+
+
+
+
+function myprefix123_give_donations_custom_form_fields($form_id)
+{
+
+	// Only display for forms with the IDs "754" and "578";
+	// Remove "If" statement to display on all forms
+	// For a single form, use this instead:
+	// if ( $form_id == 754) {
+	// $forms = array( 754, 578 );
+	// if ( in_array( $form_id, $forms ) ) {
+	?>
+	<div id="give-message-wrap" class="form-row form-row-wide">
+		<label class="give-label" for="give-engraving-message">
+			<?php _e('What should be engraved on the plaque?', 'give'); ?>
+			<?php if (give_field_is_required('give_engraving_message', $form_id)): ?>
+				<span class="give-required-indicator">*</span>
+			<?php endif ?>
+			<span class="give-tooltip give-icon give-icon-question"
+				data-tooltip="<?php _e('Please provide the names that should be engraved on the plaque.', 'give') ?>">
+			</span>
+		</label>
+
+		<textarea class="give-textarea" name="give_engraving_message" id="give-engraving-message" readonly
+			hidden>test my text</textarea>
+		<table class="donation-details" id="donation-details" border="1" style="display:none; width:100%;">
+		</table>
+	</div>
+	<?php
+	// }
+}
+add_action('give_after_donation_levels', 'myprefix123_give_donations_custom_form_fields');
+
+
+function myprefix123_give_donations_save_custom_fields($payment_id)
+{
+
+	if (isset($_POST['give_engraving_message'])) {
+		$message = wp_strip_all_tags($_POST['give_engraving_message'], true);
+		give_update_payment_meta($payment_id, 'give_engraving_message', $message);
+	}
+
+}
+
+add_action('give_insert_payment', 'myprefix123_give_donations_save_custom_fields');
+
+
+function myprefix123_give_donations_donation_details($payment_id)
+{
+
+	$engraving_message = give_get_meta($payment_id, 'give_engraving_message', true);
+
+	if ($engraving_message): ?>
+
+		<div id="give-engraving-message" class="postbox">
+			<h3 class="hndle">
+				<?php esc_html_e('Donation Details', 'give'); ?>
+			</h3>
+			<div class="inside" style="padding-bottom:10px;">
+				<?php echo wpautop($engraving_message); ?>
+			</div>
+		</div>
+
+	<?php endif;
+
+}
+
+add_action('give_view_donation_details_billing_before', 'myprefix123_give_donations_donation_details', 10, 1);
+
+
