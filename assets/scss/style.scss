@@ -1859,6 +1859,13 @@ header {
     .footer-links {
       justify-self: center;
 
+      & > span {
+        font-size: 22px;
+        margin-bottom: 1.5rem;
+        color: $light-color;
+        display: block;
+      }
+
       a {
         font-size: 17px;
         display: inline-flex;
@@ -1873,6 +1880,13 @@ header {
 
     // 4th column
     .newsletter {
+      & > span {
+        font-size: 22px;
+        margin-bottom: 1.5rem;
+        color: $light-color;
+        display: block;
+      }
+      
       input {
         border: 1px solid $light-color;
         background: transparent;
@@ -4004,7 +4018,7 @@ div.nsl-container .nsl-button-google {
 .data-and-share {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 1rem;
 
   @media (max-width: 576px) {
@@ -4060,5 +4074,43 @@ div.nsl-container .nsl-button-google {
       }
     }
   }
+
+  .more-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    grid-gap: 0.25rem;
+    flex-direction: column;
+
+    .more-info-item {
+      color: $primary-color;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      grid-gap: 0.25rem;
+    }
+  }
 }
 /* ===[End Post date and share]=== */
+
+/* ===[Start Custom Post Tags]=== */
+.custom-post-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  grid-gap: 0.75rem 1rem;
+
+  .tag-item {
+    background: $primary-color;
+    color: $light-color;
+    transition: $general-transition;
+    padding: 0.75rem;
+    border-radius: $radius-10;
+
+    &:hover {
+      background: $secondary-color;
+    }
+  }
+}
+/* ===[End Custom Post Tags]=== */

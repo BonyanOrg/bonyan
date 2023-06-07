@@ -21,7 +21,10 @@
                 </div>
 
                 <!-- Title -->
-                <h2 class="bonyan-title donation-modal-title primary-color my-4"><?php _e('To donate to this campaign please log in or continue as a guest','bonyan') ?></h2>
+                <div class="my-4">
+                    <span class="bonyan-title donation-modal-title primary-color"><?php _e('To donate to this campaign please log in or continue as a guest','bonyan') ?></span>
+                </div>
+                
 
                 <!-- Login Button -->
                 <button class="secondary-btn py-3 px-4 w-100 border-0 user-action-btn mt-2" data-target="login-modal"><strong><?php _e('Log in','bonyan') ?></strong></button>

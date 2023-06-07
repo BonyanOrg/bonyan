@@ -22,7 +22,9 @@
                 </div>
 
                 <!-- Title -->
-                <h2 class="bonyan-title primary-color my-4"> <?php _e('Login','bonyan') ?></h2>
+                <div class="my-4">
+                    <span class="bonyan-title primary-color"> <?php _e('Login','bonyan') ?></span>
+                </div>
 
                 <!-- Form -->
                 <form id="login_form">

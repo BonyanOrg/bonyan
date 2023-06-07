@@ -130,9 +130,9 @@
 
 			<!-- Column 2 -->
 			<div class="footer-links">
-				<h2>
+				<span>
 					<?php _e('Appeals', 'bonyan') ?>
-				</h2>
+				</span>
 				<?php
 				wp_nav_menu(
 					array(
@@ -145,9 +145,9 @@
 
 			<!-- Column 3 -->
 			<div class="footer-links">
-				<h2>
+				<span>
 					<?php _e('Useful Links', 'bonyan') ?>
-				</h2>
+				</span>
 				<?php
 				wp_nav_menu(
 					array(
@@ -160,9 +160,9 @@
 
 			<!-- Column 4 -->
 			<div class="newsletter">
-				<h2>
+				<span>
 					<?php _e('Join our newsletter', 'bonyan') ?>
-				</h2>
+				</span>
 				<?php echo do_shortcode(get_option('mautic_form'), true); ?>
 			</div>
 
