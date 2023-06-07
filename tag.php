@@ -3,16 +3,8 @@ $queried_object = get_queried_object();
 $taxonomy_name = $queried_object->taxonomy;
 
 
-
-
 get_header();
-
-
-
 get_template_part('template-parts/page', 'header');
-
-
-
 ?>
 
 <section class="blogs-section my-3 my-md-5">
@@ -26,30 +18,31 @@ get_template_part('template-parts/page', 'header');
 
         <div class="cards-container">
 
-            <?php if (have_posts()) : ?>
+            <?php if (have_posts()): ?>
 
                 <?php
                 /* Start the Loop */
-                while (have_posts()) :
+                while (have_posts()):
                     the_post();
 
-                ?>
-                    <?php get_template_part('template-parts/cards/content ', 'post'); ?>
+                    ?>
+                    <?php get_template_part('template-parts/cards/content', 'post'); ?>
 
 
-            <?php
+
+                    <?php
 
 
                 endwhile;
 
             //the_posts_navigation();
+        
+        else:
 
-            else :
+            get_template_part('template-parts/content', 'none');
 
-                get_template_part('template-parts/content', 'none');
-
-            endif;
-            ?>
+        endif;
+        ?>
 
         </div>
         <?php custom_pagination();

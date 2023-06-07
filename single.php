@@ -15,10 +15,17 @@ get_header();
 	<div class="container">
 		<div class="inner-content">
 			<?php
+			if ($post_type === "") {
+				get_template_part('template-parts/share-via');
+			}
 			if ($post_type === "campaign") {
-				 ?><div class="single-campaign-give-form-container py-lg-5 py-4"><?php 
-				get_template_part('template-parts/components/top-donor');
-				 ?></div><?php 
+				?>
+				<div class="single-campaign-give-form-container py-lg-5 py-4">
+					<?php
+					get_template_part('template-parts/components/top-donor');
+					?>
+				</div>
+				<?php
 			} ?>
 			<?php the_content(); ?>
 		</div>

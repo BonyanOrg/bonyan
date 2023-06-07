@@ -160,7 +160,7 @@ if (!function_exists('recommended_content_shortcode')) {
                         echo "table not found";
                         return;
                     }
-                    $sql_query = $wpdb->prepare("SELECT * FROM " . $table_name . " WHERE  user_id = %d LIMIT 30 ", get_current_user_id());
+                    $sql_query = $wpdb->prepare("SELECT * FROM " . $table_name . " WHERE  user_id = %d ORDER BY " . $table_name . ".`date` DESC LIMIT 30 ", get_current_user_id());
                     $results = $wpdb->get_results($sql_query);
                     $visited_posts_ids = [];
                     $visited_categories_ids = [];
