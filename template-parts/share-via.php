@@ -10,14 +10,14 @@
         <div class="more-info-item last-edit-date">
             <span>
                 <i class="fa-regular fa-calendar-days"></i>
-                <?php 
+                <?php
                 $date = date_create($post->post_modified);
-                echo date_format($date, "Y/m/d"). "  ";
+                echo date_format($date, "Y/m/d") . "  ";
                 ?>
             </span>
         </div>
     </div>
-    
+
     <div class="post-share">
         <span>
             <?php _e('Share via', 'bonyan'); ?>
@@ -56,11 +56,21 @@
         foreach ($post_tags as $tag) {
             ?>
             <a class="tag-item" href="<?php echo get_term_link($tag); ?>">
-                <?php echo $tag->name; ?></a>
+                <strong>#</strong> <?php echo $tag->name; ?>
+            </a>
+            <?php
+
+        }
+    }
+    $post_terms = wp_get_post_terms(get_the_ID(), 'category');
+    if ($post_tags) {
+        foreach ($post_terms as $term) {
+            ?>
+            <a class="tag-item" href="<?php echo get_term_link($term); ?>">
+                <?php echo $term->name; ?></a>
             <?php
 
         }
     }
     ?>
 </div>
-

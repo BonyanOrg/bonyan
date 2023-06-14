@@ -8,7 +8,7 @@ function give_Zoho($donation_id, $new_status, $old_status)
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
     $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
-    $var = give_get_meta($PaymentObject->ID, 'give_engraving_message', true);
+    $qurban_details = give_get_meta($PaymentObject->ID, 'give_engraving_message', true);
 
 
     $zoho_scenario_url = get_option('zoho_crm');

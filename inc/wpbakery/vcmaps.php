@@ -111,3 +111,6 @@ require_once "vcmaps/events_calendar_map.php";
 
 /* Recommended Content  */
 require_once "vcmaps/recommended-content_map.php";
+
+/* Qurbani Calculator  */
+require_once "vcmaps/qurbani_calculator_map.php";

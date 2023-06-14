@@ -30,7 +30,7 @@
                 <button class="secondary-btn py-3 px-4 w-100 border-0 user-action-btn mt-2" data-target="login-modal"><strong><?php _e('Log in','bonyan') ?></strong></button>
 
                 <!-- Continue as a guest -->
-                <button class=" secondary-outlined-btn py-3 donation-btn px-4 w-100 mt-3 primary-color user-action-btn continue-as-guest" data-target="givewp-modal"><strong><?php _e('Continue as a guest','bonyan') ?></strong></button>
+                <button class=" secondary-outlined-btn py-3 donation-btn px-4 w-100 mt-3 primary-color user-action-btn continue-as-guest" data-qurbandetails="" data-target="givewp-modal"><strong><?php _e('Continue as a guest','bonyan') ?></strong></button>
 
             </div>
         </div>

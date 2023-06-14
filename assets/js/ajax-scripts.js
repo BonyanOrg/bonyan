@@ -182,6 +182,7 @@
                                 userActionModal.closest('body').classList.remove('modal-active');
                                 userActionModal.style.display = 'none';
                                 userActionModal.style.opacity = '0';
+                                continueAsGuest.setAttribute('data-qurbandetails', " "); // Reset Qurban Details (for normal donations)
                             });
                         }
 
@@ -202,6 +203,7 @@
                                 targetedModal.classList.remove('opened');
                                 targetedModal.closest('body').classList.remove('modal-active');
                                 targetedModal.style.opacity = '0';
+                                document.querySelector('.continue-as-guest').setAttribute('data-qurbandetails', ""); // Reset Qurban Details (for normal donations on guest Mod)
 
                                 setTimeout(() => {
                                     targetedModal.style.display = 'none';
@@ -773,7 +775,8 @@
             let form_id = $(this).attr("data-giveformid");
             let amount = $(this).attr("data-amount");
             let tag_name = $(this).attr("data-tagName");
-
+            let qurbanDetails = $(this).attr("data-qurbandetails");
+            let continueAsGuest = document.querySelector('.continue-as-guest');
 
             if ((form_id == null || form_id == "")) {
                 return;
@@ -790,15 +793,17 @@
                     form_id: form_id,
                     amount: (amount != null) ? amount : 50,
                     charity_type: tag_name,
+                    groups_details: (qurbanDetails != "" && typeof qurbanDetails !== "undefined") ? JSON.parse(qurbanDetails) : "",
                 },
                 statusCode: {
                     400: function (data) {
                         toastr.error(data.responseJSON.error_message);
-
+                        continueAsGuest.setAttribute('data-qurbandetails', ""); // reset qurbandetails (for normal donations)
                     },
                     200: function (data) {
                         $("#give_form_container").remove();
                         $("#givewp-modal").append(`<div id="give_form_container"> ${data.give_form} </div>`);
+                        continueAsGuest.setAttribute('data-qurbandetails', ""); // reset qurbandetails (for normal donations)
                     },
                 },
 
@@ -1050,8 +1055,8 @@
 
     $("#recurring-donations-tab-btn").on("click", function () {
 
-        if(modern_DontionReacurring_isOpened){return;}
-        modern_DontionReacurring_isOpened=true;
+        if (modern_DontionReacurring_isOpened) { return; }
+        modern_DontionReacurring_isOpened = true;
         $('.loader').css('display', 'flex');
         $('.loader').css('position', 'fixed');
 
@@ -1082,7 +1087,7 @@
 
                     $(".recurring-donations-datatable").append($(data.HTML_Output));
                     let recurringDonationTable = $('#recurring-donations-table');
-                    console.log(recurringDonationTable);
+
 
                     if (recurringDonationTable.length > 0) {
 
@@ -1124,7 +1129,7 @@
                                         height: "10px",
                                         borderRadius: "50%",
                                     });
-                                    
+
                                     switch ($('td:eq(4) span', row).text().trim()) {
                                         case "Active":
                                             $('td:eq(4) .status', row).css({
@@ -1339,24 +1344,24 @@
 
 
 
-    $('#adv-post-type').on('change', function() {
-		const postType = $(this).val();
-		
-		$.ajax({
-			dataType: 'json',
-			method: "POST",
-			url: ajax_script_object.ajaxurl,
-			data: {
-				'action': 'adv_categories',
+    $('#adv-post-type').on('change', function () {
+        const postType = $(this).val();
+
+        $.ajax({
+            dataType: 'json',
+            method: "POST",
+            url: ajax_script_object.ajaxurl,
+            data: {
+                'action': 'adv_categories',
                 'nonce': ajax_script_object.nonce,
-				'post_type': postType,
-			},
-			success: function (data) {
-				$('#adv-cats').find('option').remove().end();
-				$('#adv-cats').html(data.output);
-			}
-		});
-	});
+                'post_type': postType,
+            },
+            success: function (data) {
+                $('#adv-cats').find('option').remove().end();
+                $('#adv-cats').html(data.output);
+            }
+        });
+    });
 
 
 })(jQuery);

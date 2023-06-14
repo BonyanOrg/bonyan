@@ -84,3 +84,6 @@ require_once "shortcodes/events_calendar_view.php";
 
 /* Recommended Content  */
 require_once "shortcodes/recommended_content_view.php";
+
+/* Qurbani Calculator   */
+require_once "shortcodes/qurbani_calculator_view.php";

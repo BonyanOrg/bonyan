@@ -117,6 +117,7 @@ window.addEventListener('DOMContentLoaded', function () {
                                 targetedModal.classList.remove('opened');
                                 targetedModal.closest('body').classList.remove('modal-active');
                                 targetedModal.style.opacity = '0';
+                                document.querySelector('.continue-as-guest').setAttribute('data-qurbandetails', ""); // Reset Qurban Details (for normal donations on guest Mod)
         
                                 setTimeout(() => {
                                     targetedModal.style.display = 'none';
