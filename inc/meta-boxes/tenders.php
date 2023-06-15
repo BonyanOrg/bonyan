@@ -12,12 +12,13 @@ function Init_tender_Options($post)
     $to_location = get_post_meta($post->ID, "to_location", true);
     $to_deadline = get_post_meta($post->ID, "to_deadline", true);
 
-?>
+    ?>
 
     <style>
         .to_table tbody tr td input:not([type='checkbox']) {
             width: 350px;
         }
+
         .to_table tbody tr td input {
             margin-left: 30px;
         }
@@ -52,7 +53,7 @@ function Init_tender_Options($post)
         </tbody>
     </table>
 
-<?php
+    <?php
 }
 
 /////////////////////////
@@ -88,14 +89,10 @@ function save_tender_options($post_id)
     }
     if (isset($_POST['to_location'])) {
         update_post_meta($post_id, 'to_location', $_POST['to_location']);
-    } else {
-        update_post_meta($post_id, 'to_location', '');
     }
 
     if (isset($_POST['to_deadline'])) {
         update_post_meta($post_id, 'to_deadline', $_POST['to_deadline']);
-    } else {
-        update_post_meta($post_id, 'to_deadline', '');
     }
 
 }

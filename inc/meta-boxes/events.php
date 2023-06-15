@@ -135,39 +135,20 @@ function save_event_options($post_id, $post)
     if ($post->post_type == "events") {
 
 
-        // APP ID 
-        // 8e3543a1-f43f-462b-8e16-94b1ede3795d
-
-        // API KEY
-        // NmMxZjQyZGMtODMyZS00MjkwLWI3ZTYtMmQ0NGZlMTkwZDZh
-
-        // SAFARI WEB ID
-        // web.onesignal.auto.01b20842-ed7c-48c4-bd42-e78491d78625
-
-
-
         if (isset($_POST['evento_location'])) {
             update_post_meta($post_id, 'evento_location', $_POST['evento_location']);
-        } else {
-            update_post_meta($post_id, 'evento_location', '');
         }
 
         if (isset($_POST['evento_startDate'])) {
             update_post_meta($post_id, 'evento_startDate', $_POST['evento_startDate']);
-        } else {
-            update_post_meta($post_id, 'evento_startDate', '');
         }
 
         if (isset($_POST['evento_endDate'])) {
             update_post_meta($post_id, 'evento_endDate', $_POST['evento_endDate']);
-        } else {
-            update_post_meta($post_id, 'evento_endDate', '');
         }
 
         if (isset($_POST['evento_bgcolor'])) {
             update_post_meta($post_id, 'evento_bgcolor', $_POST['evento_bgcolor']);
-        } else {
-            update_post_meta($post_id, 'evento_bgcolor', '');
         }
     }
 

@@ -2,6 +2,7 @@
 // Add Upload fields to "Add New Taxonomy" form
 function add_reports_cover_field()
 {
+    wp_nonce_field(basename(__FILE__), "report_cat_options");
     wp_enqueue_media();
 ?>
     <div class="form-field">
@@ -69,6 +70,7 @@ add_action('reports-categories_add_form_fields', 'add_reports_cover_field', 10, 
 // Add Upload fields to "Edit Taxonomy" form
 function reports_edit_cover_field($term)
 {
+    wp_nonce_field(basename(__FILE__), "report_cat_options");
     wp_enqueue_media();
     // put the term ID into a variable
     $t_id = $term->term_id;
@@ -155,14 +157,18 @@ add_action('reports-categories_edit_form_fields', 'reports_edit_cover_field', 10
 // Save Taxonomy Image fields callback function.
 function save_reports_custom_meta($term_id)
 {
+    $is_valid_nonce = (isset($_POST['report_cat_options']) && wp_verify_nonce($_POST['report_cat_options'], basename(__FILE__))) ? 'true' : 'false';
+    // Exits script depending on save status
+    if (!$is_valid_nonce) {
+        return;
+    }
     if (isset($_POST['reports_cover'])) {
         update_term_meta($term_id, 'reports-categories_cover', $_POST['reports_cover']);
     }
+
     if (isset($_POST['reports_cat_desc'])) {
         update_term_meta($term_id, 'reports_cat_desc', $_POST['reports_cat_desc']);
-    } else {
-        update_term_meta($term_id, 'reports_cat_desc', '');
-    }
+    } 
     //update_term_meta($term_id, 'reports_arrangment', $_POST['reports_arrangment']);
 }
 add_action('edited_reports-categories', 'save_reports_custom_meta', 10, 2);

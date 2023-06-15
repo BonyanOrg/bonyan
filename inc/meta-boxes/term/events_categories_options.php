@@ -2,6 +2,8 @@
 // Add Upload fields to "Add New Taxonomy" form
 function add_event_field()
 {
+    wp_nonce_field(basename(__FILE__), "event_cat_options");
+
     ?>
     <style>
         .color-holder {
@@ -51,6 +53,7 @@ add_action('events-categories_add_form_fields', 'add_event_field', 10, 2);
 function event_edit_cover_field($term)
 {
 
+    wp_nonce_field(basename(__FILE__), "event_cat_options");
     // put the term ID into a variable
     $t_id = $term->term_id;
 
@@ -138,22 +141,22 @@ add_action('events-categories_edit_form_fields', 'event_edit_cover_field', 10, 2
 // Save Taxonomy Image fields callback function.
 function save_events_custom_meta($term_id)
 {
+    $is_valid_nonce = (isset($_POST['event_cat_options']) && wp_verify_nonce($_POST['event_cat_options'], basename(__FILE__))) ? 'true' : 'false';
+    // Exits script depending on save status
+    if (!$is_valid_nonce) {
+        return;
+    }
+
     if (isset($_POST['events-categories_bgcolor']) && !empty($_POST['events-categories_bgcolor'])) {
         update_term_meta($term_id, 'events-categories_bgcolor', $_POST['events-categories_bgcolor']);
-    } else {
-        update_term_meta($term_id, 'events-categories_bgcolor', '');
     }
 
     if (isset($_POST['events-categories_text_color']) && !empty($_POST['events-categories_text_color'])) {
         update_term_meta($term_id, 'events-categories_text_color', $_POST['events-categories_text_color']);
-    } else {
-        update_term_meta($term_id, 'events-categories_text_color', '');
     }
 
     if (isset($_POST['events-categories_border_color']) && !empty($_POST['events-categories_border_color'])) {
         update_term_meta($term_id, 'events-categories_border_color', $_POST['events-categories_border_color']);
-    } else {
-        update_term_meta($term_id, 'events-categories_border_color', '');
     }
 }
 add_action('edited_events-categories', 'save_events_custom_meta', 10, 2);

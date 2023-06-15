@@ -7,9 +7,11 @@
 
 function Init_reports_Options($post)
 {
+    wp_nonce_field(basename(__FILE__), "report_options");
+
     $ro_reports_pdf_file = get_post_meta($post->ID, "ro_reports_pdf_file", true);
 
-?>
+    ?>
 
     <style>
         #ro_reports_pdf_file {
@@ -31,21 +33,25 @@ function Init_reports_Options($post)
 
 
                 $args = array(
-                    'post_type'     => 'attachment',
-                    'numberposts'   => -1,
+                    'post_type' => 'attachment',
+                    'numberposts' => -1,
                     'post_mime_type' => 'application/pdf',
                     'fields' => 'ids',
                 );
                 $attachments = get_posts($args);
 
-                $ro_reports_pdf_file =  !empty(get_post_meta($post_id, 'ro_reports_pdf_file', true)) ? get_post_meta($post_id, 'ro_reports_pdf_file', true) : '';
+                $ro_reports_pdf_file = !empty(get_post_meta($post_id, 'ro_reports_pdf_file', true)) ? get_post_meta($post_id, 'ro_reports_pdf_file', true) : '';
 
                 ?>
                 <div class="inputs-holder" style="display: flex; flex-wrap: wrap; gap: 0 15px">
                     <label for="" style="flex: 0 1 auto; width: 32%;">
-                        <b><?php _e('Choose The Document', 'bonyan') ?></b>
+                        <b>
+                            <?php _e('Choose The Document', 'bonyan') ?>
+                        </b>
                         <select name="ro_reports_pdf_file" style="width:100%; margin:5px 0;">
-                            <option value=""><?php _e('-- Choose a Document --', 'bonyan') ?></option>
+                            <option value="">
+                                <?php _e('-- Choose a Document --', 'bonyan') ?>
+                            </option>
                             <?php foreach ($attachments as $attachment) { ?>
                                 <option value="<?php echo $attachment; ?>" <?php echo $ro_reports_pdf_file == $attachment ? 'selected' : ''; ?>><?php echo get_the_title($attachment); ?></option>
                             <?php } ?>
@@ -57,7 +63,7 @@ function Init_reports_Options($post)
         </tbody>
     </table>
 
-<?php
+    <?php
 }
 
 /////////////////////////
@@ -80,7 +86,13 @@ function add_reports_options()
 // Save Value When Save
 function save_reports_options($post_id)
 {
-    if (!empty($_POST['ro_reports_pdf_file']))
+    $is_valid_nonce = (isset($_POST['report_options']) && wp_verify_nonce($_POST['report_options'], basename(__FILE__))) ? 'true' : 'false';
+    // Exits script depending on save status
+    if (!$is_valid_nonce) {
+        return;
+    }
+
+    if (isset($_POST['ro_reports_pdf_file']))
         update_post_meta($post_id, 'ro_reports_pdf_file', $_POST['ro_reports_pdf_file']);
 }
 add_action('save_post', 'save_reports_options', 10, 2);

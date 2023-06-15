@@ -14,7 +14,7 @@ function Init_Vacancies_Details($post)
     $vd_deadline = get_post_meta($post->ID, "vd_deadline", true);
     $vd_department = get_post_meta($post->ID, "vd_department", true);
 
-?>
+    ?>
 
     <style>
         .vd_table input:not([type="checkbox"]),
@@ -72,7 +72,7 @@ function Init_Vacancies_Details($post)
         </tbody>
     </table>
 
-<?php
+    <?php
 }
 
 /////////////////////////
@@ -103,26 +103,18 @@ function save_vacancies_details($post_id)
 
     if (isset($_POST['vd_is_urgent'])) {
         update_post_meta($post_id, 'vd_is_urgent', $_POST['vd_is_urgent']);
-    } else {
-        update_post_meta($post_id, 'vd_is_urgent', '');
     }
 
     if (isset($_POST['vd_location'])) {
         update_post_meta($post_id, 'vd_location', $_POST['vd_location']);
-    } else {
-        update_post_meta($post_id, 'vd_location', '');
     }
 
     if (isset($_POST['vd_deadline'])) {
         update_post_meta($post_id, 'vd_deadline', $_POST['vd_deadline']);
-    } else {
-        update_post_meta($post_id, 'vd_deadline', '');
     }
 
     if (isset($_POST['vd_department'])) {
         update_post_meta($post_id, 'vd_department', $_POST['vd_department']);
-    } else {
-        update_post_meta($post_id, 'vd_department', '');
     }
 }
 add_action('save_post', 'save_vacancies_details', 10, 2);

@@ -152,32 +152,26 @@ function save_campaign_options($post_id)
         return;
     }
 
-    if (!empty($_POST['co_campaign_end_date']))
+    if (isset($_POST['co_campaign_end_date']))
         update_post_meta($post_id, 'co_campaign_end_date', $_POST['co_campaign_end_date']);
 
-    if (!empty($_POST['co_give_form_id']))
+    if (isset($_POST['co_give_form_id']))
         update_post_meta($post_id, 'co_give_form_id', $_POST['co_give_form_id']);
 
-    if (!empty($_POST['co_donation_amount']))
+    if (isset($_POST['co_donation_amount']))
         update_post_meta($post_id, 'co_donation_amount', $_POST['co_donation_amount']);
 
 
     if (isset($_POST['co_show_progress_bar'])) {
         update_post_meta($post_id, 'co_show_progress_bar', $_POST['co_show_progress_bar']);
-    } else {
-        update_post_meta($post_id, 'co_show_progress_bar', '');
     }
 
     if (isset($_POST['co_show_donors_count'])) {
         update_post_meta($post_id, 'co_show_donors_count', $_POST['co_show_donors_count']);
-    } else {
-        update_post_meta($post_id, 'co_show_donors_count', '');
     }
 
     if (isset($_POST['co_show_reaming_time'])) {
         update_post_meta($post_id, 'co_show_reaming_time', $_POST['co_show_reaming_time']);
-    } else {
-        update_post_meta($post_id, 'co_show_reaming_time', '');
     }
 }
 add_action('save_post', 'save_campaign_options', 10, 2);
