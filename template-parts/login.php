@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="forgot-password">
-                        <a href="<?php echo esc_url(wp_lostpassword_url()); ?>"><?php _e('Forgot Password?','bonyan') ?></a>
+                        <a href="<?php echo home_url('/').esc_url('wp-login.php?action=lostpassword'); ?>"><?php _e('Forgot Password?','bonyan') ?></a>
                     </div>
 
                     <div class="form-cta">
