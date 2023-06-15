@@ -27,7 +27,14 @@ get_header();
 				</div>
 				<?php
 			} ?>
-			<?php the_content(); ?>
+			<?php the_content();
+
+			if ($post_type === "") {
+				get_template_part('template-parts/post-tag-cat');
+			}
+
+			?>
+
 		</div>
 	</div>
 </div>
