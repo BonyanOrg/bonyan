@@ -1,7 +1,9 @@
 <?php
 function myprefix123_give_donations_custom_form_fields($form_id)
 {
-
+    //========================
+    //      User Side
+    //========================
     // Only display for forms with the IDs "754" and "578";
     // Remove "If" statement to display on all forms
     // For a single form, use this instead:
@@ -23,13 +25,64 @@ function myprefix123_give_donations_custom_form_fields($form_id)
         <textarea class="give-textarea" name="give_engraving_message" id="give-engraving-message" readonly
             hidden>test my text</textarea>
         <style>
-            .donation-details td {
+            .donation-details {
+                display: block;
                 width: 100%;
-                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+                text-align: center;
+                border-collapse: unset;
+                border-radius: 10px;
+                overflow: hidden;
+                border-collapse: unset;
+                border-radius: 10px;
+                border-spacing: 0;
+            }
+
+            .donation-details th {
+                padding: 8px;
+                border: 1px solid #6d54a778;
+                font-size: 15px;
+            }
+
+            <?php if (is_wpml_rtl()): ?>
+                .donation-details th:first-child {
+                    border-top-right-radius: 10px;
+                }
+
+                .donation-details th:last-child {
+                    border-top-left-radius: 10px;
+                }
+            <?php else: ?>
+                .donation-details th:first-child {
+                    border-top-left-radius: 10px;
+                }
+
+                .donation-details th:last-child {
+                    border-top-right-radius: 10px;
+                }
+
+            <?php endif ?>
+
+            .donation-details td:not(.before-total-cell) {
+                width: 100%;
+                border: 1px solid #6d54a778;
+                padding: 5px;
+                font-size: 14px;
+            }
+
+            .donation-details tr .total-cell {
+                font-weight: bold;
+                text-align: center;
+                padding: 10px 5px;
+                background: #6d54a7;
+                color: white;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
             }
         </style>
+
         <table class="donation-details" id="donation-details" style="display:none; width:100%; text-align: center;">
         </table>
+
     </div>
     <?php
     // }
@@ -53,6 +106,9 @@ add_action('give_insert_payment', 'myprefix123_give_donations_save_custom_fields
 function myprefix123_give_donations_donation_details($payment_id)
 {
 
+    //========================
+    //      Admin Side
+    //========================
     $engraving_message = give_get_meta($payment_id, 'give_engraving_message', true);
 
     if ($engraving_message): ?>

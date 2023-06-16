@@ -113,7 +113,11 @@ function give_populate_amount($form_id, $args)
             var tableData = JSON.parse(decodeURIComponent(getdetails));
             var table = document.getElementById("donation-details");
             if (tableData) {
-                var headers = ['Group Name', 'Amount', 'Quantity', 'Total'];
+                if (document.dir) {
+                    var headers = ['أسم المجموعة', 'الكمية', 'العدد', 'المجموع'];
+                } else {
+                    var headers = ['Group Name', 'Amount', 'Quantity', 'Total'];
+                }
                 // Create the table header row         
                 var headerRow = document.createElement("tr");
                 // Create table header cells         
@@ -129,6 +133,9 @@ function give_populate_amount($form_id, $args)
                     var row = document.createElement("tr");
                     Object.values(rowData).forEach(function (value, index, array) {
                         var cell = document.createElement("td");
+                        if (value.length === 0) {
+                            value = "0";
+                        }
                         if (index === 0 && array.length > 1) {
                             // Add the value from index 1 to the value at index 0
                             value += '<br>' + array[1];
@@ -148,10 +155,14 @@ function give_populate_amount($form_id, $args)
                 });
                 // Add a row with a value in the last column
                 var lastRow = document.createElement("tr");
+                var beforeLastCell = document.createElement("td");
                 var lastCell = document.createElement("td");
+                beforeLastCell.setAttribute("colspan", "2");
+                beforeLastCell.classList.add("before-total-cell");
                 lastCell.textContent = "$ " + amount;
-                lastCell.setAttribute("colspan", "4");
-                lastCell.style.textAlign = "right";
+                lastCell.classList.add("total-cell");
+                lastCell.setAttribute("colspan", "2");
+                lastRow.appendChild(beforeLastCell);
                 lastRow.appendChild(lastCell);
                 table.appendChild(lastRow);
 

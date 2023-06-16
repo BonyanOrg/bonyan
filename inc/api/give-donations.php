@@ -10,6 +10,24 @@ function give_Zoho($donation_id, $new_status, $old_status)
 
     $qurban_details = give_get_meta($PaymentObject->ID, 'give_engraving_message', true);
 
+    $qurban_details = json_decode($qurban_details, true);
+    if (!empty($qurban_details)) {
+        // Table header
+        $table = "Group \t | Countries \t | Amount \t | Quantity \t | Total\n";
+        $table .= "------------------------------------------------------------\n";
+
+        // Table data
+        foreach ($qurban_details as $row) {
+            $table .= $row['group'] . "\t | ";
+            $table .= $row['countries'] . "\t | ";
+            $table .= "$" . $row['amount'] . "\t | ";
+            $table .= $row['quantity'] . "\t | ";
+            $table .= "$" . $row['total'] . " \n";
+        }
+    }
+
+
+
 
     $zoho_scenario_url = get_option('zoho_crm');
     $matic_scenario_url = get_option('mautic_lead');
@@ -26,6 +44,7 @@ function give_Zoho($donation_id, $new_status, $old_status)
         "Donor Last Name" => !empty($PaymentObject->last_name) ? $PaymentObject->last_name : "_",
         "Donor Email" => !empty($PaymentObject->email) ? $PaymentObject->email : "_",
         "Donor Comment" => !empty($donor_comment->comment_content) ? $donor_comment->comment_content : "_",
+        "Qurbani Detail" => !empty($qurban_details) ? $table : "_",
         "Subscription" => "_",
         "Every" => "_",
     );
@@ -84,6 +103,23 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
     $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
+    $qurban_details = give_get_meta($PaymentObject->ID, 'give_engraving_message', true);
+
+    $qurban_details = json_decode($qurban_details, true);
+    if (!empty($qurban_details)) {
+        // Table header
+        $table = "Group \t | Countries \t | Amount \t | Quantity \t | Total\n";
+        $table .= "------------------------------------------------------------\n";
+
+        // Table data
+        foreach ($qurban_details as $row) {
+            $table .= $row['group'] . "\t | ";
+            $table .= $row['countries'] . "\t | ";
+            $table .= "$" . $row['amount'] . "\t | ";
+            $table .= $row['quantity'] . "\t | ";
+            $table .= "$" . $row['total'] . " \n";
+        }
+    }
 
     $zoho_scenario_url = get_option('zoho_crm');
     $matic_scenario_url = get_option('mautic_lead');
@@ -100,6 +136,7 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
         "Donor Last Name" => !empty($PaymentObject->last_name) ? $PaymentObject->last_name : "_",
         "Donor Email" => !empty($PaymentObject->email) ? $PaymentObject->email : "_",
         "Donor Comment" => !empty($donor_comment->comment_content) ? $donor_comment->comment_content : "_",
+        "Qurbani Detail" => !empty($qurban_details) ? $table : "_",
         "Subscription" => "_",
         "Every" => "_",
     );
