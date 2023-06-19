@@ -264,5 +264,6 @@ function uwp_RoleFunction($user_id)
 
 
 
-
+// Disable XML-RPC in WordPress
+add_filter('xmlrpc_enabled', '__return_false');
 
