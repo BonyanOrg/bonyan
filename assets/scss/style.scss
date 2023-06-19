@@ -12,13 +12,13 @@
   height: 5px;
 }
 
-*::-webkit-scrollbar-track-piece  {
-    background-color: $light-color;
+*::-webkit-scrollbar-track-piece {
+  background-color: $light-color;
 }
 
 *::-webkit-scrollbar-thumb {
-    height: 30px;
-    background-color: $primary-color;
+  height: 30px;
+  background-color: $primary-color;
 }
 
 body {
@@ -31,11 +31,11 @@ a {
 }
 
 @media only screen and (max-width: 1024px) {
-	.swap-on-mobile {
-		display: flex !important;
-		flex-direction: column-reverse;
+  .swap-on-mobile {
+    display: flex !important;
+    flex-direction: column-reverse;
     padding-top: 20px;
-	}
+  }
 }
 
 /* __Start Colors__ */
@@ -165,6 +165,7 @@ input {
     color: $light-color;
   }
 }
+
 // End Specific for Mautic
 
 .select-icon {
@@ -411,7 +412,7 @@ input {
 
     .search {
       width: 100%;
-    
+
       .search-form {
         width: 100%;
       }
@@ -966,6 +967,7 @@ input {
       font-size: 24px;
     }
   }
+
   // /Sepcific for donation modal
 }
 
@@ -975,7 +977,7 @@ input {
 .signup-modal {
   .user-action-form {
     position: relative;
-    
+
     form {
       .form-inputs-container {
         display: grid;
@@ -1116,6 +1118,7 @@ input {
     }
   }
 }
+
 /* __End Pagination__ */
 
 /* __Start GiveWP__ */
@@ -1126,6 +1129,7 @@ input {
   overflow-y: auto;
   background: $light-color;
 }
+
 /* __End GiveWP__ */
 
 /* __Start loader__ */
@@ -1146,6 +1150,7 @@ input {
     0% {
       transform: rotate(0);
     }
+
     100% {
       transform: rotate(360deg);
     }
@@ -1161,6 +1166,7 @@ input {
     animation: 0.5s linear infinite loader;
   }
 }
+
 /* __End loader__ */
 
 /* __Start All Datatables__ */
@@ -1169,16 +1175,18 @@ input {
     margin-bottom: 0;
   }
 }
+
 /* __End All Datatables__ */
 
 /* __Start File Card__ */
 div:not(.cards-container) {
-  & > .file-card {
+  &>.file-card {
     max-width: 350px;
     width: 100%;
     margin-left: auto;
   }
 }
+
 /* __End File Card__ */
 
 /* __Start WPB__ */
@@ -1187,9 +1195,10 @@ div:not(.cards-container) {
   margin-right: 0 !important;
 }
 
-.vc_column_container > .vc_column-inner {
+.vc_column_container>.vc_column-inner {
   padding: 0;
 }
+
 /* __End WPB__ */
 /* ===[End Global]=== */
 
@@ -1244,10 +1253,6 @@ header {
 
     span {
       font-size: 15px;
-
-      @media (max-width: 1024px) {
-        display: none;
-      }
     }
   }
 
@@ -1859,7 +1864,7 @@ header {
     .footer-links {
       justify-self: center;
 
-      & > span {
+      &>span {
         font-size: 22px;
         margin-bottom: 1.5rem;
         color: $light-color;
@@ -1880,13 +1885,13 @@ header {
 
     // 4th column
     .newsletter {
-      & > span {
+      &>span {
         font-size: 22px;
         margin-bottom: 1.5rem;
         color: $light-color;
         display: block;
       }
-      
+
       input {
         border: 1px solid $light-color;
         background: transparent;
@@ -2739,7 +2744,7 @@ header {
           @media (max-width: 1400px) {
             height: 70px;
           }
-          
+
           img {
             height: 100%;
           }
@@ -3124,6 +3129,7 @@ header {
     }
   }
 }
+
 /* ===[End Urgent Campaigns]=== */
 
 /* ===[Start Table Of Content]=== */
@@ -3136,6 +3142,7 @@ header {
     }
   }
 }
+
 /* ===[End Table Of Content]=== */
 
 /* ===[Start Upload File]=== */
@@ -3192,12 +3199,13 @@ header {
       opacity: 0;
     }
   }
-  
+
   .uploaded-file-name {
     color: $secondary-color;
     font-weight: bold;
   }
 }
+
 /* [End upload input] */
 /* ===[End Upload File]=== */
 
@@ -3291,12 +3299,12 @@ header {
 
     &::-webkit-scrollbar-track-piece:end {
       background: transparent;
-      margin-bottom: 10px; 
+      margin-bottom: 10px;
     }
-  
+
     &::-webkit-scrollbar-track-piece:start {
-        background: transparent;
-        margin-top: 10px;
+      background: transparent;
+      margin-top: 10px;
     }
 
     &.zds-expanded {
@@ -3316,6 +3324,7 @@ header {
     }
   }
 }
+
 /* ===[End Zoho Desk]=== */
 
 /* ===[Start New Dashboar]=== */
@@ -3403,7 +3412,7 @@ header {
             grid-gap: 0.5rem;
           }
         }
-      } 
+      }
     }
 
     // Sidebar with tabs and logout
@@ -3486,7 +3495,8 @@ header {
           transition: $general-transition;
         }
 
-        &.active, &:hover {
+        &.active,
+        &:hover {
           &::before {
             opacity: 1;
           }
@@ -3528,7 +3538,10 @@ header {
 
     // Tab's content
     .custom-inputs {
-      input:not([type=file]), select, textarea {
+
+      input:not([type=file]),
+      select,
+      textarea {
         border: 1px solid #6d54a7;
         border-radius: 20px;
         padding: 1rem;
@@ -3541,43 +3554,43 @@ header {
         resize: none;
         width: 100%;
       }
-  
+
       .select-holder,
       .input-holder {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-  
+
         &.full-width {
           flex-basis: 100%;
         }
-  
+
         label {
           color: $text-color;
           font-weight: bold;
         }
       }
-  
+
       .input-holder {
         flex: 1 0 120px;
       }
-  
-      .select-holder{
+
+      .select-holder {
         select {
           appearance: none;
         }
       }
-  
+
       .primary-btn {
         padding: 0.75rem 1.5rem;
         min-width: 170px;
         border: none;
         transition: $general-transition;
-  
+
         &:hover {
           background: $third-color;
         }
-  
+
         @media (max-width: 992px) {
           width: 100%;
         }
@@ -3593,12 +3606,12 @@ header {
 
       &::-webkit-scrollbar-track-piece:end {
         background: transparent;
-        margin-bottom: 20px; 
+        margin-bottom: 20px;
       }
-    
+
       &::-webkit-scrollbar-track-piece:start {
-          background: transparent;
-          margin-top: 20px;
+        background: transparent;
+        margin-top: 20px;
       }
 
       @media (max-width: 992px) {
@@ -3641,7 +3654,7 @@ header {
 
             svg {
               width: 20px;
-              
+
               path {
                 fill: $primary-color;
 
@@ -3699,7 +3712,7 @@ header {
                   &:first-of-type {
                     font-size: 20px;
                   }
-  
+
                   &:last-of-type {
                     font-size: 16px;
 
@@ -3712,6 +3725,7 @@ header {
             }
           }
         }
+
         /* End Donor Stats */
 
         /* Start Donations History */
@@ -3720,6 +3734,7 @@ header {
             width: 100% !important;
           }
         }
+
         /* End Donations History */
       }
     }
@@ -3843,7 +3858,9 @@ header {
         }
 
         .campaign-card-cta {
-          button,a {
+
+          button,
+          a {
             padding: 0.25rem;
           }
         }
@@ -3861,7 +3878,7 @@ header {
 
       .select-holder {
         width: 50%;
-  
+
         @media (max-width: 992px) {
           width: 100%;
         }
@@ -3982,6 +3999,7 @@ span.select2-dropdown.select2-dropdown--below {
     margin-top: 2.5rem !important;
   }
 }
+
 /* ===[End New Dashboar]=== */
 
 /* ===[Start Login By Social Media]=== */
@@ -3994,7 +4012,7 @@ div.nsl-container .nsl-button-default {
 
   svg {
     width: 34px !important;
-    height:34px !important; 
+    height: 34px !important;
   }
 }
 
@@ -4012,6 +4030,7 @@ div.nsl-container .nsl-button-default {
 div.nsl-container .nsl-button-google {
   box-shadow: none !important;
 }
+
 /* ===[End Login By Social Media]=== */
 
 /* ===[Start Post date and share]=== */
@@ -4091,6 +4110,7 @@ div.nsl-container .nsl-button-google {
     }
   }
 }
+
 /* ===[End Post date and share]=== */
 
 /* ===[Start Custom Post Tags]=== */
@@ -4113,4 +4133,5 @@ div.nsl-container .nsl-button-google {
     }
   }
 }
+
 /* ===[End Custom Post Tags]=== */
