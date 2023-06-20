@@ -47,6 +47,18 @@ function theme_settings_page_register()
         // callback function
         'dashicons-email' // Icon
     );
+    add_submenu_page(
+        'theme_settings',
+        'CPT Archive Title & Description',
+        'CPT Archive Title & Description',
+        // menu title
+        'manage_options',
+        // capability
+        'cpt-archive-title-desc',
+        // menu slug
+        'cpt_archive_title_desc_page_callback',
+        // callback function
+    );
 }
 //==================
 //    CPT Category Cover Image
@@ -62,3 +74,8 @@ require __DIR__ . '/mail-maker.php';
 //    User tracker
 //==================
 require __DIR__ . '/user-tracker.php';
+
+//============================================
+//    CPT Archive Page Title & Description
+//============================================
+require __DIR__ . '/CPT-archive-title-desc.php';
