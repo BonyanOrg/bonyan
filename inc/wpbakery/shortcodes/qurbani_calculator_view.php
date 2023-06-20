@@ -55,7 +55,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
                 <?php foreach ($qurbani_calculator_items as $qurbani_calculator_item) {
                     $group_name = $qurbani_calculator_item['qurbani_calculator_group_name'];
-                    $group_id = preg_replace('/[^a-zA-Z0-9]/', '', $group_name); // Remove All special characters and spaces
+                    $group_id = bin2hex( $group_name); // Remove All special characters and spaces
         
                     ?>
                     <div class="zakat-calculator-item">
@@ -77,7 +77,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                 <div class="zakat-calculator-result">
                     <p class="calculated-zakat-amount mb-2" id="calculated-qurban-amount"><strong><span>0.00</span>$</strong>
                     </p>
-                    <button class="primary-btn " id="qurbani-donation-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-amount="50"
+                    <button class="primary-btn " id="qurbani-donation-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-amount=""
                         data-giveformid="<?php echo $qurbani_calculator_give_form_id ?>">
                         <?php _e('Donate Now', 'bonyan'); ?>
                     </button>
@@ -104,7 +104,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
             <?php foreach ($qurbani_calculator_items as $qurbani_calculator_item) {
                 $group_name = $qurbani_calculator_item['qurbani_calculator_group_name'];
-                $group_id = preg_replace('/[^a-zA-Z0-9]/', '', $group_name);
+                $group_id = bin2hex( $group_name);
                 $group_amount = $qurbani_calculator_item['qurbani_calculator_group_amount'];
                 $group_countries = $qurbani_calculator_item['qurbani_calculator_group_countries'];
                 ?>
@@ -122,7 +122,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                     "quantity": 0,
                     "total": 0,
                 };
-                groups_object.<?php echo $group_id; ?> = (tempGroupObject);
+                groups_object.group_<?php echo $group_id; ?> = (tempGroupObject);
 
 
                 document.getElementById('' + tempGroupId).addEventListener('keyup', function (event) {
@@ -159,9 +159,9 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                             finalResult = parseInt(finalResult) + parseInt(container.value);
                         }
                     });
-                    let group_total = Math.round(parseInt(tempLastQuantity) * groups_object.<?php echo $group_id; ?>.amount);
-                    groups_object.<?php echo $group_id; ?>.total = (isNaN(group_total) || group_total === null || group_total === undefined || group_total === '') ? 0 : group_total;
-                    groups_object.<?php echo $group_id; ?>.quantity = tempLastQuantity;
+                    let group_total = Math.round(parseInt(tempLastQuantity) * groups_object.group_<?php echo $group_id; ?>.amount);
+                    groups_object.group_<?php echo $group_id; ?>.total = (isNaN(group_total) || group_total === null || group_total === undefined || group_total === '') ? 0 : group_total;
+                    groups_object.group_<?php echo $group_id; ?>.quantity = tempLastQuantity;
                     //groups_object.global_total = finalResult;
                 });
 
@@ -171,6 +171,9 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
                     let modalBtn = document.getElementById('qurbani-donation-btn');
                     let cartToJson = "";
+                    let getDir = document.dir;
+
+
 
                     if (modalBtn !== null) {
                         let targetedModalName;
@@ -187,9 +190,12 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                             amount = this.getAttribute('data-amount');
                             charityTagName = this.getAttribute('data-tagName');
 
-
                             // Check if this is donation button then check if the giveFormId not exist so don't open modal
 
+                            if (amount == 0 || amount == null || amount == "") {
+                                getDir !== 'rtl' ? toastr.info("Please Select Something") : toastr.info("الرجاء التحديد");
+                                return;
+                            }
                             if (!giveFormId) {
                                 toastr.warning('No form ID was found');
                                 return;
@@ -278,9 +284,9 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <?php
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  //require_once(get_template_directory() . '/dist/js/components/wpb/quick-donation.min.js');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ?>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <?php
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          //require_once(get_template_directory() . '/dist/js/components/wpb/quick-donation.min.js');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ?>
         </script>
 
 
