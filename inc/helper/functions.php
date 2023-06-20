@@ -92,6 +92,11 @@ require __DIR__ . '/redirect_post_by_slug.php';
 //================================
 require __DIR__ . '/give-qurban-details.php';
 
+//===========================================
+//  RankMath CPT Archive Title & Description
+//===========================================
+require __DIR__ . '/rank-cpt-archive.php';
+
 
 // Global 
 
@@ -266,4 +271,7 @@ function uwp_RoleFunction($user_id)
 
 // Disable XML-RPC in WordPress
 add_filter('xmlrpc_enabled', '__return_false');
+
+
+
 
