@@ -13,8 +13,11 @@
             $main_slider_posts = new WP_Query($args);
 
             if ($main_slider_posts->have_posts()) {
-                foreach($main_slider_posts->posts as $slider_post) {
+                foreach ($main_slider_posts->posts as $slider_post) {
                     $mad_give_form_id = get_post_meta($slider_post->ID, "mad_give_form_id", true);
+                    $mad_choice = get_post_meta($slider_post->ID, "mad_choice", true);
+                    $mad_url = get_post_meta($slider_post->ID, "mad_url", true);
+                    $mad_url_button_text = get_post_meta($slider_post->ID, "mad_url_button_text", true);
 
             ?>
                     <div class="swiper-slide">
@@ -32,10 +35,16 @@
                                     </span>
 
                                     <div class="main-carousel-cta my-4">
-                                        <button  data-giveformid="<?php echo $mad_give_form_id ?? "" ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
-                                            <strong><?php _e('Donate', 'bonyan'); ?></strong>
-                                        </button>
-                                        <!-- <a href="#" class="primary-btn"> More</a> -->
+                                        <?php if ($mad_choice === 'give_id') : ?>
+                                            <button data-giveformid="<?php echo $mad_give_form_id ?? "" ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
+                                                <strong><?php _e('Donate', 'bonyan'); ?></strong>
+                                            </button>
+                                            <!-- <a href="#" class="primary-btn"> More</a> -->
+                                        <?php else : ?>
+                                            <a href="<?php echo $mad_url ?>" class="user-action-btn primary-btn primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
+                                                <strong><?php echo $mad_url_button_text ?></strong>
+                                            </a>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
@@ -47,10 +56,6 @@
             }
             wp_reset_query();
             ?>
-
-
-
-
         </div>
 
         <div class="swiper-pagination text-center mb-2 mb-xl-5"></div>
