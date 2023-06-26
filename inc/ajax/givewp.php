@@ -107,21 +107,24 @@ function give_populate_amount($form_id, $args)
             }
             if ($('#give-amount').length > 0) {
                 $('#give-amount').val(amount).focus().trigger('blur');
-                let form = document.querySelector(".give-form");
-                let attributeValue = form.getAttribute("data-give_cs_base_amounts");
+                var give_form = document?.querySelector(".give-form");
+                if (give_form) {
 
-                // Parse the attribute value as JSON
-                let parsedValue = JSON.parse(attributeValue);
-                if (parsedValue !== null) {
+                    let attributeValue = give_form.getAttribute("data-give_cs_base_amounts");
 
-                    // Update the "custom" value
-                    parsedValue.custom = parseInt(amount);
+                    // Parse the attribute value as JSON
+                    let parsedValue = JSON.parse(attributeValue);
+                    if (parsedValue !== null) {
 
-                    // Convert the updated value back to a string
-                    let updatedValue = JSON.stringify(parsedValue);
+                        // Update the "custom" value
+                        parsedValue.custom = parseInt(amount);
 
-                    // Set the updated attribute value
-                    form.setAttribute("data-give_cs_base_amounts", updatedValue);
+                        // Convert the updated value back to a string
+                        let updatedValue = JSON.stringify(parsedValue);
+
+                        // Set the updated attribute value
+                        give_form.setAttribute("data-give_cs_base_amounts", updatedValue);
+                    }
                 }
             }
             if (getdescription != 'null' && getdescription != '' && getdescription !== false) {

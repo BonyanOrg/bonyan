@@ -66,7 +66,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                         <p class="mb-4">
                             <?php echo $qurbani_calculator_item['qurbani_calculator_group_countries'] ?>
                         </p>
-                        <input type="number" min="0" step="1" id="<?php echo $group_id ?>-quantity" class=" only-number"
+                        <input type="number" min="0" step="1" id="<?php echo $group_id ?>-quantity" onwheel="event.preventDefault()" class=" only-number"
                             placeholder="<?php _e('Add total quantity', 'bonyan'); ?>">
 
                         <input type="number" min="0" step="1" id="<?php echo $group_id ?>-result"
