@@ -78,7 +78,7 @@ function show_donate_form()
 }
 
 
-add_action('give_post_form_output', 'give_populate_amount', 50, 2);
+add_action('give_post_form_output', 'give_populate_amount', 10, 2);
 
 function give_populate_amount($form_id, $args)
 {
@@ -100,6 +100,7 @@ function give_populate_amount($form_id, $args)
             var getamount = giveGetQueryVariable('amount');
             var getdescription = giveGetQueryVariable('description');
             var getdetails = giveGetQueryVariable('details');
+            var levelBtnContainer = document.getElementById('give-donation-level-button-wrap');
             var amount = '1.00';
             if (getamount !== false) {
                 amount = getamount;
@@ -111,15 +112,17 @@ function give_populate_amount($form_id, $args)
 
                 // Parse the attribute value as JSON
                 let parsedValue = JSON.parse(attributeValue);
+                if (parsedValue !== null) {
 
-                // Update the "custom" value
-                parsedValue.custom = amount;
+                    // Update the "custom" value
+                    parsedValue.custom = parseInt(amount);
 
-                // Convert the updated value back to a string
-                let updatedValue = JSON.stringify(parsedValue);
+                    // Convert the updated value back to a string
+                    let updatedValue = JSON.stringify(parsedValue);
 
-                // Set the updated attribute value
-                form.setAttribute("data-give_cs_base_amounts", updatedValue);
+                    // Set the updated attribute value
+                    form.setAttribute("data-give_cs_base_amounts", updatedValue);
+                }
             }
             if (getdescription != 'null' && getdescription != '' && getdescription !== false) {
                 $('#give-comment').val(decodeURI(getdescription)).focus().trigger('blur');
@@ -127,6 +130,7 @@ function give_populate_amount($form_id, $args)
             var tableData = JSON.parse(decodeURIComponent(getdetails));
             var table = document.getElementById("donation-details");
             if (tableData) {
+
                 if (document.dir) {
                     var headers = ['أسم المجموعة', 'الكمية', 'العدد', 'المجموع'];
                 } else {
@@ -183,12 +187,13 @@ function give_populate_amount($form_id, $args)
                 table.style.display = "block";
 
                 //Disable All Buttons And Inputs
+                levelBtnContainer.setAttribute('style', 'display:none !important');
                 let buttons = document.querySelectorAll(".give-donation-level-btn");
                 buttons.forEach((button) => {
                     button.disabled = true;
                 });
                 let input = document.querySelector(".give-text-input");
-                input.disabled = true;
+                input.readOnly = true;
             }
 
             document.getElementById('give-engraving-message').textContent = decodeURIComponent(getdetails);
