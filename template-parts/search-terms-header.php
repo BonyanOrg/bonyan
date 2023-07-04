@@ -4,7 +4,7 @@
             <?php if (!empty($args['taxonomy_name'])) {
                 $terms = get_terms(array(
                     'taxonomy' => $args['taxonomy_name'],
-                    'hide_empty' => false,
+                    'hide_empty' => true,
                     'parent' => 0
                 ));
                 if (count($terms) > 0) {

@@ -97,6 +97,11 @@ require __DIR__ . '/give-qurban-details.php';
 //===========================================
 require __DIR__ . '/rank-cpt-archive.php';
 
+//===========================================
+//  Replace Paypal Billing Information
+//===========================================
+require __DIR__ . '/paypal-billing-replace.php';
+
 
 // Global 
 
