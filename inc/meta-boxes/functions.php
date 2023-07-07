@@ -5,6 +5,11 @@
 //==================
 require __DIR__ . '/campaign.php';
 
+//==================
+//    SPECIAL CASES
+//==================
+require __DIR__ . '/special_cases.php';
+
 //====================
 //    MAIN SLIDER
 //====================
@@ -50,6 +55,11 @@ require __DIR__ . '/term/category_cat_options.php';
 //    CAMPAIGN
 //==================
 require __DIR__ . '/term/campaign_cat_options.php';
+
+//==================
+//    SPECIAL CAMPAIGN
+//==================
+require __DIR__ . '/term/special_case_cat_options.php';
 
 //==================
 //    REPORTS
