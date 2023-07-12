@@ -103,7 +103,11 @@ $is_user_dashboard = (isset($args['is_donor_dashboard']) && $args['is_donor_dash
             <div class="campaign-progress-bar-holder">
                 <div class="campaign-values-details">
                     <p>$<?php echo formatMoney($actual, 1); ?></p>
-                    <p><?php printf(__('Funded of $%s', 'bonyan'), formatMoney($total_goal, 1));  ?></p>
+                    <?php if($actual >= $total_goal): ?>
+                        <p style="color: green"><?php _e('Successfully Funded', 'bonyan'); ?></p>
+                    <?php else: ?>
+                        <p><?php printf(__('Funded of $%s', 'bonyan'), formatMoney($total_goal, 1));  ?></p>
+                    <?php endif; ?>
                 </div>
                 
                 <div class="progress-bar">
@@ -117,7 +121,7 @@ $is_user_dashboard = (isset($args['is_donor_dashboard']) && $args['is_donor_dash
 
 
     <div class="card-footer campaign-card-cta">
-        <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate', 'bonyan') ?></button>
+        <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> style="<?php echo ($actual >= $total_goal) ? 'display:none;' : ''; ?>"><?php _e('Donate', 'bonyan') ?></button>
         <a href="<?php echo get_permalink($post) ?>"><?php _e('More', 'bonyan') ?></a>
     </div>
 </div>
