@@ -11,7 +11,7 @@
 get_header();
 ?>
 <?php get_template_part('template-parts/page', 'header'); ?>
-<div class="single-<?php echo get_post_type() ?>" <?php echo get_post_type() == "campaign" ? 'style="background-color: #EAEAEA"' : ''; ?>>
+<div class="single-<?php echo get_post_type() ?>" <?php echo (get_post_type() == "campaign" || get_post_type() == "special_case") ? 'style="background-color: #EAEAEA"' : ''; ?>>
 	<div class="container">
 		<div class="inner-content">
 			<?php
@@ -23,6 +23,15 @@ get_header();
 				<div class="single-campaign-give-form-container py-lg-5 py-4">
 					<?php
 					get_template_part('template-parts/components/top-donor');
+					?>
+				</div>
+				<?php
+			} 
+			if ($post_type === "special_case") {
+				?>
+				<div class="single-campaign-give-form-container py-lg-5 py-4">
+					<?php
+					get_template_part('template-parts/components/top-donor-special-case');
 					?>
 				</div>
 				<?php
