@@ -1,4 +1,4 @@
-# Fudrasing platform based on WordPress - Give WP plugin
+# Fundrasing platform based on WordPress - Give WP plugin
 
 ## Basic information, the scope of work, and achievable goals
 A. Developing and designing the website of Bonyan Organization
