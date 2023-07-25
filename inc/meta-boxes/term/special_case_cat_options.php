@@ -149,7 +149,7 @@ add_action('special_cases-categories_edit_form_fields', 'special_cases_edit_cove
 // Save Taxonomy Image fields callback function.
 function save_special_cases_custom_meta($term_id)
 {
-    $is_valid_nonce = (isset($_POST['special_cases_cat_options']) && wp_verify_nonce($_POST['special_cases_cat_options'], basename(__FILE__))) ? 'true' : 'false';
+    $is_valid_nonce = (isset($_POST['special_cases_cat_options']) && wp_verify_nonce($_POST['special_cases_cat_options'], basename(__FILE__))) ? true : false;
     // Exits script depending on save status
     if (!$is_valid_nonce) {
         return;

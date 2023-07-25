@@ -18,7 +18,7 @@
                           <span><?php _e('This image here to set avatar of', 'bonyan'); ?> <span><?php _e('Find Image', 'bonyan'); ?></span></span>
                       </div>
 
-                      <input type="file" name="dashboard-upload-avatar" id="dashboard-upload-avatar" class="dashboard-upload-file-input">
+                      <input type="file" name="dashboard-upload-avatar" id="dashboard-upload-avatar" class="dashboard-upload-file-input" accept=".jpg, .jpeg, .png">
                   </label>
               </div>
 

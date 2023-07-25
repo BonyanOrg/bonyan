@@ -112,7 +112,7 @@ function add_main_slider_details()
 function save_main_slider_details($post_id)
 {
 
-    $is_valid_nonce = (isset($_POST['main_slider_options']) && wp_verify_nonce($_POST['main_slider_options'], basename(__FILE__))) ? 'true' : 'false';
+    $is_valid_nonce = (isset($_POST['main_slider_options']) && wp_verify_nonce($_POST['main_slider_options'], basename(__FILE__))) ? true : false;
     // Exits script depending on save status
     if (!$is_valid_nonce) {
         return;

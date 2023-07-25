@@ -76,7 +76,7 @@ function add_tender_options()
 // Save Value When Save
 function save_tender_options($post_id)
 {
-    $is_valid_nonce = (isset($_POST['to_tender_options']) && wp_verify_nonce($_POST['to_tender_options'], basename(__FILE__))) ? 'true' : 'false';
+    $is_valid_nonce = (isset($_POST['to_tender_options']) && wp_verify_nonce($_POST['to_tender_options'], basename(__FILE__))) ? true : false;
     // Exits script depending on save status
     if (!$is_valid_nonce) {
         return;

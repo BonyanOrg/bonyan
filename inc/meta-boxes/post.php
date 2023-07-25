@@ -51,7 +51,7 @@ function add_post_options()
 function save_post_options($post_id)
 {
 
-    $is_valid_nonce = (isset($_POST['post_options']) && wp_verify_nonce($_POST['post_options'], basename(__FILE__))) ? 'true' : 'false';
+    $is_valid_nonce = (isset($_POST['post_options']) && wp_verify_nonce($_POST['post_options'], basename(__FILE__))) ? true : false;
     // Exits script depending on save status
     if (!$is_valid_nonce) {
         return;

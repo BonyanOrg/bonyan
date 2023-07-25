@@ -149,7 +149,7 @@ add_action('campaigns-categories_edit_form_fields', 'campaign_edit_cover_field',
 // Save Taxonomy Image fields callback function.
 function save_campaigns_custom_meta($term_id)
 {
-    $is_valid_nonce = (isset($_POST['campaign_cat_options']) && wp_verify_nonce($_POST['campaign_cat_options'], basename(__FILE__))) ? 'true' : 'false';
+    $is_valid_nonce = (isset($_POST['campaign_cat_options']) && wp_verify_nonce($_POST['campaign_cat_options'], basename(__FILE__))) ? true : false;
     // Exits script depending on save status
     if (!$is_valid_nonce) {
         return;

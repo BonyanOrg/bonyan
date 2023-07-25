@@ -95,7 +95,7 @@ function add_vacancies_details()
 // Save Value When Save
 function save_vacancies_details($post_id)
 {
-    $is_valid_nonce = (isset($_POST['vd_vacancies_options']) && wp_verify_nonce($_POST['vd_vacancies_options'], basename(__FILE__))) ? 'true' : 'false';
+    $is_valid_nonce = (isset($_POST['vd_vacancies_options']) && wp_verify_nonce($_POST['vd_vacancies_options'], basename(__FILE__))) ? true : false;
     // Exits script depending on save status
     if (!$is_valid_nonce) {
         return;

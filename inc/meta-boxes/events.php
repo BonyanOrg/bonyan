@@ -125,7 +125,7 @@ function add_event_options()
 // Save Value When Save
 function save_event_options($post_id, $post)
 {
-    $is_valid_nonce = (isset($_POST['evento_event_options']) && wp_verify_nonce($_POST['evento_event_options'], basename(__FILE__))) ? 'true' : 'false';
+    $is_valid_nonce = (isset($_POST['evento_event_options']) && wp_verify_nonce($_POST['evento_event_options'], basename(__FILE__))) ? true : false;
     // Exits script depending on save status
     if (!$is_valid_nonce) {
         return;

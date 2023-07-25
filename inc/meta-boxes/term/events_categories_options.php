@@ -141,7 +141,7 @@ add_action('events-categories_edit_form_fields', 'event_edit_cover_field', 10, 2
 // Save Taxonomy Image fields callback function.
 function save_events_custom_meta($term_id)
 {
-    $is_valid_nonce = (isset($_POST['event_cat_options']) && wp_verify_nonce($_POST['event_cat_options'], basename(__FILE__))) ? 'true' : 'false';
+    $is_valid_nonce = (isset($_POST['event_cat_options']) && wp_verify_nonce($_POST['event_cat_options'], basename(__FILE__))) ? true : false;
     // Exits script depending on save status
     if (!$is_valid_nonce) {
         return;
