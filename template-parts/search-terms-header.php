@@ -1,4 +1,10 @@
-<?php if (isset($args['archive']) && $args['archive'] == true) : ?>
+<?php 
+
+$categories_to_hide = array("Qurbani", "Eid", "Kaffarah", "Aqiqah", "Sadaqah",
+ "Sadaqah Jariyah", "Zakat", "Ramadan", "Waqf", 
+ "الصدقة", "الكفارة", "العقيقة", "الزكاة", "النذر", "الوقف", "رمضان", "كفالة اليتيم"); // add the categories you want to hide here
+
+if (isset($args['archive']) && $args['archive'] == true) : ?>
     <div class="categories-and-search">
         <div class="categories-filter">
             <?php if (!empty($args['taxonomy_name'])) {
@@ -9,11 +15,13 @@
                 ));
                 if (count($terms) > 0) {
                     foreach ($terms as $term) {
+                        if (!in_array($term->name, $categories_to_hide)) {
             ?>
-                        <a href=" <?php echo get_term_link($term->term_id) ?> " class="category-filter-item">
-                            <span><?php echo $term->name  ?></span>
-                        </a>
+                            <a href=" <?php echo get_term_link($term->term_id) ?> " class="category-filter-item">
+                                <span><?php echo $term->name  ?></span>
+                            </a>
             <?php
+                        }
                     }
                 }
             } ?>
@@ -52,33 +60,36 @@
                         'hide_empty' => true,
                         'hierarchical'          => 1,
                         'child_of'              => !empty($parent_id) ? $parent_id : $args['queried_object']->term_id,
-
                     ));
                     if (count($term_childrens) > 0 || !empty($parent_id)) {
                         foreach ($term_childrens as $term) {
-                            $active = "";
-                            if ($term->term_id == $args['queried_object']->term_id) {
-                                $active = "active";
-                                $current_term_id = $term->term_id;
-                            }
+                            if (!in_array($term->name, $categories_to_hide)) {
+                                $active = "";
+                                if ($term->term_id == $args['queried_object']->term_id) {
+                                    $active = "active";
+                                    $current_term_id = $term->term_id;
+                                }
                 ?>
-                            <a href=" <?php echo get_term_link($term->term_id) ?> " class="category-filter-item <?php echo $active ?>">
-                                <span><?php echo $term->name  ?></span>
-                            </a>
-                        <?php
+                                <a href=" <?php echo get_term_link($term->term_id) ?> " class="category-filter-item <?php echo $active ?>">
+                                    <span><?php echo $term->name  ?></span>
+                                </a>
+                            <?php
+                            }
                         }
                     } else if (count($terms) > 0) {
                         foreach ($terms as $term) {
-                            $active = "";
-                            if ($term->term_id == $args['queried_object']->term_id) {
-                                $active = "active";
-                                $current_term_id = $term->term_id;
-                            }
-                        ?>
-                            <a href=" <?php echo get_term_link($term->term_id) ?> " class="category-filter-item <?php echo $active ?>">
-                                <span><?php echo $term->name  ?></span>
-                            </a>
+                            if (!in_array($term->name, $categories_to_hide)) {
+                                $active = "";
+                                if ($term->term_id == $args['queried_object']->term_id) {
+                                    $active = "active";
+                                    $current_term_id = $term->term_id;
+                                }
+                            ?>
+                                <a href=" <?php echo get_term_link($term->term_id) ?> " class="category-filter-item <?php echo $active ?>">
+                                    <span><?php echo $term->name  ?></span>
+                                </a>
                 <?php
+                            }
                         }
                     }
                 } ?>
