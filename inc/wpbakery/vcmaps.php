@@ -35,23 +35,39 @@
 vc_add_shortcode_param('checkboxes_sortable', 'checkboxes_sortable_settings_field');
 
 function checkboxes_sortable_settings_field($settings, $value) {
-    $value_arr = is_string($value) ? explode(',', $value) : $value;
+    $value_arr = is_string($value) ? explode(',', $value) : array();
     $param_line = '';
 
     $param_line .= '<input type="hidden" name="'.esc_attr($settings['param_name']).'" class="wpb_vc_param_value '.esc_attr($settings['param_name']).' '.esc_attr($settings['type']).'" value="'.implode(',', $value_arr).'">';
 
     $param_line .= '<ul class="sortable" style="list-style-type: none; margin: 0; padding: 0;">';
 
+    // Prepare an array to look up checkbox labels by value
+    $labels_by_value = array();
     foreach ($settings['value'] as $text_val => $val) {
         if (is_numeric($text_val) && (is_string($val) || is_numeric($val))) {
             $text_val = $val;
         }
-        $text_val = __($text_val, "js_composer");
-        $checked = in_array($val, $value_arr) ? ' checked="checked"' : '';
-        
+        $labels_by_value[$val] = __($text_val, "js_composer");
+    }
+
+    // Generate the checkboxes for the already selected values first
+    foreach ($value_arr as $val) {
+        $checked = ' checked="checked"';
+        $text_val = $labels_by_value[$val];
+
         $param_line .= '<li class="ui-state-default" style="margin: 5px 0; padding: 5px; border: 1px solid #ccc;" data-id="'.$val.'">';
         $param_line .= '<input type="checkbox" class="checkbox_sortable" ' . $checked . ' value="' . $val . '">' . $text_val;
         $param_line .= '</li>';
+    }
+
+    // Then generate the checkboxes for the remaining values
+    foreach ($labels_by_value as $val => $text_val) {
+        if (!in_array($val, $value_arr)) {
+            $param_line .= '<li class="ui-state-default" style="margin: 5px 0; padding: 5px; border: 1px solid #ccc;" data-id="'.$val.'">';
+            $param_line .= '<input type="checkbox" class="checkbox_sortable" value="' . $val . '">' . $text_val;
+            $param_line .= '</li>';
+        }
     }
 
     $param_line .= '</ul>';
@@ -86,6 +102,7 @@ function checkboxes_sortable_settings_field($settings, $value) {
 
     return $param_line;
 }
+
 
 
 /* Tenders Data Table  */
