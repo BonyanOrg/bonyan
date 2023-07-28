@@ -10,6 +10,12 @@ function quick_donation_vc()
 		$tags_dropdown_values[$tag->name] = $tag->term_id;
 	}
 
+	$tags_checkbox_values = array();
+
+	foreach ($campaign_tags as $tag) {
+		$tags_checkbox_values[$tag->name] = $tag->term_id;
+	}
+
 	vc_map(array(
 		"name"					=> esc_html__("Quick Donation", 'DOMAIN'),
 		"description"			=> esc_html__("Add Quick Donation", 'DOMAIN'),
@@ -33,14 +39,24 @@ function quick_donation_vc()
 				"value"			=> "",
 				"description"	=> esc_html__("Paste Just Give Form ID Not ShortCode", 'ONYX_DOMAIN'),
 			),
+			// array(
+			// 	"type"			=> "dropdown_multi",
+			// 	"admin_label"	=> false,
+			// 	"heading"		=> esc_html__("Tags List", 'ONYX_DOMAIN'),
+			// 	"param_name"	=> "quick_donation_tags_list",
+			// 	"value"			=> $tags_dropdown_values,
+			// 	"description"	=> esc_html__("Paste Just Give Form ID Not ShortCode", 'ONYX_DOMAIN'),
+			// ),
+
 			array(
-				"type"			=> "dropdown_multi",
-				"admin_label"	=> false,
-				"heading"		=> esc_html__("Tags List", 'ONYX_DOMAIN'),
-				"param_name"	=> "quick_donation_tags_list",
-				"value"			=> $tags_dropdown_values,
-				"description"	=> esc_html__("Paste Just Give Form ID Not ShortCode", 'ONYX_DOMAIN'),
+				"type"          => "checkboxes_sortable",
+				"admin_label"   => false,
+				"heading"       => esc_html__("Tags List", 'ONYX_DOMAIN'),
+				"param_name"    => "quick_donation_tags_list",
+				"value"         => $tags_checkbox_values,
+				"description"   => esc_html__("Select and sort the tags for quick donation", 'ONYX_DOMAIN'),
 			),
+
 			array(
 				"type"			=> "checkbox",
 				"admin_label"	=> false,

@@ -16,14 +16,16 @@ if (!function_exists('quick_donation_shortcode')) {
             ), $atts));
 
         $quick_donation_prices = vc_param_group_parse_atts($atts['quick_donation_prices']);
-        $tags_list_array = explode(',', $quick_donation_tags_list);
-        $tags_list_array = get_terms(
-            array(
-                'taxonomy' => 'campaigns-tags',
-                'include' => $tags_list_array,
-                ''
-            )
-        );
+        
+        // Fetching term details one-by-one to maintain order
+        $sorted_tags_list_array = explode(',', $quick_donation_tags_list);
+        $tags_list_array = array();
+        foreach ($sorted_tags_list_array as $tag_id) {
+            $tag = get_term($tag_id, 'campaigns-tags');
+            if ($tag && !is_wp_error($tag)) {
+                $tags_list_array[] = $tag;
+            }
+        }
 
 
         ob_start();

@@ -3,33 +3,90 @@
 /* ================================================ */
 
 // Create multi dropdown param type
-vc_add_shortcode_param('dropdown_multi', 'dropdown_multi_settings_field');
-function dropdown_multi_settings_field($param, $value)
-{
+// vc_add_shortcode_param('dropdown_multi', 'dropdown_multi_settings_field');
+// function dropdown_multi_settings_field($param, $value)
+// {
+//     $param_line = '';
+//     $param_line .= '<select multiple style="height: 200px;" name="' . esc_attr($param['param_name']) . '" class="wpb_vc_param_value wpb-input wpb-select ' . esc_attr($param['param_name']) . ' ' . esc_attr($param['type']) . '">';
+//     foreach ($param['value'] as $text_val => $val) {
+//         if (is_numeric($text_val) && (is_string($val) || is_numeric($val))) {
+//             $text_val = $val;
+//         }
+//         $text_val = __($text_val, "js_composer");
+//         $selected = '';
+
+//         if (!is_array($value)) {
+//             $param_value_arr = explode(',', $value);
+//         } else {
+//             $param_value_arr = $value;
+//         }
+
+//         if ($value !== '' && in_array($val, $param_value_arr)) {
+//             $selected = ' selected="selected"';
+//         }
+//         $param_line .= '<option class="' . $val . '" value="' . $val . '"' . $selected . '>' . $text_val . '</option>';
+//     }
+//     $param_line .= '</select>';
+
+//     return  $param_line;
+// }
+
+// Create checkboxes_sortable param type
+vc_add_shortcode_param('checkboxes_sortable', 'checkboxes_sortable_settings_field');
+
+function checkboxes_sortable_settings_field($settings, $value) {
+    $value_arr = is_string($value) ? explode(',', $value) : $value;
     $param_line = '';
-    $param_line .= '<select multiple style="height: 200px;" name="' . esc_attr($param['param_name']) . '" class="wpb_vc_param_value wpb-input wpb-select ' . esc_attr($param['param_name']) . ' ' . esc_attr($param['type']) . '">';
-    foreach ($param['value'] as $text_val => $val) {
+
+    $param_line .= '<input type="hidden" name="'.esc_attr($settings['param_name']).'" class="wpb_vc_param_value '.esc_attr($settings['param_name']).' '.esc_attr($settings['type']).'" value="'.implode(',', $value_arr).'">';
+
+    $param_line .= '<ul class="sortable" style="list-style-type: none; margin: 0; padding: 0;">';
+
+    foreach ($settings['value'] as $text_val => $val) {
         if (is_numeric($text_val) && (is_string($val) || is_numeric($val))) {
             $text_val = $val;
         }
         $text_val = __($text_val, "js_composer");
-        $selected = '';
-
-        if (!is_array($value)) {
-            $param_value_arr = explode(',', $value);
-        } else {
-            $param_value_arr = $value;
-        }
-
-        if ($value !== '' && in_array($val, $param_value_arr)) {
-            $selected = ' selected="selected"';
-        }
-        $param_line .= '<option class="' . $val . '" value="' . $val . '"' . $selected . '>' . $text_val . '</option>';
+        $checked = in_array($val, $value_arr) ? ' checked="checked"' : '';
+        
+        $param_line .= '<li class="ui-state-default" style="margin: 5px 0; padding: 5px; border: 1px solid #ccc;" data-id="'.$val.'">';
+        $param_line .= '<input type="checkbox" class="checkbox_sortable" ' . $checked . ' value="' . $val . '">' . $text_val;
+        $param_line .= '</li>';
     }
-    $param_line .= '</select>';
 
-    return  $param_line;
+    $param_line .= '</ul>';
+
+    $param_line .= '<script>
+    jQuery(function() {
+      var sortableList = jQuery(".sortable");
+      var checkboxes = sortableList.find(".checkbox_sortable");
+      var inputField = sortableList.prev("input");
+
+      sortableList.sortable({
+        update: function(event, ui) {
+          updateInputField();
+        }
+      });
+
+      checkboxes.on("change", function() {
+        updateInputField();
+      });
+
+      function updateInputField() {
+        var selectedValues = checkboxes.filter(":checked").closest("li").map(function() {
+          return jQuery(this).data("id");
+        }).get();
+
+        inputField.val(selectedValues.join(","));
+      }
+
+      sortableList.disableSelection();
+    });
+    </script>';
+
+    return $param_line;
 }
+
 
 /* Tenders Data Table  */
 require_once "vcmaps/tenders_datatable_map.php";
