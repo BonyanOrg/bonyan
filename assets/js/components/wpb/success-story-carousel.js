@@ -1,4 +1,6 @@
 window.addEventListener('DOMContentLoaded', function () {
+    var isWithSidebar = document.querySelector('.with-sidebar') === null ? "3" : "2";
+
     /* ===[Start Global Lazyload Options]=== */
     const globalSwiperOptions = {
         checkInView: true,
@@ -26,7 +28,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         breakpoints: {
             1200: {
-                slidesPerView: 3,
+                slidesPerView: isWithSidebar,
                 spaceBetween: 35
             },
 

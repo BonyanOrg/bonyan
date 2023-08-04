@@ -1,0 +1,1 @@
+<?php get_template_part('/template-parts/toc', null, array('content' => $args['content'])); ?>

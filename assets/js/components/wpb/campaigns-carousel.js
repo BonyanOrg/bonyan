@@ -1,4 +1,6 @@
 window.addEventListener('DOMContentLoaded', function () {
+    var isWithSidebar = document.querySelector('.with-sidebar') === null ? "3" : "2";
+
     /* ===[Start Campaigns Slider]=== */
     const campaignsCarousel = new Swiper(".campaigns-carousel", {
         preloadImages: false,
@@ -20,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         breakpoints: {
             1200: {
-                slidesPerView: 3,
+                slidesPerView: isWithSidebar,
                 spaceBetween: 35
             },
 

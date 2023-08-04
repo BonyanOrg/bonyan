@@ -246,6 +246,37 @@ window.addEventListener('DOMContentLoaded', function () {
         })
     }
     /* ===[End Handle upload file]=== */
+
+        /* ===[Start Count the header for scroll to anchor]=== */
+        function correctScrollToAnchor() {
+            let links = document.querySelectorAll('a[href^="#"]');
+            let headerHeight = document.querySelector('header').clientHeight;
+    
+            links?.forEach((link) => {
+                link.addEventListener('click', function(e){
+                    let anchorTarget = e.target.getAttribute('href');
+                    
+                    if (anchorTarget && anchorTarget.length <= 1) {
+                        return;
+                    }
+                                  
+                    if (anchorTarget && anchorTarget.length > 1) {
+                        e.preventDefault();
+                        let anchorTargetPosition = document.querySelector(anchorTarget);
+                        let scrollToCalc = anchorTargetPosition.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+    
+                        window.location.hash = anchorTarget;
+                        window.scrollTo(0, scrollToCalc);
+                    }
+    
+                });
+            })
+        };
+    
+        correctScrollToAnchor();
+    
+        window.addEventListener('resize', correctScrollToAnchor());
+        /* ===[End Count the header for scroll to anchor]=== */
 });
 
 /* ===[Start Toggle Zoho Desk]=== */

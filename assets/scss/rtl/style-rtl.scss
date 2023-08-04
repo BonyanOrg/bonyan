@@ -694,6 +694,48 @@ input {
 /* __End Light Effect__ */
 
 /* __Start Inner Content__*/
+// Post Structure
+.custom-single-post-container {
+  display: grid;
+  align-items: flex-start;
+  gap: 1rem;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+  grid-template-columns: minmax(0, 1fr);
+
+  @media (max-width: 991px) {
+      margin-bottom: 1.5rem;
+  }
+
+  &.with-sidebar {
+      grid-template-columns: minmax(0,2.5fr) minmax(0, 1fr);
+
+      @media (max-width: 991px) {
+          grid-template-columns: minmax(0, 1fr);
+          grid-auto-flow: row dense;
+      }
+  }
+
+  .custom-post-container {
+      @media (max-width: 991px) {
+          order: 2;
+      }
+  }
+
+  .custom-sidebar-container {
+      margin-top: 1rem;
+
+      @media (min-width: 992px) {
+          position: sticky;
+          top: 120px;
+      }
+
+      @media (max-width: 991px) {
+          order: 1;
+      }
+  }
+}
+
 .inner-content {
 
   h1:not(.custom-widget h1):not(h1.custom-widget),
