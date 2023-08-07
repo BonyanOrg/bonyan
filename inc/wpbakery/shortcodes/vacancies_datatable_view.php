@@ -58,6 +58,7 @@ if (!function_exists('vacancies_datatable_shortcode')) {
                         $args = array(
                             'post_type' => 'vacancy',
                             'post_status' => 'publish',
+                            'posts_per_page' => '-1',
                             'order_by' => 'date',
                             'order' => 'DESC',
                             'suppress_filters' => 0,

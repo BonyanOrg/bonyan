@@ -59,6 +59,7 @@ if (!function_exists('tenders_datatable_shortcode')) {
                         $args = array(
                             'post_type' => 'tender',
                             'post_status' => 'publish',
+                            'posts_per_page' => '-1',
                             'order_by' => 'date',
                             'order' => 'DESC'
 

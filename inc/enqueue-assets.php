@@ -51,14 +51,6 @@ function bonyan_scripts()
         )
     );
     /* =====[End Enqueue GLOBAL Assets]===== */
-
-    // __CDN__
-    wp_enqueue_style('bonyan-datatable-css', get_template_directory_uri() . "/dist/css/cdn/jquery.dataTables.min.css", array());
-    wp_enqueue_style('bonyan-datatable-responsive-css', get_template_directory_uri() . "/dist/css/cdn/responsive.dataTables.min.css", array());
-
-    wp_enqueue_script('bonyan-datatable-js', get_template_directory_uri() . "/dist/js/cdn/jquery.dataTables.min.js", array(), false, true);
-    wp_enqueue_script('bonyan-datatable-responsive-js', get_template_directory_uri() . "/dist/js/cdn/dataTables.responsive.min.js", array(), false, true);
-
     /* =====[Enqueue Search Page]===== */
     if (is_search()) {
         wp_enqueue_style('bonyan-advanced-search', get_template_directory_uri() . "/dist/css/components/wpb/advanced-search.min.css", array(), $GLOBALS['bonyan_version']);
