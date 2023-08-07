@@ -10,6 +10,12 @@ function get_table_of_content($content)
         return $content;
     }
 
+    if (str_contains($content, 'nnoo__TABLE_OF_CONTENT__ooff')) {
+        $content = str_replace('<p>nnoo__TABLE_OF_CONTENT__ooff</p>', '', $content);
+        return $content;
+    }
+
+
 
     // Auto Add Id To Headers
     $content = preg_replace_callback('/(\<h[1-6]([^>]*))\>(.*)(<\/h[1-6]>)/U', function ($matches) {
