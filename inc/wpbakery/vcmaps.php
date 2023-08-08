@@ -114,3 +114,6 @@ require_once "vcmaps/recommended-content_map.php";
 
 /* Qurbani Calculator  */
 require_once "vcmaps/qurbani_calculator_map.php";
+
+/*  CTA Button  */
+require_once "vcmaps/cta_btn_map.php";

@@ -87,3 +87,6 @@ require_once "shortcodes/recommended_content_view.php";
 
 /* Qurbani Calculator   */
 require_once "shortcodes/qurbani_calculator_view.php";
+
+/*  CTA Button  */
+require_once "shortcodes/cta_btn_view.php";

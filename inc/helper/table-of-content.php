@@ -20,7 +20,7 @@ function get_table_of_content($content)
     // Auto Add Id To Headers
     $content = preg_replace_callback('/(\<h[1-6]([^>]*))\>(.*)(<\/h[1-6]>)/U', function ($matches) {
         if (!stripos($matches[0], 'id=')) {
-            $matches[0] = $matches[1] . ' id="' . sanitize_title($matches[3]) . '">' . $matches[3] . $matches[4];
+            $matches[0] = $matches[1] . ' id="' . urldecode(sanitize_title($matches[3])) . '">' . $matches[3] . $matches[4];
         }
         return $matches[0];
     }, $content);
