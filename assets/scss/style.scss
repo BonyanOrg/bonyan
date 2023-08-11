@@ -67,7 +67,7 @@ button {
 }
 
 .primary-btn {
-  background: $secondary-color;
+  background: $third-color;
   color: $light-color;
   border-radius: $radius-10;
 }
@@ -1883,7 +1883,7 @@ header {
           min-width: 20px;
 
           path {
-            fill: #daa8ff;
+            fill: $light-primary-color;
           }
         }
 
@@ -2116,7 +2116,7 @@ header {
     &.is-fav {
       svg {
         path {
-          fill: $secondary-color;
+          fill: $third-color;
         }
       }
     }
@@ -2211,13 +2211,13 @@ header {
         margin-bottom: 0.25rem;
 
         p {
-          color: $primary-color;
+          color: $third-color;
           font-size: 24px;
           font-weight: bold;
           margin-bottom: 0;
 
           &:last-of-type {
-            color: #74698D;
+            color: $primary-color;
             font-size: 18px;
             font-weight: 500;
           }
@@ -2234,7 +2234,7 @@ header {
         .progress-bar-value {
           width: 0%;
           height: 100%;
-          background: $primary-color;
+          background: $third-color;
         }
       }
     }
