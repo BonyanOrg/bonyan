@@ -1044,6 +1044,7 @@ input {
           border: 1px solid $primary-color;
           padding: 1rem;
           border-radius: $radius-10;
+          flex-wrap: wrap;
 
           @media (max-width: 992px) {
             justify-content: flex-start;

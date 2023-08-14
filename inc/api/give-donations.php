@@ -5,6 +5,8 @@ function give_Zoho($donation_id, $new_status, $old_status)
 {
 
     $PaymentObject = new Give_Payment($donation_id);
+    $donor = new Give_Donor(!empty($PaymentObject->user_info["id"]) ? intval($PaymentObject->donor_id) : $PaymentObject->email, true); // Get Donor 
+    $donor_total_donations = give_format_amount($donor->get_total_donation_amount());
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
     $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
@@ -36,7 +38,7 @@ function give_Zoho($donation_id, $new_status, $old_status)
         "Campaign Title" => !empty($PaymentObject->form_title) ? $PaymentObject->form_title : "_",
         "Campaign ID" => !empty($PaymentObject->form_id) ? $PaymentObject->form_id : "_",
         "Donation Status" => !empty($PaymentObject->status) ? $PaymentObject->status : "_",
-        "Donation Total" => !empty($PaymentObject->total) ? $PaymentObject->total : "_",
+        "Donation Total" => !empty($donor_total_donations) ? $donor_total_donations : $PaymentObject->total,
         "Donation Currency" => !empty($PaymentObject->currency) ? $PaymentObject->currency : "_",
         "Donor ID" => $PaymentObject->user_id != 0 ? $PaymentObject->user_id : $PaymentObject->donor_id,
         "Donor IP" => !empty($PaymentObject->ip) ? $PaymentObject->ip : "_",
@@ -100,6 +102,8 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
 {
 
     $PaymentObject = new Give_Payment($donation_id);
+    $donor = new Give_Donor(!empty($PaymentObject->user_info["id"]) ? intval($PaymentObject->donor_id) : $PaymentObject->email, true); // Get Donor 
+    $donor_total_donations = give_format_amount($donor->get_total_donation_amount());
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
     $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
@@ -128,7 +132,7 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
         "Campaign Title" => !empty($PaymentObject->form_title) ? $PaymentObject->form_title : "_",
         "Campaign ID" => !empty($PaymentObject->form_id) ? $PaymentObject->form_id : "_",
         "Donation Status" => !empty($PaymentObject->status) ? $PaymentObject->status : "_",
-        "Donation Total" => !empty($PaymentObject->total) ? $PaymentObject->total : "_",
+        "Donation Total" => !empty($donor_total_donations) ? $donor_total_donations : $PaymentObject->total,
         "Donation Currency" => !empty($PaymentObject->currency) ? $PaymentObject->currency : "_",
         "Donor ID" => $PaymentObject->user_id != 0 ? $PaymentObject->user_id : $PaymentObject->donor_id,
         "Donor IP" => !empty($PaymentObject->ip) ? $PaymentObject->ip : "_",

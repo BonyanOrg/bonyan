@@ -1,5 +1,6 @@
 <?php
 $queried_object = get_queried_object();
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $taxonomy_name = $queried_object->taxonomy;
 
 
@@ -17,24 +18,47 @@ $taxonomy_name = $queried_object->taxonomy;
             <div class="cards-container">
 
 
-                <?php if (have_posts()) : ?>
+                <?php
+
+                $args = array(
+                    'post_type' => 'campaign',
+                    'posts_per_page' => get_option('posts_per_page'),
+                    'post_status' => 'publish',
+                    'paged' => $paged,
+                    'meta_key' => 'co_campaign_end_date',
+                    'orderby' => 'meta_value',
+                    'order' => 'DESC',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => $taxonomy_name,
+                            'field' => 'term_id',
+                            'terms' => $queried_object->term_id,
+
+                        ),
+                    ),
+                );
+
+                $campaigns_posts = new WP_Query($args);
+
+
+                if ($campaigns_posts->have_posts()): ?>
 
                     <?php
                     /* Start the Loop */
-                    while (have_posts()) :
-                        the_post();
+                    while ($campaigns_posts->have_posts()):
+                        $campaigns_posts->the_post();
 
-                    ?>
+                        ?>
                         <?php get_template_part('template-parts/cards/content', $post->post_type); ?>
 
-                <?php
+                        <?php
 
 
                     endwhile;
 
-                //the_posts_navigation();
-
-                else :
+                    //the_posts_navigation();
+                
+                else:
 
                     get_template_part('template-parts/content', 'none');
 

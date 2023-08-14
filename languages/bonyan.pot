@@ -1,26 +1,26 @@
-# Copyright (C) 2023 Underscores.me
+# Copyright (C) 2023 2P
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: bonyan 1.3.03\n"
+"Project-Id-Version: 2P bonyan 1.4.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-06-20T15:22:49+02:00\n"
+"POT-Creation-Date: 2023-08-14T10:33:14+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: bonyan\n"
 
 #. Theme Name of the theme
-msgid "bonyan"
+msgid "2P bonyan"
 msgstr ""
 
 #. Theme URI of the theme
 #. Author URI of the theme
-msgid "http://underscores.me/"
+msgid "https://2p.com.tr/"
 msgstr ""
 
 #. Description of the theme
@@ -28,7 +28,7 @@ msgid "Description"
 msgstr ""
 
 #. Author of the theme
-msgid "Underscores.me"
+msgid "2P"
 msgstr ""
 
 #: 404.php:103
@@ -100,21 +100,21 @@ msgstr ""
 
 #: dashboard-page.php:103
 #: inc/wpbakery/shortcodes/hierarchy_board_view.php:128
-#: template-parts/user-dashboard/edit-profile.php:54
+#: template-parts/user-dashboard/edit-profile.php:55
 msgid "Save"
 msgstr ""
 
 #: dashboard-page.php:115
 #: template-parts/signup.php:31
 #: template-parts/signup.php:32
-#: template-parts/user-dashboard/edit-profile.php:35
+#: template-parts/user-dashboard/edit-profile.php:36
 msgid "First Name"
 msgstr ""
 
 #: dashboard-page.php:121
 #: template-parts/signup.php:36
 #: template-parts/signup.php:37
-#: template-parts/user-dashboard/edit-profile.php:40
+#: template-parts/user-dashboard/edit-profile.php:41
 msgid "Last Name"
 msgstr ""
 
@@ -148,12 +148,11 @@ msgid "Twitter URL"
 msgstr ""
 
 #: dashboard-page.php:195
-#: template-parts/signup.php:75
+#: template-parts/signup.php:83
 msgid "Date of birth"
 msgstr ""
 
 #: dashboard-page.php:200
-#: template-parts/signup.php:46
 msgid "Age"
 msgstr ""
 
@@ -355,10 +354,12 @@ msgid "Campaign - Category"
 msgstr ""
 
 #: inc/CPT/campaigns.php:51
+#: inc/CPT/special_cases.php:46
 msgid "Search Tags"
 msgstr ""
 
 #: inc/CPT/campaigns.php:52
+#: inc/CPT/special_cases.php:47
 msgid "All Tags"
 msgstr ""
 
@@ -368,7 +369,8 @@ msgstr ""
 #: inc/CPT/projects.php:51
 #: inc/CPT/reports.php:51
 #: inc/CPT/seasonal_campaigns.php:51
-#: inc/CPT/special_cases.php:51
+#: inc/CPT/special_cases.php:48
+#: inc/CPT/special_cases.php:77
 #: inc/CPT/stories_of_success.php:51
 msgid "Parent Category"
 msgstr ""
@@ -379,7 +381,8 @@ msgstr ""
 #: inc/CPT/projects.php:52
 #: inc/CPT/reports.php:52
 #: inc/CPT/seasonal_campaigns.php:52
-#: inc/CPT/special_cases.php:52
+#: inc/CPT/special_cases.php:49
+#: inc/CPT/special_cases.php:78
 #: inc/CPT/stories_of_success.php:52
 msgid "Parent Category:"
 msgstr ""
@@ -390,7 +393,8 @@ msgstr ""
 #: inc/CPT/projects.php:53
 #: inc/CPT/reports.php:53
 #: inc/CPT/seasonal_campaigns.php:53
-#: inc/CPT/special_cases.php:53
+#: inc/CPT/special_cases.php:50
+#: inc/CPT/special_cases.php:79
 #: inc/CPT/stories_of_success.php:53
 msgid "Edit Category"
 msgstr ""
@@ -401,7 +405,8 @@ msgstr ""
 #: inc/CPT/projects.php:54
 #: inc/CPT/reports.php:54
 #: inc/CPT/seasonal_campaigns.php:54
-#: inc/CPT/special_cases.php:54
+#: inc/CPT/special_cases.php:51
+#: inc/CPT/special_cases.php:80
 #: inc/CPT/stories_of_success.php:54
 msgid "Update Category"
 msgstr ""
@@ -412,7 +417,8 @@ msgstr ""
 #: inc/CPT/projects.php:55
 #: inc/CPT/reports.php:55
 #: inc/CPT/seasonal_campaigns.php:55
-#: inc/CPT/special_cases.php:55
+#: inc/CPT/special_cases.php:52
+#: inc/CPT/special_cases.php:81
 #: inc/CPT/stories_of_success.php:55
 msgid "Add New Category"
 msgstr ""
@@ -423,12 +429,14 @@ msgstr ""
 #: inc/CPT/projects.php:56
 #: inc/CPT/reports.php:56
 #: inc/CPT/seasonal_campaigns.php:56
-#: inc/CPT/special_cases.php:56
+#: inc/CPT/special_cases.php:53
+#: inc/CPT/special_cases.php:82
 #: inc/CPT/stories_of_success.php:56
 msgid "New Category Name"
 msgstr ""
 
 #: inc/CPT/campaigns.php:59
+#: inc/CPT/special_cases.php:54
 msgid "Tags"
 msgstr ""
 
@@ -441,7 +449,7 @@ msgstr ""
 #: inc/CPT/projects.php:49
 #: inc/CPT/reports.php:49
 #: inc/CPT/seasonal_campaigns.php:49
-#: inc/CPT/special_cases.php:49
+#: inc/CPT/special_cases.php:75
 #: inc/CPT/stories_of_success.php:49
 msgid "Search Categories"
 msgstr ""
@@ -451,12 +459,13 @@ msgstr ""
 #: inc/CPT/projects.php:50
 #: inc/CPT/reports.php:50
 #: inc/CPT/seasonal_campaigns.php:50
-#: inc/CPT/special_cases.php:50
+#: inc/CPT/special_cases.php:76
 #: inc/CPT/stories_of_success.php:50
 msgid "All Categories"
 msgstr ""
 
 #: inc/CPT/campaigns.php:88
+#: inc/CPT/special_cases.php:83
 msgid "Category"
 msgstr ""
 
@@ -674,7 +683,6 @@ msgid "View seasonal_campaigns"
 msgstr ""
 
 #: inc/CPT/seasonal_campaigns.php:15
-#: inc/CPT/special_cases.php:15
 msgid "All Media"
 msgstr ""
 
@@ -702,44 +710,62 @@ msgstr ""
 msgid "seasonal_campaigns Category"
 msgstr ""
 
+#: inc/CPT/special_cases.php:6
+#: inc/CPT/special_cases.php:8
+#: inc/CPT/special_cases.php:9
+msgid "Special Cases"
+msgstr ""
+
+#: inc/CPT/special_cases.php:7
+msgid "Special Case"
+msgstr ""
+
 #: inc/CPT/special_cases.php:11
-msgid "Add New special_cases"
+msgid "Add New Special Cases"
 msgstr ""
 
 #: inc/CPT/special_cases.php:12
-msgid "New special_cases"
+msgid "New Special Cases"
 msgstr ""
 
 #: inc/CPT/special_cases.php:13
-msgid "Edit special_cases"
+msgid "Edit Special Cases"
 msgstr ""
 
 #: inc/CPT/special_cases.php:14
-msgid "View special_cases"
+msgid "View Special Cases"
+msgstr ""
+
+#: inc/CPT/special_cases.php:15
+msgid "All Special Cases"
 msgstr ""
 
 #: inc/CPT/special_cases.php:16
-msgid "Search special_cases"
+msgid "Search Special Cases"
 msgstr ""
 
 #: inc/CPT/special_cases.php:17
-msgid "Parent special_cases:"
+msgid "Parent Special Cases:"
 msgstr ""
 
 #: inc/CPT/special_cases.php:18
-msgid "No special_cases found."
+msgid "No Special Cases found."
 msgstr ""
 
-#: inc/CPT/special_cases.php:47
-msgid "special_cases - Categories"
+#: inc/CPT/special_cases.php:44
+msgid "Special Cases - Tags"
 msgstr ""
 
-#: inc/CPT/special_cases.php:48
-msgid "special_cases - Category"
+#: inc/CPT/special_cases.php:45
+msgid "Special Cases - Tag"
 msgstr ""
 
-#: inc/CPT/special_cases.php:57
-msgid "special_cases Category"
+#: inc/CPT/special_cases.php:73
+msgid "Special Cases - Categories"
+msgstr ""
+
+#: inc/CPT/special_cases.php:74
+msgid "Special Cases - Category"
 msgstr ""
 
 #: inc/CPT/stories_of_success.php:11
@@ -870,10 +896,6 @@ msgstr ""
 msgid "No Vacancies found."
 msgstr ""
 
-#: inc/helper/table-of-content.php:58
-msgid "Content"
-msgstr ""
-
 #: inc/meta-boxes/reports.php:49
 msgid "Choose The Document"
 msgstr ""
@@ -916,6 +938,7 @@ msgstr ""
 #: template-parts/archive/content-reports.php:43
 #: template-parts/cards/content-campaign.php:121
 #: template-parts/cards/content-post.php:13
+#: template-parts/cards/content-special_case.php:125
 #: template-parts/cards/content-story.php:13
 #: template-parts/components/urgent-campaigns.php:90
 msgid "More"
@@ -951,9 +974,10 @@ msgid "Apply for this job"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/news_slider_view.php:86
-#: inc/wpbakery/shortcodes/quick_donation_view.php:114
+#: inc/wpbakery/shortcodes/quick_donation_view.php:133
 #: template-parts/cards/content-campaign.php:120
-#: template-parts/components/main-slider.php:36
+#: template-parts/cards/content-special_case.php:124
+#: template-parts/components/main-slider.php:40
 #: template-parts/components/urgent-campaigns.php:89
 msgid "Donate"
 msgstr ""
@@ -978,11 +1002,11 @@ msgstr ""
 msgid "More about the programs"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:73
+#: inc/wpbakery/shortcodes/quick_donation_view.php:81
 msgid "Choose Charity"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/quick_donation_view.php:107
+#: inc/wpbakery/shortcodes/quick_donation_view.php:121
 msgid "Choose the program"
 msgstr ""
 
@@ -1019,18 +1043,18 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:102
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:90
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:103
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:91
 msgid "Urgent"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:106
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:94
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:107
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:95
 msgid "Active"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/tenders_datatable_view.php:106
-#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:94
+#: inc/wpbakery/shortcodes/tenders_datatable_view.php:107
+#: inc/wpbakery/shortcodes/vacancies_datatable_view.php:95
 msgid "Inactive"
 msgstr ""
 
@@ -1118,38 +1142,50 @@ msgid "Modern-Dashboard"
 msgstr ""
 
 #: template-parts/cards/content-campaign.php:60
+#: template-parts/cards/content-special_case.php:60
 #: template-parts/components/urgent-campaigns.php:65
 msgid " Day Left "
 msgstr ""
 
 #: template-parts/cards/content-campaign.php:60
+#: template-parts/cards/content-special_case.php:60
 #: template-parts/components/urgent-campaigns.php:65
 msgid " Days Left "
 msgstr ""
 
 #: template-parts/cards/content-campaign.php:61
+#: template-parts/cards/content-special_case.php:61
 #: template-parts/components/urgent-campaigns.php:66
 msgid " Hour"
 msgstr ""
 
 #: template-parts/cards/content-campaign.php:61
+#: template-parts/cards/content-special_case.php:61
 #: template-parts/components/urgent-campaigns.php:66
 msgid " Hour left"
 msgstr ""
 
 #: template-parts/cards/content-campaign.php:106
+#: template-parts/cards/content-special_case.php:109
 msgid "Funded of $%s"
 msgstr ""
 
+#: template-parts/cards/content-special_case.php:107
+msgid "Successfully Funded"
+msgstr ""
+
+#: template-parts/components/top-donor-special-case.php:68
 #: template-parts/components/top-donor.php:68
 #: template-parts/share-via.php:23
 msgid "Share via"
 msgstr ""
 
+#: template-parts/components/top-donor-special-case.php:101
 #: template-parts/components/top-donor.php:101
 msgid "Top Donation"
 msgstr ""
 
+#: template-parts/components/top-donor-special-case.php:148
 #: template-parts/components/top-donor.php:148
 msgid "Top Donor"
 msgstr ""
@@ -1241,17 +1277,17 @@ msgstr ""
 
 #: template-parts/login.php:26
 #: template-parts/login.php:59
-#: template-parts/signup.php:121
+#: template-parts/signup.php:129
 msgid "Login"
 msgstr ""
 
 #: template-parts/login.php:32
-#: template-parts/user-dashboard/edit-profile.php:50
+#: template-parts/user-dashboard/edit-profile.php:51
 msgid "Email"
 msgstr ""
 
 #: template-parts/login.php:37
-#: template-parts/signup.php:80
+#: template-parts/signup.php:88
 msgid "Password"
 msgstr ""
 
@@ -1268,7 +1304,7 @@ msgid "Sign up"
 msgstr ""
 
 #: template-parts/signup.php:25
-#: template-parts/signup.php:117
+#: template-parts/signup.php:125
 msgid "Sign Up"
 msgstr ""
 
@@ -1292,21 +1328,30 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: template-parts/signup.php:93
+#: template-parts/signup.php:72
+#: template-parts/user-dashboard/edit-profile.php:31
+msgid "Other"
+msgstr ""
+
+#: template-parts/signup.php:101
 msgid "Insert Password"
 msgstr ""
 
-#: template-parts/signup.php:98
-#: template-parts/signup.php:111
+#: template-parts/signup.php:106
+#: template-parts/signup.php:119
 msgid "Confirm Password"
 msgstr ""
 
-#: template-parts/signup.php:121
+#: template-parts/signup.php:129
 msgid "Already have account? "
 msgstr ""
 
 #: template-parts/taxonomy/content-reports-categories.php:34
 msgid "Last Report"
+msgstr ""
+
+#: template-parts/toc.php:49
+msgid "Content"
 msgstr ""
 
 #: template-parts/user-dashboard/contribution-invitation.php:7
@@ -1408,7 +1453,7 @@ msgstr ""
 msgid "Mrs."
 msgstr ""
 
-#: template-parts/user-dashboard/edit-profile.php:45
+#: template-parts/user-dashboard/edit-profile.php:46
 msgid "Company"
 msgstr ""
 

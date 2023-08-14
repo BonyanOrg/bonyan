@@ -42,10 +42,10 @@
                             <input type="email" name="register-user-email" id="registration_user_email" placeholder="<?php _e('Email Address','bonyan') ?>">
                         </div>
 
-                        <div class="input-holder">
-                            <label for="user-age"><?php _e('Age','bonyan') ?></label>
+                        <!-- <div class="input-holder">
+                            <label for="user-age"><?php // _e('Age','bonyan') ?></label>
                             <input type="text" name="user-age" id="registration_user_age" placeholder="<?php _e('Your Age','bonyan') ?>" class="only-number">
-                        </div>
+                        </div> -->
 
                         <div class="input-holder">
                             <label><?php _e('Gender','bonyan') ?></label>
@@ -68,12 +68,20 @@
                                         <div class="custom-radio-btn"></div>
                                     </div>
                                 </div>
+                                <div class="gender-item">
+                                    <label for="other"><?php _e('Other','bonyan') ?></label>
+
+                                    <div class="radio-btn-holder">
+                                        <input type="radio" name="gender" id="other">
+                                        <div class="custom-radio-btn"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="input-holder">
                             <label for="date-of-birth"><?php _e('Date of birth','bonyan') ?></label>
-                            <input type="date" name="date-of-birth" id="registration_user_birth_date" value="<?php echo date("Y-m-d") ?>" min='<?php echo date("Y-m-d", strtotime("-100 year")) ?>' max='<?php echo date("Y-m-d", strtotime("-18 year")) ?>'>
+                            <input type="date" name="date-of-birth" id="registration_user_birth_date">
                         </div>
 
                         <div class="input-holder">

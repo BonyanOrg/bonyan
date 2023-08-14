@@ -28,6 +28,7 @@
                       <select name="prefix" id="prefix">
                           <option value="male" <?php if ($user_gender == "male") echo "selected" ?>><?php _e('Mr.', 'bonyan'); ?></option>
                           <option value="female" <?php if ($user_gender == "female") echo "selected" ?>><?php _e('Mrs.', 'bonyan'); ?></option>
+                          <option value="other" <?php if ($user_gender == "other") echo "selected" ?>><?php _e('Other', 'bonyan'); ?></option>
                       </select>
                   </div>
 
