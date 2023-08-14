@@ -55,7 +55,7 @@ function campaigns_slider_vc()
 				"description"	=> esc_html__("Type a description to show under the section title.", 'text_DOMAIN'),
 			),
 			array(
-				"type"			=> "dropdown",
+				"type"			=> "dropdown_multi",
 				"admin_label"	=> false,
 				"heading"		=> esc_html__("Get Campaigns from a specific tag", 'ONYX_DOMAIN'),
 				"param_name"	=> "post_tag",
@@ -63,7 +63,7 @@ function campaigns_slider_vc()
 
 			),
 			array(
-				"type"			=> "dropdown",
+				"type"			=> "dropdown_multi",
 				"admin_label"	=> false,
 				"heading"		=> esc_html__("Get Campaigns from a specific Taxonomy", 'ONYX_DOMAIN'),
 				"param_name"	=> "campaigns_categories",

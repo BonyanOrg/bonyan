@@ -46,7 +46,7 @@ function posts_slider_vc()
 				"description"	=> esc_html__("Type a description to show under the section title.", 'text_DOMAIN'),
 			),
 			array(
-				"type"			=> "dropdown",
+				"type"			=> "dropdown_multi",
 				"admin_label"	=> false,
 				"heading"		=> esc_html__("Get posts from a specific Taxonomy", 'ONYX_DOMAIN'),
 				"param_name"	=> "posts_categories",

@@ -7,7 +7,9 @@ vc_add_shortcode_param('dropdown_multi', 'dropdown_multi_settings_field');
 function dropdown_multi_settings_field($param, $value)
 {
     $param_line = '';
-    $param_line .= '<select multiple style="height: 200px;" name="' . esc_attr($param['param_name']) . '" class="wpb_vc_param_value wpb-input wpb-select ' . esc_attr($param['param_name']) . ' ' . esc_attr($param['type']) . '">';
+    $param_line .= '<style> .select2-container {z-index:99999;} </style>';
+    $param_line .= '<div  style="position:relative;">';
+    $param_line .= '<select multiple style="height: 200px;" name="' . esc_attr($param['param_name']) . '" class="select2-' . esc_attr($param['param_name']) . ' wpb_vc_param_value wpb-input wpb-select ' . esc_attr($param['param_name']) . ' ' . esc_attr($param['type']) . '">';
     foreach ($param['value'] as $text_val => $val) {
         if (is_numeric($text_val) && (is_string($val) || is_numeric($val))) {
             $text_val = $val;
@@ -27,8 +29,20 @@ function dropdown_multi_settings_field($param, $value)
         $param_line .= '<option class="' . $val . '" value="' . $val . '"' . $selected . '>' . $text_val . '</option>';
     }
     $param_line .= '</select>';
+    $param_line .= '</div>';
+    $param_name = esc_attr($param['param_name']);
+    $param_line .= '
+        <script>
+            (function ($) {
+                // init select2
+                $(document).ready(function () {
+                    $(".select2-' . esc_attr($param['param_name']) . '").select2();
+                });
+            }(jQuery));
+        </script>
+        ';
 
-    return  $param_line;
+    return $param_line;
 }
 
 /* Tenders Data Table  */
