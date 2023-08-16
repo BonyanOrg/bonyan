@@ -32,12 +32,14 @@ get_header();
 <?php
 
 $search = get_search_query();
+$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : '';
 $search_cats = isset($_GET['cats']) ? $_GET['cats'] : '';
 $search_from = $_GET['from'] ?? '';
 $args = [
 	's' => $search,
-	'post_status' => 'publish',
+	'post_status'    => 'publish',
+	'paged'          => $paged,    
 	'posts_per_page' => get_option('posts_per_page'),
 ];
 if (!empty($post_type)) {
