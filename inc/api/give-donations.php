@@ -5,8 +5,9 @@ function give_Zoho($donation_id, $new_status, $old_status)
 {
 
     $PaymentObject = new Give_Payment($donation_id);
-    $donor = new Give_Donor(!empty($PaymentObject->user_info["id"]) ? intval($PaymentObject->donor_id) : $PaymentObject->email, true); // Get Donor 
+    $donor = new Give_Donor(!empty($PaymentObject->user_info["id"]) ? intval($PaymentObject->donor_id) : $PaymentObject->email, true); // Get Donor
     $donor_total_donations = give_format_amount($donor->get_total_donation_amount());
+    $donor_total_donations = str_replace(',', '.', $donor_total_donations);
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
     $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
@@ -104,6 +105,7 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
     $PaymentObject = new Give_Payment($donation_id);
     $donor = new Give_Donor(!empty($PaymentObject->user_info["id"]) ? intval($PaymentObject->donor_id) : $PaymentObject->email, true); // Get Donor 
     $donor_total_donations = give_format_amount($donor->get_total_donation_amount());
+    $donor_total_donations = str_replace(',', '.', $donor_total_donations);
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
     $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 

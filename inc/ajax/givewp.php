@@ -30,9 +30,9 @@ add_action('wp_ajax_nopriv_show_donate_form', 'show_donate_form');
 function show_donate_form()
 {
     // Check for nonce security      
-    if (!wp_verify_nonce($_POST['nonce'], 'ajax-nonce')) {
-        die('Busted!');
-    }
+    // if (!wp_verify_nonce($_POST['nonce'], 'ajax-nonce')) {
+    //     die('Busted!');
+    // }
 
     // Initialize an empty array to store qurbani groups and set the initial total to 0
     $qurbani_groups_array = [];
