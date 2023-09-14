@@ -1,0 +1,42 @@
+.donation-details {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-collapse: unset;
+  border-radius: 10px;
+  overflow: hidden;
+  border-collapse: unset;
+  border-radius: 10px;
+  border-spacing: 0;
+}
+
+.donation-details th {
+  padding: 8px;
+  border: 1px solid #6d54a778;
+  font-size: 15px;
+}
+
+.donation-details th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.donation-details th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.donation-details td:not(.before-total-cell) {
+  width: 100%;
+  border: 1px solid #6d54a778;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.donation-details tr .total-cell {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 5px;
+  background: #6d54a7;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

@@ -10,7 +10,7 @@ function give_Zoho($donation_id, $new_status, $old_status)
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
     $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
-    $qurban_details = give_get_meta($PaymentObject->ID, 'give_engraving_message', true);
+    $qurban_details = give_get_meta($PaymentObject->ID, 'give_qurbani_details', true);
 
     $qurban_details = json_decode($qurban_details, true);
     if (!empty($qurban_details)) {
@@ -107,7 +107,7 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
     $donor_comment = give_get_donor_donation_comment($donation_id, $PaymentObject->donor_id);
     $is_sub = give_get_payment_meta($PaymentObject->ID, '_give_subscription_payment');
 
-    $qurban_details = give_get_meta($PaymentObject->ID, 'give_engraving_message', true);
+    $qurban_details = give_get_meta($PaymentObject->ID, 'give_qurbani_details', true);
 
     $qurban_details = json_decode($qurban_details, true);
     if (!empty($qurban_details)) {

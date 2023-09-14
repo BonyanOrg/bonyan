@@ -55,7 +55,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
                 <?php foreach ($qurbani_calculator_items as $qurbani_calculator_item) {
                     $group_name = $qurbani_calculator_item['qurbani_calculator_group_name'];
-                    $group_id = bin2hex( $group_name); // Remove All special characters and spaces
+                    $group_id = bin2hex($group_name); // Remove All special characters and spaces
         
                     ?>
                     <div class="zakat-calculator-item">
@@ -66,8 +66,8 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                         <p class="mb-4">
                             <?php echo $qurbani_calculator_item['qurbani_calculator_group_countries'] ?>
                         </p>
-                        <input type="number" min="0" step="1" id="<?php echo $group_id ?>-quantity" onwheel="event.preventDefault()" class=" only-number"
-                            placeholder="<?php _e('Add total quantity', 'bonyan'); ?>">
+                        <input type="number" min="0" step="1" id="<?php echo $group_id ?>-quantity" onwheel="event.preventDefault()"
+                            class=" only-number" placeholder="<?php _e('Add total quantity', 'bonyan'); ?>">
 
                         <input type="number" min="0" step="1" id="<?php echo $group_id ?>-result"
                             class="result-container only-number" placeholder="0.00" disabled>
@@ -104,7 +104,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
             <?php foreach ($qurbani_calculator_items as $qurbani_calculator_item) {
                 $group_name = $qurbani_calculator_item['qurbani_calculator_group_name'];
-                $group_id = bin2hex( $group_name);
+                $group_id = bin2hex($group_name);
                 $group_amount = $qurbani_calculator_item['qurbani_calculator_group_amount'];
                 $group_countries = $qurbani_calculator_item['qurbani_calculator_group_countries'];
                 ?>
@@ -124,7 +124,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                 };
                 groups_object.group_<?php echo $group_id; ?> = (tempGroupObject);
 
-
+                // On Enter The Value In The Text Inputs 
                 document.getElementById('' + tempGroupId).addEventListener('keyup', function (event) {
                     // Get the key code for the pressed key
                     const keyCode = event.keyCode || event.which;
@@ -162,7 +162,6 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                     let group_total = Math.round(parseInt(tempLastQuantity) * groups_object.group_<?php echo $group_id; ?>.amount);
                     groups_object.group_<?php echo $group_id; ?>.total = (isNaN(group_total) || group_total === null || group_total === undefined || group_total === '') ? 0 : group_total;
                     groups_object.group_<?php echo $group_id; ?>.quantity = tempLastQuantity;
-                    //groups_object.global_total = finalResult;
                 });
 
                 <?php
@@ -172,8 +171,6 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                     let modalBtn = document.getElementById('qurbani-donation-btn');
                     let cartToJson = "";
                     let getDir = document.dir;
-
-
 
                     if (modalBtn !== null) {
                         let targetedModalName;
@@ -208,7 +205,8 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                             if (targetedModalName == "donation-modal") {
                                 continueAsGuest.setAttribute('data-qurbandetails', JSON.stringify(groups_object));
                             }
-
+                            console.log(groups_object);
+                            // Send Request Contain The Groups Details
                             if (targetedModalName !== null && targetedModalName == "givewp-modal") {
                                 $("#givewp-modal").empty(); // Clear All The Forms In the Container
                                 $.ajax({
@@ -235,7 +233,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                                 });
                             }
 
-
+                            // Open The Modal If It Is Exist
                             if (targetedModal !== null) {
                                 // If already a modal opened
                                 if (document.body.classList.contains('modal-active')) {
@@ -257,7 +255,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                                 }, 100);
                             }
 
-                            // Close
+                            // Reset qurbani donation details on close the modal
                             if (targetedModal !== null) {
                                 targetedModal.addEventListener('click', function (e) {
                                     if (e.target.classList.contains(targetedModalName) || e.target.classList.contains('back-btn')) {
@@ -272,25 +270,11 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                                     }
                                 });
                             }
-
-
-
-
-
                         });
                     }
 
                 })(jQuery);
-
-
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <?php
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          //require_once(get_template_directory() . '/dist/js/components/wpb/quick-donation.min.js');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ?>
         </script>
-
-
-
         <?php
         return ob_get_clean();
     }
