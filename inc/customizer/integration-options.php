@@ -32,6 +32,24 @@ $wp_customize->add_control(
 );
 
 //==============
+// Zoho Contact CRM 
+$wp_customize->add_setting('zoho_contacts_crm', array(
+    'default' => '',
+    'section' => 'integration_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'zoho_contacts_crm_shortcode',
+    array(
+        'label'    => 'Zoho Contact CRM Scenario Url',
+        'section' => 'integration_section',
+        'settings' => 'zoho_contacts_crm',
+        'type'     => 'text',
+    )
+);
+
+//==============
 // Mautic 
 $wp_customize->add_setting('mautic_lead', array(
     'default' => '',

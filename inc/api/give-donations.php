@@ -1,6 +1,7 @@
 <?php
-add_action('give_update_payment_status', 'give_Zoho', 200, 3);
-
+/**
+ * Fire When Payment Process completed whatever payment status
+ */
 function give_Zoho($donation_id, $new_status, $old_status)
 {
 
@@ -58,23 +59,27 @@ function give_Zoho($donation_id, $new_status, $old_status)
         //$args["Recurring Amount"] = number_format($subscription->recurring_amount,2);
 
     endif;
-    $Post_Http = wp_remote_post(
-        $zoho_scenario_url,
-        array(
-            'body' => $args,
-            'timeout' => 45,
-            'sslverify' => false
-        )
-    );
+    if (!empty($zoho_scenario_url)) {
+        wp_remote_post(
+            $zoho_scenario_url,
+            array(
+                'body' => $args,
+                'timeout' => 45,
+                'sslverify' => false
+            )
+        );
+    }
 
-    $Post_Http = wp_remote_post(
-        $matic_scenario_url,
-        array(
-            'body' => $args,
-            'timeout' => 45,
-            'sslverify' => false
-        )
-    );
+    if (!empty($matic_scenario_url)) {
+        $Post_Http = wp_remote_post(
+            $matic_scenario_url,
+            array(
+                'body' => $args,
+                'timeout' => 45,
+                'sslverify' => false
+            )
+        );
+    }
     /**
      * I dev Affiliate
      */
@@ -91,14 +96,18 @@ function give_Zoho($donation_id, $new_status, $old_status)
     }
 
 
-    if (is_wp_error($Post_Http)) {
-        $error_message = $Post_Http->get_error_message();
-        // handle the error
-    } else {
-        // handle the response
-    }
 }
+add_action('give_update_payment_status', 'give_Zoho', 200, 3);
 
+/**
+ * Send donation information to third-party services.
+ *
+ * This function retrieves donation details and sends them to specified third-party services such as Zoho CRM and Mautic.
+ *
+ * @param int $donation_id The ID of the donation.
+ *
+ * @return void
+ */
 function give_To_Zoho_On_Save($donation_id, $PaymentObject)
 {
 
@@ -128,6 +137,7 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
     }
 
     $zoho_scenario_url = get_option('zoho_crm');
+    $zoho_contacts_scenario_url = get_option('zoho_contacts_crm');
     $matic_scenario_url = get_option('mautic_lead');
     $args = array(
         "Donation id" => !empty($PaymentObject->ID) ? $PaymentObject->ID : "_",
@@ -153,15 +163,27 @@ function give_To_Zoho_On_Save($donation_id, $PaymentObject)
         //$args["Recurring Amount"] = number_format($subscription->recurring_amount,2);
 
     endif;
-    $Post_Http = wp_remote_post(
-        $zoho_scenario_url,
-        array(
-            'body' => $args,
-            'timeout' => 45,
-            'sslverify' => false
-        )
-    );
+    if (!empty($zoho_scenario_url)) {
+        $Post_Http = wp_remote_post(
+            $zoho_scenario_url,
+            array(
+                'body' => $args,
+                'timeout' => 45,
+                'sslverify' => false
+            )
+        );
+    }
 
+    if (!empty($zoho_contacts_scenario_url)) {
+        wp_remote_post(
+            $zoho_contacts_scenario_url,
+            array(
+                'body' => $args,
+                'timeout' => 45,
+                'sslverify' => false
+            )
+        );
+    }
     $Post_Http = wp_remote_post(
         $matic_scenario_url,
         array(

@@ -86,7 +86,7 @@ if (!function_exists('zakat_calc_shortcode')) {
                     <p class="calculated-zakat-amount mb-2"><strong><span>0.00</span>$</strong></p>
                     <p class="mb-3"><?php _e('Ensure that Zakat-Eligible Total', 'bonyan'); ?> <br /><?php _e('Exceeds Nisab', 'bonyan'); ?> - <?php echo $zakat_calc_nisab_value ?>$*</p>
 
-                    <button class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" id="zakat-donation-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50" data-giveformid="<?php echo $zakat_calc_form_id ?>">
+                    <button class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" id="zakat-donation-btn" data-user-nisab="0" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50" data-giveformid="<?php echo $zakat_calc_form_id ?>">
                         <?php _e('Donate Now', 'bonyan'); ?>
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">

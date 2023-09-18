@@ -76,7 +76,7 @@ function isLowerThanNisab(event, e) {
     event.preventDefault();
 
     let donationButtonInformation = e.querySelector('button');
-    let dataAmountBeforeSubmit = parseFloat(donationButtonInformation.getAttribute('data-amount'));
+    let dataAmountBeforeSubmit = parseFloat(donationButtonInformation.getAttribute('data-user-nisab'));
     let dataNisabBeforeSubmit = donationButtonInformation.getAttribute('data-nisab');
 
 
@@ -94,9 +94,11 @@ window.addEventListener('DOMContentLoaded', function () {
         value.addEventListener('keyup', function () {
 
             let total = (gold + silver + cashInHand + cashInBank + businessInvestments + investmentCertificates + bankDeposit + shares) * 0.025;
+            let nisab = (gold + silver + cashInHand + cashInBank + businessInvestments + investmentCertificates + bankDeposit + shares);
             let finalResult = total.toFixed(3) * 1;
             totalAmount.innerHTML = Math.round(finalResult);
             donateBtnAmount.setAttribute('data-amount', Math.round(finalResult));
+            donateBtnAmount.setAttribute('data-user-nisab', nisab);
         });
     });
 });

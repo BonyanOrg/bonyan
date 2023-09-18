@@ -24,7 +24,8 @@ function custom_registration()
 		$registration_user_password = isset($_POST['registration_user_password']) ? sanitize_text_field($_POST['registration_user_password']) : '';
 		$registration_user_password_confirm = isset($_POST['registration_user_password_confirm']) ? sanitize_text_field($_POST['registration_user_password_confirm']) : '';
 
-		if (empty($registration_user_first_name) || empty($registration_user_last_name) || empty($registration_user_email) || empty($registration_user_password) || empty($registration_user_password_confirm)) wp_die();
+		if (empty($registration_user_first_name) || empty($registration_user_last_name) || empty($registration_user_email) || empty($registration_user_password) || empty($registration_user_password_confirm))
+			wp_die();
 		$registration_user_name = $registration_user_first_name . '_' . $registration_user_last_name;
 
 		if (strpos($registration_user_name, ' ') !== false) {
@@ -76,6 +77,36 @@ function custom_registration()
 			update_user_meta($verify_user->ID, 'gender', $registration_user_gender);
 			update_user_meta($verify_user->ID, 'age', $registration_user_age);
 			update_user_meta($verify_user->ID, 'birth_date', $registration_user_birth_date);
+
+			// Register In Mautic
+			$matic_scenario_url = get_option('mautic_lead');
+			if (!empty($matic_scenario_url)) {
+				$args = array(
+					"Donation id" => "_",
+					"Campaign Title" => "_",
+					"Campaign ID" => "_",
+					"Donation Status" => "_",
+					"Donation Total" => 0,
+					"Donation Currency" => "_",
+					"Donor ID" => 0,
+					"Donor IP" => "_",
+					"Donor First Name" => !empty($registration_user_first_name) ? $registration_user_first_name : "_",
+					"Donor Last Name" => !empty($registration_user_last_name) ? $registration_user_last_name : "_",
+					"Donor Email" => !empty($registration_user_email) ? $registration_user_email : "_",
+					"Donor Comment" => "_",
+					"Qurbani Detail" => "_",
+					"Subscription" => "_",
+					"Every" => "_",
+				);
+				wp_remote_post(
+					$matic_scenario_url,
+					array(
+						'body' => $args,
+						'timeout' => 45,
+						'sslverify' => false
+					)
+				);
+			}
 
 			wp_send_json(['return_url' => home_url()], 200);
 			wp_die();
