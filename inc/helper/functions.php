@@ -276,3 +276,24 @@ function uwp_RoleFunction($user_id)
 
 // Disable XML-RPC in WordPress
 add_filter('xmlrpc_enabled', '__return_false');
+
+
+if (!function_exists('write_log')) {
+	/**
+	 * Write custom messages to the WordPress debug log.
+	 *
+	 * This function logs custom messages to the debug log when WP_DEBUG is enabled.
+	 *
+	 * @param mixed $log The data or message to log. Can be a string, array, or object.
+	 */
+	function write_log($log)
+	{
+		if (defined('WP_DEBUG') && WP_DEBUG) {
+			if (is_array($log) || is_object($log)) {
+				error_log(print_r($log, true));
+			} else {
+				error_log($log);
+			}
+		}
+	}
+}

@@ -84,15 +84,39 @@ function give_Zoho($donation_id, $new_status, $old_status)
      * I dev Affiliate
      */
     if ($new_status == 'publish') {
-        $ch = curl_init();
-        curl_setopt(
-            $ch,
-            CURLOPT_URL,
-            "https://bonyan.idevaffiliate.com/sale.php?profile=187&idev_saleamt=" . number_format($PaymentObject->total, 2, '.', '') . "&reference=" . $PaymentObject->ID . "&ip_address=" . $PaymentObject->ip . "&idev_option_1=" . $PaymentObject->first_name . " " . $PaymentObject->last_name . "&idev_option_2=" . $PaymentObject->email . "&idev_option_3=" . $PaymentObject->total . " " . $PaymentObject->currency
+        // $ch = curl_init();
+        // curl_setopt(
+        //     $ch,
+        //     CURLOPT_URL,
+        //     "https://bonyan.idevaffiliate.com/sale.php?profile=187&idev_saleamt=" . number_format($PaymentObject->total, 2, '.', '') . "&reference=" . $PaymentObject->ID . "&ip_address=" . $PaymentObject->ip . "&idev_option_1=" . $PaymentObject->first_name . " " . $PaymentObject->last_name . "&idev_option_2=" . $PaymentObject->email . "&idev_option_3=" . $PaymentObject->total . " " . $PaymentObject->currency
+        // );
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // $result_of_exec = curl_exec($ch);
+        // curl_close($ch);
+
+
+        $alert_url = 'https://bonyan.idevaffiliate.com';
+        $data = array(
+            "profile" => '187',
+            "idev_saleamt" => number_format($PaymentObject->total, 2, '.', ''),
+            "reference" => $PaymentObject->ID,
+            "ip_address" => $PaymentObject->ip,
+            //"idev_currency" => $PaymentObject->currency,
+            "idev_option_1" => $PaymentObject->first_name . " " . $PaymentObject->last_name,
+            "idev_option_2" => $PaymentObject->email,
+            "idev_option_3" => $PaymentObject->total . " " . $PaymentObject->currency,
         );
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_exec($ch);
-        curl_close($ch);
+
+        $alert_url = rtrim($alert_url, "/");
+
+        $response = wp_remote_post(
+            $alert_url . "/sale.php",
+            array(
+                'method' => 'POST',
+                'body' => $data
+            )
+        );
+        write_log($response);
     }
 
 
