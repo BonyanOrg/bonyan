@@ -166,6 +166,7 @@ require __DIR__ . '/inc/meta-boxes/functions.php';
 // Add Customizer 
 //require __DIR__ . '/customizer-repeater/functions.php';
 require __DIR__ . '/inc/customizer/customizer.php';
+require __DIR__  . '/template-parts/donation-share-shortcode.php';
 
 
 // Ajax Requests
