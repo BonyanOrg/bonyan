@@ -41,7 +41,7 @@ if (!function_exists('news_slider_shortcode')) {
 
         <div class="news custom-widget">
             <div class="container">
-                <h2 class="bonyan-title white"><?php echo $news_slider_header_text ?></h2>
+                <h1 class="bonyan-title white"><?php echo $news_slider_header_text ?></h1>
                 <div class="swiper primary-carousel">
                     <div class="swiper-wrapper">
                         <?php
