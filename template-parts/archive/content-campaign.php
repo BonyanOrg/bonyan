@@ -8,11 +8,11 @@ $taxonomy_name = $queried_object->taxonomies[1];
 <section class="campaign-section">
 <?php get_template_part('template-parts/components/urgent-campaigns', null, array("post" => $post)); ?>
 	<div class="container">
-
+	<h1 class="my-2 bonyan-title primary-color bold">Bonyan Campaigns</h1>
 		<?php get_template_part('template-parts/search-terms-header', null, array("taxonomy_name" => $taxonomy_name, 'archive' => true)); ?>
 
 
-		<div class="campaign my-2 my-lg-5">
+		<div class="campaign my-2 my-lg-5 dt-center">
 			<div class="cards-container">
 
 				<?php 
