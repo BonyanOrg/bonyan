@@ -789,7 +789,7 @@
                 data: {
                     action: "show_donate_form",
                     nonce: ajax_script_object.nonce,
-                    type: (tag_name != 'null') ? "quick_donation" : "",
+                    type: (tag_name != 'null' && tag_name != undefined) ? "quick_donation" : "",
                     form_id: form_id,
                     amount: (amount != null) ? amount : 50,
                     charity_type: tag_name,
