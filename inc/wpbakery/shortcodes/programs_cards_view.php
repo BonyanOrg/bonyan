@@ -28,7 +28,7 @@ if (!function_exists('programs_cards_shortcode')) {
                 programs_cards_register_style();
             } ?>
         </style>
-        <h2 class="bonyan-title"><?php _e('Programs','bonyan') ?></h2>
+        <h2 class="bonyan-title"><?php _e('Programs', 'bonyan') ?></h2>
         <div class="program-cards-container custom-widget">
             <?php echo do_shortcode($content); ?>
             <div class="program-card">
@@ -41,12 +41,12 @@ if (!function_exists('programs_cards_shortcode')) {
                 </div>
 
                 <div class="program-title">
-                    <h3><?php _e('More about the programs','bonyan') ?></h3>
+                    <h3><?php _e('More about the programs', 'bonyan') ?></h3>
                 </div>
 
 
                 <div class="program-btn">
-                    <a href="<?php echo  $a_href ?>" class="primary-btn"> <?php _e('More','bonyan') ?></a>
+                    <a href="<?php echo  $a_href ?>" class="primary-btn"> <?php _e('More', 'bonyan') ?></a>
                 </div>
             </div>
         </div>
@@ -84,11 +84,11 @@ if (!function_exists('program_card_shortcode')) {
     ?>
         <a href="<?php echo $a_href  ?>" class="program-card">
             <div class="program-img">
-                <img data-src="<?php echo wp_get_attachment_image_url($programs_cards_image_url); ?>" alt="program 1" class="lazyload">
+                <img data-src="<?php echo wp_get_attachment_image_url($programs_cards_image_url, 'full'); ?>" alt="program 1" class="lazyload">
             </div>
 
             <div class="program-icon">
-                <img data-src="<?php echo wp_get_attachment_image_url($programs_cards_icon_url); ?>" alt="program 1" class="lazyload">
+                <img data-src="<?php echo wp_get_attachment_image_url($programs_cards_icon_url, 'full'); ?>" alt="program 1" class="lazyload">
             </div>
 
             <div class="program-title">
