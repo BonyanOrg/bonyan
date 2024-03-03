@@ -57,8 +57,27 @@
 						</div>
 
 						<!-- Donate button -->
+						<?php
+						// Check if the fundraise up button is enabled
+						$is_fundraise_up_btn_enabled = get_option('is_fundraise_up_btn') === '1';
+
+						// Determine the button link based on whether the button is enabled
+						$button_link = $is_fundraise_up_btn_enabled ? (!empty(get_option('fundraise_up_header_btn_link')) ? esc_url(get_option('fundraise_up_header_btn_link')) : '#') : '#';
+
+						// Determine the button class based on whether the button is enabled and user login status
+						$button_classes = $is_fundraise_up_btn_enabled ? 'primary-btn' : 'user-action-btn primary-btn';
+						$button_classes .= ' ' . (is_user_logged_in() ? 'donation-btn' : 'donation-action');
+
+						$donation_btn_inline_style = $is_fundraise_up_btn_enabled ? ' style="display: none" ' : '';
+						// Determine the data target attribute based on user login status
+						$data_target = is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"';
+
+						// Get the GiveWP form ID and default donation amount
+						$give_form_id = get_option('give_form_id');
+						$default_donation_amount = intval(get_option("default_donation_amount"));
+						?>
 						<div class="donation-button-holder as-block ms-2 ms-lg-3 me-1 me-lg-3">
-							<a href="#" class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo get_option('give_form_id') ?>" data-amount="<?php echo intval(get_option("default_donation_amount")); ?>">
+							<a href="<?= $button_link ?>" <?= $donation_btn_inline_style ?> class="<?= $button_classes ?>" <?= $data_target ?> data-giveformid="<?= $give_form_id ?>" data-amount="<?= $default_donation_amount ?>">
 								<span><?php _e('Donate Now', 'bonyan') ?></span>
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
 									<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
@@ -190,7 +209,7 @@
 												<path id="Path_304" data-name="Path 304" d="M0,0H26V26H0Z" fill="none" />
 												<path id="Path_305" data-name="Path 305" d="M14.833,15.356V17.62a6.5,6.5,0,0,0-8.667,6.13H4a8.667,8.667,0,0,1,10.833-8.394ZM12.667,14a6.5,6.5,0,1,1,6.5-6.5A6.5,6.5,0,0,1,12.667,14Zm0-2.167A4.333,4.333,0,1,0,8.333,7.5,4.332,4.332,0,0,0,12.667,11.833Zm7.135,6.5-1.981-1.98,1.533-1.533,4.6,4.6-4.6,4.6L17.82,22.48,19.8,20.5H15.917V18.333Z" transform="translate(0.333 0.083)" fill="#5f469a" />
 											</svg>
-											<span><?php _e('Log in','bonyan') ?></span>
+											<span><?php _e('Log in', 'bonyan') ?></span>
 										</button>
 									<?php else :
 										$user_profile_photo = ($user_profile_photo = get_user_meta(get_current_user_id(), 'user_profile_photo', true)) ? $user_profile_photo : 'https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133352010-stock-illustration-default-placeholder-man-and-woman.jpg';

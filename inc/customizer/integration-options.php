@@ -50,22 +50,23 @@ $wp_customize->add_control(
 );
 
 //==============
-// Mautic 
-$wp_customize->add_setting('mautic_lead', array(
+// Zoho Support Form Page 
+$wp_customize->add_setting('zoho_form_page_slug', array(
     'default' => '',
     'section' => 'integration_section',
     'type' => 'option',
 
 ));
 $wp_customize->add_control(
-    'mautic_lead_shortcode',
+    'zoho_form_page_slug_shortcode',
     array(
-        'label'    => 'Mautic Scenario Url',
+        'label'    => 'Zoho Support Form Page Slug, example:contact-us',
         'section' => 'integration_section',
-        'settings' => 'mautic_lead',
+        'settings' => 'zoho_form_page_slug',
         'type'     => 'text',
     )
 );
+
 
 //==============
 // Zoho Desk 
@@ -85,3 +86,21 @@ $wp_customize->add_control(
     )
 );
 
+
+//==============
+// Mautic 
+$wp_customize->add_setting('mautic_lead', array(
+    'default' => '',
+    'section' => 'integration_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'mautic_lead_shortcode',
+    array(
+        'label'    => 'Mautic Scenario Url',
+        'section' => 'integration_section',
+        'settings' => 'mautic_lead',
+        'type'     => 'text',
+    )
+);

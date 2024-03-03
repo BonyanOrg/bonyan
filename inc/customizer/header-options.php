@@ -14,6 +14,42 @@ $wp_customize->add_section('header_section', array(
 
 
 //==============
+// Is Fundraise Up Button
+$wp_customize->add_setting('is_fundraise_up_btn', array(
+    'default' => '',
+    'section' => 'header_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'is_fundraise_up_btn_shortcode',
+    array(
+        'label'    => 'Is The Header Donation Button Is Fundraise Up WP Forum',
+        'section' => 'header_section',
+        'settings' => 'is_fundraise_up_btn',
+        'type'     => 'checkbox',
+    )
+);
+
+//==============
+// Fundraise Up Header Button Link
+$wp_customize->add_setting('fundraise_up_header_btn_link', array(
+    'default' => '',
+    'section' => 'header_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'fundraise_up_header_btn_link_shortcode',
+    array(
+        'label'    => 'The Link That Donar Should Go When Click On The Button',
+        'section' => 'header_section',
+        'settings' => 'fundraise_up_header_btn_link',
+        'type'     => 'text',
+    )
+);
+
+//==============
 // Give Form ID
 $wp_customize->add_setting('give_form_id', array(
     'default' => '',
@@ -50,4 +86,3 @@ $wp_customize->add_control(
         'type'     => 'number',
     )
 );
-

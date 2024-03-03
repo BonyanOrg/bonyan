@@ -17,7 +17,7 @@ function Init_Campaign_Options($post)
     $co_show_donors_count = get_post_meta($post->ID, "co_show_donors_count", true);
     $co_show_reaming_time = get_post_meta($post->ID, "co_show_reaming_time", true);
 
-    ?>
+?>
 
     <style>
         #co_campaign_end_date {
@@ -38,8 +38,7 @@ function Init_Campaign_Options($post)
                 <th>
                     <label for="co_campaign_end_date">Campaign End Date</label>
                 </th>
-                <td><input type="date" name="co_campaign_end_date" id="co_campaign_end_date"
-                        value="<?php echo $co_campaign_end_date; ?>"></td>
+                <td><input type="date" name="co_campaign_end_date" id="co_campaign_end_date" value="<?php echo $co_campaign_end_date; ?>"></td>
             </tr>
             <tr class="form-field">
                 <th>
@@ -48,9 +47,9 @@ function Init_Campaign_Options($post)
                 <td>
 
                     <!-- <input type="number" name="co_give_form_id" id="co_give_form_id" class="select-campaign" value="<?php // echo $co_give_form_id; 
-                        ?>"> -->
+                                                                                                                            ?>"> -->
                     <select name="co_give_form_id" id="co_give_form_id" class="select-campaign">
-                        <?php if (!empty($co_give_form_id)): ?>
+                        <?php if (!empty($co_give_form_id)) : ?>
                             <option value="<?php echo $co_give_form_id; ?>" selected="selected"><?php echo get_the_title($co_give_form_id); ?></option>
                         <?php endif; ?>
                     </select>
@@ -61,8 +60,7 @@ function Init_Campaign_Options($post)
                 <th>
                     <label for="co_donation_amount">Default Amount</label>
                 </th>
-                <td><input type="number" name="co_donation_amount" id="co_donation_amount"
-                        value="<?php echo $co_donation_amount; ?>"></td>
+                <td><input type="number" name="co_donation_amount" id="co_donation_amount" value="<?php echo $co_donation_amount; ?>"></td>
             </tr>
             <tr class="form-field">
                 <th>
@@ -86,9 +84,9 @@ function Init_Campaign_Options($post)
     </table>
 
     <script>
-        (function ($) {
+        (function($) {
             // init select2
-            $(document).ready(function () {
+            $(document).ready(function() {
                 // Init select2
                 $('.select-campaign').select2({
                     minimumInputLength: 3,
@@ -105,13 +103,13 @@ function Init_Campaign_Options($post)
                         url: ajaxurl,
                         type: 'POST',
                         // dataType: 'json',
-                        data: function (term) {
+                        data: function(term) {
                             return {
                                 action: 'get_campaigns_by_name',
                                 term: term.term,
                             };
                         },
-                        processResults: function (data) {
+                        processResults: function(data) {
                             // Transforms the top-level key of the response object from 'items' to 'results'
                             return {
                                 results: data.campaigns
@@ -123,7 +121,7 @@ function Init_Campaign_Options($post)
         }(jQuery));
     </script>
 
-    <?php
+<?php
 }
 
 /////////////////////////
@@ -162,16 +160,22 @@ function save_campaign_options($post_id)
         update_post_meta($post_id, 'co_donation_amount', $_POST['co_donation_amount']);
 
 
-    if (isset($_POST['co_show_progress_bar'])) {
+    if (isset($_POST['co_show_progress_bar']) && $_POST['co_show_progress_bar'] == 'yes') {
         update_post_meta($post_id, 'co_show_progress_bar', $_POST['co_show_progress_bar']);
+    } else {
+        delete_post_meta($post_id, 'co_show_progress_bar');
     }
 
-    if (isset($_POST['co_show_donors_count'])) {
+    if (isset($_POST['co_show_donors_count']) && $_POST['co_show_donors_count'] == 'yes') {
         update_post_meta($post_id, 'co_show_donors_count', $_POST['co_show_donors_count']);
+    } else {
+        delete_post_meta($post_id, 'co_show_donors_count');
     }
 
-    if (isset($_POST['co_show_reaming_time'])) {
+    if (isset($_POST['co_show_reaming_time']) && $_POST['co_show_reaming_time'] == 'yes') {
         update_post_meta($post_id, 'co_show_reaming_time', $_POST['co_show_reaming_time']);
+    } else {
+        delete_post_meta($post_id, 'co_show_reaming_time');
     }
 }
 add_action('save_post', 'save_campaign_options', 10, 2);

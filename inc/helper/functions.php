@@ -297,3 +297,22 @@ if (!function_exists('write_log')) {
 		}
 	}
 }
+
+
+/**
+ * Check if the current URL contains a specific string in its path.
+ *
+ * @param string $needle The string to search for.
+ * @return bool True if the string exists in the URL path, otherwise false.
+ */
+function current_url_contains_string($needle)
+{
+    // Get the current URL from server variables
+    $current_url = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+
+    // Split the URL into an array using '/'
+    $url_parts = explode('/', $current_url);
+
+    // Check if the needle string exists in the URL path
+    return in_array($needle, $url_parts);
+}
