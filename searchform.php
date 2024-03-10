@@ -1,4 +1,4 @@
-<form method="get" action="<?php echo home_url('/'); ?>" class="search-form">
+<form method="get" action="<?= home_url('/'); ?>" class="search-form">
 	<div class="input-holder search-input-holder">
 		<div class="search-icon">
 			<svg id="Group_262" data-name="Group 262" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -7,5 +7,6 @@
 			</svg>
 		</div>
 		<input type="search" name="s" id="header-search-input" placeholder="<?php _e('Search...', 'bonyan') ?>" value="<?php the_search_query(); ?>" class="ps-5 pe-2">
+		<?php print_lang_input_if_required_for_search(); ?>
 	</div>
 </form>

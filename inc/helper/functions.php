@@ -246,7 +246,6 @@ function custom_admin_cpts_menu()
 			);
 		}
 	}
-
 }
 add_action('admin_bar_menu', 'custom_admin_cpts_menu', 999);
 
@@ -307,12 +306,21 @@ if (!function_exists('write_log')) {
  */
 function current_url_contains_string($needle)
 {
-    // Get the current URL from server variables
-    $current_url = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+	// Get the current URL from server variables
+	$current_url = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
 
-    // Split the URL into an array using '/'
-    $url_parts = explode('/', $current_url);
+	// Split the URL into an array using '/'
+	$url_parts = explode('/', $current_url);
 
-    // Check if the needle string exists in the URL path
-    return in_array($needle, $url_parts);
+	// Check if the needle string exists in the URL path
+	return in_array($needle, $url_parts);
+}
+
+function print_lang_input_if_required_for_search()
+{
+
+	$is_wpml_configured = apply_filters('wpml_setting', 0, 'language_negotiation_type');
+	if ($is_wpml_configured == 3) {
+		echo '<input type="hidden" name="lang" value="' . current_language() . '">';
+	}
 }

@@ -17,7 +17,7 @@ get_header();
 
 
 <div class="page-head" style="background: url(' <?php
-?>') ">
+												?>') ">
 	<div class="container">
 		<h1>
 			<?php _e('Search', 'bonyan') ?>
@@ -32,14 +32,14 @@ get_header();
 <?php
 
 $search = get_search_query();
-$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $post_type = isset($_GET['post_type']) ? $_GET['post_type'] : '';
 $search_cats = isset($_GET['cats']) ? $_GET['cats'] : '';
 $search_from = $_GET['from'] ?? '';
 $args = [
 	's' => $search,
 	'post_status'    => 'publish',
-	'paged'          => $paged,    
+	'paged'          => $paged,
 	'posts_per_page' => get_option('posts_per_page'),
 ];
 if (!empty($post_type)) {
@@ -50,7 +50,7 @@ $taxonomy = !empty($post_type) ? get_object_taxonomies($post_type)[$taxonomy_ind
 
 
 if (isset($search_cats) && !empty($taxonomy)) {
-	$taxonomy_terms = get_terms(array('taxonomy' => $taxonomy, ));
+	$taxonomy_terms = get_terms(array('taxonomy' => $taxonomy,));
 	$selected_term_data = get_term_by('id', $search_cats, $taxonomy);
 	if (!empty($search_cats)) {
 		$args['tax_query'] = array(
@@ -90,8 +90,7 @@ $search_posts = new WP_Query($args);
 		<div class="advanced-search-container custom-widget">
 			<form action="<?php echo home_url('/'); ?>" method="GET" class="advanced-search-form">
 				<div class="input-holder">
-					<input type="text" id="search_keyword" name="s" value="<?php the_search_query(); ?>"
-						placeholder="<?php _e('Search Keyword', 'bonyan'); ?>">
+					<input type="text" id="search_keyword" name="s" value="<?php the_search_query(); ?>" placeholder="<?php _e('Search Keyword', 'bonyan'); ?>">
 				</div>
 
 				<div class="select-holder">
@@ -120,14 +119,14 @@ $search_posts = new WP_Query($args);
 
 					<select name="cats" id="adv-cats" class="">
 
-						<?php if (!empty($selected_term_data) && !empty($taxonomy_terms)): ?>
-							<?php foreach ($taxonomy_terms as $term): ?>
+						<?php if (!empty($selected_term_data) && !empty($taxonomy_terms)) : ?>
+							<?php foreach ($taxonomy_terms as $term) : ?>
 								<option value="<?php echo $term->term_id; ?>" <?php echo $selected_term_data->term_id == $term->term_id ? 'selected' : ''; ?>>
 									<?php echo $term->name; ?>
 								</option>
-								<?php
+							<?php
 							endforeach;
-						else: ?>
+						else : ?>
 							<option value="">
 								<?php _e('-- Search all items --', 'bonyan'); ?>
 							</option>
@@ -137,10 +136,10 @@ $search_posts = new WP_Query($args);
 				</div>
 
 				<div class="input-holder">
-					<input type="date" name="from"
-						placeholder="<?php _e('Without specifying a specific time', 'bonyan'); ?>" id="datepicker-input"
-						value="<?php echo $search_from ?>" class="" autocomplete="off">
+					<input type="date" name="from" placeholder="<?php _e('Without specifying a specific time', 'bonyan'); ?>" id="datepicker-input" value="<?php echo $search_from ?>" class="" autocomplete="off">
 				</div>
+
+				<?php print_lang_input_if_required_for_search(); ?>
 
 				<button type="submit" class="secondary-btn">
 					<?php _e('Search', 'bonyan'); ?>
@@ -153,38 +152,39 @@ $search_posts = new WP_Query($args);
 
 		<!-- <div class="categories-and-search">
 			<div class="input-holder search ms-auto">
-				<?php //get_search_form() ?>
+				<?php //get_search_form() 
+				?>
 			</div>
 		</div> -->
 
 		<div class="cards-container">
 
-			<?php if ($search_posts->have_posts()): ?>
+			<?php if ($search_posts->have_posts()) : ?>
 
 				<?php
 				/* Start the Loop */
-				while ($search_posts->have_posts()):
+				while ($search_posts->have_posts()) :
 					$search_posts->the_post();
 
-					?>
+				?>
 					<?php get_template_part('template-parts/cards/content-post'); ?>
 
-					<?php
+				<?php
 
 
 				endwhile;
 
 			//the_posts_navigation();
-		
-		else:
-			?>
+
+			else :
+				?>
 				<p>
 					<?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'bonyan'); ?>
 				</p>
-				<?php
+			<?php
 
-		endif;
-		?>
+			endif;
+			?>
 
 		</div>
 		<?php custom_pagination($search_posts);
