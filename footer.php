@@ -198,16 +198,10 @@
 					<a href="<?php echo get_option("twitter_url") ?>"><i class="fa-brands fa-twitter"></i></a>
 					<a href="<?php echo get_option("youtube_url") ?>"><i class="fa-brands fa-youtube"></i></a>
 				</div>
-				<?php if (is_wpml_rtl()) : ?>
+		
 					<div class="copyrights">
-						<span> © جميع الحقوق محفوظة </span>
-						&nbsp;
+						<span><?= sprintf(__('© %s All Rights Reserved','bonyan'),date('Y')) ?></span>
 					</div>
-				<?php else : ?>
-					<div class="copyrights">
-						<span>© 2023 All Rights Reserved</span>
-					</div>
-				<?php endif; ?>
 
 
 			</div>

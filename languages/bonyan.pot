@@ -1,15 +1,15 @@
-# Copyright (C) 2023 2P
+# Copyright (C) 2024 2P
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: 2P bonyan 1.4.4\n"
+"Project-Id-Version: 2P bonyan 1.5.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bonyan\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-08-14T10:33:14+02:00\n"
+"POT-Creation-Date: 2024-03-10T20:39:15+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: bonyan\n"
@@ -32,7 +32,7 @@ msgid "2P"
 msgstr ""
 
 #: 404.php:103
-#: search.php:180
+#: search.php:182
 #: template-parts/content-none.php:33
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
@@ -169,16 +169,20 @@ msgstr ""
 msgid "Recurring Donations"
 msgstr ""
 
-#: footer.php:134
+#: footer.php:126
 msgid "Appeals"
 msgstr ""
 
-#: footer.php:149
+#: footer.php:141
 msgid "Useful Links"
 msgstr ""
 
-#: footer.php:164
+#: footer.php:156
 msgid "Join our newsletter"
+msgstr ""
+
+#: footer.php:203
+msgid "© %s All Rights Reserved"
 msgstr ""
 
 #: functions.php:54
@@ -197,21 +201,22 @@ msgstr ""
 msgid "Languages"
 msgstr ""
 
-#: header.php:62
+#: header.php:81
 #: inc/wpbakery/shortcodes/qurbani_calculator_view.php:82
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:90
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:94
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:104
 msgid "Donate Now"
 msgstr ""
 
-#: header.php:79
-#: header.php:179
+#: header.php:100
+#: header.php:200
 #: searchform.php:9
 #: template-parts/search-terms-header.php:32
 #: template-parts/search-terms-header.php:104
 msgid "Search..."
 msgstr ""
 
-#: header.php:193
+#: header.php:214
 #: template-parts/donation-modal.php:30
 msgid "Log in"
 msgstr ""
@@ -260,28 +265,28 @@ msgstr ""
 msgid "No recurring donations found"
 msgstr ""
 
-#: inc/ajax/register.php:31
+#: inc/ajax/register.php:32
 msgid "User Name Must Not Contain Spaces"
 msgstr ""
 
-#: inc/ajax/register.php:35
+#: inc/ajax/register.php:36
 msgid "User Name Is Already Exist"
 msgstr ""
 
-#: inc/ajax/register.php:39
+#: inc/ajax/register.php:40
 #: inc/ajax/save-account-details.php:46
 msgid "Email Has No Valid Value"
 msgstr ""
 
-#: inc/ajax/register.php:43
+#: inc/ajax/register.php:44
 msgid "User Email Is Already Exist"
 msgstr ""
 
-#: inc/ajax/register.php:47
+#: inc/ajax/register.php:48
 msgid "Password Didn't Match"
 msgstr ""
 
-#: inc/ajax/register.php:66
+#: inc/ajax/register.php:67
 msgid "Error Happened When Tyr To Login"
 msgstr ""
 
@@ -909,14 +914,14 @@ msgid "Filter"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/advanced_search_view.php:39
-#: search.php:92
+#: search.php:93
 msgid "Search Keyword"
 msgstr ""
 
 #: inc/wpbakery/shortcodes/advanced_search_view.php:48
 #: inc/wpbakery/shortcodes/advanced_search_view.php:65
-#: search.php:102
-#: search.php:130
+#: search.php:103
+#: search.php:131
 msgid "-- Search all items --"
 msgstr ""
 
@@ -927,7 +932,7 @@ msgstr ""
 
 #: inc/wpbakery/shortcodes/advanced_search_view.php:74
 #: search.php:23
-#: search.php:144
+#: search.php:145
 msgid "Search"
 msgstr ""
 
@@ -1062,79 +1067,83 @@ msgstr ""
 msgid "Department"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:40
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:42
 msgid "Zakat Calculator"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:45
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:47
 msgid "Value of Gold"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:46
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:48
 msgid "Write the gold, ex: 100$"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:50
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:52
 msgid "Value of Silver"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:51
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:53
 msgid "Write the silver, ex: 100$"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:55
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:57
 msgid "Cash in hand"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:56
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:58
 msgid "Write the cash in hand, ex: 100$"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:60
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:62
 msgid "Cash in Bank accounts"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:61
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:63
 msgid "Write cash in bank, ex: 100$"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:65
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:67
 msgid "Business investments"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:66
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:71
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:76
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:81
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:68
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:73
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:78
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:83
 msgid "Write the value, ex: 100$"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:70
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:72
 msgid "Investment Certificates"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:75
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:77
 msgid "Bank Deposit"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:80
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:82
 msgid "Shares"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:85
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:87
 msgid "Calculate Zakat"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:87
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:89
 msgid "Ensure that Zakat-Eligible Total"
 msgstr ""
 
-#: inc/wpbakery/shortcodes/zakat_calculator_view.php:87
+#: inc/wpbakery/shortcodes/zakat_calculator_view.php:89
 msgid "Exceeds Nisab"
 msgstr ""
 
 #: index.php:24
 msgid "Blog"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Landing-page"
 msgstr ""
 
 #. Template Name of the theme
