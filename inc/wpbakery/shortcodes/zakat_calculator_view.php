@@ -13,7 +13,9 @@ if (!function_exists('zakat_calc_shortcode')) {
         extract(shortcode_atts(array(
             'zakat_calc_under_head_description'     => '',
             'zakat_calc_nisab_value'     => '',
-            'zakat_calc_form_id'     => ''
+            'zakat_calc_platform_type'     => 'give_wp',
+            'zakat_calc_form_id'     => '',
+            'zakat_calc_fund_raise_up_form_id'     => '',
         ), $atts));
 
         ob_start();
@@ -86,13 +88,26 @@ if (!function_exists('zakat_calc_shortcode')) {
                     <p class="calculated-zakat-amount mb-2"><strong><span>0.00</span>$</strong></p>
                     <p class="mb-3"><?php _e('Ensure that Zakat-Eligible Total', 'bonyan'); ?> <br /><?php _e('Exceeds Nisab', 'bonyan'); ?> - <?php echo $zakat_calc_nisab_value ?>$*</p>
 
-                    <button class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" id="zakat-donation-btn" data-user-nisab="0" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50" data-giveformid="<?php echo $zakat_calc_form_id ?>">
-                        <?php _e('Donate Now', 'bonyan'); ?>
+                    <?php if ($zakat_calc_platform_type === 'give_wp') : ?>
+                        <button class="user-action-btn primary-btn 
+                        <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?>" id="zakat-donation-btn" data-user-nisab="0" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50" data-giveformid="<?php echo $zakat_calc_form_id ?>">
+                            <?php _e('Donate Now', 'bonyan'); ?>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
-                            <path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
-                        </svg>
-                    </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
+                                <path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
+                            </svg>
+                        </button>
+                    <?php endif; ?>
+
+                    <?php if ($zakat_calc_platform_type === 'fund_raise_up') : ?>
+                        <a href="<?= esc_url(get_permalink() . '?form=Zakat-online&amount=50&modifyAmount=yes&recurring=once&lang=' . current_language()) ?>" class="primary-btn fund_raise_up-btn" id="zakat-donation-btn" data-user-nisab="0" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50">
+                            <?php _e('Donate Now', 'bonyan'); ?>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
+                                <path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
+                            </svg>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </form>

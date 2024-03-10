@@ -97,8 +97,20 @@ window.addEventListener('DOMContentLoaded', function () {
             let nisab = (gold + silver + cashInHand + cashInBank + businessInvestments + investmentCertificates + bankDeposit + shares);
             let finalResult = total.toFixed(3) * 1;
             totalAmount.innerHTML = Math.round(finalResult);
-            donateBtnAmount.setAttribute('data-amount', Math.round(finalResult));
+            let amountToDonate = Math.round(finalResult);
+            amountToDonate = amountToDonate !== 0 ? amountToDonate : 50;
+            donateBtnAmount.setAttribute('data-amount', amountToDonate);
             donateBtnAmount.setAttribute('data-user-nisab', nisab);
+            if (donateBtnAmount.classList.contains('fund_raise_up-btn')) {
+                // Get the current href value
+                var currentHref = donateBtnAmount.getAttribute('href');
+
+                // Modify the href to change the 'amount' parameter
+                var newHref = currentHref.replace(/(\?|&)amount=[^&]*/, '$1amount=' + amountToDonate);
+
+                // Update the href attribute with the new value
+                donateBtnAmount.setAttribute('href', newHref);
+            }
         });
     });
 });
