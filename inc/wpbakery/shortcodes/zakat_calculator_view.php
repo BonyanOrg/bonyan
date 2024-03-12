@@ -109,7 +109,7 @@ if (!function_exists('zakat_calc_shortcode')) {
                         // Reconstruct the URL without the query string
                         $pure_permalink = http_build_url($parsed_url);
                     ?>
-                        <a href="<?= esc_url($pure_permalink . '?form=Zakat-online&amount=50&modifyAmount=yes&recurring=once') ?>" class="primary-btn fund_raise_up-btn" id="zakat-donation-btn" data-user-nisab="0" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50">
+                        <a href="<?= esc_url($pure_permalink . '?form=' . $zakat_calc_fund_raise_up_form_id . '&amount=50&modifyAmount=yes&recurring=once') ?>" class="primary-btn fund_raise_up-btn" id="zakat-donation-btn" data-user-nisab="0" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50">
                             <?php _e('Donate Now', 'bonyan'); ?>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
