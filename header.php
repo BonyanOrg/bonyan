@@ -261,6 +261,6 @@
 
 					</div>
 				</div>
-
+				<script>window._lang='<?= current_language() ?>';</script>
 			</div>
 		</header>
