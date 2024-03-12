@@ -324,3 +324,22 @@ function print_lang_input_if_required_for_search()
 		echo '<input type="hidden" name="lang" value="' . current_language() . '">';
 	}
 }
+
+/**
+ * Clear the query string from a given URL.
+ *
+ * @param string $url The URL to clear the query string from.
+ * @return string The URL without the query string.
+ */
+function clear_url_query_string($url) {
+    // Parse the URL into its components
+    $parsed_url = parse_url($url);
+
+    // Remove the query string from the URL components
+    unset($parsed_url['query']);
+
+    // Reconstruct the URL without the query string
+    $cleared_url = http_build_url($parsed_url);
+
+    return $cleared_url;
+}

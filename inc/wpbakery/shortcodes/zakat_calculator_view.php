@@ -100,14 +100,7 @@ if (!function_exists('zakat_calc_shortcode')) {
                     <?php endif; ?>
 
                     <?php if ($zakat_calc_platform_type === 'fund_raise_up') :
-                        // Parse the current permalink URL into its components
-                        $parsed_url = parse_url(get_permalink());
-
-                        // Remove the query string from the URL components
-                        unset($parsed_url['query']);
-
-                        // Reconstruct the URL without the query string
-                        $pure_permalink = http_build_url($parsed_url);
+                        $pure_permalink = clear_url_query_string(get_permalink());
                     ?>
                         <a href="<?= esc_url($pure_permalink . '?form=' . $zakat_calc_fund_raise_up_form_id . '&amount=50&modifyAmount=yes&recurring=once') ?>" class="primary-btn fund_raise_up-btn" id="zakat-donation-btn" data-user-nisab="0" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50">
                             <?php _e('Donate Now', 'bonyan'); ?>
