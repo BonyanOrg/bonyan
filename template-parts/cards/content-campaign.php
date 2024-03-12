@@ -1,7 +1,9 @@
-<?php 
-$co_show_progress_bar = get_post_meta($post->ID, "co_show_progress_bar", true);
+<?php
+$co_donation_platform = !empty(get_post_meta($post->ID, "co_donation_platform", true)) ? get_post_meta($post->ID, "co_donation_platform", true) : 'give_wp';
 $give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
-$co_donation_amount = get_post_meta($post->ID, "co_donation_amount", true);
+$co_fund_raise_up_form_id = get_post_meta($post->ID, "co_fund_raise_up_form_id", true);
+$co_show_progress_bar = get_post_meta($post->ID, "co_show_progress_bar", true);
+$co_donation_amount = !empty(get_post_meta($post->ID, "co_donation_amount", true)) ? get_post_meta($post->ID, "co_donation_amount", true) : '50';
 
 $co_show_donors_count = get_post_meta($post->ID, "co_show_donors_count", true);
 $co_show_reaming_time = get_post_meta($post->ID, "co_show_reaming_time", true);
@@ -22,6 +24,8 @@ if (is_user_logged_in()) {
     }
 }
 $is_user_dashboard = (isset($args['is_donor_dashboard']) && $args['is_donor_dashboard'] == true) ? "true" : "false";
+
+$pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
 ?>
 <div class="campaign-card">
     <div class="add-to-fav" data-isDonorDashboard="<?php echo $is_user_dashboard; ?>" data-id="<?php echo get_the_ID(); ?>">
@@ -106,7 +110,7 @@ $is_user_dashboard = (isset($args['is_donor_dashboard']) && $args['is_donor_dash
                     <p>$<?php echo formatMoney($actual, 1); ?></p>
                     <p><?php printf(__('Funded of $%s', 'bonyan'), formatMoney($total_goal, 1));  ?></p>
                 </div>
-                
+
                 <div class="progress-bar">
                     <div class="progress-bar-value" style="width: <?php echo $progress . "%"; ?>;"></div>
                 </div>
@@ -118,7 +122,12 @@ $is_user_dashboard = (isset($args['is_donor_dashboard']) && $args['is_donor_dash
 
 
     <div class="card-footer campaign-card-cta">
-        <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate', 'bonyan') ?></button>
+        <?php if ($co_donation_platform === 'give_wp') : ?>
+            <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate', 'bonyan') ?></button>
+        <?php endif; ?>
+        <?php if ($co_donation_platform === 'fund_raise_up') : ?>
+            <a href="<?= esc_url($pure_permalink . '?form=' . $co_fund_raise_up_form_id . '&amount='.$co_donation_amount.'&modifyAmount=yes&recurring=once') ?>" class=" user-action-btn primary-btn no-border fund_raise_up-btn"><?php _e('Donate', 'bonyan') ?></a>
+        <?php endif; ?>
         <a href="<?php echo get_permalink($post) ?>"><?php _e('More', 'bonyan') ?></a>
     </div>
 </div>

@@ -2348,6 +2348,15 @@ header {
       border-radius: 25px;
     }
 
+    .fund_raise_up-btn{
+      width: 60%;
+      padding: 0.75rem;
+      border-radius: 25px;  
+      background: $secondary-color;
+      color: #fff;
+      border: none;
+    }
+
     a {
       width: 40%;
       display: flex;

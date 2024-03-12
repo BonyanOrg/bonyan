@@ -9,8 +9,10 @@ function Init_Campaign_Options($post)
 {
 
     wp_nonce_field(basename(__FILE__), "co_campaign_options");
-    $co_campaign_end_date = get_post_meta($post->ID, "co_campaign_end_date", true);
+    $co_donation_platform = get_post_meta($post->ID, "co_donation_platform", true);
     $co_give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
+    $co_fund_raise_up_form_id = get_post_meta($post->ID, "co_fund_raise_up_form_id", true);
+    $co_campaign_end_date = get_post_meta($post->ID, "co_campaign_end_date", true);
     $co_donation_amount = get_post_meta($post->ID, "co_donation_amount", true);
 
     $co_show_progress_bar = get_post_meta($post->ID, "co_show_progress_bar", true);
@@ -33,27 +35,46 @@ function Init_Campaign_Options($post)
     <table class="co_table">
         <tbody>
 
-            <!-- Campaign End Date -->
+            <!-- Donation Platform -->
             <tr class="form-field">
                 <th>
-                    <label for="co_campaign_end_date">Campaign End Date</label>
+                    <label for="co_donation_platform">Donation Platform</label>
                 </th>
-                <td><input type="date" name="co_campaign_end_date" id="co_campaign_end_date" value="<?php echo $co_campaign_end_date; ?>"></td>
+                <td>
+                    <select name="co_donation_platform" id="co_donation_platform">
+                        <option value="">--Select The Platform--</option>
+                        <option value="give_wp" <?= selected($co_donation_platform, 'give_wp',true) ?>>Give WP</option>
+                        <option value="fund_raise_up" <?= selected($co_donation_platform, 'fund_raise_up',true) ?>>FundRaiseUp</option>
+                    </select>
+                </td>
             </tr>
+            <!-- Give WP Form ID -->
             <tr class="form-field">
                 <th>
                     <label for="co_give_form_id">Give Form Id</label>
                 </th>
                 <td>
-
-                    <!-- <input type="number" name="co_give_form_id" id="co_give_form_id" class="select-campaign" value="<?php // echo $co_give_form_id; 
-                                                                                                                            ?>"> -->
                     <select name="co_give_form_id" id="co_give_form_id" class="select-campaign">
                         <?php if (!empty($co_give_form_id)) : ?>
                             <option value="<?php echo $co_give_form_id; ?>" selected="selected"><?php echo get_the_title($co_give_form_id); ?></option>
                         <?php endif; ?>
                     </select>
                 </td>
+            </tr>
+
+            <!-- FundRaiseUp Form ID -->
+            <tr class="form-field">
+                <th>
+                    <label for="co_fund_raise_up_form_id">FundRaiseUp Form ID</label>
+                </th>
+                <td><input type="text" name="co_fund_raise_up_form_id" id="co_fund_raise_up_form_id" value="<?php echo $co_fund_raise_up_form_id; ?>"></td>
+            </tr>
+            <!-- Campaign End Date -->
+            <tr class="form-field">
+                <th>
+                    <label for="co_campaign_end_date">Campaign End Date</label>
+                </th>
+                <td><input type="date" name="co_campaign_end_date" id="co_campaign_end_date" value="<?php echo $co_campaign_end_date; ?>"></td>
             </tr>
 
             <tr class="form-field">
@@ -150,11 +171,17 @@ function save_campaign_options($post_id)
         return;
     }
 
-    if (isset($_POST['co_campaign_end_date']))
-        update_post_meta($post_id, 'co_campaign_end_date', $_POST['co_campaign_end_date']);
-
+    if (isset($_POST['co_donation_platform']))
+        update_post_meta($post_id, 'co_donation_platform', $_POST['co_donation_platform']);
+    
     if (isset($_POST['co_give_form_id']))
         update_post_meta($post_id, 'co_give_form_id', $_POST['co_give_form_id']);
+
+    if (isset($_POST['co_fund_raise_up_form_id']))
+        update_post_meta($post_id, 'co_fund_raise_up_form_id', $_POST['co_fund_raise_up_form_id']);
+
+    if (isset($_POST['co_campaign_end_date']))
+        update_post_meta($post_id, 'co_campaign_end_date', $_POST['co_campaign_end_date']);
 
     if (isset($_POST['co_donation_amount']))
         update_post_meta($post_id, 'co_donation_amount', $_POST['co_donation_amount']);
