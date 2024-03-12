@@ -99,8 +99,17 @@ if (!function_exists('zakat_calc_shortcode')) {
                         </button>
                     <?php endif; ?>
 
-                    <?php if ($zakat_calc_platform_type === 'fund_raise_up') : ?>
-                        <a href="<?= esc_url(get_permalink() . '?form=Zakat-online&amount=50&modifyAmount=yes&recurring=once&lang=' . current_language()) ?>" class="primary-btn fund_raise_up-btn" id="zakat-donation-btn" data-user-nisab="0" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50">
+                    <?php if ($zakat_calc_platform_type === 'fund_raise_up') :
+                        // Parse the current permalink URL into its components
+                        $parsed_url = parse_url(get_permalink());
+
+                        // Remove the query string from the URL components
+                        unset($parsed_url['query']);
+
+                        // Reconstruct the URL without the query string
+                        $pure_permalink = http_build_url($parsed_url);
+                    ?>
+                        <a href="<?= esc_url($pure_permalink . '?form=Zakat-online&amount=50&modifyAmount=yes&recurring=once') ?>" class="primary-btn fund_raise_up-btn" id="zakat-donation-btn" data-user-nisab="0" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="50">
                             <?php _e('Donate Now', 'bonyan'); ?>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
