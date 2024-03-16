@@ -1,12 +1,15 @@
 <?php
 
 $queried_object = get_queried_object();
-$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $taxonomy_name = $queried_object->taxonomies[1];
 ?>
 
 <section class="campaign-section">
-<?php get_template_part('template-parts/components/urgent-campaigns', null, array("post" => $post)); ?>
+	<?php
+	if (!empty(get_option('is_urgent_campaigns_enabled')))
+		get_template_part('template-parts/components/urgent-campaigns', null, array("post" => $post));
+	?>
 	<div class="container">
 
 		<?php get_template_part('template-parts/search-terms-header', null, array("taxonomy_name" => $taxonomy_name, 'archive' => true)); ?>
@@ -15,15 +18,15 @@ $taxonomy_name = $queried_object->taxonomies[1];
 		<div class="campaign my-2 my-lg-5">
 			<div class="cards-container">
 
-				<?php 
+				<?php
 				$args = array(
-					'post_type'      => 'campaign',  
-					'posts_per_page' => get_option( 'posts_per_page' ),      
+					'post_type'      => 'campaign',
+					'posts_per_page' => get_option('posts_per_page'),
 					'post_status'    => 'publish',
-					'paged'          => $paged,           
-					'meta_key'       => 'co_campaign_end_date', 
-					'orderby'        => 'meta_value',   
-					'order'          => 'DESC',         
+					'paged'          => $paged,
+					'meta_key'       => 'co_campaign_end_date',
+					'orderby'        => 'meta_value',
+					'order'          => 'DESC',
 					// 'meta_query'     => array(
 					// 	array(
 					// 		'key'     => 'co_campaign_end_date',    
@@ -31,9 +34,9 @@ $taxonomy_name = $queried_object->taxonomies[1];
 					// 	),
 					// ),
 				);
-				
-				$campaigns_posts = new WP_Query( $args );
-				
+
+				$campaigns_posts = new WP_Query($args);
+
 				if ($campaigns_posts->have_posts()) : ?>
 
 					<?php

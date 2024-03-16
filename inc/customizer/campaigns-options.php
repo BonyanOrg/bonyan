@@ -31,6 +31,24 @@ $wp_customize->add_control(
     )
 );
 
+//================================================
+// Enable urgent slider in Campaigns archive page
+$wp_customize->add_setting('is_urgent_campaigns_enabled', array(
+    'default' => '',
+    'section' => 'campaigns_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'is_urgent_campaigns_enabled_shortcode',
+    array(
+        'label'    => 'Enable urgent slider in Campaigns archive page',
+        'section' => 'campaigns_section',
+        'settings' => 'is_urgent_campaigns_enabled',
+        'type'     => 'checkbox',
+    )
+);
+
 
 
 // //==============
