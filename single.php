@@ -27,13 +27,7 @@ $withSideBarClass = !empty($withSideBar) ? 'with-sidebar' : '';
 						get_template_part('template-parts/share-via');
 					}
 					if ($post_type === "campaign") {
-					?>
-						<div class="single-campaign-give-form-container py-lg-5 py-4">
-							<?php
-							get_template_part('template-parts/components/top-donor');
-							?>
-						</div>
-					<?php
+						get_template_part('template-parts/components/campaign-timer');
 					}
 					if ($post_type === "special_case") {
 					?>

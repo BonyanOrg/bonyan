@@ -90,3 +90,6 @@ require_once "shortcodes/qurbani_calculator_view.php";
 
 /*  CTA Button  */
 require_once "shortcodes/cta_btn_view.php";
+
+/*  Campaign Top Donor Section  */
+require_once "shortcodes/campaign_top_donor_view.php";

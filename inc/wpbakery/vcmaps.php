@@ -131,3 +131,6 @@ require_once "vcmaps/qurbani_calculator_map.php";
 
 /*  CTA Button  */
 require_once "vcmaps/cta_btn_map.php";
+
+/*  Campaign Top Donor Section  */
+require_once "vcmaps/campaign_top_donor_map.php";
