@@ -1,7 +1,10 @@
 <?php
 $co_donation_platform = !empty(get_post_meta($post->ID, "co_donation_platform", true)) ? get_post_meta($post->ID, "co_donation_platform", true) : 'give_wp';
 $give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
+
 $co_fund_raise_up_form_id = get_post_meta($post->ID, "co_fund_raise_up_form_id", true);
+$is_fund_rase_up_recurring = !empty(get_post_meta($post->ID, "is_fund_rase_up_recurring", true)) ? get_post_meta($post->ID, "is_fund_rase_up_recurring", true) : 'once';
+
 $co_show_progress_bar = get_post_meta($post->ID, "co_show_progress_bar", true);
 $co_donation_amount = !empty(get_post_meta($post->ID, "co_donation_amount", true)) ? get_post_meta($post->ID, "co_donation_amount", true) : '50';
 
@@ -126,7 +129,7 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
             <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate', 'bonyan') ?></button>
         <?php endif; ?>
         <?php if ($co_donation_platform === 'fund_raise_up') : ?>
-            <a href="<?= esc_url($pure_permalink . '?form=' . $co_fund_raise_up_form_id . '&amount='.$co_donation_amount.'&modifyAmount=yes&recurring=once') ?>" class=" user-action-btn primary-btn no-border fund_raise_up-btn"><?php _e('Donate', 'bonyan') ?></a>
+            <a href="<?= esc_url($pure_permalink . '?form=' . $co_fund_raise_up_form_id . '&amount=' . $co_donation_amount . '&modifyAmount=yes&recurring=' . $is_fund_rase_up_recurring) ?>" class=" user-action-btn primary-btn no-border fund_raise_up-btn"><?php _e('Donate', 'bonyan') ?></a>
         <?php endif; ?>
         <a href="<?php echo get_permalink($post) ?>"><?php _e('More', 'bonyan') ?></a>
     </div>

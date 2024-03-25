@@ -11,7 +11,10 @@ function Init_Campaign_Options($post)
     wp_nonce_field(basename(__FILE__), "co_campaign_options");
     $co_donation_platform = get_post_meta($post->ID, "co_donation_platform", true);
     $co_give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
+
     $co_fund_raise_up_form_id = get_post_meta($post->ID, "co_fund_raise_up_form_id", true);
+    $is_fund_rase_up_recurring = get_post_meta($post->ID, "is_fund_rase_up_recurring", true);
+
     $co_campaign_end_date = get_post_meta($post->ID, "co_campaign_end_date", true);
     $co_donation_amount = get_post_meta($post->ID, "co_donation_amount", true);
 
@@ -24,7 +27,6 @@ function Init_Campaign_Options($post)
     <style>
         #co_campaign_end_date {
             width: 350px;
-            margin-left: 30px;
         }
 
         .select-campaign {
@@ -43,8 +45,8 @@ function Init_Campaign_Options($post)
                 <td>
                     <select name="co_donation_platform" id="co_donation_platform">
                         <option value="">--Select The Platform--</option>
-                        <option value="give_wp" <?= selected($co_donation_platform, 'give_wp',true) ?>>Give WP</option>
-                        <option value="fund_raise_up" <?= selected($co_donation_platform, 'fund_raise_up',true) ?>>FundRaiseUp</option>
+                        <option value="give_wp" <?= selected($co_donation_platform, 'give_wp', true) ?>>Give WP</option>
+                        <option value="fund_raise_up" <?= selected($co_donation_platform, 'fund_raise_up', true) ?>>FundRaiseUp</option>
                     </select>
                 </td>
             </tr>
@@ -61,13 +63,43 @@ function Init_Campaign_Options($post)
                     </select>
                 </td>
             </tr>
-
+            <tr>
+                <td>
+                    <hr>
+                </td>
+            </tr>
             <!-- FundRaiseUp Form ID -->
             <tr class="form-field">
                 <th>
                     <label for="co_fund_raise_up_form_id">FundRaiseUp Form ID</label>
                 </th>
                 <td><input type="text" name="co_fund_raise_up_form_id" id="co_fund_raise_up_form_id" value="<?php echo $co_fund_raise_up_form_id; ?>"></td>
+
+            </tr>
+            <tr class="form-field">
+                <th>
+                    <label for="is_fund_rase_up_recurring">Is FundRaiseUp Donation Recurring?(YES)</label>
+                </th>
+                <td>
+                    <select name="is_fund_rase_up_recurring" id="is_fund_rase_up_recurring">
+                        <option value="">--Select The Recurring Period--</option>
+                        <option value="once" <?= selected($is_fund_rase_up_recurring, 'once', true) ?>>Once</option>
+                        <option value="daily" <?= selected($is_fund_rase_up_recurring, 'daily', true) ?>>Daily</option>
+                        <option value="weekly" <?= selected($is_fund_rase_up_recurring, 'weekly', true) ?>>Weekly</option>
+                        <option value="biweekly" <?= selected($is_fund_rase_up_recurring, 'biweekly', true) ?>>Biweekly</option>
+                        <option value="every4weeks" <?= selected($is_fund_rase_up_recurring, 'every4weeks', true) ?>>Every 4 weeks</option>
+                        <option value="monthly" <?= selected($is_fund_rase_up_recurring, 'monthly', true) ?>>Monthly</option>
+                        <option value="bimonthly" <?= selected($is_fund_rase_up_recurring, 'bimonthly', true) ?>>Bimonthly</option>
+                        <option value="quarterly" <?= selected($is_fund_rase_up_recurring, 'quarterly', true) ?>>Quarterly</option>
+                        <option value="semiannual" <?= selected($is_fund_rase_up_recurring, 'semiannual', true) ?>>Semiannually</option>
+                        <option value="annual" <?= selected($is_fund_rase_up_recurring, 'annual', true) ?>>Annually</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
             </tr>
             <!-- Campaign End Date -->
             <tr class="form-field">
@@ -82,6 +114,11 @@ function Init_Campaign_Options($post)
                     <label for="co_donation_amount">Default Amount</label>
                 </th>
                 <td><input type="number" name="co_donation_amount" id="co_donation_amount" value="<?php echo $co_donation_amount; ?>"></td>
+            </tr>
+            <tr>
+                <td>
+                    <hr>
+                </td>
             </tr>
             <tr class="form-field">
                 <th>
@@ -173,12 +210,16 @@ function save_campaign_options($post_id)
 
     if (isset($_POST['co_donation_platform']))
         update_post_meta($post_id, 'co_donation_platform', $_POST['co_donation_platform']);
-    
+
     if (isset($_POST['co_give_form_id']))
         update_post_meta($post_id, 'co_give_form_id', $_POST['co_give_form_id']);
 
     if (isset($_POST['co_fund_raise_up_form_id']))
         update_post_meta($post_id, 'co_fund_raise_up_form_id', $_POST['co_fund_raise_up_form_id']);
+
+    if (isset($_POST['is_fund_rase_up_recurring']))
+        update_post_meta($post_id, 'is_fund_rase_up_recurring', $_POST['is_fund_rase_up_recurring']);
+
 
     if (isset($_POST['co_campaign_end_date']))
         update_post_meta($post_id, 'co_campaign_end_date', $_POST['co_campaign_end_date']);

@@ -26,7 +26,11 @@ $withSideBarClass = !empty($withSideBar) ? 'with-sidebar' : '';
 					if ($post_type === "") {
 						get_template_part('template-parts/share-via');
 					}
-					if ($post_type === "campaign") {
+					if ($post_type === "campaign"){
+						?><div class="vc_empty_space" style="height: 32px"><span class="vc_empty_space_inner"></span></div><?php
+					}
+					if ($post_type === "campaign" && is_mobile_or_ipad()) {
+						?><div class="vc_empty_space" style="height: 32px"><span class="vc_empty_space_inner"></span></div><?php
 						get_template_part('template-parts/components/campaign-timer');
 					}
 					if ($post_type === "special_case") {
