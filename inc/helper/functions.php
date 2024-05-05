@@ -343,3 +343,15 @@ function clear_url_query_string($url) {
 
     return $cleared_url;
 }
+
+// Restrict show admin bar for specific roles
+$roles = ['give_donor','subscriber'];
+if (check_user_role($roles)) {
+	add_filter('show_admin_bar', '__return_false');
+}
+
+// Allow show admin bar for specific roles
+$roles = ['editor'];
+if (check_user_role($roles)) {
+	add_filter('show_admin_bar', '__return_true');
+}

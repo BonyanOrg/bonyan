@@ -201,7 +201,3 @@ require_once __DIR__ . '/inc/api/functions.php';
 require __DIR__ . '/inc/settings/functions.php';
 
 
-$roles = ['give_donor','subscriber'];
-if (check_user_role($roles)) {
-	add_filter('show_admin_bar', '__return_false');
-}
