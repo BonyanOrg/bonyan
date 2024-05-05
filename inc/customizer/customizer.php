@@ -27,6 +27,10 @@ function my_customize_register($wp_customize)
 
     //================
     // General Options
+    require_once(__DIR__ . '/general-options.php');
+
+    //================
+    // Social Media Options
     require_once(__DIR__ . '/social-media-options.php');
 
     //===============

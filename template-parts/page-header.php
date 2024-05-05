@@ -1,7 +1,7 @@
 <?php
 if (is_single() || is_page()) : ?>
 
-    <div class="page-head" style="background: url('<?php echo get_the_post_thumbnail_url() ?>') no-repeat; background-size: cover; ">
+    <div class="page-head" style="background: url('<?= esc_url(!empty(get_the_post_thumbnail_url()) ? get_the_post_thumbnail_url() :  wp_get_attachment_image_url(get_option('general_placeholder_img_url'), 'full')) ?>') no-repeat; background-size: cover; ">
         <div class="container">
             <h1><?php the_title(); ?></h1>
             <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">

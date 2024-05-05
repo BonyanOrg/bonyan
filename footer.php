@@ -184,7 +184,7 @@
 						<path id="Path_239" data-name="Path 239" d="M14.95,14.536,10,19.728,5.05,14.536a7.6,7.6,0,0,1,0-10.385,6.771,6.771,0,0,1,9.9,0,7.6,7.6,0,0,1,0,10.385ZM10,10.975A1.634,1.634,0,1,0,8.444,9.343,1.6,1.6,0,0,0,10,10.975Z" transform="translate(-3 -2)" fill="#fff" />
 					</svg>
 
-					<a href="<?php echo get_option('contact_info_address_url'); ?>"><?php echo get_option('contact_info_address'); ?></a>
+					<a href="<?= esc_url(get_option('contact_info_address_url')); ?>"><?php echo get_option('contact_info_address'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -198,10 +198,10 @@
 					<a href="<?php echo get_option("twitter_url") ?>"><i class="fa-brands fa-twitter"></i></a>
 					<a href="<?php echo get_option("youtube_url") ?>"><i class="fa-brands fa-youtube"></i></a>
 				</div>
-		
-					<div class="copyrights">
-						<span><?= sprintf(__('© %s All Rights Reserved','bonyan'),date('Y')) ?></span>
-					</div>
+
+				<div class="copyrights">
+					<span><?= sprintf(__('© %s All Rights Reserved', 'bonyan'), date('Y')) ?></span>
+				</div>
 
 
 			</div>

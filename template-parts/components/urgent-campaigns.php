@@ -26,7 +26,7 @@
             ?>
                         <div class="swiper-slide">
                             <div class="primary-carousel-img">
-                                <img data-src="<?php echo get_the_post_thumbnail_url() ?>" alt="" class="lazyload" loading="lazy">
+                                <img data-src="<?= esc_url(!empty(get_the_post_thumbnail_url()) ? get_the_post_thumbnail_url() : wp_get_attachment_image_url(get_option('general_placeholder_img_url'), 'full')); ?>" alt="" class="lazyload" loading="lazy">
                             </div>
 
                             <div class="primary-carousel-item primary-carousel-label">
