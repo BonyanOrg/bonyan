@@ -49,20 +49,20 @@ if (!function_exists('contact_info_shortcode')) {
             <?php if ($contact_info_is_phone) : ?>
                 <a href="tel:<?php echo $contact_info_phone_number; ?>" class="phone-numbers-container">
                 <?php elseif ($contact_info_is_email) : ?>
-                    <a href="mailto:<?php echo $contact_info_email; ?>" class="phone-numbers-container">
+                    <a href="mailto:<?= sanitize_email($contact_info_email); ?>" class="phone-numbers-container">
                     <?php else : ?>
                         <a href="#" class="phone-numbers-container">
                         <?php endif; ?>
                         <div class="contact-icon">
                             <?php if (!empty($contact_info_icon)) : ?>
-                                <img data-src="<?php echo wp_get_attachment_image_url($contact_info_icon); ?>" alt="<?php echo $content; ?>" class="lazyload">
+                                <img data-src="<?= esc_url(wp_get_attachment_image_url($contact_info_icon, 'full')); ?>" alt="<?= wp_kses_post($content); ?>" class="lazyload">
                             <?php endif; ?>
                         </div>
 
                         <div class="phone-numbers" <?php if ($contact_info_is_phone) {
                                                         echo $in_line_style;
                                                     } ?>>
-                            <span><?php echo $content; ?></span>
+                            <span><?= wp_kses_post($content); ?></span>
                         </div>
                         </a>
         </div>

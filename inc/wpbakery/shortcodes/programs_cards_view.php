@@ -82,20 +82,20 @@ if (!function_exists('program_card_shortcode')) {
 
 
     ?>
-        <a href="<?php echo $a_href  ?>" class="program-card">
+        <a href="<?= esc_url($a_href)  ?>" class="program-card">
             <div class="program-img">
-                <img data-src="<?php echo wp_get_attachment_image_url($programs_cards_image_url, 'full'); ?>" alt="program 1" class="lazyload">
+                <img data-src="<?= esc_url(wp_get_attachment_image_url($programs_cards_image_url, 'full')); ?>" alt="program 1" class="lazyload">
             </div>
 
             <div class="program-icon">
-                <img data-src="<?php echo wp_get_attachment_image_url($programs_cards_icon_url, 'full'); ?>" alt="program 1" class="lazyload">
+                <img data-src="<?= esc_url(wp_get_attachment_image_url($programs_cards_icon_url, 'full')); ?>" alt="program 1" class="lazyload">
             </div>
 
             <div class="program-title">
-                <h3><?php echo $programs_cards_text ?></h3>
+                <h3><?= esc_html($programs_cards_text) ?></h3>
             </div>
             <div class="program-desc">
-                <p> <?php echo $content ?> </p>
+                <p> <?= wp_kses_post($content); ?> </p>
             </div>
         </a>
 

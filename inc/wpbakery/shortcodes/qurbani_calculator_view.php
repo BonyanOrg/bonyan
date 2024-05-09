@@ -21,7 +21,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
 
         ob_start();
-        ?>
+?>
 
         <style>
             <?php
@@ -34,8 +34,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                     //require_once(get_template_directory() . '/dist/css/components/wpb/quick-donation.min.css');
                 }
                 qurbani_calculator_register_style();
-            } ?>
-            .result-container {
+            } ?>.result-container {
                 opacity: 0.5;
                 margin-top: 10px;
                 background-color: #36363624 !important;
@@ -44,10 +43,10 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
         <div class="zakat-calculator-container custom-widget">
             <p><strong>
-                    <?php echo $qurbani_calculator_title; ?>
+                    <?= esc_html($qurbani_calculator_title); ?>
                 </strong></p>
             <p class="mb-4">
-                <?php echo $content; ?>
+                <?= wp_kses_post($content); ?>
             </p>
             <br>
 
@@ -56,8 +55,8 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                 <?php foreach ($qurbani_calculator_items as $qurbani_calculator_item) {
                     $group_name = $qurbani_calculator_item['qurbani_calculator_group_name'];
                     $group_id = bin2hex($group_name); // Remove All special characters and spaces
-        
-                    ?>
+
+                ?>
                     <div class="zakat-calculator-item">
                         <input type="text" hidden class="group-details-container <?php echo $group_id ?>">
                         <label class="mb-2" for="value-of-gold">
@@ -66,19 +65,16 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                         <p class="mb-4">
                             <?php echo $qurbani_calculator_item['qurbani_calculator_group_countries'] ?>
                         </p>
-                        <input type="number" min="0" step="1" id="<?php echo $group_id ?>-quantity" onwheel="event.preventDefault()"
-                            class=" only-number" placeholder="<?php _e('Add total quantity', 'bonyan'); ?>">
+                        <input type="number" min="0" step="1" id="<?php echo $group_id ?>-quantity" onwheel="event.preventDefault()" class=" only-number" placeholder="<?php _e('Add total quantity', 'bonyan'); ?>">
 
-                        <input type="number" min="0" step="1" id="<?php echo $group_id ?>-result"
-                            class="result-container only-number" placeholder="0.00" disabled>
+                        <input type="number" min="0" step="1" id="<?php echo $group_id ?>-result" class="result-container only-number" placeholder="0.00" disabled>
                     </div>
                 <?php } ?>
 
                 <div class="zakat-calculator-result">
                     <p class="calculated-zakat-amount mb-2" id="calculated-qurban-amount"><strong><span>0.00</span>$</strong>
                     </p>
-                    <button class="primary-btn " id="qurbani-donation-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-amount=""
-                        data-giveformid="<?php echo $qurbani_calculator_give_form_id ?>">
+                    <button class="primary-btn " id="qurbani-donation-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-amount="" data-giveformid="<?php echo $qurbani_calculator_give_form_id ?>">
                         <?php _e('Donate Now', 'bonyan'); ?>
                     </button>
 
@@ -107,7 +103,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                 $group_id = bin2hex($group_name);
                 $group_amount = $qurbani_calculator_item['qurbani_calculator_group_amount'];
                 $group_countries = $qurbani_calculator_item['qurbani_calculator_group_countries'];
-                ?>
+            ?>
 
                 tempGroupName = '<?php echo $group_name; ?>';
                 tempGroupAmount = '<?php echo $group_amount; ?>';
@@ -125,7 +121,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                 groups_object.group_<?php echo $group_id; ?> = (tempGroupObject);
 
                 // On Enter The Value In The Text Inputs 
-                document.getElementById('' + tempGroupId).addEventListener('keyup', function (event) {
+                document.getElementById('' + tempGroupId).addEventListener('keyup', function(event) {
                     // Get the key code for the pressed key
                     const keyCode = event.keyCode || event.which;
                     finalResult = 0;
@@ -164,9 +160,9 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                     groups_object.group_<?php echo $group_id; ?>.quantity = tempLastQuantity;
                 });
 
-                <?php
+            <?php
             } ?>
-                (function ($) {
+                (function($) {
 
                     let modalBtn = document.getElementById('qurbani-donation-btn');
                     let cartToJson = "";
@@ -179,7 +175,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                         let amount;
                         let charityTagName;
 
-                        modalBtn.addEventListener('click', function () {
+                        modalBtn.addEventListener('click', function() {
                             // e.preventDefault();
                             targetedModalName = modalBtn.getAttribute('data-target');
                             targetedModal = document.getElementById(targetedModalName);
@@ -220,11 +216,11 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                                         groups_details: groups_object,
                                     },
                                     statusCode: {
-                                        400: function (data) {
+                                        400: function(data) {
                                             toastr.error(data.responseJSON.error_message);
 
                                         },
-                                        200: function (data) {
+                                        200: function(data) {
                                             $("#give_form_container").remove(); // Clear The Container On Success
                                             $("#givewp-modal").append(`<div id="give_form_container"> ${data.give_form} </div>`);
                                         },
@@ -257,7 +253,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
                             // Reset qurbani donation details on close the modal
                             if (targetedModal !== null) {
-                                targetedModal.addEventListener('click', function (e) {
+                                targetedModal.addEventListener('click', function(e) {
                                     if (e.target.classList.contains(targetedModalName) || e.target.classList.contains('back-btn')) {
                                         targetedModal.classList.remove('opened');
                                         targetedModal.closest('body').classList.remove('modal-active');
@@ -275,7 +271,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
                 })(jQuery);
         </script>
-        <?php
+<?php
         return ob_get_clean();
     }
 }

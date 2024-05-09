@@ -62,15 +62,15 @@ if (!function_exists('archive_program_card_shortcode')) {
 
 
 
-        <a href="<?php echo $a_href  ?>" class="archive-program-card ">
+        <a href="<?= esc_url($a_href)  ?>" class="archive-program-card ">
 
             <div class="program-img-decor">
                 <div class="program-img">
-                    <img data-src="<?php echo wp_get_attachment_image_url($archive_programs_cards_image_url); ?>" alt="<?php echo $archive_programs_cards_text ?>" class="lazyload">
+                    <img data-src="<?= esc_url(wp_get_attachment_image_url($archive_programs_cards_image_url, 'full')); ?>" alt="<?php echo $archive_programs_cards_text ?>" class="lazyload">
                 </div>
 
                 <div class="program-icon">
-                    <img data-src="<?php echo wp_get_attachment_image_url($archive_programs_cards_icon_url); ?>" alt="<?php echo $archive_programs_cards_text ?>" class="lazyload">
+                    <img data-src="<?= esc_url(wp_get_attachment_image_url($archive_programs_cards_icon_url, 'full')); ?>" alt="<?php echo $archive_programs_cards_text ?>" class="lazyload">
                 </div>
             </div>
 
@@ -80,12 +80,12 @@ if (!function_exists('archive_program_card_shortcode')) {
                 </div>
 
                 <div class="program-desc">
-                    <p><?php echo $content ?></p>
+                    <p><?= wp_kses_post($content); ?></p>
                 </div>
 
                 <div class="program-link">
                     <div>
-                        <span><?php _e('More','bonyan') ?></span>
+                        <span><?php _e('More', 'bonyan') ?></span>
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="9.427" height="9.427" viewBox="0 0 9.427 9.427">
                             <path id="Path_10268" data-name="Path 10268" d="M13.842,8.677l-6.75,6.75L5.983,14.318l6.749-6.75H6.784V6H15.41v8.627H13.842Z" transform="translate(-5.983 -6)" fill="#5b5b5b" />
@@ -95,7 +95,7 @@ if (!function_exists('archive_program_card_shortcode')) {
             </div>
         </a>
 
-        
+
 <?php
     }
 }
