@@ -29,7 +29,7 @@ if (!function_exists('locations_shortcode')) {
                 } ?>
 
 
-        <div class="locations custom-widget" id="locations">
+        <div class="locations custom-widget">
             <div class="locations-helper">
 
                 <?php
