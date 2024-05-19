@@ -4,7 +4,7 @@ $campaign_end_date = get_post_meta(get_the_ID(), 'co_campaign_end_date', true);
 $to_time = strtotime($campaign_end_date . " 23:59:59");
 $from_time = strtotime(date('y-m-d H:i:s'));
 
-if ($from_time < $to_time) :
+if ($from_time < $to_time && !empty($campaign_end_date)) :
     $time_in_minute = round(abs($to_time - $from_time) / 60, 2);
 ?>
     <div class="campaign-timer custom-widget timer-visible">
