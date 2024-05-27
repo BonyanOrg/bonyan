@@ -11,7 +11,10 @@ if (!function_exists('qurbani_calculator_shortcode')) {
             shortcode_atts(
                 array(
                     'qurbani_calculator_title' => '',
+                    'qurbani_calculator_platform' => '',
                     'qurbani_calculator_give_form_id' => '',
+                    'qurbani_calculator_fundraiseup_form_id' => '',
+                    'qurbani_calculator_fundraiseup_custom_field_name' => '',
                 ),
                 $atts
             )
@@ -74,9 +77,28 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                 <div class="zakat-calculator-result">
                     <p class="calculated-zakat-amount mb-2" id="calculated-qurban-amount"><strong><span>0.00</span>$</strong>
                     </p>
-                    <button class="primary-btn " id="qurbani-donation-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-amount="" data-giveformid="<?php echo $qurbani_calculator_give_form_id ?>">
-                        <?php _e('Donate Now', 'bonyan'); ?>
-                    </button>
+                    <?php
+                    switch ($qurbani_calculator_platform) {
+                        case 'fundraiseup':
+                            $pure_permalink = clear_url_query_string(get_permalink());
+                    ?>
+                            <a href="<?= esc_url($pure_permalink . '?form=' . $qurbani_calculator_fundraiseup_form_id . '&amount=50&qurbani=none&modifyAmount=yes&recurring=once') ?>" class="primary-btn " id="qurbani-donation-btn" data-amount="">
+                                <?php _e('Donate Now', 'bonyan'); ?>
+                            </a>
+                        <?php
+                            break;
+                        case 'none':
+                        case 'give_wp':
+                        default:
+                        ?>
+                            <button class="primary-btn " id="qurbani-donation-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-amount="" data-giveformid="<?php echo $qurbani_calculator_give_form_id ?>">
+                                <?php _e('Donate Now', 'bonyan'); ?>
+                            </button>
+                    <?php
+                            break;
+                    }
+                    ?>
+
 
                 </div>
             </div>
@@ -158,6 +180,40 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                     let group_total = Math.round(parseInt(tempLastQuantity) * groups_object.group_<?php echo $group_id; ?>.amount);
                     groups_object.group_<?php echo $group_id; ?>.total = (isNaN(group_total) || group_total === null || group_total === undefined || group_total === '') ? 0 : group_total;
                     groups_object.group_<?php echo $group_id; ?>.quantity = tempLastQuantity;
+
+                    <?php if ($qurbani_calculator_platform == 'fundraiseup') :
+                        $fundraiseup_custom_field_name = !empty($qurbani_calculator_fundraiseup_custom_field_name) ? $qurbani_calculator_fundraiseup_custom_field_name : 'qurbani';
+                    ?>
+
+                        // Get the current URL from the attribute
+                        let currentUrl = new URL(donationBtn.getAttribute('href'));
+
+                        // Parse JSON string into an object
+                        const qurbanDetails = groups_object;
+
+                        // Initialize the table header
+                        let groups_as_string = "Group \t [-] Countries \t [-] Amount \t [-] Quantity \t [-] Total\n";
+                        groups_as_string += "------------------------------------------------------------\n";
+
+                        // Iterate over the object and construct the groups_as_string data
+                        for (let key in qurbanDetails) {
+                            if (qurbanDetails.hasOwnProperty(key)) {
+                                const row = qurbanDetails[key];
+                                groups_as_string += row.group + "\t [-] ";
+                                groups_as_string += row.countries.replace(/\+/g, ' ') + "\t [-] ";
+                                groups_as_string += "$" + row.amount + "\t [-] ";
+                                groups_as_string += row.quantity + "\t [-] ";
+                                groups_as_string += "$" + row.total + " \n";
+                            }
+                        }
+
+                        // Update the '$fundraiseup_custom_field_name' parameter in the URL
+                        currentUrl.searchParams.set('<?= esc_html($fundraiseup_custom_field_name) ?>', groups_as_string);
+                        currentUrl.searchParams.set('amount', JSON.stringify(finalResult));
+
+                        // Set the updated URL back to the attribute
+                        donationBtn.setAttribute('href', currentUrl.toString());
+                    <?php endif; ?>
                 });
 
             <?php

@@ -27,7 +27,7 @@ function zakat_calc_vc()
 			array(
 				"type"			=> "dropdown",
 				"admin_label"	=> false,
-				"heading"		=> esc_html__("Get posts from a specific Taxonomy", 'ONYX_DOMAIN'),
+				"heading"		=> esc_html__("Donation Platform", 'ONYX_DOMAIN'),
 				"param_name"	=> "zakat_calc_platform_type",
 				"value"			=> array('Give Wp' => 'give_wp', 'FundRaiseUp' => 'fund_raise_up'),
 			),

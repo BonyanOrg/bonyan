@@ -26,12 +26,49 @@ function qurbani_calculator_vc()
 					"description"	=> esc_html__("Type a description to show under the section title.", 'text_DOMAIN'),
 				),
 				array(
+					"type" => "dropdown",
+					"admin_label" => false,
+					"heading" => esc_html__("Donation Platform", 'text_DOMAIN'),
+					"param_name" => "qurbani_calculator_platform",
+					"value" => array('None' => 'none', 'Give WP' => 'give_wp', 'Fundraise Up' => 'fundraiseup'),
+					"description" => esc_html__("The type of the donation platform", 'text_DOMAIN'),
+
+				),
+				array(
 					"type" => "textfield",
 					"admin_label" => true,
 					"heading" => esc_html__("Give Form ID", 'text_DOMAIN'),
 					"param_name" => "qurbani_calculator_give_form_id",
 					"value" => "",
 					"description" => esc_html__("Give WP Form ID", 'text_DOMAIN'),
+					'dependency'    => array(
+						'element'   => 'qurbani_calculator_platform',
+						'value' 	=> "give_wp",
+					),
+				),
+				array(
+					"type" => "textfield",
+					"admin_label" => true,
+					"heading" => esc_html__("fundraiseup Form ID", 'text_DOMAIN'),
+					"param_name" => "qurbani_calculator_fundraiseup_form_id",
+					"value" => "",
+					"description" => esc_html__("Fundraiseup Form ID Ex:qurbani", 'text_DOMAIN'),
+					'dependency'    => array(
+						'element'   => 'qurbani_calculator_platform',
+						'value' 	=> "fundraiseup",
+					),
+				),
+				array(
+					"type" => "textfield",
+					"admin_label" => true,
+					"heading" => esc_html__("Custom Field Name", 'text_DOMAIN'),
+					"param_name" => "qurbani_calculator_fundraiseup_custom_field_name",
+					"value" => "",
+					"description" => esc_html__("Fundraiseup Custom Field Ex:qurbani", 'text_DOMAIN'),
+					'dependency'    => array(
+						'element'   => 'qurbani_calculator_platform',
+						'value' 	=> "fundraiseup",
+					),
 				),
 				array(
 					"type" => "param_group",
