@@ -9,9 +9,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
     /* ===[Start Main Slider]=== */
     const mainCarousel = new Swiper(".main-carousel", {
-        preloadImages: false,
+        preloadImages: true,
         touchEventsTarget: "container",
         grabCursor: true,
+        
 
         autoplay: {
             delay: 3000,
@@ -20,9 +21,9 @@ window.addEventListener('DOMContentLoaded', function () {
             waitForTransition: true,
         },
 
-        lazy: {
-            ...globalSwiperOptions
-        },
+        // lazy: {
+        //     ...globalSwiperOptions
+        // },
 
         pagination: {
             el: ".swiper-pagination",

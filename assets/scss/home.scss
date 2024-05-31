@@ -2,8 +2,11 @@
 
 /* ===[Start Main Slider]=== */
 .main-carousel {
-  height: calc(100vh - 118px);
+  height: calc(60vh - 50px);
   margin-top: 125px;
+  width: 100%;
+  margin: auto;
+  max-width: 1300px;
 
   @media (max-width: 1199px) {
     height: 75vh;
@@ -23,6 +26,12 @@
     display: flex;
     align-items: center;
     height: 100%;
+
+    .container{
+      @media (min-width: 1400px) {
+        max-width: 1200px;
+      }
+    }
 
     &::before {
       content: "";

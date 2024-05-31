@@ -21,8 +21,8 @@
 
             ?>
                     <div class="swiper-slide">
-                        <img src="<?php echo get_the_post_thumbnail_url($slider_post->ID) ?>" alt="Main Slider" loading="lazy">
-                        <div class="swiper-lazy-preloader"></div>
+                        <img src="<?php echo get_the_post_thumbnail_url($slider_post->ID) ?>" alt="Main Slider">
+                        <!-- <div class="swiper-lazy-preloader"></div> -->
 
                         <div class="container">
                             <div class="slide-content">
