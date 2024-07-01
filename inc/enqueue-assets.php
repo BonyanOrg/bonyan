@@ -48,6 +48,7 @@ function bonyan_scripts()
             'ajaxurl' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('ajax-nonce'),
             'user_id' => is_user_logged_in() ? get_current_user_id() : '',
+            'grecaptcha_site_key' => !empty(get_option('general_recaptcha_site_key')) ? get_option('general_recaptcha_site_key') : false,
         )
     );
     /* =====[End Enqueue GLOBAL Assets]===== */
@@ -178,7 +179,7 @@ add_action('get_footer', 'load_styles_in_footer');
  */
 function support_rtl($styles_ids)
 {
-    foreach ($styles_ids as $style_id):
+    foreach ($styles_ids as $style_id) :
         wp_style_add_data($style_id, 'rtl', 'replace');
         wp_style_add_data($style_id, 'suffix', '.min');
     endforeach;

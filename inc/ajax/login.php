@@ -17,7 +17,13 @@ function custom_login()
 		global $wpdb;
 		$user_email = isset($_POST['user_email']) ? sanitize_text_field($_POST['user_email']) : '';
 		$user_password = isset($_POST['user_password']) ? sanitize_text_field($_POST['user_password']) : '';
-		if (empty($user_email) || empty($user_password)) wp_die();
+		$google_recaptcha_token = isset($_POST['Gtoken']) ? $_POST['Gtoken'] : '';
+		if (empty($user_email) || empty($user_password) || empty($google_recaptcha_token)) wp_die();
+		$is_valid_token = verifyRecaptcha($google_recaptcha_token);
+		if(!$is_valid_token){
+			wp_send_json(['error_message' => 'unauthorized'], 400);
+			wp_die();
+		}
 		$verify_user = login_to_website($user_email, $user_password);
 		if (!is_wp_error($verify_user)) {
 
@@ -47,4 +53,45 @@ function login_to_website($user_name, $user_password)
 	$login_array['user_password'] = $user_password;
 	$verify_user = wp_signon($login_array, is_ssl());
 	return $verify_user;
+}
+function verifyRecaptcha($token)
+{
+	// reCAPTCHA secret key
+	$secretKey = get_option('general_recaptcha_secret_key', '');
+	if (empty($secretKey)) {
+		return false;
+	}
+
+	// Send a POST request to Google's reCAPTCHA verification endpoint
+	$url = 'https://www.google.com/recaptcha/api/siteverify';
+	$data = [
+		'secret' => $secretKey,
+		'response' => $token,
+	];
+
+	$options = [
+		'http' => [
+			'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+			'method' => 'POST',
+			'content' => http_build_query($data),
+		],
+	];
+
+	$context = stream_context_create($options);
+	$response = file_get_contents($url, false, $context);
+
+	if ($response === false) {
+		// Error handling (e.g., unable to reach the reCAPTCHA service)
+		return false;
+	}
+
+	$responseData = json_decode($response);
+
+	if ($responseData->success) {
+		// reCAPTCHA verification successful
+		return true;
+	} else {
+		// reCAPTCHA verification failed
+		return false;
+	}
 }

@@ -19,7 +19,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<meta property="og:image" content="https://bonyan.ngo/wp-content/uploads/2023/06/عرضي-مفرغ.webp" />
+	<?php
+	if (!empty(get_option('general_recaptcha_secret_key'))) {
+	?>
+		<script src="https://www.google.com/recaptcha/api.js?render=<?= esc_attr(get_option('general_recaptcha_site_key')) ?>"></script>
 
+	<?php
+	}
+	?>
 	<?php wp_head(); ?>
 </head>
 
@@ -262,6 +269,8 @@
 
 					</div>
 				</div>
-				<script>window._lang='<?= current_language() ?>';</script>
+				<script>
+					window._lang = '<?= current_language() ?>';
+				</script>
 			</div>
 		</header>

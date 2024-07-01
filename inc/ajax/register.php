@@ -23,6 +23,13 @@ function custom_registration()
 		$registration_user_birth_date = isset($_POST['registration_user_birth_date']) ? sanitize_text_field($_POST['registration_user_birth_date']) : '';
 		$registration_user_password = isset($_POST['registration_user_password']) ? sanitize_text_field($_POST['registration_user_password']) : '';
 		$registration_user_password_confirm = isset($_POST['registration_user_password_confirm']) ? sanitize_text_field($_POST['registration_user_password_confirm']) : '';
+		
+		$google_recaptcha_token = isset($_POST['Gtoken']) ? $_POST['Gtoken'] : '';
+		$is_valid_token = verifyRecaptcha($google_recaptcha_token);
+		if(!$is_valid_token){
+			wp_send_json(['error_message' => 'unauthorized'], 400);
+			wp_die();
+		}
 
 		if (empty($registration_user_first_name) || empty($registration_user_last_name) || empty($registration_user_email) || empty($registration_user_password) || empty($registration_user_password_confirm))
 			wp_die();
