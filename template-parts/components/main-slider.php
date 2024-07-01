@@ -14,13 +14,13 @@
 
             if ($main_slider_posts->have_posts()) {
                 foreach ($main_slider_posts->posts as $slider_post) {
-                    $mad_give_form_id = get_post_meta($slider_post->ID, "mad_give_form_id", true);
-                    $mad_choice = get_post_meta($slider_post->ID, "mad_choice", true);
-                    $mad_url = get_post_meta($slider_post->ID, "mad_url", true);
-                    $mad_url_button_text = get_post_meta($slider_post->ID, "mad_url_button_text", true);
-
+                    
+                    $mad_give_form_id = esc_attr(get_post_meta($slider_post->ID, "mad_give_form_id", true));
+                    $mad_choice = esc_attr(get_post_meta($slider_post->ID, "mad_choice", true));
+                    $mad_url = esc_url(get_post_meta($slider_post->ID, "mad_url", true));
+                    $mad_url_button_text = esc_attr(get_post_meta($slider_post->ID, "mad_url_button_text", true));
             ?>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide">  
                         <img src="<?php echo get_the_post_thumbnail_url($slider_post->ID) ?>" alt="Main Slider">
                         <!-- <div class="swiper-lazy-preloader"></div> -->
 
