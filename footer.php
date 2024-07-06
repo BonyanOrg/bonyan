@@ -198,7 +198,11 @@
 					<a href="<?php echo get_option("twitter_url") ?>"><i class="fa-brands fa-twitter"></i></a>
 					<a href="<?php echo get_option("youtube_url") ?>"><i class="fa-brands fa-youtube"></i></a>
 				</div>
-
+				<div class="copyrights">
+					<span>
+						<?= esc_html('Registered 501(c)(3) charity. All donations are tax-deductible. EIN/Tax ID: 61-2107558.', 'bonyan') ?>
+					</span>
+				</div>
 				<div class="copyrights">
 					<span><?= sprintf(__('© %s All Rights Reserved', 'bonyan'), date('Y')) ?></span>
 				</div>
