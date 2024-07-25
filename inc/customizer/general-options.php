@@ -64,3 +64,21 @@ $wp_customize->add_control(
         'mime_type' => 'text',
     )
 );
+
+//===============================
+// Google recaptcha Secret key
+$wp_customize->add_setting('reports_archive_page_template', array(
+    'default' => '',
+    'section' => 'bonyan_general_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'reports_archive_page_template_control',
+    array(
+        'label' => 'Reports Archive Page Template',
+        'section' => 'bonyan_general_section',
+        'settings' => 'reports_archive_page_template',
+        'mime_type' => 'text',
+    )
+);

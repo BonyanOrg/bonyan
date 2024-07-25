@@ -8,16 +8,27 @@ $taxonomy_name = $queried_object->taxonomies[1];
 <div class="container">
     <div class="content-with-info-panel">
 
-        <?php
-        $report_archive_desc = get_option('reports_archive_page_desc');
-        if ($report_archive_desc != '') :
-
+        <?php // Echo pre Report Archive Template
+        $post_slug = !empty(get_option('reports_archive_page_template')) ? esc_html(get_option('reports_archive_page_template')) : '';
+        if (!empty($post_slug)) :
         ?>
             <div class="inner-content">
-                <?php echo $report_archive_desc; ?>
+                <?php
+                $post = get_page_by_path($post_slug, OBJECT);
+                if ($post) {
+                ?>
+                    <style type="text/css" data-type="vc_shortcodes-custom-css">
+                        <?php echo get_post_meta($post->ID, '_wpb_shortcodes_custom_css', true); ?>
+                    </style>
+                <?php
+                    $content = apply_filters('the_content', $post->post_content);
+                    echo $content;
+                }
+                ?>
                 <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet, soluta. Ipsum illo nisi, enim sapiente animi officia dicta a culpa omnis hic suscipit neque beatae molestias molestiae ullam! Praesentium nam rerum asperiores saepe dolorum a accusantium nobis aliquam voluptatem, officiis quaerat earum eaque hic esse repudiandae aliquid repellendus sint quia dicta culpa eum sed obcaecati dolor. Quod quos enim earum! Molestiae vero consequatur illo animi reiciendis atque eum fugiat distinctio error. Nulla dolorem id soluta at exercitationem iste aspernatur neque, commodi quas sunt inventore, alias tenetur cumque odit illo enim obcaecati laboriosam sint possimus ullam consequatur porro! Illo, voluptate temporibus.</p> -->
             </div>
-        <?php endif; ?>
+        <?php else : echo '</br> </br>';
+        endif; ?>
 
     </div>
     <div class="cards-container grid-4">
