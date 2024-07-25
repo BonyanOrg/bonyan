@@ -25,6 +25,14 @@ function contact_info_vc()
 				"description"	=> esc_html__("Type a description to show under the section title.", 'text_DOMAIN'),
 			),
 			array(
+				"type"			=> "textfield",
+				"admin_label"	=> false,
+				"heading"		=> esc_html__("Text Link", 'text_DOMAIN'),
+				"param_name"	=> "contact_info_link",
+				"value"			=> "",
+				"description"	=> esc_html__("Type Link That User Should To Go On Click", 'text_DOMAIN'),
+			),
+			array(
 				"type"			=> "checkbox",
 				"admin_label"	=> false,
 				"heading"		=> esc_html__("Is Phone", 'text_DOMAIN'),

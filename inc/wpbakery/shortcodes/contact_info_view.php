@@ -12,6 +12,7 @@ if (!function_exists('contact_info_shortcode')) {
     {
         extract(shortcode_atts(array(
             'contact_info_icon' => '',
+            'contact_info_link' => '#',
             'contact_info_is_phone' => '',
             'contact_info_is_email' => '',
             'contact_info_phone_number' => '',
@@ -51,7 +52,7 @@ if (!function_exists('contact_info_shortcode')) {
                 <?php elseif ($contact_info_is_email) : ?>
                     <a href="mailto:<?= sanitize_email($contact_info_email); ?>" class="phone-numbers-container">
                     <?php else : ?>
-                        <a href="#" class="phone-numbers-container">
+                        <a href="<?= esc_url($contact_info_link) ?>" class="phone-numbers-container" style="<?= $contact_info_link == '#' ? 'cursor: auto;' : ''; ?>">
                         <?php endif; ?>
                         <div class="contact-icon">
                             <?php if (!empty($contact_info_icon)) : ?>
