@@ -14,20 +14,26 @@ $wp_customize->add_section('header_section', array(
 
 
 //==============
-// Is Fundraise Up Button
-$wp_customize->add_setting('is_fundraise_up_btn', array(
+// Fundraise Provider
+$wp_customize->add_setting('fundraise_provider', array(
     'default' => '',
     'section' => 'header_section',
     'type' => 'option',
+    'transport' => 'refresh',
 
 ));
 $wp_customize->add_control(
-    'is_fundraise_up_btn_shortcode',
+    'fundraise_provider_shortcode',
     array(
-        'label'    => 'Is The Header Donation Button Is Fundraise Up WP Forum',
+        'label'    => 'Is The Header Donation Button Is Fundraise_provider Up WP Forum',
         'section' => 'header_section',
-        'settings' => 'is_fundraise_up_btn',
-        'type'     => 'checkbox',
+        'settings' => 'fundraise_provider',
+        'type'     => 'select',
+        'choices' => array(
+            'fundraise_up' => __('Fundraise Up', 'bonyan'),
+            'give_wp' => __('Give Wp', 'bonyan'),
+            'charitystack' => __('Charity Stack', 'bonyan'),
+        ),
     )
 );
 
@@ -37,6 +43,7 @@ $wp_customize->add_setting('fundraise_up_header_btn_link', array(
     'default' => '',
     'section' => 'header_section',
     'type' => 'option',
+    'transport' => 'refresh',
 
 ));
 $wp_customize->add_control(
@@ -46,6 +53,7 @@ $wp_customize->add_control(
         'section' => 'header_section',
         'settings' => 'fundraise_up_header_btn_link',
         'type'     => 'text',
+
     )
 );
 
@@ -55,6 +63,7 @@ $wp_customize->add_setting('give_form_id', array(
     'default' => '',
     'section' => 'header_section',
     'type' => 'option',
+    'transport' => 'refresh',
 
 ));
 $wp_customize->add_control(
@@ -64,6 +73,7 @@ $wp_customize->add_control(
         'section' => 'header_section',
         'settings' => 'give_form_id',
         'type'     => 'number',
+
     )
 );
 
@@ -75,6 +85,8 @@ $wp_customize->add_setting('default_donation_amount', array(
     'default' => '',
     'section' => 'header_section',
     'type' => 'option',
+    'transport' => 'refresh',
+    'sanitize_callback' => 'sanitize_text_field',
 
 ));
 $wp_customize->add_control(
@@ -84,5 +96,25 @@ $wp_customize->add_control(
         'section' => 'header_section',
         'settings' => 'default_donation_amount',
         'type'     => 'number',
+
+    )
+);
+
+//==============
+// Charity Stack Element ID
+$wp_customize->add_setting('charity_stack_element_id', array(
+    'default' => '',
+    'section' => 'header_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'charity_stack_element_id_shortcode',
+    array(
+        'label'    => 'The Id of the form element',
+        'section' => 'header_section',
+        'settings' => 'charity_stack_element_id',
+        'type'     => 'text',
+
     )
 );

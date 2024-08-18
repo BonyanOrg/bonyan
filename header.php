@@ -47,9 +47,14 @@
 
 	<!-- Start GiveWP Modal -->
 	<div id="givewp-modal" class="givewp-modal user-action-modal">
-
 	</div>
 	<!-- End GiveWP Modal -->
+	<!-- Start Charity Stack Modal -->
+	<div id="charity-stack-modal" class="charity-stack-modal givewp-modal user-action-modal">
+	</div>
+	<!-- End Charity Stack Modal -->
+
+	</div>
 
 	<div id="page" class="site">
 		<header id="masthead" class="site-header">
@@ -63,34 +68,77 @@
 								<?php the_custom_logo(); ?>
 							</a>
 						</div>
-
-						<!-- Donate button -->
-						<?php
-						// Check if the fundraise up button is enabled
-						$is_fundraise_up_btn_enabled = get_option('is_fundraise_up_btn') === '1';
-
-						// Determine the button link based on whether the button is enabled
-						$button_link = $is_fundraise_up_btn_enabled ? (!empty(get_option('fundraise_up_header_btn_link')) ? esc_url(get_option('fundraise_up_header_btn_link')) : '#') : '#';
-
-						// Determine the button class based on whether the button is enabled and user login status
-						$button_classes = $is_fundraise_up_btn_enabled ? 'primary-btn' : 'user-action-btn primary-btn';
-						$button_classes .= ' ' . (is_user_logged_in() ? 'donation-btn' : 'donation-action');
-
-						$donation_btn_inline_style = $is_fundraise_up_btn_enabled ? ' style="display: none" ' : '';
-						// Determine the data target attribute based on user login status
-						$data_target = is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"';
-
-						// Get the GiveWP form ID and default donation amount
-						$give_form_id = get_option('give_form_id');
-						$default_donation_amount = intval(get_option("default_donation_amount"));
-						?>
 						<div class="donation-button-holder as-block ms-2 ms-lg-3 me-1 me-lg-3">
-							<a href="<?= $button_link ?>" <?= $donation_btn_inline_style ?> class="<?= $button_classes ?>" <?= $data_target ?> data-giveformid="<?= $give_form_id ?>" data-amount="<?= $default_donation_amount ?>">
-								<span><?php _e('Donate Now', 'bonyan') ?></span>
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
-									<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
-								</svg>
-							</a>
+							<!-- Donate button -->
+							<?php
+
+							// Check if the fundraise up button is enabled
+							$fundraise_provider = !empty(get_option('fundraise_provider')) ? get_option('fundraise_provider') : 'give_wp';
+
+							switch ($fundraise_provider) {
+								case 'fundraise_up':
+									// $button_classes = ' ' . (is_user_logged_in() ? 'donation-btn' : 'donation-action');
+									$button_classes = ' ' .  'donation-btn';
+									// $data_target = is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"';
+									$data_target = 'data-target="givewp-modal"';
+
+									$button_link = (!empty(get_option('fundraise_up_header_btn_link')) ? esc_url(get_option('fundraise_up_header_btn_link')) : '#')
+							?>
+									<a href="<?= $button_link ?>" style="display: none" class="primary-btn <?= $button_classes ?>" <?= $data_target ?>>
+										<span><?php _e('Donate Now', 'bonyan') ?></span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
+											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
+										</svg>
+									</a>
+								<?php
+
+									break;
+								case 'give_wp':
+									// Get the GiveWP form ID and default donation amount
+									$give_form_id = get_option('give_form_id');
+									$default_donation_amount = intval(get_option("default_donation_amount"));
+
+									$button_classes = ' ' .  'donation-btn';
+									// $data_target = is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"';
+									$data_target =  'data-target="givewp-modal"';
+
+
+								?>
+									<a class="user-action-btn primary-btn<?= $button_classes ?>" <?= $data_target ?> data-giveformid="<?= $give_form_id ?>" data-amount="<?= $default_donation_amount ?>">
+										<span><?php _e('Donate Now', 'bonyan') ?></span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
+											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
+										</svg>
+									</a>
+								<?php
+
+									break;
+								case 'charitystack':
+									// Get the GiveWP form ID and default donation amount
+									$charity_stack_element_id = get_option('charity_stack_element_id');
+
+									$button_classes = ' ' .  'donation-btn';
+									// $data_target = is_user_logged_in() ? 'data-target="charity-stack-modal"' : 'data-target="donation-modal"';
+									$data_target =  'data-target="charity-stack-modal"';
+
+
+								?>
+									<a class="user-action-btn primary-btn <?= $button_classes ?>" <?= $data_target ?> data-charity-stack-element-id="<?= $charity_stack_element_id ?>">
+										<span><?php _e('Donate Now', 'bonyan') ?></span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
+											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
+										</svg>
+									</a>
+							<?php
+									break;
+							}
+
+
+
+
+							?>
+
+
 						</div>
 
 						<!-- Search -->

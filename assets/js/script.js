@@ -66,29 +66,34 @@ window.addEventListener('DOMContentLoaded', function () {
             let giveFormId;
             let amount;
             let charityTagName;
-    
+
             modalBtns.forEach((modalBtn) => {
                 modalBtn.addEventListener('click', function () {
+
                     // e.preventDefault();
                     targetedModalName = modalBtn.getAttribute('data-target');
                     targetedModal = document.getElementById(targetedModalName);
-                    giveFormId = this.getAttribute('data-giveformid');
-                    amount = this.getAttribute('data-amount');
-                    charityTagName = this.getAttribute('data-tagName');
-    
-                    // Check if this is donation button then check if the giveFormId not exist so don't open modal
-                    if (modalBtn.classList.contains('donation-action') || modalBtn.classList.contains('donation-btn')) {
-                        if (!giveFormId) {
-                            toastr.warning('No form ID was found');
-                            return;
+                    if (targetedModalName == 'givewp-modal') {
+                        giveFormId = this.getAttribute('data-giveformid');
+                        amount = this.getAttribute('data-amount');
+                        charityTagName = this.getAttribute('data-tagName');
+
+                        // Check if this is donation button then check if the giveFormId not exist so don't open modal
+                        if ((modalBtn.classList.contains("donation-action") ||
+                            modalBtn.classList.contains("donation-btn"))
+                        ) {
+                            if (!giveFormId) {
+                                toastr.warning('No form ID was found');
+                                return;
+                            }
+
+                            let continueAsGuest = document.querySelector('.continue-as-guest');
+                            continueAsGuest.setAttribute('data-giveformid', giveFormId);
+                            continueAsGuest.setAttribute('data-amount', amount === null ? 50 : amount);
+                            continueAsGuest.setAttribute('data-tagName', charityTagName);
                         }
-    
-                        let continueAsGuest = document.querySelector('.continue-as-guest');
-                        continueAsGuest.setAttribute('data-giveformid', giveFormId);
-                        continueAsGuest.setAttribute('data-amount', amount === null ? 50 : amount);
-                        continueAsGuest.setAttribute('data-tagName', charityTagName);
+
                     }
-    
                     if (targetedModal !== null) {
                         // If already a modal opened
                         if (document.body.classList.contains('modal-active')) {
@@ -99,17 +104,17 @@ window.addEventListener('DOMContentLoaded', function () {
                                 userActionModal.style.opacity = '0';
                             });
                         }
-    
+
                         // Open
                         targetedModal.classList.add('opened');
                         targetedModal.closest('body').classList.add('modal-active');
                         targetedModal.style.display = 'flex';
-    
+
                         setTimeout(() => {
                             targetedModal.style.opacity = '1';
                         }, 100);
                     }
-    
+
                     // Close
                     if (targetedModal !== null) {
                         targetedModal.addEventListener('click', function (e) {
@@ -118,7 +123,7 @@ window.addEventListener('DOMContentLoaded', function () {
                                 targetedModal.closest('body').classList.remove('modal-active');
                                 targetedModal.style.opacity = '0';
                                 document.querySelector('.continue-as-guest').setAttribute('data-qurbandetails', ""); // Reset Qurban Details (for normal donations on guest Mod)
-        
+
                                 setTimeout(() => {
                                     targetedModal.style.display = 'none';
                                 }, 300);
@@ -247,48 +252,48 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     /* ===[End Handle upload file]=== */
 
-        /* ===[Start Count the header for scroll to anchor]=== */
-        function correctScrollToAnchor() {
-            let links = document.querySelectorAll('a[href^="#"]');
-            let headerHeight = document.querySelector('header').clientHeight;
-    
-            links?.forEach((link) => {
-                link.addEventListener('click', function(e){
-                    let anchorTarget = e.target.getAttribute('href');
-                    
-                    if (anchorTarget && anchorTarget.length <= 1) {
-                        return;
-                    }
-                                  
-                    if (anchorTarget && anchorTarget.length > 1) {
-                        e.preventDefault();
-                        let anchorTargetPosition = document.querySelector(anchorTarget);
-                        let scrollToCalc = anchorTargetPosition.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
-    
-                        window.location.hash = anchorTarget;
-                        window.scrollTo(0, scrollToCalc);
-                    }
-    
-                });
-            })
-        };
-    
-        correctScrollToAnchor();
-    
-        window.addEventListener('resize', correctScrollToAnchor());
-        /* ===[End Count the header for scroll to anchor]=== */
+    /* ===[Start Count the header for scroll to anchor]=== */
+    function correctScrollToAnchor() {
+        let links = document.querySelectorAll('a[href^="#"]');
+        let headerHeight = document.querySelector('header').clientHeight;
+
+        links?.forEach((link) => {
+            link.addEventListener('click', function (e) {
+                let anchorTarget = e.target.getAttribute('href');
+
+                if (anchorTarget && anchorTarget.length <= 1) {
+                    return;
+                }
+
+                if (anchorTarget && anchorTarget.length > 1) {
+                    e.preventDefault();
+                    let anchorTargetPosition = document.querySelector(anchorTarget);
+                    let scrollToCalc = anchorTargetPosition.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+
+                    window.location.hash = anchorTarget;
+                    window.scrollTo(0, scrollToCalc);
+                }
+
+            });
+        })
+    };
+
+    correctScrollToAnchor();
+
+    window.addEventListener('resize', correctScrollToAnchor());
+    /* ===[End Count the header for scroll to anchor]=== */
 });
 
 /* ===[Start Toggle Zoho Desk]=== */
 let zohoDeskBtn = document.querySelector('.zoho-desk-support-btn');
 
 if (zohoDeskBtn !== null) {
-    zohoDeskBtn.addEventListener('click', function(){
+    zohoDeskBtn.addEventListener('click', function () {
         zohoDeskParentContainer = this.parentElement;
         zohoForm = this.nextElementSibling;
-        
+
         if (zohoForm.classList.contains('zds-expanded')) {
-            
+
             setTimeout(() => {
                 zohoForm.classList.add('d-none');
                 zohoDeskParentContainer.classList.remove('active');
@@ -297,11 +302,11 @@ if (zohoDeskBtn !== null) {
             zohoForm.classList.remove('zds-expanded');
             zohoDeskParentContainer.querySelector('svg:first-of-type').classList.remove('d-none');
             zohoDeskParentContainer.querySelector('svg:last-of-type').classList.add('d-none');
-        } 
-        
+        }
+
         else {
             setTimeout(() => {
-                zohoForm.classList.add('zds-expanded');                
+                zohoForm.classList.add('zds-expanded');
             }, 100);
 
             zohoDeskParentContainer.querySelector('svg:first-of-type').classList.add('d-none');
@@ -314,23 +319,23 @@ if (zohoDeskBtn !== null) {
 /* ===[End Toggle Zoho Desk]=== */
 
 /* ===[Start New Dashboard]=== */
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function () {
     // Sidebar Toggler Handler
     let dashboardSidebarToggler = document.querySelector('.sidebar-header .collapse-toggler');
 
     if (dashboardSidebarToggler !== null && window.innerWidth > 992) {
-        dashboardSidebarToggler.addEventListener('click', function(){
+        dashboardSidebarToggler.addEventListener('click', function () {
             let dashboardBox = this.closest('.dashboard-box');
             dashboardBox.classList.toggle('dashboard-sidebar-collapsed');
         });
     }
 
     if (window.innerWidth <= 992) {
-        dashboardSidebarToggler.addEventListener('click', function(){
+        dashboardSidebarToggler.addEventListener('click', function () {
             let sidebarItems = document.querySelectorAll('.dashboard-sidebar-item');
 
             sidebarItems.forEach((sidebarItem) => {
-                sidebarItem.classList.toggle('d-none');                
+                sidebarItem.classList.toggle('d-none');
             })
         });
     }
@@ -353,9 +358,9 @@ window.addEventListener('DOMContentLoaded', function(){
 
     /* Start Dashboard Add Active Class Handler & show related content */
     for (let dashboardTab of dashboardTabs) {
-        dashboardTab.addEventListener('click', function(){
+        dashboardTab.addEventListener('click', function () {
             let _this = this;
-            
+
             if (_this.classList.contains('active')) {
                 return;
             }
@@ -376,7 +381,7 @@ window.addEventListener('DOMContentLoaded', function(){
     /* End Dashboard Add Active Class Handler & show related content */
 });
 
-jQuery(document).ready(function($){
+jQuery(document).ready(function ($) {
     // Donation History DataTable
     // Global Variables
     let getDir = document.dir;
@@ -409,7 +414,7 @@ jQuery(document).ready(function($){
     let statusPosition = {
         left: 0
     }
-    
+
     if (getPageDir === 'rtl') {
         statusPosition = {
             left: "unset",
@@ -423,7 +428,7 @@ jQuery(document).ready(function($){
         if ($('.dashboard-sidebar-item[data-target=donation-history]').hasClass('active')) {
             pageLength = 10;
         }
-        
+
         let donationHistoryTable = donationHistory.DataTable({
             "dom": 'rtip',
             "paging": true,
@@ -441,14 +446,14 @@ jQuery(document).ready(function($){
             ],
 
             "language": {
-                 ...arLang,
+                ...arLang,
                 paginate: {
                     "next": "<div><i class='fa-solid fa-arrow-right'></i></div>",
                     "previous": "<div><i class='fa-solid fa-arrow-left'></i></div>"
                 }
             },
 
-            "rowCallback": function( row, data ) {
+            "rowCallback": function (row, data) {
                 if (!isResponsive) {
                     $('td:eq(4)', row).css({
                         position: "relative",
@@ -464,29 +469,29 @@ jQuery(document).ready(function($){
                         transform: "translateY(-50%)",
                         ...statusPosition
                     });
-                    
+
                     switch ($('td:eq(4) span', row).text()) {
                         case "Complete":
                             $('td:eq(4) .status', row).css({
                                 background: "#38C2CF"
                             });
-    
+
                             break;
-    
+
                         case "Pending":
                             $('td:eq(4) .status', row).css({
                                 background: "#E8B21F"
                             });
-    
+
                             break;
-                            
+
                         case "Abandoned":
                             $('td:eq(4) .status', row).css({
                                 background: "#f42020"
                             });
-    
+
                             break;
-                    
+
                         default:
                             $('td:eq(4) .status', row).css({
                                 background: "transparent"
@@ -497,13 +502,13 @@ jQuery(document).ready(function($){
             }
         });
 
-        $('.sidebar-header').on('click', function(){
+        $('.sidebar-header').on('click', function () {
             setTimeout(() => {
                 donationHistoryTable.draw();
             }, 300)
         });
 
-        $('.dashboard-sidebar-item').on('click', function() {
+        $('.dashboard-sidebar-item').on('click', function () {
             setTimeout(() => {
                 donationHistoryTable.columns.adjust();
                 donationHistoryTable.draw();
@@ -516,7 +521,7 @@ jQuery(document).ready(function($){
     let recurring = $('#recurring-donations-table');
 
     if (recurring.length > 0) {
-        
+
         let recurringTable = recurring.DataTable({
             "dom": 'rtip',
             "paging": true,
@@ -529,7 +534,7 @@ jQuery(document).ready(function($){
             responsive: isResponsive,
 
             "language": {
-                 ...arLang,
+                ...arLang,
                 paginate: {
                     "next": "<div><i class='fa-solid fa-arrow-right'></i></div>",
                     "previous": "<div><i class='fa-solid fa-arrow-left'></i></div>"
@@ -541,7 +546,7 @@ jQuery(document).ready(function($){
                 // { responsivePriority: 2, targets: -2 }
             ],
 
-            "rowCallback": function( row, data ) {
+            "rowCallback": function (row, data) {
                 if (!isResponsive) {
                     $('td:eq(4)', row).css({
                         position: "relative",
@@ -557,60 +562,60 @@ jQuery(document).ready(function($){
                         transform: "translateY(-50%)",
                         ...statusPosition
                     });
-    
+
                     switch ($('td:eq(4) span', row).text()) {
                         case "Active":
                             $('td:eq(4) .status', row).css({
                                 background: "#38C2CF"
                             });
-    
+
                             break;
-    
+
                         case "Pending":
                             $('td:eq(4) .status', row).css({
                                 background: "#E8B21F"
                             });
-    
+
                             break;
-                            
+
                         case "Abandoned":
                             $('td:eq(4) .status', row).css({
                                 background: "#f42020"
                             });
-    
+
                             break;
-    
+
                         case "Failed":
                             $('td:eq(4) .status', row).css({
                                 background: "#f42020"
                             });
-    
+
                             break;
-    
+
                         case "Cancelled":
                             $('td:eq(4) .status', row).css({
                                 background: "#b9b9b9"
                             });
-    
+
                             break;
-                    
+
                         default:
                             $('td:eq(4) .status', row).css({
                                 background: "transparent"
                             });
                             break;
                     }
-                }  
+                }
             }
         });
 
-        $('.sidebar-header').on('click', function(){
+        $('.sidebar-header').on('click', function () {
             setTimeout(() => {
                 recurringTable.draw();
             }, 300)
         });
 
-        $('.dashboard-sidebar-item').on('click', function() {
+        $('.dashboard-sidebar-item').on('click', function () {
             setTimeout(() => {
                 recurringTable.columns.adjust();
                 recurringTable.draw();
@@ -625,7 +630,7 @@ jQuery(document).ready(function($){
     let previewAvatarName = document.querySelector('.dashboard-upload-information span > span');
 
     if (uploadAvatarInput !== null) {
-        uploadAvatarInput.addEventListener('change', function(){
+        uploadAvatarInput.addEventListener('change', function () {
             previewAvatar.src = URL.createObjectURL(this.files[0]);
             previewAvatarName.textContent = this.files[0].name;
         });

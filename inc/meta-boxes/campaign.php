@@ -12,6 +12,8 @@ function Init_Campaign_Options($post)
     $co_donation_platform = get_post_meta($post->ID, "co_donation_platform", true);
     $co_give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
 
+    $co_charity_stack_element_id = get_post_meta($post->ID, "co_charity_stack_element_id", true);
+
     $co_fund_raise_up_form_id = get_post_meta($post->ID, "co_fund_raise_up_form_id", true);
     $is_fund_rase_up_recurring = get_post_meta($post->ID, "is_fund_rase_up_recurring", true);
 
@@ -47,6 +49,7 @@ function Init_Campaign_Options($post)
                         <option value="">--Select The Platform--</option>
                         <option value="give_wp" <?= selected($co_donation_platform, 'give_wp', true) ?>>Give WP</option>
                         <option value="fund_raise_up" <?= selected($co_donation_platform, 'fund_raise_up', true) ?>>FundRaiseUp</option>
+                        <option value="charity_stack" <?= selected($co_donation_platform, 'charity_stack', true) ?>>Charity Stack</option>
                     </select>
                 </td>
             </tr>
@@ -62,6 +65,13 @@ function Init_Campaign_Options($post)
                         <?php endif; ?>
                     </select>
                 </td>
+            </tr>
+            <!-- Charity Stack Element ID -->
+            <tr class="form-field">
+                <th>
+                    <label for="co_charity_stack_element_id">Charity Stack Element ID</label>
+                </th>
+                <td><input type="text" name="co_charity_stack_element_id" id="co_charity_stack_element_id" value="<?php echo $co_charity_stack_element_id; ?>"></td>
             </tr>
             <tr>
                 <td>
@@ -213,6 +223,9 @@ function save_campaign_options($post_id)
 
     if (isset($_POST['co_give_form_id']))
         update_post_meta($post_id, 'co_give_form_id', $_POST['co_give_form_id']);
+
+    if (isset($_POST['co_charity_stack_element_id']))
+        update_post_meta($post_id, 'co_charity_stack_element_id', sanitize_text_field($_POST['co_charity_stack_element_id']));
 
     if (isset($_POST['co_fund_raise_up_form_id']))
         update_post_meta($post_id, 'co_fund_raise_up_form_id', $_POST['co_fund_raise_up_form_id']);

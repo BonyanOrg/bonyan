@@ -80,3 +80,9 @@ require __DIR__ . '/get_events_categories.php';
 require __DIR__ . '/send-email.php';
 require __DIR__ . '/preview-email.php';
 
+//=====================================
+//        Charity Stack form 
+//=====================================
+require __DIR__ . '/get_charity_stack_form.php';
+
+

@@ -2,6 +2,8 @@
 $co_donation_platform = !empty(get_post_meta($post->ID, "co_donation_platform", true)) ? get_post_meta($post->ID, "co_donation_platform", true) : 'give_wp';
 $give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
 
+$co_charity_stack_element_id = get_post_meta($post->ID, "co_charity_stack_element_id", true);
+
 $co_fund_raise_up_form_id = get_post_meta($post->ID, "co_fund_raise_up_form_id", true);
 $is_fund_rase_up_recurring = !empty(get_post_meta($post->ID, "is_fund_rase_up_recurring", true)) ? get_post_meta($post->ID, "is_fund_rase_up_recurring", true) : 'once';
 
@@ -126,7 +128,14 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
 
     <div class="card-footer campaign-card-cta">
         <?php if ($co_donation_platform === 'give_wp') : ?>
-            <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate', 'bonyan') ?></button>
+            <button data-giveformid="<?php echo $give_form_id ?>" class="donation-btn  user-action-btn primary-btn no-border" <?= 'data-target="givewp-modal"' ?>><?php _e('Donate', 'bonyan') ?></button>
+        <?php endif; ?>
+        <?php if ($co_donation_platform === 'charity_stack') : ?>
+            <!-- class="<?php //echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; 
+                        ?> -->
+            <?php //echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; 
+            ?>
+            <button class="donation-btn user-action-btn primary-btn no-border" <?= 'data-target="charity-stack-modal"' ?> data-charity-stack-element-id="<?= $co_charity_stack_element_id ?>"><?php _e('Donate', 'bonyan') ?></button>
         <?php endif; ?>
         <?php if ($co_donation_platform === 'fund_raise_up') : ?>
             <a href="<?= esc_url($pure_permalink . '?form=' . $co_fund_raise_up_form_id . '&amount=' . $co_donation_amount . '&modifyAmount=yes&recurring=' . $is_fund_rase_up_recurring) ?>" class=" user-action-btn primary-btn no-border fund_raise_up-btn"><?php _e('Donate', 'bonyan') ?></a>
