@@ -188,12 +188,12 @@
 						</div>
 
 						<!-- Language Swicher -->
-						<!-- <div class="lang-switcher hide-from-laptop-up as-block">
+						<div class="lang-switcher hide-from-laptop-up as-block">
 							<button class="secondary-outlined-btn">
 								<span class="me-2 current-lang">
 									<?php
-									//$lang = current_language();
-									//echo strtoupper($lang);
+									$lang = current_language();
+									echo strtoupper($lang);
 									?>
 								</span>
 
@@ -210,17 +210,17 @@
 								<div class="menu-languages-container">
 									<ul id="language-menu" class="menu">
 										<?php
-										// wp_nav_menu(
-										// 	array(
-										// 		'theme_location' => 'languages',
-										// 		'menu_id'        => 'languages-menu',
-										// 	)
-										// );
+										wp_nav_menu(
+											array(
+												'theme_location' => 'languages',
+												'menu_id'        => 'languages-menu',
+											)
+										);
 										?>
 									</ul>
 								</div>
 							</ul>
-						</div> -->
+						</div>
 					</div>
 
 				</div>
@@ -279,12 +279,12 @@
 								</div>
 
 								<!-- Language Swicher -->
-								<!-- <div class="lang-switcher">
+								<div class="lang-switcher">
 									<button class="secondary-outlined-btn">
 										<span class="me-2 current-lang">
 											<?php
-											//$lang = current_language();
-											//echo strtoupper($lang);
+											$lang = current_language();
+											echo strtoupper($lang);
 											?>
 										</span>
 
@@ -301,17 +301,17 @@
 										<div class="menu-languages-container">
 											<ul id="language-menu" class="menu">
 												<?php
-												// wp_nav_menu(
-												// 	array(
-												// 		'theme_location' => 'languages',
-												// 		'menu_id'        => 'languages-menu',
-												// 	)
-												// );
+												wp_nav_menu(
+													array(
+														'theme_location' => 'languages',
+														'menu_id'        => 'languages-menu',
+													)
+												);
 												?>
 											</ul>
 										</div>
 									</ul>
-								</div> -->
+								</div>
 							</div>
 						</div>
 
