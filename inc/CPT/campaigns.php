@@ -25,7 +25,7 @@ function register_campaigns_cpt()
         'publicly_queryable' => true,
         'show_ui'            => true,
         'show_in_menu'       => true,
-        'query_var'          => true,
+        'query_var'          => false,
         'rewrite'            => array('slug' => 'campaigns'),
         'has_archive'        => true,
         'hierarchical'       => false,

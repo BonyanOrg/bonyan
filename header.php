@@ -123,7 +123,7 @@
 
 
 								?>
-									<a class="user-action-btn primary-btn <?= $button_classes ?>" <?= $data_target ?> data-charity-stack-element-id="<?= $charity_stack_element_id ?>">
+									<a class="user-action-btn primary-btn <?= $button_classes ?>" <?= $data_target ?> data-charity-stack-element-id="<?= $charity_stack_element_id ?>" style="cursor: pointer;">
 										<span><?php _e('Donate Now', 'bonyan') ?></span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
 											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />

@@ -29,7 +29,7 @@ function zakat_calc_vc()
 				"admin_label"	=> false,
 				"heading"		=> esc_html__("Donation Platform", 'ONYX_DOMAIN'),
 				"param_name"	=> "zakat_calc_platform_type",
-				"value"			=> array('Give Wp' => 'give_wp', 'FundRaiseUp' => 'fund_raise_up'),
+				"value"			=> array('Give Wp' => 'give_wp', 'FundRaiseUp' => 'fund_raise_up','Charity Stack' => 'charity_stack'),
 			),
 			array(
 				"type"			=> "textfield",
