@@ -93,3 +93,6 @@ require_once "shortcodes/cta_btn_view.php";
 
 /*  Campaign Top Donor Section  */
 require_once "shortcodes/campaign_top_donor_view.php";
+
+/*  Classy Form  */
+require_once "shortcodes/classy_form_view.php";

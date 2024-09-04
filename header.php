@@ -129,6 +129,22 @@
 											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
 										</svg>
 									</a>
+								<?php
+									break;
+								case 'classy':
+									// Get the GiveWP form ID and default donation amount
+									$classy_campaign_id = get_option('classy_campaign_id');
+
+									$button_classes = ' ' .  'donation-btn classy-donation';
+
+
+								?>
+									<a href="?campaign=<?= $classy_campaign_id ?>" class=" primary-btn <?= $button_classes ?>" data-campaign-id="<?= $classy_campaign_id ?>" style="cursor: pointer;">
+										<span><?php _e('Donate Now', 'bonyan') ?></span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
+											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
+										</svg>
+									</a>
 							<?php
 									break;
 							}

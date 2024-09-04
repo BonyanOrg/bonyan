@@ -102,6 +102,11 @@ require __DIR__ . '/rank-cpt-archive.php';
 //===========================================
 require __DIR__ . '/paypal-billing-replace.php';
 
+//===========================================
+//  Integrate With Classy Platform
+//===========================================
+require __DIR__ . '/classy.php';
+
 
 // Global 
 
@@ -331,21 +336,22 @@ function print_lang_input_if_required_for_search()
  * @param string $url The URL to clear the query string from.
  * @return string The URL without the query string.
  */
-function clear_url_query_string($url) {
-    // Parse the URL into its components
-    $parsed_url = parse_url($url);
+function clear_url_query_string($url)
+{
+	// Parse the URL into its components
+	$parsed_url = parse_url($url);
 
-    // Remove the query string from the URL components
-    unset($parsed_url['query']);
+	// Remove the query string from the URL components
+	unset($parsed_url['query']);
 
-    // Reconstruct the URL without the query string
-    $cleared_url = http_build_url($parsed_url);
+	// Reconstruct the URL without the query string
+	$cleared_url = http_build_url($parsed_url);
 
-    return $cleared_url;
+	return $cleared_url;
 }
 
 // Restrict show admin bar for specific roles
-$roles = ['give_donor','subscriber'];
+$roles = ['give_donor', 'subscriber'];
 if (check_user_role($roles)) {
 	add_filter('show_admin_bar', '__return_false');
 }

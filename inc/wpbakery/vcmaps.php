@@ -134,3 +134,6 @@ require_once "vcmaps/cta_btn_map.php";
 
 /*  Campaign Top Donor Section  */
 require_once "vcmaps/campaign_top_donor_map.php";
+
+/*  Classy Form  */
+require_once "vcmaps/classy_form_map.php";
