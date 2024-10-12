@@ -29,7 +29,7 @@ function zakat_calc_vc()
 				"admin_label"	=> false,
 				"heading"		=> esc_html__("Donation Platform", 'ONYX_DOMAIN'),
 				"param_name"	=> "zakat_calc_platform_type",
-				"value"			=> array('Give Wp' => 'give_wp', 'FundRaiseUp' => 'fund_raise_up','Charity Stack' => 'charity_stack'),
+				"value"			=> array('Give Wp' => 'give_wp', 'FundRaiseUp' => 'fund_raise_up', 'Charity Stack' => 'charity_stack', 'Classy' => 'classy'),
 			),
 			array(
 				"type"			=> "textfield",
@@ -38,7 +38,7 @@ function zakat_calc_vc()
 				"param_name"	=> "zakat_calc_form_id",
 				"value"			=> "",
 				"description"	=> esc_html__("Paste Just Give Form ID Not ShortCode", 'ONYX_DOMAIN'),
-				'dependency' =>array(
+				'dependency' => array(
 					'element'   => 'zakat_calc_platform_type',
 					'value' 	=> "give_wp",
 				)
@@ -50,9 +50,21 @@ function zakat_calc_vc()
 				"param_name"	=> "zakat_calc_fund_raise_up_form_id",
 				"value"			=> "",
 				"description"	=> esc_html__("FundRaiseUp Form ID, for ex: Zakat-online", 'ONYX_DOMAIN'),
-				'dependency' =>array(
+				'dependency' => array(
 					'element'   => 'zakat_calc_platform_type',
 					'value' 	=> "fund_raise_up",
+				)
+			),
+			array(
+				"type"			=> "textfield",
+				"admin_label"	=> false,
+				"heading"		=> esc_html__("Classy Campaign ID", 'ONYX_DOMAIN'),
+				"param_name"	=> "zakat_calc_classy_campaign_id",
+				"value"			=> "",
+				"description"	=> esc_html__("Classy Campaign ID, for ex: 616462", 'ONYX_DOMAIN'),
+				'dependency' => array(
+					'element'   => 'zakat_calc_platform_type',
+					'value' 	=> "classy",
 				)
 			),
 		)

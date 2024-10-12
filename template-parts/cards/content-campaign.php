@@ -137,8 +137,14 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
             ?>
             <button class="donation-btn user-action-btn primary-btn no-border" <?= 'data-target="charity-stack-modal"' ?> data-charity-stack-element-id="<?= $co_charity_stack_element_id ?>"><?php _e('Donate', 'bonyan') ?></button>
         <?php endif; ?>
+        <?php if ($co_donation_platform === 'classy') :
+            $co_classy_campaign_id = get_post_meta($post->ID, "co_classy_campaign_id", true);
+            $amount_param = !empty(get_post_meta($post->ID, "co_donation_amount", true)) ? '&amount=' . get_post_meta($post->ID, "co_donation_amount", true) : '';
+        ?>
+            <a href="<?= $pure_permalink . '?campaign=' . $co_classy_campaign_id . $amount_param  ?>" class="fund_raise_up-btn primary-btn no-border classy-donation" data-campaign-id="<?= $co_classy_campaign_id ?>"><?php _e('Donate', 'bonyan') ?></a>
+        <?php endif; ?>
         <?php if ($co_donation_platform === 'fund_raise_up') : ?>
-            <a href="<?= esc_url($pure_permalink . '?form=' . $co_fund_raise_up_form_id . '&amount=' . $co_donation_amount . '&modifyAmount=yes&recurring=' . $is_fund_rase_up_recurring) ?>" class=" user-action-btn primary-btn no-border fund_raise_up-btn"><?php _e('Donate', 'bonyan') ?></a>
+            <a href=" <?= esc_url($pure_permalink . '?form=' . $co_fund_raise_up_form_id . '&amount=' . $co_donation_amount . '&modifyAmount=yes&recurring=' . $is_fund_rase_up_recurring) ?>" class=" user-action-btn primary-btn no-border fund_raise_up-btn"><?php _e('Donate', 'bonyan') ?></a>
         <?php endif; ?>
         <a href="<?php echo get_permalink($post) ?>"><?php _e('More', 'bonyan') ?></a>
     </div>

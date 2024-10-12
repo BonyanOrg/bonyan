@@ -112,7 +112,7 @@ $wp_customize->add_setting('charity_stack_element_id', array(
 $wp_customize->add_control(
     'charity_stack_element_id_shortcode',
     array(
-        'label'    => 'The Classy Campaign ID',
+        'label'    => 'The Charity Stack Id of the form element',
         'section' => 'header_section',
         'settings' => 'charity_stack_element_id',
         'type'     => 'text',
@@ -131,7 +131,7 @@ $wp_customize->add_setting('classy_campaign_id', array(
 $wp_customize->add_control(
     'classy_campaign_id_shortcode',
     array(
-        'label'    => 'The Id of the form element',
+        'label'    => 'The Classy Campaign ID',
         'section' => 'header_section',
         'settings' => 'classy_campaign_id',
         'type'     => 'text',
