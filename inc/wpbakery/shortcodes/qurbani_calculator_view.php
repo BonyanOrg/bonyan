@@ -15,6 +15,7 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                     'qurbani_calculator_give_form_id' => '',
                     'qurbani_calculator_fundraiseup_form_id' => '',
                     'qurbani_calculator_fundraiseup_custom_field_name' => '',
+                    'qurbani_calculator_givecloud_campaign_id' => '',
                 ),
                 $atts
             )
@@ -83,6 +84,16 @@ if (!function_exists('qurbani_calculator_shortcode')) {
                             $pure_permalink = clear_url_query_string(get_permalink());
                     ?>
                             <a href="<?= esc_url($pure_permalink . '?form=' . $qurbani_calculator_fundraiseup_form_id . '&amount=50&qurbani=none&modifyAmount=yes&recurring=once') ?>" class="primary-btn " id="qurbani-donation-btn" data-amount="">
+                                <?php _e('Donate Now', 'bonyan'); ?>
+                            </a>
+                        <?php
+                            break;
+                        case 'givecloud':
+                            $options = get_option('givecloud_settings_fields');
+
+                            $url = trim(data_get($options, 'instance_url'), '/');
+                        ?>
+                            <a href="<?= $url . '/fundraising/forms/' . $qurbani_calculator_givecloud_campaign_id . '?gc-a=50'  ?>" class="primary-btn " id="qurbani-donation-btn" data-amount="">
                                 <?php _e('Donate Now', 'bonyan'); ?>
                             </a>
                         <?php
@@ -213,6 +224,18 @@ if (!function_exists('qurbani_calculator_shortcode')) {
 
                         // Set the updated URL back to the attribute
                         donationBtn.setAttribute('href', currentUrl.toString());
+                    <?php endif; ?>
+
+                    <?php if ($qurbani_calculator_platform == 'givecloud') : ?>
+                        // Get the current URL from the attribute
+                        let giveCloudCurrentUrl = donationBtn.getAttribute('href');
+                        console.log(giveCloudCurrentUrl);
+                        // Modify the href to change the 'gc-a' parameter
+                        var newHref = giveCloudCurrentUrl.replace(/(\?|&)gc-a=[^&]*/, '$1gc-a=' + finalResult);
+                        console.log(newHref);
+
+                        // Update the href attribute with the new value
+                        donationBtn.setAttribute('href', newHref.toString());
                     <?php endif; ?>
                 });
 

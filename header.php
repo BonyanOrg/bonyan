@@ -146,6 +146,25 @@
 											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
 										</svg>
 									</a>
+								<?php
+									break;
+								case 'givecloud':
+									// Get the GiveWP form ID and default donation amount
+									$givecloud_campaign_id = get_option('givecloud_campaign_id');
+
+									$options = get_option('givecloud_settings_fields');
+
+									$url = trim(data_get($options, 'instance_url'), '/');
+									$default_donation_amount = !empty(intval(get_option("default_donation_amount"))) ? intval(get_option("default_donation_amount")) : 10;
+
+
+								?>
+									<a href="<?= $url . '/fundraising/forms/' . $givecloud_campaign_id . '?gc-a=' . $default_donation_amount  ?>" class=" primary-btn donation-btn" style="cursor: pointer;">
+										<span><?php _e('Donate Now', 'bonyan') ?></span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
+											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
+										</svg>
+									</a>
 							<?php
 									break;
 							}

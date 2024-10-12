@@ -34,6 +34,7 @@ $wp_customize->add_control(
             'give_wp' => __('Give Wp', 'bonyan'),
             'charitystack' => __('Charity Stack', 'bonyan'),
             'classy' => __('Classy', 'bonyan'),
+            'givecloud' => __('Give Cloud', 'bonyan'),
         ),
     )
 );
@@ -134,6 +135,25 @@ $wp_customize->add_control(
         'label'    => 'The Classy Campaign ID',
         'section' => 'header_section',
         'settings' => 'classy_campaign_id',
+        'type'     => 'text',
+
+    )
+);
+
+//==============
+// Give Cloud Campaign ID
+$wp_customize->add_setting('givecloud_campaign_id', array(
+    'default' => '',
+    'section' => 'header_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'givecloud_campaign_id_shortcode',
+    array(
+        'label'    => 'The Give Cloud Campaign ID',
+        'section' => 'header_section',
+        'settings' => 'givecloud_campaign_id',
         'type'     => 'text',
 
     )

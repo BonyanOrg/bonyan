@@ -29,7 +29,7 @@ function zakat_calc_vc()
 				"admin_label"	=> false,
 				"heading"		=> esc_html__("Donation Platform", 'ONYX_DOMAIN'),
 				"param_name"	=> "zakat_calc_platform_type",
-				"value"			=> array('Give Wp' => 'give_wp', 'FundRaiseUp' => 'fund_raise_up', 'Charity Stack' => 'charity_stack', 'Classy' => 'classy'),
+				"value"			=> array('Give Wp' => 'give_wp', 'FundRaiseUp' => 'fund_raise_up', 'Charity Stack' => 'charity_stack', 'Classy' => 'classy', 'Give Cloud' => 'givecloud'),
 			),
 			array(
 				"type"			=> "textfield",
@@ -65,6 +65,18 @@ function zakat_calc_vc()
 				'dependency' => array(
 					'element'   => 'zakat_calc_platform_type',
 					'value' 	=> "classy",
+				)
+			),
+			array(
+				"type"			=> "textfield",
+				"admin_label"	=> false,
+				"heading"		=> esc_html__("Give Cloud Campaign ID", 'ONYX_DOMAIN'),
+				"param_name"	=> "zakat_calc_givecloud_campaign_id",
+				"value"			=> "",
+				"description"	=> esc_html__("Give Cloud Campaign ID, for ex: PYEVM6DX", 'ONYX_DOMAIN'),
+				'dependency' => array(
+					'element'   => 'zakat_calc_platform_type',
+					'value' 	=> "givecloud",
 				)
 			),
 		)

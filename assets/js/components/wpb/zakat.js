@@ -111,6 +111,16 @@ window.addEventListener('DOMContentLoaded', function () {
                 // Update the href attribute with the new value
                 donateBtnAmount.setAttribute('href', newHref);
             }
+            if (donateBtnAmount.classList.contains('givecloud-btn')) {
+                // Get the current href value
+                var currentHref = donateBtnAmount.getAttribute('href');
+
+                // Modify the href to change the 'gc-a' parameter
+                var newHref = currentHref.replace(/(\?|&)gc-a=[^&]*/, '$1gc-a=' + amountToDonate);
+
+                // Update the href attribute with the new value
+                donateBtnAmount.setAttribute('href', newHref);
+            }
         });
     });
 });

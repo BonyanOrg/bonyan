@@ -30,7 +30,7 @@ function qurbani_calculator_vc()
 					"admin_label" => false,
 					"heading" => esc_html__("Donation Platform", 'text_DOMAIN'),
 					"param_name" => "qurbani_calculator_platform",
-					"value" => array('None' => 'none', 'Give WP' => 'give_wp', 'Fundraise Up' => 'fundraiseup'),
+					"value" => array('None' => 'none', 'Give WP' => 'give_wp', 'Fundraise Up' => 'fundraiseup', 'Give Cloud' => 'givecloud'),
 					"description" => esc_html__("The type of the donation platform", 'text_DOMAIN'),
 
 				),
@@ -68,6 +68,18 @@ function qurbani_calculator_vc()
 					'dependency'    => array(
 						'element'   => 'qurbani_calculator_platform',
 						'value' 	=> "fundraiseup",
+					),
+				),
+				array(
+					"type" => "textfield",
+					"admin_label" => true,
+					"heading" => esc_html__("Give Cloud Campaign ID", 'text_DOMAIN'),
+					"param_name" => "qurbani_calculator_givecloud_campaign_id",
+					"value" => "",
+					"description" => esc_html__("Give Cloud Custom Field Ex:PYEVM6DX", 'text_DOMAIN'),
+					'dependency'    => array(
+						'element'   => 'qurbani_calculator_platform',
+						'value' 	=> "givecloud",
 					),
 				),
 				array(

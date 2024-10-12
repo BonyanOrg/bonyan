@@ -2,6 +2,8 @@
 $co_donation_platform = !empty(get_post_meta($post->ID, "co_donation_platform", true)) ? get_post_meta($post->ID, "co_donation_platform", true) : 'give_wp';
 $give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
 
+$co_givecloud_campaign_id = get_post_meta($post->ID, "co_givecloud_campaign_id", true);
+
 $co_charity_stack_element_id = get_post_meta($post->ID, "co_charity_stack_element_id", true);
 
 $co_fund_raise_up_form_id = get_post_meta($post->ID, "co_fund_raise_up_form_id", true);
@@ -145,6 +147,14 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
         <?php endif; ?>
         <?php if ($co_donation_platform === 'fund_raise_up') : ?>
             <a href=" <?= esc_url($pure_permalink . '?form=' . $co_fund_raise_up_form_id . '&amount=' . $co_donation_amount . '&modifyAmount=yes&recurring=' . $is_fund_rase_up_recurring) ?>" class=" user-action-btn primary-btn no-border fund_raise_up-btn"><?php _e('Donate', 'bonyan') ?></a>
+        <?php endif; ?>
+        <?php if ($co_donation_platform === 'givecloud') :
+
+            $options = get_option('givecloud_settings_fields');
+
+            $url = trim(data_get($options, 'instance_url'), '/');
+        ?>
+            <a href="<?= $url . '/fundraising/forms/' . $co_givecloud_campaign_id . '?gc-a=' . $co_donation_amount  ?>" class="fund_raise_up-btn user-action-btn primary-btn no-border"><?php _e('Donate', 'bonyan') ?></a>
         <?php endif; ?>
         <a href="<?php echo get_permalink($post) ?>"><?php _e('More', 'bonyan') ?></a>
     </div>
