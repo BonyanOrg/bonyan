@@ -16,6 +16,8 @@ function Init_Campaign_Options($post)
 
     $co_givecloud_campaign_id = get_post_meta($post->ID, "co_givecloud_campaign_id", true);
 
+    $co_infaque_campaign_id = get_post_meta($post->ID, "co_infaque_campaign_id", true);
+
     $co_charity_stack_element_id = get_post_meta($post->ID, "co_charity_stack_element_id", true);
 
     $co_fund_raise_up_form_id = get_post_meta($post->ID, "co_fund_raise_up_form_id", true);
@@ -51,41 +53,42 @@ function Init_Campaign_Options($post)
                 <td>
                     <select name="co_donation_platform" id="co_donation_platform">
                         <option value="">--Select The Platform--</option>
-                        <option value="give_wp" <?= selected($co_donation_platform, 'give_wp', true) ?>>Give WP</option>
-                        <option value="fund_raise_up" <?= selected($co_donation_platform, 'fund_raise_up', true) ?>>FundRaiseUp</option>
-                        <option value="charity_stack" <?= selected($co_donation_platform, 'charity_stack', true) ?>>Charity Stack</option>
-                        <option value="classy" <?= selected($co_donation_platform, 'classy', true) ?>>Classy</option>
+                        <option value="give_wp" <?php //selected($co_donation_platform, 'give_wp', true) ?>>Give WP</option>
+                        <option value="fund_raise_up" <?php //selected($co_donation_platform, 'fund_raise_up', true) ?>>FundRaiseUp</option>
+                        <option value="charity_stack" <?php selected($co_donation_platform, 'charity_stack', true) ?>>Charity Stack</option>
+                        <option value="classy" <?php //selected($co_donation_platform, 'classy', true) ?>>Classy</option>
                         <option value="givecloud" <?= selected($co_donation_platform, 'givecloud', true) ?>>Give Cloud</option>
+                        <option value="infaque" <?= selected($co_donation_platform, 'infaque', true) ?>>Infaque</option>
                     </select>
                 </td>
             </tr>
             <!-- Give WP Form ID -->
-            <tr class="form-field">
+            <!-- <tr class="form-field">
                 <th>
                     <label for="co_give_form_id">Give Form Id</label>
                 </th>
                 <td>
                     <select name="co_give_form_id" id="co_give_form_id" class="select-campaign">
-                        <?php if (!empty($co_give_form_id)) : ?>
-                            <option value="<?php echo $co_give_form_id; ?>" selected="selected"><?php echo get_the_title($co_give_form_id); ?></option>
-                        <?php endif; ?>
+                        <?php //if (!empty($co_give_form_id)) : ?>
+                            <option value="<?php //echo $co_give_form_id; ?>" selected="selected"><?php //echo get_the_title($co_give_form_id); ?></option>
+                        <?php //endif; ?>
                     </select>
                 </td>
-            </tr>
+            </tr> -->
             <!-- Charity Stack Element ID -->
             <tr class="form-field">
                 <th>
                     <label for="co_charity_stack_element_id">Charity Stack Element ID</label>
                 </th>
-                <td><input type="text" name="co_charity_stack_element_id" id="co_charity_stack_element_id" value="<?php echo $co_charity_stack_element_id; ?>"></td>
+                <td><input type="text" name="co_charity_stack_element_id" id="co_charity_stack_element_id" value="<?php //echo $co_charity_stack_element_id; ?>"></td>
             </tr>
             <!-- Classy  ID -->
-            <tr class="form-field">
+            <!-- <tr class="form-field">
                 <th>
                     <label for="co_classy_campaign_id">Classy Campaign ID</label>
                 </th>
-                <td><input type="text" name="co_classy_campaign_id" id="co_classy_campaign_id" value="<?php echo $co_classy_campaign_id; ?>"></td>
-            </tr>
+                <td><input type="text" name="co_classy_campaign_id" id="co_classy_campaign_id" value="<?php //echo $co_classy_campaign_id; ?>"></td>
+            </tr> -->
             <!-- Give Cloud  ID -->
             <tr class="form-field">
                 <th>
@@ -98,12 +101,19 @@ function Init_Campaign_Options($post)
                     <hr>
                 </td>
             </tr>
+             <!-- Infaque Campaign ID -->
+             <tr class="form-field">
+                <th>
+                    <label for="co_infaque_campaign_id">Infaque Campaign ID</label>
+                </th>
+                <td><input type="text" name="co_infaque_campaign_id" id="co_infaque_campaign_id" value="<?php echo $co_infaque_campaign_id; ?>"></td>
+            </tr>
             <!-- FundRaiseUp Form ID -->
-            <tr class="form-field">
+            <!-- <tr class="form-field">
                 <th>
                     <label for="co_fund_raise_up_form_id">FundRaiseUp Form ID</label>
                 </th>
-                <td><input type="text" name="co_fund_raise_up_form_id" id="co_fund_raise_up_form_id" value="<?php echo $co_fund_raise_up_form_id; ?>"></td>
+                <td><input type="text" name="co_fund_raise_up_form_id" id="co_fund_raise_up_form_id" value="<?php //echo $co_fund_raise_up_form_id; ?>"></td>
 
             </tr>
             <tr class="form-field">
@@ -113,19 +123,19 @@ function Init_Campaign_Options($post)
                 <td>
                     <select name="is_fund_rase_up_recurring" id="is_fund_rase_up_recurring">
                         <option value="">--Select The Recurring Period--</option>
-                        <option value="once" <?= selected($is_fund_rase_up_recurring, 'once', true) ?>>Once</option>
-                        <option value="daily" <?= selected($is_fund_rase_up_recurring, 'daily', true) ?>>Daily</option>
-                        <option value="weekly" <?= selected($is_fund_rase_up_recurring, 'weekly', true) ?>>Weekly</option>
-                        <option value="biweekly" <?= selected($is_fund_rase_up_recurring, 'biweekly', true) ?>>Biweekly</option>
-                        <option value="every4weeks" <?= selected($is_fund_rase_up_recurring, 'every4weeks', true) ?>>Every 4 weeks</option>
-                        <option value="monthly" <?= selected($is_fund_rase_up_recurring, 'monthly', true) ?>>Monthly</option>
-                        <option value="bimonthly" <?= selected($is_fund_rase_up_recurring, 'bimonthly', true) ?>>Bimonthly</option>
-                        <option value="quarterly" <?= selected($is_fund_rase_up_recurring, 'quarterly', true) ?>>Quarterly</option>
-                        <option value="semiannual" <?= selected($is_fund_rase_up_recurring, 'semiannual', true) ?>>Semiannually</option>
-                        <option value="annual" <?= selected($is_fund_rase_up_recurring, 'annual', true) ?>>Annually</option>
+                        <option value="once" <?php //selected($is_fund_rase_up_recurring, 'once', true) ?>>Once</option>
+                        <option value="daily" <?php //selected($is_fund_rase_up_recurring, 'daily', true) ?>>Daily</option>
+                        <option value="weekly" <?php //selected($is_fund_rase_up_recurring, 'weekly', true) ?>>Weekly</option>
+                        <option value="biweekly" <?php //selected($is_fund_rase_up_recurring, 'biweekly', true) ?>>Biweekly</option>
+                        <option value="every4weeks" <?php //selected($is_fund_rase_up_recurring, 'every4weeks', true) ?>>Every 4 weeks</option>
+                        <option value="monthly" <?php //selected($is_fund_rase_up_recurring, 'monthly', true) ?>>Monthly</option>
+                        <option value="bimonthly" <?php //selected($is_fund_rase_up_recurring, 'bimonthly', true) ?>>Bimonthly</option>
+                        <option value="quarterly" <?php //selected($is_fund_rase_up_recurring, 'quarterly', true) ?>>Quarterly</option>
+                        <option value="semiannual" <?php //selected($is_fund_rase_up_recurring, 'semiannual', true) ?>>Semiannually</option>
+                        <option value="annual" <?php //selected($is_fund_rase_up_recurring, 'annual', true) ?>>Annually</option>
                     </select>
                 </td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>
                     <hr>
@@ -252,6 +262,9 @@ function save_campaign_options($post_id)
 
     if (isset($_POST['co_givecloud_campaign_id']))
         update_post_meta($post_id, 'co_givecloud_campaign_id', sanitize_text_field($_POST['co_givecloud_campaign_id']));
+    
+    if (isset($_POST['co_infaque_campaign_id']))
+        update_post_meta($post_id, 'co_infaque_campaign_id', sanitize_text_field($_POST['co_infaque_campaign_id']));
 
     if (isset($_POST['co_fund_raise_up_form_id']))
         update_post_meta($post_id, 'co_fund_raise_up_form_id', $_POST['co_fund_raise_up_form_id']);

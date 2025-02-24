@@ -4,13 +4,15 @@ $give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
 
 $co_givecloud_campaign_id = get_post_meta($post->ID, "co_givecloud_campaign_id", true);
 
+$co_infaque_campaign_id = get_post_meta($post->ID, "co_infaque_campaign_id", true);
+
 $co_charity_stack_element_id = get_post_meta($post->ID, "co_charity_stack_element_id", true);
 
 $co_fund_raise_up_form_id = get_post_meta($post->ID, "co_fund_raise_up_form_id", true);
 $is_fund_rase_up_recurring = !empty(get_post_meta($post->ID, "is_fund_rase_up_recurring", true)) ? get_post_meta($post->ID, "is_fund_rase_up_recurring", true) : 'once';
 
 $co_show_progress_bar = get_post_meta($post->ID, "co_show_progress_bar", true);
-$co_donation_amount = !empty(get_post_meta($post->ID, "co_donation_amount", true)) ? get_post_meta($post->ID, "co_donation_amount", true) : '50';
+$co_donation_amount = !empty(get_post_meta($post->ID, "co_donation_amount", true)) ? intval(get_post_meta($post->ID, "co_donation_amount", true)) : 50;
 
 $co_show_donors_count = get_post_meta($post->ID, "co_show_donors_count", true);
 $co_show_reaming_time = get_post_meta($post->ID, "co_show_reaming_time", true);
@@ -129,9 +131,13 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
 
 
     <div class="card-footer campaign-card-cta">
+
+        <!-- Give WP -->
         <?php if ($co_donation_platform === 'give_wp') : ?>
             <button data-giveformid="<?php echo $give_form_id ?>" class="donation-btn  user-action-btn primary-btn no-border" <?= 'data-target="givewp-modal"' ?>><?php _e('Donate', 'bonyan') ?></button>
         <?php endif; ?>
+
+        <!-- Charity Stack -->
         <?php if ($co_donation_platform === 'charity_stack') : ?>
             <!-- class="<?php //echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; 
                         ?> -->
@@ -139,15 +145,21 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
             ?>
             <button class="donation-btn user-action-btn primary-btn no-border" <?= 'data-target="charity-stack-modal"' ?> data-charity-stack-element-id="<?= $co_charity_stack_element_id ?>"><?php _e('Donate', 'bonyan') ?></button>
         <?php endif; ?>
+
+        <!-- Classy -->
         <?php if ($co_donation_platform === 'classy') :
             $co_classy_campaign_id = get_post_meta($post->ID, "co_classy_campaign_id", true);
-            $amount_param = !empty(get_post_meta($post->ID, "co_donation_amount", true)) ? '&amount=' . get_post_meta($post->ID, "co_donation_amount", true) : '';
+            $amount_param = !empty($co_donation_amount) ? '&amount=' . $co_donation_amount : '';
         ?>
             <a href="<?= $pure_permalink . '?campaign=' . $co_classy_campaign_id . $amount_param  ?>" class="fund_raise_up-btn primary-btn no-border classy-donation" data-campaign-id="<?= $co_classy_campaign_id ?>"><?php _e('Donate', 'bonyan') ?></a>
         <?php endif; ?>
+
+        <!-- FundRaize Up -->
         <?php if ($co_donation_platform === 'fund_raise_up') : ?>
             <a href=" <?= esc_url($pure_permalink . '?form=' . $co_fund_raise_up_form_id . '&amount=' . $co_donation_amount . '&modifyAmount=yes&recurring=' . $is_fund_rase_up_recurring) ?>" class=" user-action-btn primary-btn no-border fund_raise_up-btn"><?php _e('Donate', 'bonyan') ?></a>
         <?php endif; ?>
+
+        <!-- Give Cloud -->
         <?php if ($co_donation_platform === 'givecloud') :
 
             $options = get_option('givecloud_settings_fields');
@@ -156,6 +168,17 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
         ?>
             <a href="<?= $url . '/fundraising/forms/' . $co_givecloud_campaign_id . '?gc-a=' . $co_donation_amount  ?>" class="fund_raise_up-btn user-action-btn primary-btn no-border"><?php _e('Donate', 'bonyan') ?></a>
         <?php endif; ?>
+
+        <!-- Infaque -->
+        <?php if ($co_donation_platform === 'infaque') : ?>
+            <!-- class="<?php //echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; 
+                        ?> -->
+            <?php //echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; 
+            ?>
+            <button class="donation-btn user-action-btn primary-btn no-border" <?= 'data-target="infaque-modal"' ?> data-infaque-campaign-id="<?= $co_infaque_campaign_id ?>" data-amount="<?= $co_donation_amount ?>"><?php _e('Donate', 'bonyan') ?></button>
+        <?php endif; ?>
+
+
         <a href="<?php echo get_permalink($post) ?>"><?php _e('More', 'bonyan') ?></a>
     </div>
 </div>

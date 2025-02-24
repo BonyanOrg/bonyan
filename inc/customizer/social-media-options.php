@@ -115,3 +115,39 @@ $wp_customize->add_control(
         'type'     => 'url',
     )
 );
+
+//==============
+// Tiktok Url
+$wp_customize->add_setting('tiktok_url', array(
+    'default' => '',
+    'section' => 'general_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'tiktok_url_shortcode',
+    array(
+        'label'    => 'Tiktok Url',
+        'section' => 'general_section',
+        'settings' => 'tiktok_url',
+        'type'     => 'url',
+    )
+);
+
+//==============
+// Snapchat Url
+$wp_customize->add_setting('snapchat_url', array(
+    'default' => '',
+    'section' => 'general_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'snapchat_url_shortcode',
+    array(
+        'label'    => 'Snapchat Url',
+        'section' => 'general_section',
+        'settings' => 'snapchat_url',
+        'type'     => 'url',
+    )
+);

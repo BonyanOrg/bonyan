@@ -35,6 +35,7 @@ $wp_customize->add_control(
             'charitystack' => __('Charity Stack', 'bonyan'),
             'classy' => __('Classy', 'bonyan'),
             'givecloud' => __('Give Cloud', 'bonyan'),
+            'infaque' => __('Infaque', 'bonyan'),
         ),
     )
 );
@@ -154,6 +155,25 @@ $wp_customize->add_control(
         'label'    => 'The Give Cloud Campaign ID',
         'section' => 'header_section',
         'settings' => 'givecloud_campaign_id',
+        'type'     => 'text',
+
+    )
+);
+
+//==============
+// Infaque Campaign ID
+$wp_customize->add_setting('infaque_campaign_id', array(
+    'default' => '',
+    'section' => 'header_section',
+    'type' => 'option',
+
+));
+$wp_customize->add_control(
+    'infaque_campaign_id_shortcode',
+    array(
+        'label'    => 'The Infaque Campaign ID',
+        'section' => 'header_section',
+        'settings' => 'infaque_campaign_id',
         'type'     => 'text',
 
     )

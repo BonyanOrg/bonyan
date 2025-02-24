@@ -197,6 +197,9 @@
 					<a href="<?php echo get_option("facebook_url") ?>"><i class="fa-brands fa-facebook"></i></a>
 					<a href="<?php echo get_option("twitter_url") ?>"><i class="fa-brands fa-twitter"></i></a>
 					<a href="<?php echo get_option("youtube_url") ?>"><i class="fa-brands fa-youtube"></i></a>
+					<a href="<?php echo get_option("instagram_url") ?>"><i class="fa-brands fa-instagram"></i></a>
+					<a href="<?php echo get_option("tiktok_url") ?>"><i class="fa-brands fa-tiktok"></i></a>
+					<a href="<?php echo get_option("snapchat_url") ?>"><i class="fa-brands fa-snapchat"></i></a>
 				</div>
 				<div class="copyrights">
 					<span>

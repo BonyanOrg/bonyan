@@ -54,6 +54,15 @@
 	<div id="charity-stack-modal" class="charity-stack-modal givewp-modal user-action-modal">
 	</div>
 	<!-- End Charity Stack Modal -->
+	<!-- Start Infaque Modal -->
+	<style>
+		div#infaque-modal iframe {
+			height: 600px;
+		}
+	</style>
+	<div id="infaque-modal" class="infaque-modal givewp-modal user-action-modal">
+	</div>
+	<!-- End Infaque Modal -->
 
 	</div>
 
@@ -160,6 +169,26 @@
 
 								?>
 									<a href="<?= $url . '/fundraising/forms/' . $givecloud_campaign_id . '?gc-a=' . $default_donation_amount  ?>" class=" primary-btn donation-btn" style="cursor: pointer;">
+										<span><?php _e('Donate Now', 'bonyan') ?></span>
+										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
+											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
+										</svg>
+									</a>
+								<?php
+									break;
+
+								case 'infaque':
+									// Get the GiveWP form ID and default donation amount
+									$infaque_campaign_id = get_option('infaque_campaign_id');
+
+									$button_classes = ' ' .  'donation-btn';
+									// $data_target = is_user_logged_in() ? 'data-target="charity-stack-modal"' : 'data-target="donation-modal"';
+									$data_target =  'data-target="infaque-modal"';
+									$default_donation_amount = !empty(intval(get_option("default_donation_amount"))) ? intval(get_option("default_donation_amount")) : 10;
+
+
+								?>
+									<a class="user-action-btn primary-btn <?= $button_classes ?>" <?= $data_target ?> data-infaque-campaign-id="<?= $infaque_campaign_id ?>" data-amount="<?= $default_donation_amount ?>" style="cursor: pointer;">
 										<span><?php _e('Donate Now', 'bonyan') ?></span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
 											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />

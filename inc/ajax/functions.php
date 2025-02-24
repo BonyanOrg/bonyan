@@ -85,4 +85,9 @@ require __DIR__ . '/preview-email.php';
 //=====================================
 require __DIR__ . '/get_charity_stack_form.php';
 
+//=====================================
+//        Infaque form 
+//=====================================
+require __DIR__ . '/get_infaque_form.php';
+
 

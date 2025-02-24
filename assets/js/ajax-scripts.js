@@ -952,6 +952,42 @@
           },
         });
       }
+      if ($(this).attr("data-target") == 'infaque-modal') {
+        $("#infaque-modal").empty();
+        let campaignID = $(this).attr("data-infaque-campaign-id");
+        let amount = $(this).attr("data-amount");
+
+        if (campaignID == null || campaignID == "") {
+          return;
+        }
+
+        $.ajax({
+          dataType: "json",
+          method: "POST",
+          url: ajax_script_object.ajaxurl,
+          data: {
+            action: "get_infaque_form",
+            nonce: ajax_script_object.nonce,
+            campaignID: campaignID,
+            amount: amount,
+          },
+          statusCode: {
+            400: function (data) {
+              toastr.error(data.responseJSON.error_message);
+            },
+            200: function (data) {
+              if (data.success) {
+                $("#give_form_container").remove();
+                $("#infaque-modal").append(
+                  `<div id="give_form_container" style="padding: 50px; height: auto;"> ${data.content} </div>`
+                );
+              } else {
+                toastr.error(data.error_message);
+              }
+            },
+          },
+        });
+      }
     });
   }
   giveWpGetter();

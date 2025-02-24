@@ -14,14 +14,22 @@ $taxonomy_name = $queried_object->taxonomies[1];
         ?>
             <div class="inner-content">
                 <?php
-                $post = get_page_by_path($post_slug, OBJECT);
-                if ($post) {
+                $args = array(
+                    'name'        => $post_slug,
+                    'post_type'   => 'page',
+                    'post_status' => 'publish',
+                    'numberposts' => 1,
+                );
+                
+                $posts = get_posts($args);
+                if (!empty($posts) && isset($posts[0])) {
+                    $report_archive_template = $posts[0];
                 ?>
                     <style type="text/css" data-type="vc_shortcodes-custom-css">
-                        <?php echo get_post_meta($post->ID, '_wpb_shortcodes_custom_css', true); ?>
+                        <?php echo get_post_meta($report_archive_template->ID, '_wpb_shortcodes_custom_css', true); ?>
                     </style>
                 <?php
-                    $content = apply_filters('the_content', $post->post_content);
+                    $content = apply_filters('the_content', $report_archive_template->post_content);
                     echo $content;
                 }
                 ?>

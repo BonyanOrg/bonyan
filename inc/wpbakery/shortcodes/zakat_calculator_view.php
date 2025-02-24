@@ -18,6 +18,7 @@ if (!function_exists('zakat_calc_shortcode')) {
             'zakat_calc_fund_raise_up_form_id'     => '',
             'zakat_calc_classy_campaign_id'     => '',
             'zakat_calc_givecloud_campaign_id'     => '',
+            'zakat_calc_infaque_campaign_id'     => '',
         ), $atts));
 
         ob_start();
@@ -145,6 +146,18 @@ if (!function_exists('zakat_calc_shortcode')) {
                         $pure_permalink = clear_url_query_string(get_permalink());
                     ?>
                         <button data-campaign-id="<?= $zakat_calc_classy_campaign_id ?>" class="classy-donation primary-btn " id="zakat-donation-btn" data-user-nisab="0" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="55">
+                            <?php _e('Donate Now', 'bonyan'); ?>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
+                                <path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
+                            </svg>
+                        </button>
+                    <?php endif; ?>
+
+                    <?php if ($zakat_calc_platform_type === 'infaque' && !empty($zakat_calc_infaque_campaign_id)) :
+                    ?>
+
+                        <button  class="user-action-btn donation-btn primary-btn " id="zakat-donation-btn" data-target="infaque-modal" data-infaque-campaign-id="<?= $zakat_calc_infaque_campaign_id ?>" data-user-nisab="0" data-nisab="<?php echo intval($zakat_calc_nisab_value) ?>" data-amount="55">
                             <?php _e('Donate Now', 'bonyan'); ?>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
