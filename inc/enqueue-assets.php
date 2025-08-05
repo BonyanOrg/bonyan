@@ -10,8 +10,8 @@ function bonyan_scripts()
     // Bootstrap Style
     wp_enqueue_style('bonyan-bootstrap-style', get_template_directory_uri() . "/dist/css/bootstrap.min.css", array(), $GLOBALS['bonyan_version']);
 
-    // Roboto Font Family
-    wp_enqueue_style('bonyan-en-font', 'https://fonts.googleapis.com/css2?family=Cairo:wght@800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet', array());
+    // Poppins Font Family
+    wp_enqueue_style('bonyan-en-font', 'https://fonts.googleapis.com/css2?family=Cairo:wght@800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet', array());
 
 
     //wp_enqueue_style('bonyan-fontawesome', get_template_directory_uri() . "/dist/css/cdn/all.min.css", array());
@@ -133,6 +133,7 @@ function bonyan_scripts()
         wp_enqueue_style('bonyan-home-style', get_template_directory_uri() . "/dist/css/home.min.css", array('bonyan-bootstrap-style', 'bonyan-swiper-carousel-style'), $GLOBALS['bonyan_version']);
 
         wp_enqueue_script('bonyan-home-sliders-script', get_template_directory_uri() . '/dist/js/home-sliders.min.js', array('bonyan-swiper-carousel-script'), $GLOBALS['bonyan_version'], true);
+        wp_enqueue_script('bonyan-hero-donation-form-script', get_template_directory_uri() . '/dist/js/hero-donation-form.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
     }
     /* =====[End Enqueue Home Page Assets]===== */
 

@@ -1,18 +1,31 @@
 // Colors
-$primary-color: #6D54A7;
-$light-primary-color: #EEECF4;
-$dark-primary-color: #48307E;
-$secondary-color: #38C2CF;
+$primary-color: #1877F2;
+$light-primary-color: #CFE2FD;
+$dark-primary-color: #0F4CB3;
+$secondary-color: #1877F2;
 $third-color: #6B8CC7;
 $light-color: #fff;
-$dark-color: #000;
+$dark-color: #0E0C15;
 $shadow-color: #0000000D;
-$text-color: #5B5B5B;
+$text-color: #455973;
+
+// Additional color variables from Figma
+$primary-color-100: #CFE2FD;
+$primary-color-200: #B8CDEB;
+$primary-color-400: #1877F2;
+$dark-color-200: #FCFCFC;
+$dark-color-600: #455973;
 
 // Borders
-$radius-10: 10px;
+$radius-8: 8px;
+$radius-10: 4px;
 $radius-15: 15px;
+$radius-16: 16px;
 $radius-19: 19px;
+
+// Border widths
+$border-width-2: 2px;
+$border-width-4: 4px;
 
 // Transitions
 $general-transition: .3s all ease-in-out;

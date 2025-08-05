@@ -163,79 +163,124 @@ window.addEventListener('DOMContentLoaded', function () {
     /* ===[End Language Swicher]=== */
 
     /* ===[Start Mobile Header]=== */
-    if (window.innerWidth <= 1024) {
-        /* ===[Start Mobile Header]=== */
-        let mainHeaderTag = document.querySelector('header');
-        let toggleMobileMenuBtn = document.querySelector('.burger-btn');
-        let mobileMenuNav = document.querySelector('.bottom-header');
+    function initMobileHeader() {
+        if (window.innerWidth <= 1024) {
+            let mainHeaderTag = document.querySelector('header');
+            let toggleMobileMenuBtn = document.querySelector('.burger-btn');
+            let mobileMenuNav = document.querySelector('.bottom-header');
 
-        // Toggle Button Handler
-        toggleMobileMenuBtn.addEventListener('click', function () {
-            this.classList.toggle('active');
-            mobileMenuNav.classList.toggle('active-nav');
-            mainHeaderTag.classList.toggle('expanded-nav');
-        });
+            // Debug logging
+            console.log('Mobile header init - Elements found:', {
+                header: !!mainHeaderTag,
+                burgerBtn: !!toggleMobileMenuBtn,
+                mobileNav: !!mobileMenuNav,
+                windowWidth: window.innerWidth
+            });
 
-        document.querySelectorAll('.sub-menu .sub-menu').forEach((subMenu) => {
-            subMenu.classList.add('next-level');
-        });
-
-        mobileMenuNav.addEventListener('click', function (e) {
-            e.stopPropagation();
-
-            if (e.target.classList.contains('menu-arrow')) {
-
-                // In case of clicking outside but not the nested level of sub menu
-                if (!e.target.nextElementSibling.classList.contains('next-level')) {
-                    document.querySelectorAll('.sub-menu').forEach((subMenu) => {
-                        subMenu.style.display = 'none';
+            // Only add event listeners if they haven't been added already
+            if (toggleMobileMenuBtn && !toggleMobileMenuBtn.hasAttribute('data-mobile-initialized')) {
+                toggleMobileMenuBtn.setAttribute('data-mobile-initialized', 'true');
+                
+                // Toggle Button Handler
+                toggleMobileMenuBtn.addEventListener('click', function () {
+                    console.log('Burger button clicked!');
+                    this.classList.toggle('active');
+                    mobileMenuNav.classList.toggle('active-nav');
+                    mainHeaderTag.classList.toggle('expanded-nav');
+                    
+                    console.log('Mobile menu state:', {
+                        burgerActive: this.classList.contains('active'),
+                        navActive: mobileMenuNav.classList.contains('active-nav'),
+                        headerExpanded: mainHeaderTag.classList.contains('expanded-nav')
                     });
+                });
 
-                    document.querySelectorAll('.next-level').forEach((nextLevel) => {
-                        nextLevel.classList.remove('opened');
-                        e.target.style.transform = 'rotateX(0deg)';
-                    })
-                }
+                // Add sub-menu classes
+                document.querySelectorAll('.sub-menu .sub-menu').forEach((subMenu) => {
+                    subMenu.classList.add('next-level');
+                });
 
-                // In case of opening already opened sub menu (It will close)
-                if (e.target.nextElementSibling.classList.contains('opened')) {
-                    e.target.nextElementSibling.style.display = 'none';
-                    e.target.nextElementSibling.classList.remove('opened');
-                    e.target.style.transform = 'rotateX(0deg)';
-                }
+                // Mobile menu click handler
+                mobileMenuNav.addEventListener('click', function (e) {
+                    e.stopPropagation();
 
-                // In case of click the arrow to open a closed sub menu (It will open)
-                else {
-                    if (document.querySelectorAll('.sub-menu.opened').length > 0 && !e.target.nextElementSibling.classList.contains('next-level')) {
-                        document.querySelectorAll('.sub-menu.opened').forEach((subMenuOpened) => {
-                            subMenuOpened.classList.remove('opened');
-                        })
+                    if (e.target.classList.contains('menu-arrow')) {
+
+                        // In case of clicking outside but not the nested level of sub menu
+                        if (!e.target.nextElementSibling.classList.contains('next-level')) {
+                            document.querySelectorAll('.sub-menu').forEach((subMenu) => {
+                                subMenu.style.display = 'none';
+                            });
+
+                            document.querySelectorAll('.next-level').forEach((nextLevel) => {
+                                nextLevel.classList.remove('opened');
+                                e.target.style.transform = 'rotateX(0deg)';
+                            })
+                        }
+
+                        // In case of opening already opened sub menu (It will close)
+                        if (e.target.nextElementSibling.classList.contains('opened')) {
+                            e.target.nextElementSibling.style.display = 'none';
+                            e.target.nextElementSibling.classList.remove('opened');
+                            e.target.style.transform = 'rotateX(0deg)';
+                        }
+
+                        // In case of click the arrow to open a closed sub menu (It will open)
+                        else {
+                            if (document.querySelectorAll('.sub-menu.opened').length > 0 && !e.target.nextElementSibling.classList.contains('next-level')) {
+                                document.querySelectorAll('.sub-menu.opened').forEach((subMenuOpened) => {
+                                    subMenuOpened.classList.remove('opened');
+                                })
+                            }
+
+                            if (!e.target.nextElementSibling.classList.contains('next-level')) {
+                                document.querySelectorAll('.menu-arrow').forEach((menuArrow) => menuArrow.style.transform = 'rotateY(0deg)');
+                            }
+
+                            e.target.nextElementSibling.style.display = 'block';
+                            e.target.nextElementSibling.classList.add('opened');
+                            e.target.style.transform = 'rotate(180deg)';
+                        }
                     }
 
-                    if (!e.target.nextElementSibling.classList.contains('next-level')) {
-                        document.querySelectorAll('.menu-arrow').forEach((menuArrow) => menuArrow.style.transform = 'rotateY(0deg)');
+                    // In case if the click isn't on the arrow
+                    else {
+                        // if the clicked element isn't containing menu-item class which is the <li> then close any opened sub menus
+                        if (!e.target.parentElement.classList.contains('sub-menu')) {
+                            document.querySelectorAll('.menu-arrow').forEach((menuArrow) => menuArrow.style.transform = 'rotateY(0deg)');
+
+                            document.querySelectorAll('.sub-menu').forEach((subMenu) => {
+                                subMenu.style.display = 'none';
+                                subMenu.classList.remove('opened');
+                            });
+                        }
                     }
-
-                    e.target.nextElementSibling.style.display = 'block';
-                    e.target.nextElementSibling.classList.add('opened');
-                    e.target.style.transform = 'rotate(180deg)';
-                }
+                });
             }
-
-            // In case if the click isn't on the arrow
-            else {
-                // if the clicked element isn't containing menu-item class which is the <li> then close any opened sub menus
-                if (!e.target.parentElement.classList.contains('sub-menu')) {
-                    document.querySelectorAll('.menu-arrow').forEach((menuArrow) => menuArrow.style.transform = 'rotateY(0deg)');
-
-                    document.querySelectorAll('.sub-menu').forEach((subMenu) => {
-                        subMenu.style.display = 'none';
-                        subMenu.classList.remove('opened');
-                    });
-                }
+        } else {
+            // Reset mobile menu state when switching to desktop
+            let toggleMobileMenuBtn = document.querySelector('.burger-btn');
+            let mobileMenuNav = document.querySelector('.bottom-header');
+            let mainHeaderTag = document.querySelector('header');
+            
+            if (toggleMobileMenuBtn) {
+                toggleMobileMenuBtn.classList.remove('active');
+                toggleMobileMenuBtn.removeAttribute('data-mobile-initialized');
             }
-        });
+            if (mobileMenuNav) {
+                mobileMenuNav.classList.remove('active-nav');
+            }
+            if (mainHeaderTag) {
+                mainHeaderTag.classList.remove('expanded-nav');
+            }
+        }
     }
+
+    // Initialize mobile header on page load
+    initMobileHeader();
+
+    // Initialize mobile header on window resize
+    window.addEventListener('resize', initMobileHeader);
     /* ===[End Mobile Header]=== */
 
     /* ===[Start Handle upload file]=== */
@@ -280,7 +325,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     correctScrollToAnchor();
 
-    window.addEventListener('resize', correctScrollToAnchor());
+    window.addEventListener('resize', correctScrollToAnchor);
     /* ===[End Count the header for scroll to anchor]=== */
 });
 

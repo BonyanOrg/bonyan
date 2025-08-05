@@ -1,20 +1,34 @@
 @import "variables";
 
 /* ===[Start Main Slider]=== */
+.main-slider {
+  position: relative;
+}
+
 .main-carousel {
-  height: calc(60vh - 50px);
+  height: calc(85vh - 50px);
+  min-height: calc(85vh - 50px);
   width: 100%;
-  margin: auto;
   margin-top: 125px;
-  max-width: 1300px;
 
   @media (max-width: 1199px) {
     height: 75vh;
+    min-height: 683px;
   }
 
   @media (max-width: 1024px) {
-    height: auto;
+    height: 70vh;
     margin-top: 96px;
+  }
+
+  @media (max-width: 768px) {
+    height: 70vh;
+    margin-top: 80px;
+  }
+
+  @media (max-width: 576px) {
+    height: 70vh;
+    margin-top: 70px;
   }
 
   .swiper-wrapper {
@@ -27,9 +41,13 @@
     align-items: center;
     height: 100%;
 
+    @media (max-width: 1199px) {
+      border-radius: 0 0px 16px 16px;
+    }
+
     .container{
       @media (min-width: 1400px) {
-        max-width: 1200px;
+        //max-width: 1200px;
       }
     }
 
@@ -46,15 +64,22 @@
         rgba($dark-color, 0.25) 100%
       );
       z-index: 1;
+      @media (max-width: 1199px) {
+        border-radius: 0 0px 16px 16px;
+      }
+
     }
 
     @media (max-width: 1199px) {
       padding-bottom: 3rem;
+      padding-top: 125px;
+      align-items: baseline;
     }
 
     @media (max-width: 1024px) {
-      align-items: flex-end;
     }
+
+   
 
     img {
       position: absolute;
@@ -63,22 +88,49 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      @media (max-width: 1199px) {  
+        border-radius: 0 0px 16px 16px;
+      }
+    }
+
+    .hero-content-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 2rem;
+      z-index: 2;
+
+      @media (max-width: 1199px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      @media (max-width: 1024px) {
+        gap: 1rem;
+      }
     }
 
     .slide-content {
       position: relative;
       display: flex;
       flex-direction: column;
-      padding-top: 40px;
+      padding-top: 180px;
       width: 50%;
       z-index: 2;
 
       @media (max-width: 1199px) {
-        width: 75%;
+        width: 100%;
+      padding-top: 0;
+
       }
 
       @media (max-width: 1024px) {
         width: 100%;
+      }
+
+      @media (max-width: 768px) {
       }
 
       .main-carousel-sub-container {
@@ -87,7 +139,7 @@
       }
 
       .slide-title {
-        font-size: 60px;
+        font-size: 40px;
         font-weight: bold;
         color: $light-color;
         display: -webkit-box;
@@ -95,6 +147,16 @@
         -webkit-line-clamp: 2;
         overflow: hidden;
         line-height: 1.1;
+        position: relative;
+        padding-top: 30px;
+
+        @media (max-width: 1199px) {
+          text-align: center;
+          img{
+            transform: translatex(-50%);
+            left: 50%;
+          }
+        }
 
         @media (max-width: 992px) {
           font-size: 40px;
@@ -109,15 +171,24 @@
         font-size: 24px;
         color: $light-color;
 
-        @media (max-width: 576px) {
-          font-size: 20px;
+        @media (max-width: 1199px) {
+          font-size: 18px;
+          text-align: center;
+
         }
+
+
+       
 
         & > p {
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
           overflow: hidden;
+
+          @media (max-width: 576px) {
+            display: none !important;
+          }
         }
       }
 
@@ -126,6 +197,7 @@
         flex-wrap: wrap;
         gap: 1rem;
         grid-gap: 1rem;
+        display: none;
 
         button,
         a {
@@ -213,6 +285,375 @@ html[dir="rtl"] {
   }
 }
 /* ===[End Main Slider]=== */
+
+/* ===[Start Hero Donation Form]=== */
+.hero-donation-form-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  height: 100%;
+  left: 0;
+  pointer-events: none; /* Allow clicks to pass through to slider */
+
+  @media (max-width: 1199px) {
+    padding: 1.5rem;
+    position: relative;
+    margin-top: -400px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+   
+  }
+
+  @media (max-width: 576px) {
+    padding: 0.5rem;
+  }
+}
+
+.hero-donation-form {
+  width: 427px;
+  z-index: 2;
+  margin-block: 80px;
+  margin-inline-start: auto;
+  pointer-events: auto; /* Re-enable clicks for the form itself */
+  
+  @media (max-width: 1199px) {
+    width: 100%;
+    max-width: 400px;
+    margin-block: 60px;
+    margin-inline:auto;
+
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 400px;
+    margin-block: 40px;
+  }
+
+  @media (max-width: 576px) {
+    width: 100%;
+    margin-block: 20px;
+  }
+
+  .donation-form-card {
+    padding: 16px;
+    border-radius: $radius-16;
+    border: $border-width-4 solid $primary-color-100;
+    background: $primary-color-100;
+
+    @media (max-width: 768px) {
+      border: $border-width-4 solid #fff;
+      background: #fff;
+    }
+
+    @media (max-width: 576px) {
+      padding: 16px;
+    }
+  }
+
+  .donation-form-header {
+    margin-bottom: 1.5rem;
+
+    h3 {
+      color: $dark-color-600;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+      line-height: normal;
+
+      @media (max-width: 768px) {
+        font-size: 22px;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .donation-type-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    .donation-type-btn {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: $border-width-2 solid transparent;
+      border-radius: $radius-16;
+      background: transparent;
+      color: $dark-color-600;
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: $general-transition;
+      position: relative;
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+        padding: 0.6rem 0.8rem;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 16px;
+        padding: 0.5rem 0.6rem;
+      }
+
+      &.active {
+        border: $border-width-2 solid $primary-color-200;
+        background: $primary-color-400;
+        color: $light-color;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-top: 8px solid $primary-color-400;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid $primary-color-200;
+        }
+
+        // Override hover styles for active state
+        &:hover {
+          background: $primary-color-400 !important;
+          color: $light-color !important;
+          border-color: $primary-color-200 !important;
+        }
+      }
+
+      &:hover:not(.active) {
+        background: rgba($primary-color-200, 0.1);
+      }
+    }
+  }
+
+  .donation-amounts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .amount-btn {
+      padding: 0.75rem 0.5rem;
+      border: 1px solid transparent;
+      border-radius: $radius-8;
+      background: $dark-color-200;
+      color: $dark-color-600;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: $general-transition;
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+        padding: 0.6rem 0.4rem;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 16px;
+        padding: 0.5rem 0.3rem;
+      }
+
+      &.active {
+        border: 1px solid $primary-color-400;
+        background: $primary-color-100;
+        color: $primary-color-400;
+      }
+
+      &:hover:not(.active) {
+        background: rgba($primary-color-200, 0.1);
+      }
+    }
+  }
+
+  .impact-description {
+    margin-bottom: 1.5rem;
+
+    p {
+      color: $dark-color-600;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: normal;
+      margin: 0;
+
+      @media (max-width: 768px) {
+        font-size: 13px;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .custom-amount-input {
+    margin-bottom: 1.5rem;
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .currency-symbol {
+        position: absolute;
+        left: 1rem;
+        color: $text-color;
+        font-weight: 500;
+        z-index: 1;
+      }
+
+      .custom-amount-field {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 2rem;
+        border: 2px solid #e9ecef;
+        border-radius: $radius-10;
+        background: #f8f9fa;
+        font-size: 0.9rem;
+        transition: $general-transition;
+
+        @media (max-width: 768px) {
+          font-size: 0.85rem;
+          padding: 0.6rem 0.8rem 0.6rem 1.8rem;
+        }
+
+        @media (max-width: 576px) {
+          font-size: 0.8rem;
+          padding: 0.5rem 0.7rem 0.5rem 1.6rem;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          background: $light-color;
+        }
+
+        &::placeholder {
+          color: #6c757d;
+        }
+      }
+    }
+  }
+
+  .donate-now-btn {
+    width: 100%;
+    padding: 1rem;
+    background: $primary-color;
+    color: $light-color;
+    border: none;
+    border-radius: $radius-10;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: $general-transition;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+      padding: 0.8rem;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 0.85rem;
+      padding: 0.7rem;
+    }
+
+    &:hover {
+      background: $dark-primary-color;
+      transform: translateY(-2px);
+    }
+
+    i {
+      font-size: 0.9rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .payment-icon {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+      border-radius: $radius-10;
+      opacity: 0.7;
+      transition: $general-transition;
+
+      &.visa {
+        color: #1a1f71;
+        background: rgba(26, 31, 113, 0.1);
+      }
+
+      &.paypal {
+        color: #003087;
+        background: rgba(0, 48, 135, 0.1);
+      }
+
+      &.mastercard {
+        color: #eb001b;
+        background: rgba(235, 0, 27, 0.1);
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .security-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: #6c757d;
+
+    i {
+      font-size: 0.7rem;
+    }
+  }
+}
+/* ===[End Hero Donation Form]=== */
 
 /* ===[Start References]=== */
 .references {

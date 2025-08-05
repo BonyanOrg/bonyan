@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: 0
+    # PHP configuration to allow larger file uploads
+    command: >
+      bash -c "echo 'upload_max_filesize = 64M' >> /usr/local/etc/php/conf.d/uploads.ini &&
+               echo 'post_max_size = 64M' >> /usr/local/etc/php/conf.d/uploads.ini &&
+               echo 'max_execution_time = 300' >> /usr/local/etc/php/conf.d/uploads.ini &&
+               echo 'max_input_time = 300' >> /usr/local/etc/php/conf.d/uploads.ini &&
+               echo 'memory_limit = 256M' >> /usr/local/etc/php/conf.d/uploads.ini &&
+               apache2-foreground"
+    volumes:
+      - wordpress_data:/var/www/html
+      - .:/var/www/html/wp-content/themes/bonyan
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    depends_on:
+      - db
+
+volumes:
+  wordpress_data:
+  db_data: 

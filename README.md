@@ -95,6 +95,140 @@ Email templates for the registration and donation process.
 
 
 
+## 🛠️ Development Guide
+
+### Prerequisites
+- Docker and Docker Compose installed
+- Node.js for build process
+- Composer for PHP dependencies
+
+### Theme Development Workflow
+
+#### 🎨 Editing Theme Styles
+
+To customize the theme styles:
+
+1. **Edit SCSS Files**
+   ```bash
+   # Edit variables and styles
+   assets/scss/_variables.scss     # Theme variables
+   assets/scss/style.scss          # Main theme styles
+   assets/scss/components/         # Component styles
+   ```
+
+2. **Build Styles**
+   ```bash
+   # Build main theme styles
+   npx gulp styles
+   
+   # Build component styles (for WPBakery components)
+   npx gulp components-styles
+   
+   # Build Bootstrap styles (if needed)
+   npx gulp bootstrap
+   ```
+
+3. **View Changes**
+   - Go to your local site: `http://localhost:8080`
+   - Hard refresh browser: `Ctrl + Shift + R` (Windows) or `Cmd + Shift + R` (Mac)
+
+#### 🔧 Development Commands
+
+**Start Development Environment:**
+```bash
+# Start Docker containers
+docker-compose up -d
+
+# Check container status
+docker-compose ps
+```
+
+**Build Assets:**
+```bash
+# Build all main styles
+npx gulp styles
+
+# Build all WPBakery component styles
+npx gulp components-styles
+
+# Build Bootstrap framework
+npx gulp bootstrap
+
+# Build JavaScript
+npx gulp script-js
+
+# Build RTL styles (if needed)
+npx gulp style-rtl
+```
+
+**Available Gulp Tasks:**
+- `npx gulp styles` - Main theme CSS
+- `npx gulp components-styles` - All WPBakery components
+- `npx gulp bootstrap` - Bootstrap framework
+- `npx gulp script-js` - JavaScript files
+- `npx gulp style-rtl` - RTL version of styles
+
+#### 📁 File Structure for Styles
+```
+assets/scss/
+├── _variables.scss           # Theme color variables
+├── style.scss               # Main theme styles
+├── components/
+│   ├── wpb/                 # WPBakery component styles
+│   │   ├── quick-donation.scss
+│   │   ├── primary-carousel.scss
+│   │   └── ...
+│   └── blog-card.scss       # Other component styles
+└── rtl/
+    └── style-rtl.scss       # RTL styles
+
+dist/css/                    # Compiled CSS files
+├── style.min.css           # Main theme (compiled)
+├── bootstrap.min.css       # Bootstrap (compiled)
+└── components/             # Component CSS (compiled)
+```
+
+#### 🎯 Quick Style Change Workflow
+1. Edit SCSS files in `assets/scss/`
+2. Run `npx gulp styles && npx gulp components-styles`
+3. Refresh browser with `Ctrl + Shift + R`
+
+#### 🔄 PHP File Change Workflow
+When you change any PHP files (header.php, footer.php, functions.php, template-parts/, inc/, etc.):
+
+1. **Edit PHP files** as needed
+2. **Run the refresh script**:
+   ```bash
+   .\refresh-theme.bat
+   ```
+3. **Check your changes** at http://localhost:8080
+
+**Why this script is needed:**
+- WordPress internally caches compiled theme files
+- Docker volume mounting has sync issues in this environment
+- The script automatically syncs files and refreshes the theme by switching themes temporarily
+
+**What the script does:**
+1. Copies all PHP files to the WordPress container
+2. Switches theme temporarily to force WordPress to reload
+3. Switches back to Bonyan theme
+4. Clears PHP caches
+
+**Note:** SCSS changes work immediately with Gulp, but PHP changes require this refresh script.
+
+#### 🚀 Adding New Components
+1. Create SCSS file in `assets/scss/components/wpb/`
+2. Add Gulp task in `gulpfile.js`
+3. Register component in `inc/wpbakery/`
+4. Build with `npx gulp components-styles`
+
+### Docker Environment
+- **WordPress**: http://localhost:8080
+- **phpMyAdmin**: http://localhost:8081  
+- **Database**: MySQL on port 3306
+
+Data persists between container restarts in Docker volumes.
+
 ## Resources
 
 - Tools that will be used in the website (CRM - HelpDesk - Affiliation - MA)
