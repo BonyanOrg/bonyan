@@ -4271,3 +4271,19 @@ div.nsl-container .nsl-button-google {
   }
 }
 /* ===[End Custom Post Tags]=== */
+
+/* ===[Start Impact Categories RTL]=== */
+.impact-categories {
+  .impact-categories-wrapper {
+    flex-direction: row-reverse;
+  }
+
+  .impact-categories-description {
+    text-align: right;
+  }
+
+  .impact-category-text {
+    text-align: center;
+  }
+}
+/* ===[End Impact Categories RTL]=== */
