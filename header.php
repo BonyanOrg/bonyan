@@ -74,8 +74,8 @@
 					<div class="top-header-helper">
 
 						<div class="logo header-logo me-auto">
-							<a href="">
-								<?php the_custom_logo(); ?>
+							<a href="<?php echo esc_url(home_url('/')); ?>">
+								<img src="<?php echo get_template_directory_uri() . '/dist/imgs/smile-logo.png'; ?>" alt="<?php bloginfo('name'); ?>" class="custom-logo">
 							</a>
 						</div>
 						<div class="donation-button-holder as-block ms-2 ms-lg-3 me-1 me-lg-3">

@@ -126,9 +126,9 @@
                     </button>
 
                     <div class="payment-methods">
-                        <span class="payment-icon visa">VISA</span>
-                        <span class="payment-icon paypal">PayPal</span>
-                        <span class="payment-icon mastercard">Mastercard</span>
+                        <img src="<?php echo get_template_directory_uri() . '/dist/imgs/payment-visa.png'; ?>" alt="VISA" class="payment-icon">
+                        <img src="<?php echo get_template_directory_uri() . '/dist/imgs/payment-paypal.png'; ?>" alt="PayPal" class="payment-icon">
+                        <img src="<?php echo get_template_directory_uri() . '/dist/imgs/payment-master.png'; ?>" alt="Mastercard" class="payment-icon">
                     </div>
 
                                                             <div class="security-message">

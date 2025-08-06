@@ -9,7 +9,7 @@
                 <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/login-mobile.png'; ?>" alt="" class="lazyload hide-from-mobile-up">
 
                 <div class="user-action-logo">
-                    <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/bonyan-white-logo.png'; ?>" alt="" class="lazyload">
+                    				<img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/smile-logo.png'; ?>" alt="" class="lazyload">
                 </div>
             </div>
 

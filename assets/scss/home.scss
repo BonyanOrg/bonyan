@@ -6,8 +6,8 @@
 }
 
 .main-carousel {
-  height: calc(85vh - 50px);
-  min-height: calc(85vh - 50px);
+  height: calc(90vh - 50px);
+  min-height: calc(90vh - 50px);
   width: 100%;
   margin-top: 125px;
 
@@ -612,30 +612,31 @@ html[dir="rtl"] {
     margin-bottom: 1rem;
 
     .payment-icon {
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.25rem 0.5rem;
-      border-radius: $radius-10;
+      height: auto;
+      width: auto;
       opacity: 0.7;
+      max-width: 60px;
+
+      &:nth-child(2) {
+        max-width: 90px;
+      }
+
       transition: $general-transition;
+      border-radius: $radius-8;
+      object-fit: contain;
 
-      &.visa {
-        color: #1a1f71;
-        background: rgba(26, 31, 113, 0.1);
+
+      @media (max-width: 768px) {
+        height: 25px;
       }
 
-      &.paypal {
-        color: #003087;
-        background: rgba(0, 48, 135, 0.1);
-      }
-
-      &.mastercard {
-        color: #eb001b;
-        background: rgba(235, 0, 27, 0.1);
+      @media (max-width: 576px) {
+        height: 22px;
       }
 
       &:hover {
         opacity: 1;
+        transform: scale(1.05);
       }
     }
   }

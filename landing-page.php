@@ -42,7 +42,7 @@
 
 						<div class="logo header-logo me-auto">
 							<a href="">
-								<?php the_custom_logo(); ?>
+								<img src="<?php echo get_template_directory_uri() . '/dist/imgs/smile-logo.png'; ?>" alt="<?php bloginfo('name'); ?>" class="custom-logo">
 							</a>
 						</div>
 					</div>
