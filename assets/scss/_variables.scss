@@ -10,11 +10,11 @@ $shadow-color: #0000000D;
 $text-color: #455973;
 
 // Additional color variables from Figma
-$primary-color-100: #CFE2FD;
+$primary-color-100: $light-primary-color;
 $primary-color-200: #B8CDEB;
-$primary-color-400: #1877F2;
+$primary-color-400: $primary-color;
 $dark-color-200: #FCFCFC;
-$dark-color-600: #455973;
+$dark-color-600: $text-color;
 
 // Secondary and Error colors for impact categories
 $secondary-color-100: #CED2F4;
