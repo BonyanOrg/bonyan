@@ -143,3 +143,6 @@ require_once "vcmaps/impact_statistics_map.php";
 
 /*  News Carousel  */
 require_once "vcmaps/news_carousel_map.php";
+
+/*  Testimonials  */
+require_once "vcmaps/testimonials_map.php";

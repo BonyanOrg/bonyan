@@ -102,3 +102,6 @@ require_once "shortcodes/impact_statistics_view.php";
 
 /*  News Carousel  */
 require_once "shortcodes/news_carousel_view.php";
+
+/*  Testimonials  */
+require_once "shortcodes/testimonials_view.php";
