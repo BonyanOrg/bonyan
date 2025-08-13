@@ -1,0 +1,96 @@
+/* ===[Start News Carousel]=== */
+.news-section {
+  .bonyan-title {
+    color: $primary-color;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+
+.news-carousel {
+  .swiper-slide {
+    height: auto;
+  }
+
+  .news-card {
+    height: 100%;
+  }
+}
+
+.news-card {
+  border-radius: $radius-8;
+  border: 1px solid $dark-300;
+  background: $light-color;
+  height: 388px;
+  overflow: hidden;
+  transition: $general-transition;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .news-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+  }
+  
+  .news-card-image {
+    height: 200px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: $general-transition;
+    }
+  }
+  
+  .news-card-content {
+    padding: 20px;
+    height: calc(100% - 200px);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .news-badge {
+    display: flex;
+    padding: $border-width-2 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 32px;
+    background: $warning-100;
+    color: $warning-500;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    align-self: flex-start;
+    margin-bottom: 15px;
+  }
+  
+  .news-title {
+    color: $text-color;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+  }
+}
+
+/* ===[End News Carousel]=== */ 

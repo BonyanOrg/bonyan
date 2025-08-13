@@ -54,7 +54,14 @@ if (!function_exists('impact_statistics_shortcode')) {
                         <div class="impact-cards-wrapper">
                             <div class="row">
                                 <?php
-                                if (!empty($impact_cards_data)) {
+                                // ========================================
+                                // BACKEND DEVELOPER: EASY SWITCH TO WPBakery DATA
+                                // ========================================
+                                // To enable WPBakery data, ensure you have at least 4 cards configured
+                                // with all fields: card_icon, card_number, card_text
+                                
+                                if (!empty($impact_cards_data) && count($impact_cards_data) >= 4) {
+                                    // WPBakery data is properly configured - use it
                                     foreach ($impact_cards_data as $card) {
                                         $icon = isset($card['card_icon']) ? $card['card_icon'] : '';
                                         $number = isset($card['card_number']) ? $card['card_number'] : '';
@@ -79,7 +86,7 @@ if (!function_exists('impact_statistics_shortcode')) {
                                 <?php
                                     }
                                 } else {
-                                    // Show sample cards when no cards are configured
+                                    // Show sample cards when WPBakery data is not properly configured
                                     $sample_cards = array(
                                         array(
                                             'card_icon' => 'face-kid',

@@ -22,6 +22,9 @@ function bonyan_scripts()
     // Blog Card Style 
     wp_enqueue_style('bonyan-blog-card-style', get_template_directory_uri() . "/dist/css/components/blog-card.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
+    // News Carousel Style
+    wp_enqueue_style('bonyan-news-carousel-style', get_template_directory_uri() . "/dist/css/components/wpb/news-carousel.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
+
     // Hirarchy
     //wp_enqueue_style('bonyan-hierarchy-style', get_template_directory_uri() . "/dist/css/components/wpb/hierarchy.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
@@ -30,6 +33,9 @@ function bonyan_scripts()
     wp_enqueue_script('bonyan-toastr-script', get_template_directory_uri() . "/dist/js/cdn/toastr.min.js", array('jquery'), false, true);
     wp_enqueue_script('bonyan-sweet-alert-script', get_template_directory_uri() . "/dist/js/cdn/sweetalert2.min.js", array(), false, true);
     wp_enqueue_script('bonyan-script', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), $GLOBALS['bonyan_version'], true);
+    
+    // News Carousel Script
+    wp_enqueue_script('bonyan-news-carousel-script', get_template_directory_uri() . '/dist/js/components/wpb/news-carousel.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
 
     // Hierarchy
     //wp_enqueue_script('bonyan-orgchart', get_template_directory_uri() . '/dist/js/cdn/orgchart.js', array(), $GLOBALS['bonyan_version'], true);

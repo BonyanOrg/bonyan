@@ -1,6 +1,6 @@
 .impact-statistics-section {
     .impact-title {
-        color: var(--Primary-color-400, #1877F2);
+        color: $primary-color;
         font-size: 24px;
         font-style: normal;
         font-weight: 600;
@@ -11,9 +11,9 @@
 
     .impact-cards-wrapper {
         .impact-card {
-            border-radius: var(--16, 16px);
-            border: var(--4, 4px) solid var(--Dark-300, #F7F7F7);
-            background: var(--Dark-200, #FCFCFC);
+            border-radius: $radius-16;
+            border: $border-width-4 solid $dark-300;
+            background: $dark-color-200;
             padding: 2rem 1.5rem;
             text-align: center;
             height: 100%;
@@ -21,7 +21,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: $general-transition;
 
             &:hover {
                 transform: translateY(-5px);
@@ -39,7 +39,7 @@
             }
 
             .impact-card-number {
-                color: var(--Dark-600, #455973);
+                color: $text-color;
                 text-align: center;
                 font-family: Poppins;
                 font-size: 32px;
@@ -50,7 +50,7 @@
             }
 
             .impact-card-text {
-                color: var(--Dark-600, #455973);
+                color: $text-color;
                 text-align: center;
                 font-family: Poppins;
                 font-size: 14px;

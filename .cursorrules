@@ -1,0 +1,100 @@
+# WordPress WPBakery Redesign Project Rules
+# =============================================
+
+## Project Overview
+- This is a WPBakery WordPress website redesign project
+- Frontend design and UI components are the primary focus
+- Backend functionality will be implemented by another developer later
+- Use placeholder/replacement data until backend is ready
+
+## Code Structure & Organization
+- Follow the exact same pattern as existing WPBakery components in this project
+- Place all shortcode files in `inc/wpbakery/shortcodes/` directory
+- Use descriptive filenames ending with `_view.php` for shortcode views
+- Include proper `require_once` statements in `inc/wpbakery/shortcodes.php`
+- Maintain consistent file organization and naming conventions
+
+## Frontend Design Focus
+- Prioritize visual design, layout, and user experience
+- Create responsive, in similar pattern like previous components
+- Ensure accessibility standards (WCAG compliance)
+
+## Placeholder Data Strategy
+- Use online URLs for images if they dont exist in the assets folder, if i give you the image names then consider it, if not use online url (e.g., placeholder.com, unsplash.com)
+- Create realistic sample content that represents final functionality
+- Use descriptive placeholder text that shows content structure
+- Include sample data arrays that backend developer can easily replace
+- Add clear comments indicating where backend integration will happen
+
+## WPBakery Integration
+- Follow existing shortcode patterns in the project
+- Use WordPress hooks and filters appropriately
+- Implement proper shortcode registration and attributes
+- Ensure compatibility with WPBakery page builder
+- Follow WordPress coding standards and best practices
+
+## CSS & Styling Guidelines
+- Use BEM methodology for CSS class naming
+- Implement CSS custom properties for consistent theming
+- Create reusable component styles
+- Ensure cross-browser compatibility
+- Use semantic HTML structure
+
+## CSS Variables & Figma Integration
+- When implementing Figma designs, FIRST check if values already exist in variables.scss
+- If the value exists in variables.scss, use the existing variable name
+- If the value doesn't exist and it's a COLOR, create a new variable in variables.scss and use it
+- when yyou check if it exist in the varialbes file, dont check the name, check the value, for example chceck if #fff exist then use the name it holds in the varialbles file
+- If the value doesn't exist and it's NOT a color (spacing, typography, etc.), use the direct value from Figma
+- Always prioritize using existing variables to maintain consistency across the project
+- 
+
+## JavaScript Guidelines
+- Write clean, modular JavaScript code
+- Use vanilla JavaScript or jQuery (as per project requirements)
+- Implement proper event handling and DOM manipulation
+- Add clear comments for backend integration points
+- Ensure no conflicts with WordPress or WPBakery scripts
+
+## File Naming Convention
+- Shortcode files: `component_name_view.php`
+- CSS files: `component-name.css`
+- JavaScript files: `component-name.js`
+- Follow existing naming patterns in the project
+
+
+## Responsive Design
+- Test on multiple screen sizes
+- Use CSS media queries effectively
+- Ensure touch-friendly interactions on mobile
+
+## Accessibility
+- Proper semantic HTML structure
+- ARIA labels where appropriate
+- Keyboard navigation support
+- Color contrast compliance
+- Screen reader friendly
+
+## Browser Support
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- IE11+ if required by project specifications
+- Graceful degradation for older browsers
+
+## WordPress Integration
+- Follow WordPress coding standards
+- Use WordPress functions and hooks appropriately
+- Ensure proper sanitization and validation
+- Follow WordPress security best practices
+
+## WPBakery Specific
+- Test shortcodes in WPBakery page builder
+- Ensure proper shortcode attribute handling
+- Implement responsive breakpoints correctly
+- Follow WPBakery design patterns and conventions
+
+## Development Workflow
+- Create frontend components first
+- Add placeholder data and functionality
+- Document integration points clearly
+- Prepare for seamless backend handoff
+- Maintain clean, readable code structure 

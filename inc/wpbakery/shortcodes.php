@@ -99,3 +99,6 @@ require_once "shortcodes/classy_form_view.php";
 
 /*  Impact Statistics  */
 require_once "shortcodes/impact_statistics_view.php";
+
+/*  News Carousel  */
+require_once "shortcodes/news_carousel_view.php";
