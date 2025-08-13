@@ -105,3 +105,6 @@ require_once "shortcodes/news_carousel_view.php";
 
 /*  Testimonials  */
 require_once "shortcodes/testimonials_view.php";
+
+/*  FAQs  */
+require_once "shortcodes/faqs_view.php";

@@ -1,9 +1,11 @@
+@import "../../variables";
+
 .testimonials-section {
     .testimonials-title {
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 30px;
-        color: var(--primary-color);
+        color: $primary-color;
         
         @media (max-width: 768px) {
             font-size: 2rem;
@@ -12,15 +14,15 @@
     }
     
     .testimonial-card {
-        border-radius: var(--radius-16, 16px);
-        border: var(--border-width-4, 4px) solid var(--dark-300, #F7F7F7);
-        background: var(--dark-color-200, #FCFCFC);
-        padding: var(--radius-16, 16px);
+        border-radius: $radius-16;
+        border: $border-width-4 solid $dark-300;
+        background: $dark-color-200;
+        padding: $radius-16;
         height: 100%;
         display: flex;
         flex-direction: column;
         gap: 16px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: $general-transition;
         
         &:hover {
             transform: translateY(-5px);
@@ -52,7 +54,7 @@
     }
     
     .testimonial-text {
-        color: var(--text-color, #455973);
+        color: $text-color;
         font-family: 'Poppins', sans-serif;
         font-size: 14px;
         font-style: normal;
@@ -63,7 +65,7 @@
     }
     
     .testimonial-author {
-        color: var(--text-color, #455973);
+        color: $text-color;
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
         font-style: normal;

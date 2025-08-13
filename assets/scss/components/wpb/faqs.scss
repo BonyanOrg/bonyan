@@ -1,0 +1,212 @@
+@import "../../variables";
+
+.faqs-section {
+ 
+    
+    .faqs-accordion {
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 40px;
+        .faq-item {
+            margin-bottom: 16px;
+            border-radius: $radius-12;
+            overflow: hidden;
+            transition: $general-transition;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+            
+            &.active {
+                .faq-question {
+                    //border-color: $primary-color;
+                    //border-bottom: none;
+                    border-radius: $radius-12 $radius-12 0 0;
+                    .faq-text {
+                        color: $primary-color;
+                    }
+                    
+                    .faq-icon {
+                        background: $primary-color-200;
+                        
+                        .icon-plus {
+                            display: none;
+                        }
+                        
+                        .icon-minus {
+                            display: block;
+                            svg {
+                                stroke: $primary-color;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        .faq-text {
+                            color: $light-color;
+                        }
+                    }
+                }
+                
+                .faq-answer {
+                    max-height: 500px;
+                    opacity: 1;
+                    padding: 20px;
+                    background: $light-color;
+                    //border: $border-width-2 solid $primary-color;
+                    //border-top: none;
+                    border-radius: 0 0 $radius-12 $radius-12;
+                }
+            }
+        }
+        
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            gap: 10px;
+            border-radius: $radius-12;
+            border: $border-width-2 solid $primary-color-200;
+            background: $primary-color-100;
+            cursor: pointer;
+            transition: $general-transition;
+            
+            &:hover {
+                border-color: $primary-color;
+                background: $primary-color;
+                
+                .faq-text {
+                    color: $light-color;
+
+                }
+                
+                .faq-icon {
+                    background: $primary-color-200;
+                    svg {
+                        stroke: $primary-color;
+                    }
+                }
+            }
+            
+            .faq-text {
+                color: $primary-color-400;
+                font-family: 'Poppins', sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                flex: 1;
+                margin: 0;
+                transition: color 0.3s ease;
+            }
+            
+            .faq-icon {
+                width: 30px;
+                height: 30px;
+                background: $primary-color;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                transition: $general-transition;
+                
+                svg {
+                    stroke: $light-color;
+                    transition: stroke 0.3s ease;
+                }
+                
+                .icon-plus {
+                    display: block;
+                }
+                
+                .icon-minus {
+                    display: none;
+                }
+            }
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: $general-transition;
+            padding: 0 20px;
+            border: $border-width-2 solid $primary-color-200;
+            border-top: none;
+            border-radius: 0 0 $radius-12 $radius-12;
+            .faq-answer-content {
+                color: $primary-color-400;
+                font-family: 'Poppins', sans-serif;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 1.6;
+                margin: 0;
+            }
+        }
+    }
+    
+    // Responsive breakpoints
+    @media (max-width: 768px) {
+        .faqs-accordion {
+            .faq-question {
+                padding: 16px;
+                
+                .faq-text {
+                    font-size: 15px;
+                }
+                
+                .faq-icon {
+                    width: 28px;
+                    height: 28px;
+                    
+                    svg {
+                        width: 14px;
+                        height: 14px;
+                    }
+                }
+            }
+            
+            .faq-answer {
+                .faq-answer-content {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .faqs-accordion {
+            .faq-question {
+                padding: 14px;
+                
+                .faq-text {
+                    font-size: 14px;
+                }
+                
+                .faq-icon {
+                    width: 26px;
+                    height: 26px;
+                    
+                    svg {
+                        width: 12px;
+                        height: 12px;
+                    }
+                }
+            }
+            
+            .faq-answer {
+                padding: 16px !important;
+                
+                .faq-answer-content {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+// Ensure Poppins font is loaded
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap'); 

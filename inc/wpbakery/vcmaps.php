@@ -146,3 +146,6 @@ require_once "vcmaps/news_carousel_map.php";
 
 /*  Testimonials  */
 require_once "vcmaps/testimonials_map.php";
+
+/*  FAQs  */
+require_once "vcmaps/faqs_map.php";
