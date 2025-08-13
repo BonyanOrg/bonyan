@@ -137,3 +137,6 @@ require_once "vcmaps/campaign_top_donor_map.php";
 
 /*  Classy Form  */
 require_once "vcmaps/classy_form_map.php";
+
+/*  Impact Statistics  */
+require_once "vcmaps/impact_statistics_map.php";

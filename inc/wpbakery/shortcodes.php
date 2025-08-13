@@ -96,3 +96,6 @@ require_once "shortcodes/campaign_top_donor_view.php";
 
 /*  Classy Form  */
 require_once "shortcodes/classy_form_view.php";
+
+/*  Impact Statistics  */
+require_once "shortcodes/impact_statistics_view.php";

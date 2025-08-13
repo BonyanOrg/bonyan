@@ -344,8 +344,17 @@ function clear_url_query_string($url)
 	// Remove the query string from the URL components
 	unset($parsed_url['query']);
 
-	// Reconstruct the URL without the query string
-	$cleared_url = http_build_url($parsed_url);
+	// Reconstruct the URL without the query string using standard PHP
+	$scheme   = isset($parsed_url['scheme']) ? $parsed_url['scheme'] . '://' : '';
+	$host     = isset($parsed_url['host']) ? $parsed_url['host'] : '';
+	$port     = isset($parsed_url['port']) ? ':' . $parsed_url['port'] : '';
+	$user     = isset($parsed_url['user']) ? $parsed_url['user'] : '';
+	$pass     = isset($parsed_url['pass']) ? ':' . $parsed_url['pass'] : '';
+	$pass     = ($user || $pass) ? "$pass@" : '';
+	$path     = isset($parsed_url['path']) ? $parsed_url['path'] : '';
+	$fragment = isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '';
+
+	$cleared_url = $scheme . $pass . $host . $port . $path . $fragment;
 
 	return $cleared_url;
 }
