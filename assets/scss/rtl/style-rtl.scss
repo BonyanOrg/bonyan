@@ -64,8 +64,11 @@ a {
 
 /* __Start Titles__ */
 .bonyan-title {
-  font-size: 36px;
-  font-weight: bold;
+  color: $primary-color;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 
   @media (max-width: 576px) {
     font-size: 30px;

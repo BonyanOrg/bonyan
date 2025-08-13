@@ -41,14 +41,6 @@ function statistics_vc()
 				"description"	=> esc_html__("Different Type of statistics", 'text_DOMAIN'),
 				"params"				=> array(
 					array(
-						"type"			=> "attach_image",
-						"admin_label"	=> false,
-						"heading"		=> esc_html__("Image", 'text_DOMAIN'),
-						"param_name"	=> "statistics_item_image",
-						"value"			=> "",
-						"description"	=> esc_html__("Type a description to show under the section title.", 'text_DOMAIN'),
-					),
-					array(
 						"type"			=> "textfield",
 						"admin_label"	=> true,
 						"heading"		=> esc_html__(" Title", 'text_DOMAIN'),

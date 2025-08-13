@@ -658,7 +658,10 @@ html[dir="rtl"] {
 
 /* ===[Start References]=== */
 .references {
-  background: #f5f5f5;
+
+  @media (max-width: 575.98px) {
+    padding-bottom: 190px !important;
+  }
 
   .referencesSwiper {
     .swiper-wrapper {
