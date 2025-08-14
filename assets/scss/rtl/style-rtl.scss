@@ -140,6 +140,90 @@ button {
 
 /* __Start Inputs, Selects__ */
 
+// Global Input Styles
+.global-input {
+  height: $input-height;
+  font-size: $input-font-size;
+  border-radius: $input-border-radius;
+  padding: $input-padding;
+  border: 1px solid $primary-color-200;
+  background: transparent;
+  color: $light-color;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  transition: $general-transition;
+  width: 100%;
+
+  &::placeholder {
+    color: $light-color;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+  }
+
+  &:hover {
+    border-color: $primary-color;
+  }
+}
+
+// Global Header-Style Input (like search fields)
+.global-input-header-style {
+  padding: 12px 24px;
+  font-size: 15px;
+  border: none;
+  color: $primary-color;
+  font-weight: bold;
+  background: $light-primary-color;
+  border-radius: $radius-10;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  transition: $general-transition;
+
+  &::placeholder {
+    color: $primary-color;
+  }
+
+  &:focus {
+    outline: none;
+    background: lighten($light-primary-color, 5%);
+  }
+
+  &:hover {
+    background: lighten($light-primary-color, 3%);
+  }
+}
+
+// Global Newsletter-Style Button
+.global-btn-newsletter-style {
+  background: $light-color;
+  border-radius: 4px;
+  padding: 12px 24px;
+  border: none;
+  font-weight: 600;
+  color: $dark-color-600;
+  font-size: 16px;
+  line-height: normal;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  width: 100%;
+
+  cursor: pointer;
+  transition: $general-transition;
+
+  &:hover {
+    background: darken($light-color, 5%);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
 // Auto complete style
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -1696,8 +1780,19 @@ header {
 
       // General <ul> inside menu
       ul {
-        padding: 0;
         list-style: none;
+        padding: 0;
+
+        @media (max-width: 1024px) {
+          gap: 0.5rem 1.5rem;
+          grid-gap: 0.5rem 1.5rem;
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        li {
+          margin: 0;
+        }
       }
     }
   }
@@ -1889,10 +1984,10 @@ header {
 /* ===[Start Footer]=== */
 .site-footer {
   position: relative;
-  background: $primary-color;
+  background: $primary-color-400;
   padding-top: 4rem;
   overflow: hidden;
-
+  border-radius: 40px 40px 0 0;
   @media (max-width: 1024px) {
     padding-top: 2rem;
   }
@@ -1920,7 +2015,11 @@ header {
 
     h2 {
       color: $light-color;
-      font-size: 22px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
       margin-bottom: 1.5rem;
 
       @media (max-width: 1024px) {
@@ -1930,10 +2029,20 @@ header {
 
     a {
       color: $light-color;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
     }
 
     span {
       color: $light-color;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
     }
 
     // 1st column
@@ -1946,9 +2055,10 @@ header {
         }
 
         img {
-          max-width: 100%;
-          height: 95.68px;
-          object-fit: scale-down;
+          max-width: 200px;
+          width: 100%;
+          height: auto;
+          object-fit: contain;
         }
       }
     }
@@ -1970,12 +2080,11 @@ header {
         grid-gap: 0.5rem;
         align-items: baseline;
 
-        svg {
+        .contact-icon {
           min-width: 20px;
-
-          path {
-            fill: #daa8ff;
-          }
+          height: 20px;
+          width: 20px;
+          filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
         }
 
         &.address {
@@ -1989,14 +2098,22 @@ header {
       justify-self: center;
 
       & > span {
-        font-size: 22px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
         margin-bottom: 1.5rem;
         color: $light-color;
         display: block;
       }
 
       a {
-        font-size: 17px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
         display: inline-flex;
         margin-bottom: 0.35rem;
       }
@@ -2010,45 +2127,33 @@ header {
     // 4th column
     .newsletter {
       & > span {
-        font-size: 22px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
         margin-bottom: 1.5rem;
         color: $light-color;
         display: block;
       }
-
+      
       input {
-        border: 1px solid $light-color;
-        background: transparent;
-        width: 100%;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        color: $light-color;
-
-        &::placeholder {
-          color: $light-color;
-        }
+        @extend .global-input-header-style;
       }
 
       button {
-        background: $light-color;
-        border-radius: $radius-10;
-        padding: 1rem 1.5rem;
-        border: none;
-        font-weight: bold;
-        color: #333;
-        font-size: 18px;
-        line-height: normal;
+        @extend .global-btn-newsletter-style;
       }
     }
   }
 
-  .footer-bottom {
-    background: $dark-primary-color;
-    padding: 1rem 0;
-    margin-top: 3rem;
-    display: flex;
-    align-items: center;
-    position: relative;
+      .footer-bottom {
+      background: $primary-color-500;
+      padding: 1rem 0;
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      position: relative;
 
     @media (max-width: 1024px) {
       margin-top: 0;
@@ -2075,19 +2180,30 @@ header {
           font-size: 30px;
           color: $light-color;
         }
+
+        .social-icon {
+          width: 32px;
+          height: 32px;
+          filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+        }
       }
 
       .copyrights {
         color: $light-color;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
         display: flex;
         flex-wrap: wrap;
-        text-align: center;
+        text-align: left;
         align-items: center;
-        justify-content: center;
-
+        justify-content: flex-start;
 
         @media (max-width: 1024px) {
           text-align: center;
+          justify-content: center;
         }
 
         a {

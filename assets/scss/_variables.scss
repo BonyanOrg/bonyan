@@ -13,6 +13,7 @@ $text-color: #455973;
 $primary-color-100: $light-primary-color;
 $primary-color-200: #B8CDEB;
 $primary-color-400: $primary-color;
+$primary-color-500: #135ED5;
 $dark-color-200: #FCFCFC;
 $dark-color-600: $text-color;
 
@@ -39,3 +40,9 @@ $border-width-4: 4px;
 
 // Transitions
 $general-transition: .3s all ease-in-out;
+
+// Global Input Styles
+$input-height: auto;
+$input-font-size: 16px;
+$input-border-radius: 4px;
+$input-padding: 12px 24px;

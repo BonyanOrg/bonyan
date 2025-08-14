@@ -37,7 +37,7 @@ if (!function_exists('testimonials_shortcode')) {
 
         <!-- Start Testimonials -->
         <section class="testimonials-section py-5 custom-widget">
-            <div class="container">
+            <div class="">
                 <div class="d-flex align-items-center justify-content-center justify-content-xl-start mb-4">
                     <h2 class="bonyan-title primary-color bold"><?php echo esc_html($testimonials_title); ?></h2>
                 </div>

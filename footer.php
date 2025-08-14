@@ -13,34 +13,23 @@
 ?>
 
 <footer id="colophon" class="site-footer">
-	<div class="footer-decor footer-left-decor">
-		<img src="<?php echo get_template_directory_uri() . '/dist/imgs/footer-left-decor.svg' ?>" alt="footer decor">
-	</div>
-
-	<div class="footer-decor footer-right-decor">
-		<img src="<?php echo get_template_directory_uri() . '/dist/imgs/footer-right-decor.svg' ?>" alt="footer decor">
-	</div>
 	<div class="container">
 		<div class="footer-content">
 			<!-- Column 1 -->
 			<div class="logo-and-contact-info">
 				<div class="logo">
-					<img data-src="<?php echo wp_get_attachment_image_url(get_theme_mod('footer_logo_image_url'), 'full'); ?>" alt="Logo" class="lazyload">
+					<img src="<?php echo get_template_directory_uri() . '/dist/imgs/smile-logo-white.svg'; ?>" alt="<?php bloginfo('name'); ?>" class="custom-logo">
 				</div>
 
 				<div class="contact-info hide-from-laptop-up as-flex">
 					<div class="contact-item">
-						<svg xmlns="http://www.w3.org/2000/svg" width="14.001" height="14" viewBox="0 0 14.001 14">
-							<path id="Path_235" data-name="Path 235" d="M17,13.438v2.75a.778.778,0,0,1-.723.776c-.34.023-.618.036-.832.036A12.444,12.444,0,0,1,3,4.556q0-.322.036-.832A.778.778,0,0,1,3.812,3h2.75a.389.389,0,0,1,.387.35c.018.179.034.321.05.429a10.812,10.812,0,0,0,.94,3.112.354.354,0,0,1-.114.441l-1.678,1.2a10.148,10.148,0,0,0,5.323,5.323l1.2-1.675a.359.359,0,0,1,.446-.116A10.812,10.812,0,0,0,16.224,13c.108.016.25.033.428.05a.389.389,0,0,1,.349.387Z" transform="translate(-3 -3)" fill="#fff" />
-						</svg>
+						<img src="<?php echo get_template_directory_uri() . '/dist/imgs/phone.svg'; ?>" alt="Phone" class="contact-icon">
 
 						<a class="footer-phone-number" href="tel:<?php echo get_option('contact_info_phone_number'); ?>"><?php echo get_option('contact_info_phone_number'); ?></a>
 					</div>
 
 					<div class="contact-item">
-						<svg xmlns="http://www.w3.org/2000/svg" width="17" height="16.5" viewBox="0 0 17 16.5">
-							<path id="Path_237" data-name="Path 237" d="M6.667,15.073h8.287l1.427,1.115V7.829h.81a.807.807,0,0,1,.81.8V19.5l-3.606-2.817H7.476a.807.807,0,0,1-.81-.8Zm-2.06-1.61L1,16.28V3.8A.807.807,0,0,1,1.81,3H13.952a.807.807,0,0,1,.81.8v9.659Z" transform="translate(-1 -3)" fill="#fff" />
-						</svg>
+						<img src="<?php echo get_template_directory_uri() . '/dist/imgs/message-lines.svg'; ?>" alt="Email" class="contact-icon">
 
 						<span class="footer-phone-number">
 							<?php echo get_option('contact_info_text_phone_number'); ?>
@@ -48,9 +37,7 @@
 					</div>
 
 					<div class="contact-item address">
-						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="17.728" viewBox="0 0 14 17.728">
-							<path id="Path_239" data-name="Path 239" d="M14.95,14.536,10,19.728,5.05,14.536a7.6,7.6,0,0,1,0-10.385,6.771,6.771,0,0,1,9.9,0,7.6,7.6,0,0,1,0,10.385ZM10,10.975A1.634,1.634,0,1,0,8.444,9.343,1.6,1.6,0,0,0,10,10.975Z" transform="translate(-3 -2)" fill="#fff" />
-						</svg>
+						<img src="<?php echo get_template_directory_uri() . '/dist/imgs/location-dot.svg'; ?>" alt="Location" class="contact-icon">
 
 						<a href="<?php echo get_option('contact_info_address_url'); ?>"><?php echo get_option('contact_info_address'); ?></a>
 					</div>
@@ -162,17 +149,13 @@
 			<!-- Contact for mobile (Duplicated) -->
 			<div class="contact-info hide-from-ipad-down as-flex">
 				<div class="contact-item">
-					<svg xmlns="http://www.w3.org/2000/svg" width="14.001" height="14" viewBox="0 0 14.001 14">
-						<path id="Path_235" data-name="Path 235" d="M17,13.438v2.75a.778.778,0,0,1-.723.776c-.34.023-.618.036-.832.036A12.444,12.444,0,0,1,3,4.556q0-.322.036-.832A.778.778,0,0,1,3.812,3h2.75a.389.389,0,0,1,.387.35c.018.179.034.321.05.429a10.812,10.812,0,0,0,.94,3.112.354.354,0,0,1-.114.441l-1.678,1.2a10.148,10.148,0,0,0,5.323,5.323l1.2-1.675a.359.359,0,0,1,.446-.116A10.812,10.812,0,0,0,16.224,13c.108.016.25.033.428.05a.389.389,0,0,1,.349.387Z" transform="translate(-3 -3)" fill="#fff" />
-					</svg>
+					<img src="<?php echo get_template_directory_uri() . '/dist/imgs/phone.svg'; ?>" alt="Phone" class="contact-icon">
 
 					<a class="footer-phone-number" href="tel:<?php echo get_option('contact_info_phone_number'); ?>"><?php echo get_option('contact_info_phone_number'); ?></a>
 				</div>
 
 				<div class="contact-item">
-					<svg xmlns="http://www.w3.org/2000/svg" width="17" height="16.5" viewBox="0 0 17 16.5">
-						<path id="Path_237" data-name="Path 237" d="M6.667,15.073h8.287l1.427,1.115V7.829h.81a.807.807,0,0,1,.81.8V19.5l-3.606-2.817H7.476a.807.807,0,0,1-.81-.8Zm-2.06-1.61L1,16.28V3.8A.807.807,0,0,1,1.81,3H13.952a.807.807,0,0,1,.81.8v9.659Z" transform="translate(-1 -3)" fill="#fff" />
-					</svg>
+					<img src="<?php echo get_template_directory_uri() . '/dist/imgs/message-lines.svg'; ?>" alt="Email" class="contact-icon">
 
 					<span class="footer-phone-number">
 						<?php echo get_option('contact_info_text_phone_number'); ?>
@@ -180,9 +163,7 @@
 				</div>
 
 				<div class="contact-item address">
-					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="17.728" viewBox="0 0 14 17.728">
-						<path id="Path_239" data-name="Path 239" d="M14.95,14.536,10,19.728,5.05,14.536a7.6,7.6,0,0,1,0-10.385,6.771,6.771,0,0,1,9.9,0,7.6,7.6,0,0,1,0,10.385ZM10,10.975A1.634,1.634,0,1,0,8.444,9.343,1.6,1.6,0,0,0,10,10.975Z" transform="translate(-3 -2)" fill="#fff" />
-					</svg>
+					<img src="<?php echo get_template_directory_uri() . '/dist/imgs/location-dot.svg'; ?>" alt="Location" class="contact-icon">
 
 					<a href="<?= esc_url(get_option('contact_info_address_url')); ?>"><?php echo get_option('contact_info_address'); ?></a>
 				</div>
@@ -194,20 +175,15 @@
 		<div class="container">
 			<div class="footer-bottom-helper">
 				<div class="socialmedia">
-					<a href="<?php echo get_option("facebook_url") ?>"><i class="fa-brands fa-facebook"></i></a>
-					<a href="<?php echo get_option("twitter_url") ?>"><i class="fa-brands fa-twitter"></i></a>
+					<a href="<?php echo get_option("facebook_url") ?>"><img src="<?php echo get_template_directory_uri() . '/dist/imgs/facebook.svg'; ?>" alt="Facebook" class="social-icon"></a>
+					<a href="<?php echo get_option("twitter_url") ?>"><img src="<?php echo get_template_directory_uri() . '/dist/imgs/twitter-x.svg'; ?>" alt="Twitter" class="social-icon"></a>
 					<a href="<?php echo get_option("youtube_url") ?>"><i class="fa-brands fa-youtube"></i></a>
 					<a href="<?php echo get_option("instagram_url") ?>"><i class="fa-brands fa-instagram"></i></a>
 					<a href="<?php echo get_option("tiktok_url") ?>"><i class="fa-brands fa-tiktok"></i></a>
 					<a href="<?php echo get_option("snapchat_url") ?>"><i class="fa-brands fa-snapchat"></i></a>
 				</div>
 				<div class="copyrights">
-					<span>
-						<?= esc_html('Registered 501(c)(3) charity. All donations are tax-deductible. EIN/Tax ID: 61-2107558.', 'bonyan') ?>
-					</span>
-				</div>
-				<div class="copyrights">
-					<span><?= sprintf(__('© %s All Rights Reserved', 'bonyan'), date('Y')) ?></span>
+					<span>© All rights reserved for Smile Givers International</span>
 				</div>
 
 
