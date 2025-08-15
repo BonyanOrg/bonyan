@@ -119,8 +119,27 @@
                             $hero_give_form_id = $give_forms[0]->ID;
                         }
                     }
+                    
+                    // Debug: Check if we have a valid form ID
+                    if (empty($hero_give_form_id)) {
+                        // If still no form ID, try to get any available form
+                        $give_forms = get_posts(array(
+                            'post_type' => 'give_forms',
+                            'post_status' => 'publish',
+                            'numberposts' => 1
+                        ));
+                        
+                        if (!empty($give_forms)) {
+                            $hero_give_form_id = $give_forms[0]->ID;
+                        }
+                    }
+                    
+                    // Ensure we have a valid form ID
+                    if (empty($hero_give_form_id)) {
+                        $hero_give_form_id = 1; // Fallback to form ID 1 if nothing else works
+                    }
                     ?>
-                    <button class="donate-now-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo $hero_give_form_id ?>">
+                    <button class="donate-now-btn user-action-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo $hero_give_form_id ?>">
                         <i class="fa-solid fa-heart"></i>
                         <?php _e('Donate Now', 'bonyan'); ?>
                     </button>

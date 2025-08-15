@@ -93,6 +93,29 @@ window.addEventListener('DOMContentLoaded', function () {
                             continueAsGuest.setAttribute('data-tagName', charityTagName);
                         }
 
+                    } else if (targetedModalName == 'donation-modal') {
+                        // Handle donation modal - set form ID on continue-as-guest button
+                        giveFormId = this.getAttribute('data-giveformid');
+                        amount = this.getAttribute('data-amount');
+                        charityTagName = this.getAttribute('data-tagName');
+
+                        // Check if this is donation button then check if the giveFormId not exist so don't open modal
+                        if ((modalBtn.classList.contains("donation-action") ||
+                            modalBtn.classList.contains("donation-btn") ||
+                            modalBtn.classList.contains("donate-now-btn"))
+                        ) {
+                            if (!giveFormId) {
+                                toastr.warning('No form ID was found');
+                                return;
+                            }
+
+                            let continueAsGuest = document.querySelector('.continue-as-guest');
+                            if (continueAsGuest) {
+                                continueAsGuest.setAttribute('data-giveformid', giveFormId);
+                                continueAsGuest.setAttribute('data-amount', amount === null ? 50 : amount);
+                                continueAsGuest.setAttribute('data-tagName', charityTagName);
+                            }
+                        }
                     }
                     if (targetedModal !== null) {
                         // If already a modal opened

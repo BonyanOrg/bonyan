@@ -212,9 +212,8 @@
 							<form method="get" action="<?= home_url('/')  ?>" class="search-form">
 								<div class="input-holder search-input-holder">
 									<div class="search-icon">
-										<svg id="Group_262" data-name="Group 262" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-											<path id="Path_153" data-name="Path 153" d="M0,0H24V24H0Z" fill="none" />
-											<path id="Path_154" data-name="Path 154" d="M18.031,16.617,22.314,20.9,20.9,22.314l-4.282-4.283a9,9,0,1,1,1.414-1.414Zm-2.006-.742a7,7,0,1,0-.15.15l.15-.15Z" fill="#6d54a7" />
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+										  <path d="M21 20.9997L17.5096 17.5095M17.5096 17.5095C19.0471 15.9714 19.998 13.8468 19.998 11.5C19.998 6.80558 16.1929 3 11.499 3C6.80514 3 3 6.80558 3 11.5C3 16.1944 6.80514 20 11.499 20C13.8464 20 15.9715 19.0482 17.5096 17.5095Z" stroke="#455973" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 										</svg>
 									</div>
 									<?php print_lang_input_if_required_for_search(); ?>
@@ -305,12 +304,11 @@
 							<div class="header-search hide-from-ipad-down as-block">
 								<form method="get" action="<?php echo home_url('/'); ?>" class="search-form">
 									<div class="input-holder search-input-holder">
-										<div class="search-icon">
-											<svg id="Group_262" data-name="Group 262" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-												<path id="Path_153" data-name="Path 153" d="M0,0H24V24H0Z" fill="none" />
-												<path id="Path_154" data-name="Path 154" d="M18.031,16.617,22.314,20.9,20.9,22.314l-4.282-4.283a9,9,0,1,1,1.414-1.414Zm-2.006-.742a7,7,0,1,0-.15.15l.15-.15Z" fill="#6d54a7" />
-											</svg>
-										</div>
+																		<div class="search-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									  <path d="M21 20.9997L17.5096 17.5095M17.5096 17.5095C19.0471 15.9714 19.998 13.8468 19.998 11.5C19.998 6.80558 16.1929 3 11.499 3C6.80514 3 3 6.80558 3 11.5C3 16.1944 6.80514 20 11.499 20C13.8464 20 15.9715 19.0482 17.5096 17.5095Z" stroke="#455973" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+									</svg>
+								</div>
 										<input type="search" name="s" id="header-search-input" placeholder="<?php _e('Search...', 'bonyan') ?>" class="ps-5 pe-2">
 									</div>
 								</form>

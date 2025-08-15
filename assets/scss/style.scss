@@ -417,11 +417,13 @@ input {
 .page-head {
   position: relative;
   margin-top: 132px;
-  min-height: 160px;
+  min-height: 315px;
   padding: 2rem 0;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: cover !important;
+  display: flex;
+  align-items: center;
 
   @media (max-width: 1024px) {
     margin-top: 97px;
@@ -444,8 +446,11 @@ input {
   // Title
   h1 {
     color: $light-color;
-    font-size: 50px;
     position: relative;
+
+    font-size: 40px;
+    font-weight: 600;
+    line-height: normal;
 
     @media (max-width: 1024px) {
       font-size: 32px;
@@ -461,14 +466,21 @@ input {
     color: $light-color;
     position: relative;
     display: flex;
+    gap: 0.5rem;
 
     p {
-      border: 1px solid #d1d3d4;
       padding: 0.5rem 1rem;
       border-radius: $radius-10;
-      background: rgba($light-color, 0.2);
-      backdrop-filter: blur(50px);
       margin-bottom: 0;
+      border-radius: 4px;
+      background: $light-color;
+      color: $dark-color-600;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: normal;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     span {
@@ -479,7 +491,7 @@ input {
       transition: $general-transition;
 
       &:hover {
-        color: #a5f7ff;
+        color: $primary-color;
       }
     }
   }
@@ -561,6 +573,95 @@ input {
       background: $primary-color;
       color: $light-color;
       box-shadow: 0 3px 20px rgba($primary-color, 0.3);
+    }
+    
+    // Mobile-only buttons for additional categories
+    &.mobile-only {
+      @media (min-width: 769px) {
+        display: none;
+      }
+    }
+  }
+
+  // Category select dropdown styling
+  .category-select-holder {
+    position: relative;
+    min-width: 150px;
+    
+    // Hide dropdown on mobile, show all categories as scrollable buttons
+    @media (max-width: 768px) {
+      display: none;
+    }
+    
+    // Highlight the container when an option is selected
+    &.has-selection {
+      .category-select {
+        border-color: $primary-color;
+        background: rgba($primary-color, 0.08);
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+      }
+      
+      // Add a subtle indicator dot
+      &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        width: 8px;
+        height: 8px;
+        background: $primary-color;
+        border-radius: 50%;
+        z-index: 2;
+      }
+    }
+    
+    .category-select {
+      border: 1px solid $primary-color;
+      padding: 0.75rem 2rem 0.75rem 1rem;
+      border-radius: $radius-10;
+      background: $light-color;
+      color: $primary-color;
+      outline: none;
+      font-size: 14px;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      min-width: 150px;
+      
+      &:focus {
+        border-color: darken($primary-color, 10%);
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+      }
+      
+      // Style for when an option is selected
+      &:has(option:checked) {
+        border-color: $primary-color;
+        background: rgba($primary-color, 0.05);
+        font-weight: 500;
+        box-shadow: 0 0 0 1px rgba($primary-color, 0.3);
+      }
+      
+      option {
+        background: $light-color;
+        color: $primary-color;
+        padding: 0.5rem;
+        
+        &:checked {
+          background: $primary-color;
+          color: $light-color;
+          font-weight: bold;
+        }
+      }
+    }
+    
+    .select-icon {
+      position: absolute;
+      top: 50%;
+      right: 0.75rem;
+      transform: translateY(-50%);
+      color: $primary-color;
+      pointer-events: none;
+      z-index: 1;
     }
   }
 }

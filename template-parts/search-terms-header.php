@@ -8,12 +8,55 @@
                     'parent' => 0
                 ));
                 if (count($terms) > 0) {
-                    foreach ($terms as $term) {
+                    // Show first 4 categories as buttons
+                    $first_four = array_slice($terms, 0, 4);
+                    $remaining_terms = array_slice($terms, 4);
+                    
+                    foreach ($first_four as $term) {
             ?>
                         <a href=" <?php echo get_term_link($term->term_id) ?> " class="category-filter-item">
                             <span><?php echo $term->name  ?></span>
                         </a>
             <?php
+                    }
+                    
+                    // If there are more than 4 categories, show dropdown for remaining (desktop only)
+                    if (count($remaining_terms) > 0) {
+                        $has_selection = false;
+                        foreach ($remaining_terms as $term) {
+                            if ($term->term_id == $args['queried_object']->term_id) {
+                                $has_selection = true;
+                                break;
+                            }
+                        }
+            ?>
+                        <div class="select-holder category-select-holder <?php echo $has_selection ? 'has-selection' : ''; ?>">
+                            <div class="select-icon">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </div>
+                            <select class="category-select" onchange="if(this.value) { this.closest('.category-select-holder').classList.add('has-selection'); window.location.href=this.value; }" onfocus="this.selectedIndex = this.selectedIndex;">
+                                <option value=""><?php _e('More Categories...', 'bonyan') ?></option>
+                                <?php foreach ($remaining_terms as $term) : ?>
+                                    <option value="<?php echo get_term_link($term->term_id) ?>" <?php echo ($term->term_id == $args['queried_object']->term_id) ? 'selected' : ''; ?>><?php echo $term->name ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+            <?php
+                    }
+                    
+                    // On mobile, show all remaining categories as scrollable buttons
+                    if (count($remaining_terms) > 0) {
+                        foreach ($remaining_terms as $term) {
+                            $active = "";
+                            if ($term->term_id == $args['queried_object']->term_id) {
+                                $active = "active";
+                            }
+            ?>
+                            <a href="<?php echo get_term_link($term->term_id) ?>" class="category-filter-item mobile-only <?php echo $active ?>">
+                                <span><?php echo $term->name ?></span>
+                            </a>
+            <?php
+                        }
                     }
                 }
             } ?>
@@ -23,9 +66,8 @@
 
             <div class="input-holder search-input-holder">
                 <div class="search-icon">
-                    <svg id="Group_262" data-name="Group 262" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path id="Path_153" data-name="Path 153" d="M0,0H24V24H0Z" fill="none" />
-                        <path id="Path_154" data-name="Path 154" d="M18.031,16.617,22.314,20.9,20.9,22.314l-4.282-4.283a9,9,0,1,1,1.414-1.414Zm-2.006-.742a7,7,0,1,0-.15.15l.15-.15Z" fill="#6d54a7" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M21 20.9997L17.5096 17.5095M17.5096 17.5095C19.0471 15.9714 19.998 13.8468 19.998 11.5C19.998 6.80558 16.1929 3 11.499 3C6.80514 3 3 6.80558 3 11.5C3 16.1944 6.80514 20 11.499 20C13.8464 20 15.9715 19.0482 17.5096 17.5095Z" stroke="#455973" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
                 <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : ''; ?>
@@ -55,7 +97,11 @@
 
                     ));
                     if (count($term_childrens) > 0 || !empty($parent_id)) {
-                        foreach ($term_childrens as $term) {
+                        // Show first 4 child categories as buttons
+                        $first_four = array_slice($term_childrens, 0, 4);
+                        $remaining_terms = array_slice($term_childrens, 4);
+                        
+                        foreach ($first_four as $term) {
                             $active = "";
                             if ($term->term_id == $args['queried_object']->term_id) {
                                 $active = "active";
@@ -67,8 +113,51 @@
                             </a>
                         <?php
                         }
+                        
+                        // If there are more than 4 child categories, show dropdown for remaining (desktop only)
+                        if (count($remaining_terms) > 0) {
+                            $has_selection = false;
+                            foreach ($remaining_terms as $term) {
+                                if ($term->term_id == $args['queried_object']->term_id) {
+                                    $has_selection = true;
+                                    break;
+                                }
+                            }
+                ?>
+                            <div class="select-holder category-select-holder <?php echo $has_selection ? 'has-selection' : ''; ?>">
+                                <div class="select-icon">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                                <select class="category-select" onchange="if(this.value) { this.closest('.category-select-holder').classList.add('has-selection'); window.location.href=this.value; }" onfocus="this.selectedIndex = this.selectedIndex;">
+                                    <option value=""><?php echo _e('More Categories...', 'bonyan') ?></option>
+                                    <?php foreach ($remaining_terms as $term) : ?>
+                                        <option value="<?php echo get_term_link($term->term_id) ?>" <?php echo ($term->term_id == $args['queried_object']->term_id) ? 'selected' : ''; ?>><?php echo $term->name ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                <?php
+                        }
+                        
+                        // On mobile, show all remaining child categories as scrollable buttons
+                        if (count($remaining_terms) > 0) {
+                            foreach ($remaining_terms as $term) {
+                                $active = "";
+                                if ($term->term_id == $args['queried_object']->term_id) {
+                                    $active = "active";
+                                }
+                ?>
+                                <a href="<?php echo get_term_link($term->term_id) ?>" class="category-filter-item mobile-only <?php echo $active ?>">
+                                    <span><?php echo $term->name ?></span>
+                                </a>
+                <?php
+                            }
+                        }
                     } else if (count($terms) > 0) {
-                        foreach ($terms as $term) {
+                        // Show first 4 top-level categories as buttons
+                        $first_four = array_slice($terms, 0, 4);
+                        $remaining_terms = array_slice($terms, 4);
+                        
+                        foreach ($first_four as $term) {
                             $active = "";
                             if ($term->term_id == $args['queried_object']->term_id) {
                                 $active = "active";
@@ -80,6 +169,45 @@
                             </a>
                 <?php
                         }
+                        
+                        // If there are more than 4 top-level categories, show dropdown for remaining (desktop only)
+                        if (count($remaining_terms) > 0) {
+                            $has_selection = false;
+                            foreach ($remaining_terms as $term) {
+                                if ($term->term_id == $args['queried_object']->term_id) {
+                                    $has_selection = true;
+                                    break;
+                                }
+                            }
+                ?>
+                            <div class="select-holder category-select-holder <?php echo $has_selection ? 'has-selection' : ''; ?>">
+                                <div class="select-icon">
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </div>
+                                <select class="category-select" onchange="if(this.value) { this.closest('.category-select-holder').classList.add('has-selection'); window.location.href=this.value; }" onfocus="this.selectedIndex = this.selectedIndex;">
+                                    <option value=""><?php echo _e('More Categories...', 'bonyan') ?></option>
+                                    <?php foreach ($remaining_terms as $term) : ?>
+                                        <option value="<?php echo get_term_link($term->term_id) ?>" <?php echo ($term->term_id == $args['queried_object']->term_id) ? 'selected' : ''; ?>><?php echo $term->name ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                </div>
+                <?php
+                        }
+                        
+                        // On mobile, show all remaining top-level categories as scrollable buttons
+                        if (count($remaining_terms) > 0) {
+                            foreach ($remaining_terms as $term) {
+                                $active = "";
+                                if ($term->term_id == $args['queried_object']->term_id) {
+                                    $active = "active";
+                                }
+                ?>
+                                <a href="<?php echo get_term_link($term->term_id) ?>" class="category-filter-item mobile-only <?php echo $active ?>">
+                                    <span><?php echo $term->name ?></span>
+                                </a>
+                <?php
+                            }
+                        }
                     }
                 } ?>
             </div>
@@ -90,9 +218,8 @@
 
             <div class="input-holder search-input-holder">
                 <div class="search-icon">
-                    <svg id="Group_262" data-name="Group 262" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path id="Path_153" data-name="Path 153" d="M0,0H24V24H0Z" fill="none" />
-                        <path id="Path_154" data-name="Path 154" d="M18.031,16.617,22.314,20.9,20.9,22.314l-4.282-4.283a9,9,0,1,1,1.414-1.414Zm-2.006-.742a7,7,0,1,0-.15.15l.15-.15Z" fill="#6d54a7" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M21 20.9997L17.5096 17.5095M17.5096 17.5095C19.0471 15.9714 19.998 13.8468 19.998 11.5C19.998 6.80558 16.1929 3 11.499 3C6.80514 3 3 6.80558 3 11.5C3 16.1944 6.80514 20 11.499 20C13.8464 20 15.9715 19.0482 17.5096 17.5095Z" stroke="#455973" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
                 <?php
