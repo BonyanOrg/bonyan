@@ -1,15 +1,20 @@
+@import '_variables';
+
 /* ===[Start Modify the container]=== */
+
+
 .give-form-templates {
-    margin: 0;
-    min-height: unset;
+  margin: 0;
+  min-height: unset;
 }
+
 /* ===[End Modify the container]=== */
 
 /* ===[Start Progress bar color]=== */
-.give-progress-bar > span {
-    background: linear-gradient(180deg, #b8a1ef 0%, #6d54a7 100%),
-        linear-gradient(180deg, #fff 0%, #ccc 100%) !important;
+.give-progress-bar>span {
+  background: linear-gradient(180deg, $primary-color 0%, $dark-primary-color 100%) !important;
 }
+
 /* ===[End Progress bar color]=== */
 
 .givewp-modal-confirmation .give-embed-form-wrapper {
@@ -20,47 +25,392 @@
 .give-embed-form {
   max-width: 100%;
 }
+
 /* ===[End make form in single campaign (full width)]=== */
+
+/* ===[Start Custom Scrollbar for Give Form Container]=== */
+#give_form_container {
+
+  /* Custom scrollbar styling - Webkit browsers (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $dark-color-200;
+    border-radius: 4px;
+    box-shadow: inset 0 0 2px rgba($dark-color, 0.1);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, $primary-color 0%, $dark-primary-color 100%);
+    border-radius: 4px;
+    border: 1px solid $primary-color-200;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(180deg, $dark-primary-color 0%, $dark-700 100%);
+    }
+
+    &:active {
+      background: linear-gradient(180deg, $dark-700 0%, $dark-color 100%);
+    }
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: $dark-color-200;
+    border-radius: 4px;
+  }
+
+  /* Firefox scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: $primary-color $dark-color-200;
+
+  /* Smooth scrolling behavior */
+  scroll-behavior: smooth;
+
+  /* Ensure proper overflow handling */
+  overflow: auto;
+
+  /* Add some padding to prevent content from touching scrollbar */
+  padding-right: 4px;
+}
+
+/* ===[End Custom Scrollbar for Give Form Container]=== */
+
+/* ===[Start GiveWP Button Styling]=== */
+
+.give-btn.advance-btn {
+  background: $primary-color !important;
+  color: $light-color !important;
+  border-radius: $radius-10 !important;
+  padding: 0.75rem 1.5rem !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  height: auto !important;
+  margin-top: 16px !important;
+  border: none !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: normal !important;
+  text-decoration: none !important;
+  min-height: 48px !important;
+  cursor: pointer !important;
+  transition: $general-transition !important;
+
+  &:hover {
+    background: $dark-primary-color !important;
+    color: $light-color !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba($primary-color, 0.3) !important;
+  }
+
+  &:active {
+    background: $dark-primary-color !important;
+    transform: translateY(0) !important;
+  }
+
+  &:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.3) !important;
+  }
+
+  &:disabled {
+    background: $dark-300 !important;
+    color: $text-color !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  @media (max-width: 1024px) {
+    min-width: 50px !important;
+  }
+
+  @media (max-width: 576px) {
+    padding: 0.5rem !important;
+    min-width: auto !important;
+    width: 100% !important;
+  }
+}
+
+/* ===[End GiveWP Button Styling]=== */
+
+/* ===[Start GiveWP Progress Bar Styling]=== */
+.give-progress-bar {
+  height: 13px !important;
+  width: 100% !important;
+  background: $primary-color-100 !important;
+  border-radius: $radius-15 !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin: 1rem 0 !important;
+
+  >span {
+
+    background: linear-gradient(180deg, $primary-color 0%, $dark-primary-color 100%) !important;
+    border-radius: $radius-15 !important;
+    transition: width 0.3s ease !important;
+    position: relative !important;
+    display: block !important;
+    box-shadow: 0 2px 4px rgba($primary-color, 0.3) !important;
+  }
+}
+
+/* ===[End GiveWP Progress Bar Styling]=== */
+
+/* ===[Start GiveWP Income Stats Styling]=== */
+.income-stats {
+  margin-block: 24px !important;
+
+  .number {
+    color: $dark-color-600 !important;
+    text-align: center !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 24px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: normal !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .text {
+    color: $dark-color-600 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 20px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+  }
+
+  @media (max-width: 768px) {
+    .number {
+      font-size: 20px !important;
+    }
+
+    .text {
+      font-size: 18px !important;
+    }
+  }
+}
+
+.give-section {
+
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  .headline {
+    color: $dark-color-600;
+
+    /* Heading - Medium/Bold */
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .seperator {
+    background: $primary-color !important;
+  }
+
+  .description {
+    color: $dark-color-600;
+    text-align: center;
+
+    /* Subtitle - Large/Regular */
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .image {
+    padding: 39.4% 0 0;
+
+  }
+  &.choose-amount {
+    padding-top: 104px !important;
+    .content {
+      color: $dark-color-600;
+      text-align: center;
+
+      /* Subtitle - Large/Medium */
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .give-total-wrap .give-donation-amount{
+     
+      background: $light-primary-color;
+      border-radius: $radius-10;
+      border: none;
+      padding: 12px 16px 12px 36px !important;
+      width: 100%;
+      transition: $general-transition;
+   
+    .give-currency-symbol{
+
+    }
+    .give-text-input{
+      font-size: $input-font-size !important;
+      border: none;
+      font-weight: bold !important;
+      color: $dark-color-600 !important;
+      background: transparent !important;
+      font-style: normal !important;
+      font-weight: 400 !important;
+      line-height: normal !important;
+      float: none !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-width: 100% !important;
+      text-align: start !important;
+    }
+    &::placeholder{
+      color: $dark-color-600;
+    }
+    &:focus{
+      outline: none;
+      background: lighten($light-primary-color, 5%);
+    }
+    &:hover{
+      background: lighten($light-primary-color, 3%);
+    }
+    }
+
+    .give-donation-levels-wrap {
+      margin: 24px auto !important;
+      max-width: 300px !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      grid-template-rows: repeat(2, auto) !important;
+      gap: 12px !important;
+
+      li {
+        // Ensure li fills grid cell
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        float: none !important;
+
+        button {
+          border-radius: $radius-8;
+          background: $primary-color-100 !important;
+          border: 2px solid $primary-color-100 !important;
+          color: $dark-color-600;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          padding: 8px 32px !important;
+          &:hover{
+            background: $primary-color-200 !important;
+            box-shadow: none !important;
+          }
+
+          
+
+          &.give-default-level {
+            border: 2px solid $primary-color-400 !important;
+            color: $primary-color-400 !important;
+
+
+
+          }
+        }
+
+        .give-fee-message-label-text{
+          width: 100% !important;
+        }
+      }
+    }
+
+    .give-fee-message{
+      width: 100% !important;
+      max-width: 310px !important;
+      white-space: nowrap !important;
+    }
+  }
+}
+
+.give-form-navigator {
+  border-radius: 24px 24px 0 0 !important;
+  background: $dark-300;
+  padding: 16px 12px;
+  visibility: hidden;
+
+  &.nav-visible{
+    visibility: visible;
+  }
+
+  .title {
+    color: $dark-color-600;
+
+    /* Heading - Medium/Bold */
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+
+
+}
+
+
+
+/* ===[End GiveWP Income Stats Styling]=== */
 
 /* RTL */
 html[dir="rtl"] {
-    .give-form-templates {
-        // FIx Wrapper
-        .give-form-wrap {
-            direction: ltr;
-        }
+  .give-form-templates {
 
-        .give-section,
-        .give-form-navigator,
-        .form-footer {
-            direction: rtl;
-        }
-
-        form.give-form .form-row-one-third {
-          margin-right: 0 !important;
-        }
-
-        .give-donation-summary-section th {
-          text-align: right !important;
-        }
-
-        .give-donation-summary-section td:last-child, .give-donation-summary-section th:last-child {
-          text-align: left !important;
-        }
-
-        .payment fieldset p>i {
-          left: unset !important;
-          right: 14px !important;
-        }
-
-        // Fix Currency
-        .give-donation-levels-wrap > li {
-            direction: ltr;
-        }
+    // FIx Wrapper
+    .give-form-wrap {
+      direction: ltr;
     }
 
-    // Fix margin for card inputs in Arabic
-    #give-recurring-form .form-row-one-third, .give-form-templates form.give-form .form-row-one-third, form[id*=give-form] .form-row-one-third {
-      margin-right: 3% !important;
+    .give-section,
+    .give-form-navigator,
+    .form-footer {
+      direction: rtl;
     }
+
+    form.give-form .form-row-one-third {
+      margin-right: 0 !important;
+    }
+
+    .give-donation-summary-section th {
+      text-align: right !important;
+    }
+
+    .give-donation-summary-section td:last-child,
+    .give-donation-summary-section th:last-child {
+      text-align: left !important;
+    }
+
+    .payment fieldset p>i {
+      left: unset !important;
+      right: 14px !important;
+    }
+
+    // Fix Currency
+    .give-donation-levels-wrap>li {
+      direction: ltr;
+    }
+  }
+
+  // Fix margin for card inputs in Arabic
+  #give-recurring-form .form-row-one-third,
+  .give-form-templates form.give-form .form-row-one-third,
+  form[id*=give-form] .form-row-one-third {
+    margin-right: 3% !important;
+  }
 }
