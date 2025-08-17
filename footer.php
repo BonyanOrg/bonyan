@@ -12,6 +12,8 @@
 
 ?>
 
+<div class="footer-wrapper">
+
 <footer id="colophon" class="site-footer">
 	<div class="container">
 		<div class="footer-content">
@@ -191,6 +193,8 @@
 		</div>
 	</div>
 </footer><!-- #colophon -->
+</div>
+
 </div><!-- #page -->
 
 

@@ -88,7 +88,7 @@ if (!function_exists('program_card_shortcode')) {
             </div>
 
             <div class="program-icon">
-                <img data-src="<?= esc_url(wp_get_attachment_image_url($programs_cards_icon_url, 'full')); ?>" alt="program 1" class="lazyload">
+                <img src="<?php echo get_template_directory_uri() . '/dist/imgs/build.svg'; ?>" alt="program icon" class="placeholder-icon">
             </div>
 
             <div class="program-title">

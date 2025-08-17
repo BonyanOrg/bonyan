@@ -1,3 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
 # WordPress WPBakery Redesign Project Rules
 # =============================================
 
@@ -39,6 +44,28 @@
 - Create reusable component styles
 - Ensure cross-browser compatibility
 - Use semantic HTML structure
+
+## WordPress CSS Enqueuing Rule
+- NEVER use `require_once()` or `include()` to load CSS files in shortcodes
+- Always use `wp_enqueue_style()` to properly enqueue CSS files
+- Hook CSS enqueuing to `wp_enqueue_scripts` action
+- Use `get_template_directory_uri()` for CSS file paths, not `get_template_directory()`
+- CSS files cannot be "required" like PHP files - this causes fatal errors
+
+## Component Style Enqueuing Rule
+- Component styles are loaded GLOBALLY in `inc/enqueue-assets.php`, NOT in individual shortcode files
+- Add component style enqueue to the appropriate section in `enqueue-assets.php`
+- Use the pattern: `wp_enqueue_style('bonyan-component-name-style', get_template_directory_uri() . "/dist/css/components/wpb/component-name.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);`
+- Only special components like Swiper carousels use individual enqueuing functions
+- Shortcode files should only output HTML, not enqueue styles
+
+## Gulp Configuration Rule
+- When creating new WPBakery components, ALWAYS add them to gulpfile.js
+- Add CSS task: `wpb-component-name-css` following the existing pattern
+- Add the task to `components-styles` parallel array
+- Use the path: `./assets/scss/components/wpb/component-name.scss`
+- Output to: `./dist/css/components/wpb/component-name.min.css`
+- Run `gulp components-styles` after adding new components to generate CSS files
 
 ## CSS Variables & Figma Integration
 - When implementing Figma designs, FIRST check if values already exist in variables.scss

@@ -108,3 +108,6 @@ require_once "shortcodes/testimonials_view.php";
 
 /*  FAQs  */
 require_once "shortcodes/faqs_view.php";
+
+/*  News Card  */
+require_once "shortcodes/news_card_view.php";

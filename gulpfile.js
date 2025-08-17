@@ -427,6 +427,8 @@ gulp.task('wpb-faqs-css', function () {
         .pipe(gulp.dest('./dist/css/components/wpb'));
 });
 
+
+
 //****************************************************
 // GiveWP iFrame Style
 //****************************************************
@@ -675,6 +677,18 @@ gulp.task('wpb-faqs-accordion-js', function () {
         .pipe(gulp.dest('./dist/js/components/wpb'));
 });
 
+//****************************************************
+// News Inner Section Style
+//****************************************************
+gulp.task('wpb-news-inner-section-css', function () {
+    return gulp.src('./assets/scss/components/wpb/news-inner-section.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('news-inner-section.min.css'))
+        .pipe(sourcemaps.write('./map'))
+        .pipe(gulp.dest('./dist/css/components/wpb'));
+});
+
 //*************************************************************
 // ===================TASKS AUTOMATION=========================
 //*************************************************************
@@ -686,7 +700,7 @@ gulp.task('styles', gulp.parallel(['style', 'home', 'global-datatable-css', 'das
 
 gulp.task('styles-rtl', gulp.parallel(['style-rtl']));
 
-gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css', 'wpb-icon-title-desc-css', 'wpb-bg-title-desc-css', 'wpb-locations-css', 'wpb-file-card-css', 'wpb-program-stats-css', 'wpb-banner-css', 'wpb-success-story-card-css', 'blog-card-css', 'trustee-card-css', 'top-donation-stats-css', 'hierarchy-css', 'advanced-search-css', 'events-css', 'wpb-impact-statistics-css', 'wpb-news-carousel-css', 'wpb-testimonials-css', 'wpb-faqs-css']));
+gulp.task('components-styles', gulp.parallel(['wpb-quick-donation-css', 'wpb-primary-carousel-css', 'wpb-zakat-css', 'wpb-project-card-css', 'wpb-contact-info-css', 'wpb-vacancies-css', 'wpb-tenders-css', 'wpb-icon-title-desc-css', 'wpb-bg-title-desc-css', 'wpb-locations-css', 'wpb-file-card-css', 'wpb-program-stats-css', 'wpb-banner-css', 'wpb-success-story-card-css', 'blog-card-css', 'trustee-card-css', 'top-donation-stats-css', 'hierarchy-css', 'advanced-search-css', 'events-css', 'wpb-impact-statistics-css', 'wpb-news-carousel-css', 'wpb-testimonials-css', 'wpb-faqs-css', 'wpb-news-inner-section-css']));
 
 //****************************************************
 //task for automate all scripts

@@ -2756,10 +2756,18 @@ header {
   .program-icon {
     position: relative;
     z-index: 3;
+    background: $primary-color;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba($primary-color, 0.3);
 
     img {
-      width: 65px;
-      height: 65px;
+      width: 45px;
+      height: 45px;
     }
   }
 
@@ -2893,15 +2901,30 @@ header {
         position: absolute;
         top: -2rem;
         right: -2rem;
+        background: $primary-color;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba($primary-color, 0.3);
 
         img {
-          width: 65px;
-          height: 65px;
+          width: 45px;
+          height: 45px;
         }
 
         @media (max-width: 576px) {
           top: 1rem;
           right: 1rem;
+          width: 70px;
+          height: 70px;
+          
+          img {
+            width: 40px;
+            height: 40px;
+          }
         }
       }
     }

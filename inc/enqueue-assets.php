@@ -25,6 +25,9 @@ function bonyan_scripts()
     // News Carousel Style
     wp_enqueue_style('bonyan-news-carousel-style', get_template_directory_uri() . "/dist/css/components/wpb/news-carousel.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 
+    // News Inner Section Style
+    wp_enqueue_style('bonyan-news-inner-section-style', get_template_directory_uri() . "/dist/css/components/wpb/news-inner-section.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
+
     // Hirarchy
     //wp_enqueue_style('bonyan-hierarchy-style', get_template_directory_uri() . "/dist/css/components/wpb/hierarchy.min.css", array('bonyan-bootstrap-style'), $GLOBALS['bonyan_version']);
 

@@ -70,7 +70,7 @@ if (!function_exists('archive_program_card_shortcode')) {
                 </div>
 
                 <div class="program-icon">
-                    <img data-src="<?= esc_url(wp_get_attachment_image_url($archive_programs_cards_icon_url, 'full')); ?>" alt="<?php echo $archive_programs_cards_text ?>" class="lazyload">
+                    <img src="<?php echo get_template_directory_uri() . '/dist/imgs/build.svg'; ?>" alt="<?php echo $archive_programs_cards_text ?>" class="placeholder-icon">
                 </div>
             </div>
 

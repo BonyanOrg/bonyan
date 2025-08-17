@@ -2021,6 +2021,21 @@ header {
 /* ===[End Mobile Header]=== */
 
 /* ===[Start Footer]=== */
+.footer-wrapper {
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  background: rgba(184, 205, 235, 0.29);
+
+    z-index: -1;
+  }
+}
 .site-footer {
   position: relative;
   background: $primary-color-400;
@@ -2434,7 +2449,7 @@ header {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
-        color: var(--Primary-color-400, #1877F2);
+        color: $primary-color;
         font-family: Poppins;
         font-size: 20px;
         font-style: normal;
@@ -2779,10 +2794,18 @@ header {
   .program-icon {
     position: relative;
     z-index: 3;
+    background: $primary-color;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba($primary-color, 0.3);
 
     img {
-      width: 65px;
-      height: 65px;
+      width: 45px;
+      height: 45px;
     }
   }
 
@@ -2916,15 +2939,30 @@ header {
         position: absolute;
         top: -2rem;
         left: -2rem;
+        background: $primary-color;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba($primary-color, 0.3);
 
         img {
-          width: 65px;
-          height: 65px;
+          width: 45px;
+          height: 45px;
         }
 
         @media (max-width: 576px) {
           top: 1rem;
           left: 1rem;
+          width: 70px;
+          height: 70px;
+          
+          img {
+            width: 40px;
+            height: 40px;
+          }
         }
       }
     }
@@ -4587,3 +4625,232 @@ div.nsl-container .nsl-button-google {
 /* ===[Start FAQs Component]=== */
 @import "components/wpb/faqs";
 /* ===[End FAQs Component]=== */
+
+/* ===[Start Programs Page]=== */
+.programs-section {
+  padding: 2rem 0;
+  
+  .programs-info {
+    text-align: center;
+    padding: 3rem 0;
+    
+    h2 {
+      color: $primary-color;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      color: $text-color;
+      font-size: 18px;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .primary-btn {
+      background: $primary-color;
+      color: $light-color;
+      padding: 12px 24px;
+      border-radius: $radius-10;
+      text-decoration: none;
+      font-weight: 500;
+      transition: $general-transition;
+      
+      &:hover {
+        background: $dark-primary-color;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.archive-programs-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  grid-gap: 3rem;
+  margin: 1.5rem 0;
+
+  @media (max-width: 1400px) {
+    gap: 1.5rem;
+    grid-gap: 1.5rem;
+  }
+
+  @media (max-width: 1199px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .archive-program-card {
+    display: flex;
+    gap: 1.5rem;
+    grid-gap: 1.5rem;
+    padding: 2rem 0 0 2rem;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      padding: 0;
+      gap: 0.5rem;
+      grid-gap: 0.5rem;
+    }
+
+    .program-img-decor {
+      position: relative;
+
+      .program-img {
+        position: relative;
+        width: 270px;
+        height: 250px;
+        border-radius: 20px;
+        overflow: hidden;
+
+        @media (max-width: 576px) {
+          width: 100%
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: linear-gradient(45deg,
+              rgba($primary-color, 0.8) 0%,
+              transparent 100%);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .program-icon {
+        position: absolute;
+        top: -2rem;
+        left: -2rem;
+        background: $primary-color;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+
+        img {
+          width: 45px;
+          height: 45px;
+        }
+
+        @media (max-width: 576px) {
+          top: 1rem;
+          left: 1rem;
+          width: 70px;
+          height: 70px;
+          
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+
+    .program-details {
+      .program-title {
+        h2 {
+          color: $primary-color;
+          font-weight: bold;
+          font-size: 35px;
+          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+
+          @media (max-width: 1400px) {
+            font-size: 28px;
+          }
+
+          @media (max-width: 576px) {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .program-desc {
+        p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+          overflow: hidden;
+          margin-bottom: 1rem;
+          font-size: 20px;
+          color: $text-color;
+
+          @media (max-width: 1400px) {
+            font-size: 16px;
+          }
+        }
+      }
+
+      .program-link {
+        &>div {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          grid-gap: 0.5rem;
+
+          span {
+            color: $primary-color;
+          }
+
+          svg {
+            opacity: 0;
+            transition: $general-transition;
+          }
+
+          &:hover {
+            svg {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ... existing code ...
+
+/* __Start Button Styles__ */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: $general-transition;
+  
+  &.btn-primary {
+    background: $primary-color-400;
+    color: $light-color;
+    padding: $input-padding;
+    border-radius: $input-border-radius;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    
+    &:hover {
+      background: $primary-color-500;
+      color: $light-color;
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+  }
+}
+/* __End Button Styles__ */
