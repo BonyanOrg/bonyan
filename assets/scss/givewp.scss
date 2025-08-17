@@ -28,9 +28,16 @@
 
 /* ===[End make form in single campaign (full width)]=== */
 
+
+.give-embed-form-wrapper iframe{
+  max-width: auto !important;
+}
 /* ===[Start Custom Scrollbar for Give Form Container]=== */
 #give_form_container {
 
+  @media (max-width: 900px) {
+    margin-inline: 16px !important;
+  }
   /* Custom scrollbar styling - Webkit browsers (Chrome, Safari, Edge) */
   &::-webkit-scrollbar {
     width: 8px;
@@ -81,6 +88,7 @@
 
 /* ===[Start GiveWP Button Styling]=== */
 
+.give-btn,
 .give-btn.advance-btn {
   background: $primary-color !important;
   color: $light-color !important;
@@ -134,13 +142,124 @@
   @media (max-width: 576px) {
     padding: 0.5rem !important;
     min-width: auto !important;
-    width: 100% !important;
+    width: 80% !important;
   }
 }
 
 /* ===[End GiveWP Button Styling]=== */
 
+/* ===[Start GiveWP Input Styling]=== */
+.give-input {
+  font-size: $input-font-size !important;
+  border: none !important;
+  font-weight: bold !important;
+  background: $light-primary-color !important;
+  border-radius: $radius-10 !important;
+  padding: $input-padding !important;
+  width: 100% !important;
+  font-family: 'Poppins', sans-serif !important;
+  transition: $general-transition !important;
+  color: $dark-color-600 !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: normal !important;
+  outline: none !important;
+  box-shadow: none !important;
+  &::placeholder {
+    color: $dark-color-600 !important;
+  }
+
+  &:focus {
+    outline: none !important;
+    background: lighten($light-primary-color, 5%) !important;
+  }
+
+  &:hover {
+    background: lighten($light-primary-color, 3%) !important;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100% !important;
+  }
+}
+
+/* ===[End GiveWP Input Styling]=== */
+
+/* ===[Start GiveWP Select Styling]=== */
+.give-select {
+  font-size: $input-font-size !important;
+  border: none !important;
+  font-weight: bold !important;
+  background: $light-primary-color !important;
+  border-radius: $radius-10 !important;
+  padding: $input-padding !important;
+  width: 100% !important;
+  font-family: 'Poppins', sans-serif !important;
+  transition: $general-transition !important;
+  color: $dark-color-600 !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: normal !important;
+  outline: none !important;
+  cursor: pointer !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23455973' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  background-size: 16px !important;
+  padding-right: 40px !important;
+  box-shadow: none !important;
+
+  &::placeholder {
+    color: $dark-color-600 !important;
+  }
+
+  &:focus {
+    outline: none !important;
+    background: lighten($light-primary-color, 5%) !important;
+    box-shadow: 0 0 0 2px rgba($primary-color, 0.2) !important;
+  }
+
+  &:hover {
+    background: lighten($light-primary-color, 3%) !important;
+  }
+
+  &:disabled {
+    background: $dark-300 !important;
+    color: $text-color !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+  }
+
+  // Style for options
+  option {
+    background: $light-color !important;
+    color: $dark-color-600 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: $input-font-size !important;
+    padding: 8px 12px !important;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100% !important;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px !important;
+    padding: 10px 20px !important;
+    padding-right: 35px !important;
+    background-size: 14px !important;
+  }
+}
+
+/* ===[End GiveWP Select Styling]=== */
+
 /* ===[Start GiveWP Progress Bar Styling]=== */
+.progress-bar{
+ padding-inline: 8px !important;
+}
 .give-progress-bar {
   height: 13px !important;
   width: 100% !important;
@@ -158,6 +277,11 @@
     position: relative !important;
     display: block !important;
     box-shadow: 0 2px 4px rgba($primary-color, 0.3) !important;
+  }
+
+  @media (max-width: 768px) {
+    height: 10px !important;
+    margin: 0.75rem 0 !important;
   }
 }
 
@@ -188,12 +312,14 @@
   }
 
   @media (max-width: 768px) {
+    margin-block: 16px !important;
+    
     .number {
       font-size: 20px !important;
     }
 
     .text {
-      font-size: 18px !important;
+      font-size: 16px !important;
     }
   }
 }
@@ -232,8 +358,25 @@
     padding: 39.4% 0 0;
 
   }
+
+  @media (max-width: 768px) {
+    .headline {
+      font-size: 24px !important;
+    }
+    
+    .description {
+      font-size: 16px !important;
+    }
+  }
+
   &.choose-amount {
     padding-top: 104px !important;
+    
+    @media (max-width: 768px) {
+      padding-top: 90px !important;
+      margin: 0 18px !important;
+    }
+    
     .content {
       color: $dark-color-600;
       text-align: center;
@@ -243,6 +386,10 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+      
+      @media (max-width: 768px) {
+        font-size: 16px !important;
+      }
     }
     .give-total-wrap .give-donation-amount{
      
@@ -292,6 +439,12 @@
       grid-template-rows: repeat(2, auto) !important;
       gap: 12px !important;
 
+      @media (max-width: 768px) {
+        margin: 16px auto !important;
+        gap: 8px !important;
+        max-width: 280px !important;
+      }
+
       li {
         // Ensure li fills grid cell
         width: 100% !important;
@@ -310,6 +463,12 @@
           font-weight: 600;
           line-height: normal;
           padding: 8px 32px !important;
+          
+          @media (max-width: 768px) {
+            font-size: 16px !important;
+            padding: 6px 20px !important;
+          }
+          
           &:hover{
             background: $primary-color-200 !important;
             box-shadow: none !important;
@@ -336,6 +495,192 @@
       width: 100% !important;
       max-width: 310px !important;
       white-space: nowrap !important;
+      
+      @media (max-width: 768px) {
+        max-width: 280px !important;
+        font-size: 14px !important;
+        white-space: normal !important;
+      }
+    }
+  }
+
+  &.payment{
+    padding-top: 80px !important;
+
+    @media (max-width: 768px) {
+      padding-top: 80px !important;
+    }
+
+    .heading,.subheading{
+
+      color: $dark-color-600 !important;
+      text-align: center !important;
+      font-size: 24px !important;
+      font-style: normal !important;
+      font-weight: 500 !important;
+      line-height: normal !important;
+      
+      @media (max-width: 768px) {
+        font-size: 20px !important;
+      }
+    }
+   
+    .give-donation-summary-section .back-btn{
+      color: $primary-color !important;
+
+      svg{
+        fill: $primary-color !important;
+      }
+    }
+    #give-gateway-radio-list{
+      list-style: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+    
+      li {
+        border-radius: $radius-10 !important;
+        border: $border-width-2 solid $dark-300 !important;
+        background: $light-color !important;
+        padding: 16px 20px !important;
+        position: relative !important;
+        cursor: pointer !important;
+        transition: $general-transition !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+    
+        &:hover {
+          border-color: $primary-color-200 !important;
+          background: lighten($light-color, 1%) !important;
+        }
+    
+        &.give-gateway-option-selected {
+          border-color: $primary-color !important;
+          background: $light-primary-color !important;
+          box-shadow: 0 2px 8px rgba($primary-color, 0.1) !important;
+        }
+    
+        // Hide default radio button
+        input[type="radio"] {
+          position: absolute !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+        }
+    
+        // Custom radio button styling
+        input[type="radio"] + label {
+          position: relative !important;
+          padding-left: 32px !important;
+          cursor: pointer !important;
+          color: $dark-color-600 !important;
+          font-family: 'Poppins', sans-serif !important;
+          font-size: $input-font-size !important;
+          font-style: normal !important;
+          font-weight: 400 !important;
+          line-height: normal !important;
+          margin: 0 !important;
+          flex: 1 !important;
+    
+          &::before {
+            content: '' !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            width: 10px !important;
+            height: 10px !important;
+            border: 6px solid $dark-300 !important;
+            border-radius: 50% !important;
+            background: $light-color !important;
+            transition: $general-transition !important;
+          }
+    
+          &::after {
+            content: '' !important;
+            position: absolute !important;
+            left: 6px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            width: 8px !important;
+            height: 8px !important;
+            border-radius: 50% !important;
+            background: transparent !important;
+            transition: $general-transition !important;
+          }
+        }
+    
+        // Selected state styling
+        input[type="radio"]:checked + label {
+          &::before {
+            border-color: $primary-color !important;
+            background: $light-color !important;
+          }
+    
+          &::after {
+            background: $light-color !important;
+          }
+        }
+    
+        // Icon styling
+        i {
+          color: #D1D3D4 !important;
+          font-size: 18px !important;
+          margin-left: auto !important;
+          transition: $general-transition !important;
+        }
+    
+        // Hover state for icon
+        &:hover i {
+          color: $primary-color !important;
+        }
+    
+        // Selected state for icon
+        &.give-gateway-option-selected i {
+          color: $primary-color !important;
+        }
+      }
+    
+      // Responsive adjustments
+      @media (max-width: 768px) {
+        li {
+          padding: 14px 16px !important;
+          
+          input[type="radio"] + label {
+            font-size: 14px !important;
+            padding-left: 28px !important;
+            
+            &::before {
+              width: 8px !important;
+              height: 8px !important;
+            }
+            
+            &::after {
+              width: 2px !important;
+              height: 2px !important;
+              left: 5px !important;
+            }
+          }
+        }
+      }
+    }
+
+    #donate-fieldset{
+      width: 90% !important;
+    }
+    .give-donation-summary-table-wrapper {
+      --primary-color: $primary-color !important;
+  }
+  .give-donation-summary-section tbody{
+    color: #A8A8A8 !important;
+  
+  }
+    .give-donation-summary-section {
+      .heading{
+        font-style: normal !important;
+      }
     }
   }
 }
@@ -358,9 +703,18 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    
+    @media (max-width: 768px) {
+      font-size: 24px !important;
+    }
+    @media (max-width: 576px) {
+      font-size: 18px !important;
+    }
   }
 
-
+  @media (max-width: 768px) {
+    padding: 12px 8px !important;
+  }
 
 }
 
