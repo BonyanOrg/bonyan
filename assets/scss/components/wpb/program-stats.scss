@@ -6,11 +6,37 @@
     gap: 2rem;
     grid-gap: 2rem;
 
+    @media (max-width: 768px) {
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 1rem;
+        grid-gap: 1rem;
+        padding-bottom: 1rem;
+
+        // Hide scrollbar but allow scrolling
+        scrollbar-width: none; // Firefox
+        -ms-overflow-style: none; // IE and Edge
+
+        &::-webkit-scrollbar {
+            display: none; // Chrome, Safari, Opera
+        }
+    }
+
     .program-stats-item {
         display: flex;
         gap: 1rem;
         grid-gap: 1rem;
         align-items: center;
+
+        @media (max-width: 768px) {
+           
+            flex-shrink: 0;
+            max-width: 80%;
+            text-align: start;
+            gap: 0.5rem;
+            grid-gap: 0.5rem;
+        }
 
         .program-stats-icon {
             height: 67px;
@@ -40,10 +66,20 @@
                 background: $primary-color;
                 border-radius: 8px;
 
+                @media (max-width: 576px) {
+                    height: 40px;
+                    width: 40px;
+                }
+
                 img {
                     height: 32px;
                     width: 32px;
                     object-fit: contain;
+
+                    @media (max-width: 576px) {
+                        height: 24px;
+                        width: 24px;
+                    }
                 }
             }
         }
@@ -53,6 +89,10 @@
             flex-direction: column;
             align-self: center;
             flex-grow: 1;
+
+            @media (max-width: 768px) {
+                text-align: start;
+            }
 
             span {
                 &:first-of-type {
