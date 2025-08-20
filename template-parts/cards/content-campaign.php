@@ -171,11 +171,10 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
 
         <!-- Infaque -->
         <?php if ($co_donation_platform === 'infaque') : ?>
-            <!-- class="<?php //echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; 
-                        ?> -->
-            <?php //echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; 
+            <?php
+            $infaque_base_url = "https://bonyan-ngo.web.app/donate-directly/contribution?header=no-header&templateId=" . $co_infaque_campaign_id . "&amount=" . $co_donation_amount;
             ?>
-            <button class="donation-btn user-action-btn primary-btn no-border" <?= 'data-target="infaque-modal"' ?> data-infaque-campaign-id="<?= $co_infaque_campaign_id ?>" data-amount="<?= $co_donation_amount ?>"><?php _e('Donate', 'bonyan') ?></button>
+            <button class="donation-btn primary-btn no-border donation-widget donation-widget-button" id="donation-widget-<?= uniqid() ?>" data-template-id="<?= $co_infaque_campaign_id ?>" data-tenant-id="bonyan-ngo" data-base-url="<?= $infaque_base_url ?>"><?php _e('Donate', 'bonyan') ?></button>
         <?php endif; ?>
 
 

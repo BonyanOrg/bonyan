@@ -179,21 +179,23 @@
 
 								case 'infaque':
 									// Get the GiveWP form ID and default donation amount
-									$infaque_campaign_id = get_option('infaque_campaign_id');
+									$infaque_campaign_id = sanitize_text_field(get_option('infaque_campaign_id'));
 
-									$button_classes = ' ' .  'donation-btn';
-									// $data_target = is_user_logged_in() ? 'data-target="charity-stack-modal"' : 'data-target="donation-modal"';
-									$data_target =  'data-target="infaque-modal"';
+									$button_classes = ' ' .  'donation-btn donation-widget donation-widget-button';
+
 									$default_donation_amount = !empty(intval(get_option("default_donation_amount"))) ? intval(get_option("default_donation_amount")) : 10;
+
+									$infaque_base_url = "https://bonyan-ngo.web.app/donate-directly/contribution?header=no-header&templateId=" . $infaque_campaign_id . "&amount=" . $default_donation_amount;
 
 
 								?>
-									<a class="user-action-btn primary-btn <?= $button_classes ?>" <?= $data_target ?> data-infaque-campaign-id="<?= $infaque_campaign_id ?>" data-amount="<?= $default_donation_amount ?>" style="cursor: pointer;">
+
+									<button class="user-action-btn primary-btn <?= $button_classes ?>" id="donation-widget-<?= uniqid() ?>" data-template-id="<?= $infaque_campaign_id ?>" data-tenant-id="bonyan-ngo" data-base-url="<?= $infaque_base_url ?>" style="cursor: pointer;border: none;">
 										<span><?php _e('Donate Now', 'bonyan') ?></span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.485" viewBox="0 0 20 18.485">
 											<path id="Path_150" data-name="Path 150" d="M12,4.529a6,6,0,0,1,8.478,8.464L12,21.485,3.521,12.993A6,6,0,0,1,12,4.529Z" transform="translate(-2 -3)" fill="#fff" />
 										</svg>
-									</a>
+									</button>
 							<?php
 									break;
 							}
