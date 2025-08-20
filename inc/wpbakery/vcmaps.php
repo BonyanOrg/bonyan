@@ -152,3 +152,6 @@ require_once "vcmaps/faqs_map.php";
 
 /*  News Card  */
 require_once "vcmaps/news_card_map.php";
+
+/*  CTA Quick Donate Button  */
+require_once "vcmaps/cta_quick_donate_btn_map.php";

@@ -35,7 +35,7 @@ if (!function_exists('campaign_banner_shortcode')) {
                     campaign_banner_register_style();
                 } ?>
 
-        <div class="banner custom-widget">
+        <div class="banner custom-widget mt-5 mb-5">
             <!-- Banner Image -->
             <div class="banner-img">
                 <img data-src="<?php echo get_template_directory_uri() . '/dist/imgs/banner.png'; ?>" alt="" class="lazyload">

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Quick Donation
+ * Achievements
  * 
  */
 if (!function_exists('achievements_shortcode')) {
@@ -42,7 +42,7 @@ if (!function_exists('achievements_shortcode')) {
                             <?php
                             foreach ($achievements_card_items as $achievements_card_item) {
                             ?>
-                                <div class="info-item with-underline">
+                                <div class="info-item with">
                                     <span><?php echo $achievements_card_item['achievements_card_item_number'] ?></span>
                                     <span><?php echo $achievements_card_item['achievements_card_item_title'] ?></span>
                                 </div>
@@ -59,7 +59,9 @@ if (!function_exists('achievements_shortcode')) {
 
                                 <div class="program-stats-item">
                                     <div class="program-stats-icon">
-                                        <img data-src="<?php echo wp_get_attachment_image_url($achievement['achievements_item_image'], "full"); ?>" alt="" class="lazyload">
+                                        <div class="program-icon">
+                                            <img src="<?php echo get_template_directory_uri() . '/dist/imgs/build.svg'; ?>" alt="achievement icon" class="placeholder-icon">
+                                        </div>
                                     </div>
 
                                     <div class="program-stats-info">
@@ -74,14 +76,10 @@ if (!function_exists('achievements_shortcode')) {
             </div>
         </div>
 
-
-
         <script>
             <?php //require_once(get_template_directory() . '/dist/js/components/wpb/quick-donation.min.js'); 
             ?>
         </script>
-
-
 
 <?php
         return ob_get_clean();

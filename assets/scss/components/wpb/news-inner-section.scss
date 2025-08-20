@@ -52,6 +52,12 @@
         color: $text-color;
         margin-bottom: 24px;
         flex-grow: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 120px; /* Fallback for browsers that don't support -webkit-line-clamp */
     }
     
     &__button {
@@ -103,8 +109,9 @@
     
     @media (max-width: 768px) {
         flex-direction: column;
-        min-height: 400px;
-        
+        min-height: 550px;
+        margin: 24px 0;
+
         &__content {
             flex: 0 0 100%;
             padding: 24px;
@@ -113,8 +120,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba($light-color, 0.95);
-            backdrop-filter: blur(10px);
+        justify-content: flex-start;
+            
             z-index: 3;
         }
         
@@ -130,15 +137,28 @@
         
         &__title {
             font-size: 20px;
+            color: $light-color;
+            margin: 24px 0;
         }
         
         &__description {
             font-size: 18px;
+            color: $light-color;
+            flex-grow: 0;
+            margin-bottom: 63px;
         }
         
         &__tag {
-            font-size: 18px;
+            font-size: 14px;
+            padding: 2px 12px;
+            color: $warning-500;
             background: $warning-100;
+        }
+        &__button {
+            font-size: 16px !important;
+            color: $dark-color-600 !important;
+            background: $warning-100 !important;
+            width: 100% !important;
         }
     }
 } 

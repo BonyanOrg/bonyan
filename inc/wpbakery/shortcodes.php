@@ -111,3 +111,6 @@ require_once "shortcodes/faqs_view.php";
 
 /*  News Card  */
 require_once "shortcodes/news_card_view.php";
+
+/*  CTA Quick Donate Button  */
+require_once "shortcodes/cta_quick_donate_btn_view.php";
