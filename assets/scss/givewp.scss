@@ -454,14 +454,14 @@
         float: none !important;
 
         button {
-          border-radius: $radius-8;
+          border-radius: $radius-8 !important;
           background: $primary-color-100 !important;
           border: 2px solid $primary-color-100 !important;
-          color: $dark-color-600;
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 600;
-          line-height: normal;
+          color: $dark-color-600 !important;
+          font-size: 20px !important;
+          font-style: normal !important;
+          font-weight: 600 !important;
+          line-height: normal !important;
           padding: 8px 32px !important;
           
           @media (max-width: 768px) {

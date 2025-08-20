@@ -158,14 +158,64 @@
         }
 
         button {
-          padding: 1.25rem 1rem;
-          font-size: 20px;
+          // Updated to match CTA quick donate button design
+          border-radius: 4px;
+          background: var(--Warning-400, #FABC1C);
+          display: flex;
+          width: 411px;
+          padding: 12px 24px;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+          color: var(--Dark-100, #FFF);
+          text-align: center;
+          font-family: Poppins, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          position: relative;
+          overflow: hidden;
           width: 100%;
-          font-weight: bold;
+
+          // Hover effects
+          &:hover {
+            background: var(--Warning-500, #D09416);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(250, 188, 28, 0.3);
+          }
+
+          // Active state
+          &:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(250, 188, 28, 0.3);
+          }
+
+          // Focus state for accessibility
+          &:focus {
+            outline: 2px solid var(--Warning-500, #D09416);
+            outline-offset: 2px;
+          }
 
           @media (max-width: 1199px) {
             font-size: 16px;
-            padding: 0.75rem 1rem;
+            padding: 12px 24px;
+          }
+
+          @media (max-width: 768px) {
+            width: 100%;
+            max-width: 411px;
+            padding: 10px 20px;
+            font-size: 14px;
+          }
+
+          @media (max-width: 480px) {
+            padding: 8px 16px;
+            font-size: 13px;
+            gap: 6px;
           }
         }
       }

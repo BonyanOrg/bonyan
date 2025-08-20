@@ -1,5 +1,4 @@
 <?php
-
 /**
  * CTA Quick Donate Button
  * 
@@ -25,16 +24,44 @@ if (!function_exists('cta_quick_donate_btn_shortcode')) {
             )
         );
         
+        // Get a working GiveWP form ID for the CTA button
+        $give_form_id = $cta_quick_donate_btn_give_form_id;
+        
+        // If no form ID provided, try to get a default one
+        if (empty($give_form_id)) {
+            $give_form_id = get_option('give_form_id');
+            
+            // If no default form ID, try to get the first available GiveWP form
+            if (empty($give_form_id)) {
+                $give_forms = get_posts(array(
+                    'post_type' => 'give_forms',
+                    'post_status' => 'publish',
+                    'numberposts' => 1,
+                    'orderby' => 'date',
+                    'order' => 'DESC'
+                ));
+                
+                if (!empty($give_forms)) {
+                    $give_form_id = $give_forms[0]->ID;
+                }
+            }
+            
+            // Ensure we have a valid form ID
+            if (empty($give_form_id)) {
+                $give_form_id = 1; // Fallback to form ID 1 if nothing else works
+            }
+        }
+        
         $cta_quick_donate_btn_default_amount = !empty($cta_quick_donate_btn_default_amount) ? $cta_quick_donate_btn_default_amount : 100;
 
         ob_start(); ?>
 
         <div class="<?php echo $cta_quick_donate_btn_align; ?>">
             <button id="cta_quick_donate_btn" 
-                data-target="givewp-modal"
-                class="cta-quick-donate-btn user-action-btn primary-btn donation-btn no-border radius-10 py-3 px-5 my-5"
+                <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>
+                class="cta-quick-donate-btn user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> no-border radius-10 py-3 px-5 my-3"
                 data-amount="<?php echo $cta_quick_donate_btn_default_amount ?>" 
-                data-giveformid="<?php echo $cta_quick_donate_btn_give_form_id ?>"
+                data-giveformid="<?php echo $give_form_id ?>"
                 data-tagname=""
                 style="width: <?php echo $cta_quick_donate_btn_width; ?>;">
                 
@@ -52,5 +79,4 @@ if (!function_exists('cta_quick_donate_btn_shortcode')) {
         return ob_get_clean();
     }
 }
-
 add_shortcode('cta_quick_donate_btn', 'cta_quick_donate_btn_shortcode'); 
