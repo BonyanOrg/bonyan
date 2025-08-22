@@ -28,9 +28,9 @@ if (!function_exists('cta_btn_shortcode')) {
 
 
         <div class="<?php echo $cta_btn_text_align ?>" style="font-size: 22px; font-weight: bold;">
-            <button id="quick_donate_now_btn" data-target="givewp-modal"
+            <button id="quick_donate_now_btn" data-target="infaque-modal"
                 class="cta_btn user-action-btn primary-btn donation-btn no-border radius-15 py-3 px-5 my-3"
-                data-amount="<?php echo $cta_btn_default_amount ?>" data-giveformid="<?php echo $cta_btn_give_from_id ?>"
+                data-amount="<?php echo $cta_btn_default_amount ?>" data-infaque-campaign-id="<?php echo get_option('infaque_campaign_id') ?>"
                 data-tagname="">
                 <span>
                     <?php echo $cta_btn_text ?>

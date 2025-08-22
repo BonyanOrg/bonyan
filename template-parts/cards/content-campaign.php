@@ -1,5 +1,5 @@
 <?php
-$co_donation_platform = !empty(get_post_meta($post->ID, "co_donation_platform", true)) ? get_post_meta($post->ID, "co_donation_platform", true) : 'give_wp';
+$co_donation_platform = !empty(get_post_meta($post->ID, "co_donation_platform", true)) ? get_post_meta($post->ID, "co_donation_platform", true) : 'infaque';
 $give_form_id = get_post_meta($post->ID, "co_give_form_id", true);
 
 $co_givecloud_campaign_id = get_post_meta($post->ID, "co_givecloud_campaign_id", true);

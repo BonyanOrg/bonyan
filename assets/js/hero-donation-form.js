@@ -66,6 +66,9 @@
 			const firstAmount = priceConfigs[ type ].amounts[ 0 ];
 			selectedAmount = firstAmount;
 
+			// Update the donate button's data-amount attribute
+			$( '.donate-now-btn' ).attr( 'data-amount', firstAmount );
+
 			updateImpactDescription( type, firstAmount );
 		} );
 
@@ -84,6 +87,9 @@
 			// Update global variable
 			selectedAmount = amount;
 
+			// Update the donate button's data-amount attribute
+			$( '.donate-now-btn' ).attr( 'data-amount', amount );
+
 			// Update impact description based on current type and new amount
 			const activeType = $( '.donation-type-btn.active' ).data( 'type' ) || 'one-time';
 			updateImpactDescription( activeType, amount );
@@ -99,57 +105,16 @@
 
 			// Remove non-numeric characters except decimal point
 			const cleanValue = value.replace( /[^0-9.]/g, '' );
-			$this.val( cleanValue );
 
-			// Remove active state from preset amounts when custom amount is entered
+			// Update the donate button's data-amount attribute with custom amount
 			if ( cleanValue.length > 0 ) {
+				$( '.donate-now-btn' ).attr( 'data-amount', cleanValue );
 				$( '.amount-btn' ).removeClass( 'active' );
 			}
 		} );
 
-		// Donate now button - using event delegation
-		$( document ).on( 'click', '.donate-now-btn', function( e ) {
-			e.preventDefault();
-			e.stopPropagation();
-
-			const $this = $( this );
-			const target = $this.data( 'target' );
-			const giveFormId = $this.data( 'giveformid' );
-
-			// Validate form ID
-			if ( ! giveFormId || giveFormId === '' ) {
-				alert( 'Donation form is not properly configured. Please contact support.' );
-				return;
-			}
-
-			// Get selected amount
-			let finalAmount = '';
-			const activeAmountBtn = $( '.amount-btn.active' );
-			const customAmount = $( '.custom-amount-field' ).val();
-
-			if ( activeAmountBtn.length > 0 ) {
-				finalAmount = activeAmountBtn.data( 'amount' );
-			} else if ( customAmount ) {
-				finalAmount = customAmount;
-			} else {
-				finalAmount = selectedAmount;
-			}
-
-			// Validate amount
-			if ( ! finalAmount || parseFloat( finalAmount ) <= 0 ) {
-				alert( 'Please select or enter a valid donation amount.' );
-				return;
-			}
-
-			// Handle donation based on target
-			if ( target === 'givewp-modal' ) {
-				// Open GiveWP modal with amount
-				openGiveWPModal( giveFormId, finalAmount );
-			} else if ( target === 'donation-modal' ) {
-				// Open custom donation modal
-				openDonationModal( finalAmount );
-			}
-		} );
+		// Donate now button - no custom handling needed, just update attributes
+		// The button will work naturally with data-target="infaque-modal" like zakat calculator
 	}
 
 	// Update price buttons for the selected donation type
@@ -178,85 +143,6 @@
 		const description =
       config.descriptions[ amount ] || config.descriptions[ config.amounts[ 0 ] ];
 		$( '.impact-description p' ).text( description );
-	}
-
-	// Open GiveWP modal with amount - skip to step 3 (donation form) directly
-	function openGiveWPModal( formId, amount ) {
-		// Set the form data on the continue-as-guest button
-		const continueAsGuest = document.querySelector( '.continue-as-guest' );
-		if ( continueAsGuest ) {
-			continueAsGuest.setAttribute( 'data-giveformid', formId );
-			continueAsGuest.setAttribute( 'data-amount', amount || 50 );
-		}
-
-		// Close any existing modals
-		if ( document.body.classList.contains( 'modal-active' ) ) {
-			document
-				.querySelectorAll( '.user-action-modal' )
-				.forEach( ( userActionModal ) => {
-					userActionModal.classList.remove( 'opened' );
-					userActionModal.closest( 'body' ).classList.remove( 'modal-active' );
-					userActionModal.style.display = 'none';
-					userActionModal.style.opacity = '0';
-				} );
-		}
-
-		// Open the givewp modal directly (skip login/guest steps)
-		const targetedModal = document.getElementById( 'givewp-modal' );
-		if ( targetedModal !== null ) {
-			targetedModal.classList.add( 'opened' );
-			targetedModal.closest( 'body' ).classList.add( 'modal-active' );
-			targetedModal.style.display = 'flex';
-
-			setTimeout( () => {
-				targetedModal.style.opacity = '1';
-			}, 100 );
-
-			// Load the GiveWP form content directly
-			loadGiveWPForm( formId, amount );
-		}
-	}
-
-	// Load GiveWP form content using the same AJAX call as other donation buttons
-	function loadGiveWPForm( formId, amount ) {
-		$.ajax( {
-			dataType: 'json',
-			method: 'POST',
-			url: ajax_script_object.ajaxurl,
-			data: {
-				action: 'show_donate_form',
-				nonce: ajax_script_object.nonce,
-				type: '', // Empty type for normal donation (not quick_donation)
-				form_id: formId,
-				amount: amount || 50,
-				charity_type: selectedDonationType, // Pass the donation type as charity_type
-				groups_details: '',
-			},
-			statusCode: {
-				400( data ) {
-					toastr.error( data.responseJSON.error_message );
-				},
-				200( data ) {
-					$( '#give_form_container' ).remove();
-
-					// Modify the form HTML to include frequency parameter if it's monthly
-					let formHtml = data.give_form;
-					if (
-						selectedDonationType === 'monthly' &&
-            formHtml.includes( '?giveDonationFormInIframe=1' )
-					) {
-						formHtml = formHtml.replace(
-							'?giveDonationFormInIframe=1',
-							'?giveDonationFormInIframe=1&recurring=monthly'
-						);
-					}
-
-					$( '#givewp-modal' ).append(
-						`<div id="give_form_container"> ${ formHtml } </div>`
-					);
-				},
-			},
-		} );
 	}
 
 	// Open custom donation modal

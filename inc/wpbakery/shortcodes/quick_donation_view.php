@@ -125,10 +125,10 @@ if (!function_exists('quick_donation_shortcode')) {
 
                         <div class="quick-donation--cta btn-with-animated-icon">
                             <?php ?>
-                            <button id="quick_donate_now_btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>
-                                class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> no-border radius-15"
+                            <button id="quick_donate_now_btn" data-target="infaque-modal"
+                                class="user-action-btn primary-btn donation-btn no-border radius-15"
                                 data-amount="<?php echo $default_price; ?>"
-                                data-giveformid="<?php echo $quick_donation_form_id; ?>" data-tagName="">
+                                data-infaque-campaign-id="<?php echo get_option('infaque_campaign_id') ?>" data-tagName="">
                                 <span>
                                     <?php _e('Donate', 'bonyan'); ?>
                                 </span>

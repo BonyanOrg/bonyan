@@ -86,7 +86,7 @@
                             </div>
 
                             <div class="primary-carousel-item primary-carousel-cta">
-                                <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate','bonyan') ?></button>
+                                <button data-infaque-campaign-id="<?php echo get_option('infaque_campaign_id') ?>" class="donation-btn user-action-btn" data-target="infaque-modal"><?php _e('Donate','bonyan') ?></button>
                                 <a href="<?php echo get_permalink($args['post']) ?>"><?php _e('More','bonyan') ?></a>
                             </div>
                         </div>

@@ -80,10 +80,10 @@ if (!function_exists('news_slider_shortcode')) {
 
                                     <div class="primary-carousel-item primary-carousel-cta">
 
-                                        <?php $give_form_id = get_post_meta(get_the_ID(), "po_give_form_id", true);
-                                        if (!empty($give_form_id)) :
+                                        <?php $infaque_campaign_id = get_option('infaque_campaign_id');
+                                        if (!empty($infaque_campaign_id)) :
                                         ?>
-                                            <button data-giveformid="<?php echo $give_form_id ?>" class="<?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> user-action-btn primary-btn no-border" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>><?php _e('Donate', 'bonyan') ?></button>
+                                            <button data-infaque-campaign-id="<?php echo $infaque_campaign_id ?>" class="donation-btn user-action-btn primary-btn no-border" data-target="infaque-modal"><?php _e('Donate', 'bonyan') ?></button>
                                         <?php endif; ?>
                                         <a href="<?php echo get_permalink(get_the_ID()) ?>"><?php _e('More', 'bonyan') ?></a>
                                     </div>

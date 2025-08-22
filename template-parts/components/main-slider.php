@@ -40,7 +40,7 @@
 
                                     <div class="main-carousel-cta my-4">
                                         <?php if ($mad_choice === 'give_id') : ?>
-                                            <button data-giveformid="<?php echo $mad_give_form_id ?? "" ?>" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> class="user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
+                                            <button data-infaque-campaign-id="<?php echo get_option('infaque_campaign_id') ?>" data-target="infaque-modal" class="user-action-btn primary-btn donation-btn primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
                                                 <strong><?php _e('Donate', 'bonyan'); ?></strong>
                                             </button>
                                             <!-- <a href="#" class="primary-btn"> More</a> -->
@@ -102,44 +102,15 @@
                     </div>
 
                     <?php
-                    // Get a working GiveWP form ID for the hero donation form
-                    $hero_give_form_id = get_option('give_form_id');
+                    // Get the Infaque campaign ID for the hero donation form
+                    $hero_infaque_campaign_id = get_option('infaque_campaign_id');
                     
-                    // If no default form ID, try to get the first available GiveWP form
-                    if (empty($hero_give_form_id)) {
-                        $give_forms = get_posts(array(
-                            'post_type' => 'give_forms',
-                            'post_status' => 'publish',
-                            'numberposts' => 1,
-                            'orderby' => 'date',
-                            'order' => 'DESC'
-                        ));
-                        
-                        if (!empty($give_forms)) {
-                            $hero_give_form_id = $give_forms[0]->ID;
-                        }
-                    }
-                    
-                    // Debug: Check if we have a valid form ID
-                    if (empty($hero_give_form_id)) {
-                        // If still no form ID, try to get any available form
-                        $give_forms = get_posts(array(
-                            'post_type' => 'give_forms',
-                            'post_status' => 'publish',
-                            'numberposts' => 1
-                        ));
-                        
-                        if (!empty($give_forms)) {
-                            $hero_give_form_id = $give_forms[0]->ID;
-                        }
-                    }
-                    
-                    // Ensure we have a valid form ID
-                    if (empty($hero_give_form_id)) {
-                        $hero_give_form_id = 1; // Fallback to form ID 1 if nothing else works
+                    // If no campaign ID provided, leave empty (will use default)
+                    if (empty($hero_infaque_campaign_id)) {
+                        $hero_infaque_campaign_id = '';
                     }
                     ?>
-                    <button class="donate-now-btn user-action-btn" <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?> data-giveformid="<?php echo $hero_give_form_id ?>">
+                    <button class="donate-now-btn donation-btn user-action-btn" data-target="infaque-modal" data-infaque-campaign-id="<?php echo $hero_infaque_campaign_id ?>" data-amount="87">
                         <i class="fa-solid fa-heart"></i>
                         <?php _e('Donate Now', 'bonyan'); ?>
                     </button>

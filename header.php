@@ -57,7 +57,10 @@
 	<!-- Start Infaque Modal -->
 	<style>
 		div#infaque-modal iframe {
-			height: 600px;
+			min-height: 700px;
+		}
+		div#infaque-modal iframe .donation-form-amount-section .donation-form-amount-section-inner {
+			min-height: auto !important;
 		}
 	</style>
 	<div id="infaque-modal" class="infaque-modal givewp-modal user-action-modal">
@@ -83,7 +86,7 @@
 							<?php
 
 							// Check if the fundraise up button is enabled
-							$fundraise_provider = !empty(get_option('fundraise_provider')) ? get_option('fundraise_provider') : 'give_wp';
+							$fundraise_provider = !empty(get_option('fundraise_provider')) ? get_option('fundraise_provider') : 'infaque';
 
 							switch ($fundraise_provider) {
 								case 'fundraise_up':

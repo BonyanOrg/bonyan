@@ -13,12 +13,12 @@ if (!function_exists('zakat_calc_shortcode')) {
         extract(shortcode_atts(array(
             'zakat_calc_under_head_description'     => '',
             'zakat_calc_nisab_value'     => '',
-            'zakat_calc_platform_type'     => 'give_wp',
+            'zakat_calc_platform_type'     => 'infaque',
             'zakat_calc_form_id'     => '',
             'zakat_calc_fund_raise_up_form_id'     => '',
             'zakat_calc_classy_campaign_id'     => '',
             'zakat_calc_givecloud_campaign_id'     => '',
-            'zakat_calc_infaque_campaign_id'     => '',
+            'zakat_calc_infaque_campaign_id'     => get_option('infaque_campaign_id'),
         ), $atts));
 
         ob_start();

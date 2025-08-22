@@ -58,10 +58,10 @@ if (!function_exists('cta_quick_donate_btn_shortcode')) {
 
         <div class="<?php echo $cta_quick_donate_btn_align; ?>">
             <button id="cta_quick_donate_btn" 
-                <?php echo is_user_logged_in() ? 'data-target="givewp-modal"' : 'data-target="donation-modal"'; ?>
-                class="cta-quick-donate-btn user-action-btn primary-btn <?php echo is_user_logged_in() ? 'donation-btn' : 'donation-action'; ?> no-border radius-10 py-3 px-5 my-3"
+                data-target="infaque-modal"
+                class="cta-quick-donate-btn user-action-btn primary-btn donation-btn no-border radius-10 py-3 px-5 my-3"
                 data-amount="<?php echo $cta_quick_donate_btn_default_amount ?>" 
-                data-giveformid="<?php echo $give_form_id ?>"
+                data-infaque-campaign-id="<?php echo get_option('infaque_campaign_id') ?>"
                 data-tagname=""
                 style="width: <?php echo $cta_quick_donate_btn_width; ?>;">
                 
