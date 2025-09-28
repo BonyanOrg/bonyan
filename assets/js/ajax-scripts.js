@@ -85,7 +85,7 @@
   function addEventlistenerToFavIcons() {
     var keyPressTimeout,
       jqxhr = {
-        abort: function () { },
+        abort: function () {},
       };
     let addToFavBtns = document.querySelectorAll(".add-to-fav");
     addToFavBtns?.forEach((addToFavBtn) => {
@@ -120,7 +120,7 @@
                 campaign_id: campaign_id,
               },
               statusCode: {
-                400: function (data) { },
+                400: function (data) {},
                 200: function (data) {
                   toastr.success(data.message);
                 },
@@ -152,7 +152,7 @@
           targetedModalName = modalBtn.getAttribute("data-target");
           targetedModal = document.getElementById(targetedModalName);
 
-          if (targetedModalName == 'givewp-modal') {
+          if (targetedModalName == "givewp-modal") {
             giveFormId = this.getAttribute("data-giveformid");
             amount = this.getAttribute("data-amount");
             charityTagName = this.getAttribute("data-tagName");
@@ -168,7 +168,8 @@
                 return;
               }
 
-              let continueAsGuest = document.querySelector(".continue-as-guest");
+              let continueAsGuest =
+                document.querySelector(".continue-as-guest");
               continueAsGuest.setAttribute("data-giveformid", giveFormId);
               continueAsGuest.setAttribute(
                 "data-amount",
@@ -289,8 +290,8 @@
       if (file[0].size > 2000000) {
         alert(
           "Max size is 2 MB" +
-          ", your image size is " +
-          returnFileSize(file[0].size)
+            ", your image size is " +
+            returnFileSize(file[0].size)
         );
         reset_user_avatar();
       }
@@ -330,8 +331,8 @@
       if (file[0].size > 2000000) {
         alert(
           "Max size is 2 MB" +
-          ", your image size is " +
-          returnFileSize(file[0].size)
+            ", your image size is " +
+            returnFileSize(file[0].size)
         );
         reset_user_avatar();
       }
@@ -874,7 +875,7 @@
   // Show Give From From Ajax
   function giveWpGetter() {
     $(".donation-btn").on("click", function () {
-      if ($(this).attr("data-target") == 'givewp-modal') {
+      if ($(this).attr("data-target") == "givewp-modal") {
         $("#givewp-modal").empty();
         let form_id = $(this).attr("data-giveformid");
         let amount = $(this).attr("data-amount");
@@ -894,7 +895,9 @@
             action: "show_donate_form",
             nonce: ajax_script_object.nonce,
             type:
-              tag_name != "null" && tag_name != undefined ? "quick_donation" : "",
+              tag_name != "null" && tag_name != undefined
+                ? "quick_donation"
+                : "",
             form_id: form_id,
             amount: amount != null ? amount : 50,
             charity_type: tag_name,
@@ -918,7 +921,7 @@
           },
         });
       }
-      if ($(this).attr("data-target") == 'charity-stack-modal') {
+      if ($(this).attr("data-target") == "charity-stack-modal") {
         $("#charity-stack-modal").empty();
         let elementID = $(this).attr("data-charity-stack-element-id");
 
@@ -952,10 +955,11 @@
           },
         });
       }
-      if ($(this).attr("data-target") == 'infaque-modal') {
+      if ($(this).attr("data-target") == "infaque-modal") {
         $("#infaque-modal").empty();
         let campaignID = $(this).attr("data-infaque-campaign-id");
         let amount = $(this).attr("data-amount");
+        let donationType = $(this).attr("data-donation-type");
 
         if (campaignID == null || campaignID == "") {
           return;
@@ -970,6 +974,7 @@
             nonce: ajax_script_object.nonce,
             campaignID: campaignID,
             amount: amount,
+            donationType: donationType,
           },
           statusCode: {
             400: function (data) {
@@ -979,7 +984,21 @@
               if (data.success) {
                 $("#give_form_container").remove();
                 $("#infaque-modal").append(
-                  `<div id="give_form_container" style="padding: 50px; height: auto;"> ${data.content} </div>`
+
+                  `
+                  
+                  <div id="give_form_container" style="">
+                  <div class="modal-window" style="padding: 50px;">
+        <button class="modal-close-btn" data-target="infaque-modal">
+            <i class="fa-solid fa-times"></i>
+        </button>
+        
+                  <div class="modal-content">
+                  ${data.content}
+                  </div>
+                  </div>
+                  </div>
+                  `
                 );
               } else {
                 toastr.error(data.error_message);
@@ -991,8 +1010,6 @@
     });
   }
   giveWpGetter();
-
-
 
   $("#charity_select").on("change", function () {
     if ($(this).val() == "") {
@@ -1021,7 +1038,7 @@
         tag_id: $(this).val(),
       },
       statusCode: {
-        400: function (data) { },
+        400: function (data) {},
         200: function (data) {
           $("#program_select").empty();
           $.each(data.campaigns, function (i, item) {
@@ -1052,7 +1069,7 @@
   (function ($) {
     var keyPressTimeout,
       jqxhr = {
-        abort: function () { },
+        abort: function () {},
       };
     if (ajaxSearchInput !== null) {
       ajaxSearchInput.addEventListener("input", function () {
@@ -1410,8 +1427,8 @@
       if (file[0].size > 2000000) {
         alert(
           "Max size is 2 MB" +
-          ", your image size is " +
-          returnFileSize(file[0].size)
+            ", your image size is " +
+            returnFileSize(file[0].size)
         );
         reset_user_avatar();
       }
@@ -1444,8 +1461,8 @@
       if (file[0].size > 2000000) {
         alert(
           "Max size is 2 MB" +
-          ", your image size is " +
-          returnFileSize(file[0].size)
+            ", your image size is " +
+            returnFileSize(file[0].size)
         );
         reset_user_avatar();
       }

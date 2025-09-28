@@ -1,5 +1,11 @@
 <div id="login-modal" class="login-modal user-action-modal">
     <div class="modal-window">
+                      <!-- Close Button -->
+        <button class="modal-close-btn back-btn" data-target="login-modal">
+            <i class="fa-solid fa-times"></i>
+        </button>
+
+
         <div class="user-action-content login-content">
 
             <!-- User Action Image -->

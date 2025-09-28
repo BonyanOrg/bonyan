@@ -1,5 +1,9 @@
 <div id="signup-modal" class="signup-modal user-action-modal">
     <div class="modal-window">
+           <!-- Close Button -->
+           <button class="modal-close-btn" data-target="signup-modal">
+            <i class="fa-solid fa-times"></i>
+        </button>
         <div class="user-action-content login-content">
 
             <!-- User Action Image -->

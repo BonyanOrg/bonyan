@@ -3,7 +3,9 @@
  * Handles donation type selection, amount selection, and form submission
  */
 
-( function( $ ) {
+
+(function($) { 
+	
 	// Price configurations for each donation type
 	const priceConfigs = {
 		'one-time': {
@@ -68,6 +70,7 @@
 
 			// Update the donate button's data-amount attribute
 			$( '.donate-now-btn' ).attr( 'data-amount', firstAmount );
+			$( '.donate-now-btn' ).attr( 'data-donation-type', type );
 
 			updateImpactDescription( type, firstAmount );
 		} );
@@ -92,6 +95,8 @@
 
 			// Update impact description based on current type and new amount
 			const activeType = $( '.donation-type-btn.active' ).data( 'type' ) || 'one-time';
+			$( '.donate-now-btn' ).attr( 'data-donation-type', activeType );
+
 			updateImpactDescription( activeType, amount );
 
 			// Clear custom amount field
@@ -109,6 +114,8 @@
 			// Update the donate button's data-amount attribute with custom amount
 			if ( cleanValue.length > 0 ) {
 				$( '.donate-now-btn' ).attr( 'data-amount', cleanValue );
+				$( '.donate-now-btn' ).attr( 'data-donation-type', selectedDonationType );
+
 				$( '.amount-btn' ).removeClass( 'active' );
 			}
 		} );

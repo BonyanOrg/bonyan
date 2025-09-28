@@ -704,5 +704,27 @@ jQuery(document).ready(function ($) {
         });
     }
     /* End Handle Avatar Image Upload */
+
+    // Handle Modal Close Buttons
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.modal-close-btn')) {
+        const modal = e.target.closest('.user-action-modal');
+        if (modal) {
+            modal.classList.remove('opened');
+            modal.closest('body').classList.remove('modal-active');
+            modal.style.opacity = '0';
+            
+            // Reset Qurban Details if exists
+            const continueAsGuest = document.querySelector('.continue-as-guest');
+            if (continueAsGuest) {
+                continueAsGuest.setAttribute('data-qurbandetails', "");
+            }
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+    }
+});
 });
 /* ===[End New Dashboard]=== */

@@ -1,5 +1,10 @@
 <div id="donation-modal" class="donation-modal user-action-modal">
     <div class="modal-window">
+          <!-- Close Button -->
+          <button class="modal-close-btn" data-target="donation-modal">
+            <i class="fa-solid fa-times"></i>
+        </button>
+        
         <div class="user-action-content">
 
             <!-- User Action Image -->
