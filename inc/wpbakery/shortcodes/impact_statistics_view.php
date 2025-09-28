@@ -49,7 +49,7 @@ if (!function_exists('impact_statistics_shortcode')) {
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="impact-title"><?php echo esc_html($impact_title); ?></h2>
+                        <h2 class="bonyan-title impact-title"><?php echo esc_html($impact_title); ?></h2>
                         
                         <div class="impact-cards-wrapper">
                             <div class="row">

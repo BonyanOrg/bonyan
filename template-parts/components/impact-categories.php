@@ -3,7 +3,7 @@
         <div class="impact-categories-wrapper">
             <!-- Left Section - Text Content -->
             <div class="impact-categories-text">
-                <h2 class="impact-categories-title"><?php _e('Our Campaigns', 'bonyan'); ?></h2>
+                <h2 class="bonyan-title impact-categories-title"><?php _e('Our Campaigns', 'bonyan'); ?></h2>
                 <p class="impact-categories-description"><?php _e('Support ongoing humanitarian efforts and make a lasting impact.', 'bonyan'); ?></p>
             </div>
 
