@@ -6,10 +6,10 @@
 }
 
 .main-carousel {
-  height: calc(90vh - 50px);
-  min-height: calc(90vh - 50px);
+  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
   width: 100%;
-  margin-top: 185px;
+  margin-top: 150px;
 
   @media (max-width: 1199px) {
     height: 75vh;

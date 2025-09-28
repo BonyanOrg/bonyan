@@ -24,6 +24,7 @@
 body {
   font-family: "Poppins", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif;
+    overflow-x: hidden;
 }
 
 a {
@@ -2122,7 +2123,7 @@ header {
   border-radius: 40px 40px 0 0;
 
   @media (max-width: 1024px) {
-    padding: 32px 0 0 0;
+    padding: 22px 0 0 0;
   }
 
   // Footer grid 4 columns
@@ -2141,10 +2142,11 @@ header {
 
     @media (max-width: 1024px) {
       grid-template-columns: minmax(0, 1fr);
-      justify-items: start;
-      text-align: start;
+      justify-items: center;
+      text-align: center;
       gap: 10px;
       grid-gap: 10px;
+      padding: 0 22px;
     }
 
     h2 {
@@ -2158,6 +2160,7 @@ header {
 
       @media (max-width: 1024px) {
         margin-bottom: 1rem;
+        text-align: center;
       }
     }
 
@@ -2168,6 +2171,12 @@ header {
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+
+      @media (max-width: 1024px) {
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+      }
     }
 
     span {
@@ -2177,12 +2186,22 @@ header {
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+
+      @media (max-width: 1024px) {
+        text-align: center;
+        display: block;
+        width: 100%;
+      }
     }
 
     // 1st column - Contact Info (will be first on mobile)
     .logo-and-contact-info {
       @media (max-width: 1024px) {
         order: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .logo {
@@ -2190,6 +2209,8 @@ header {
 
         @media (max-width: 1024px) {
           margin-bottom: 1rem;
+          display: flex;
+          justify-content: center;
         }
 
         img {
@@ -2197,6 +2218,11 @@ header {
           width: 100%;
           height: 80px;
           object-fit: contain;
+          @media (max-width: 1024px) {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+          }
         }
       }
     }
@@ -2208,7 +2234,7 @@ header {
       grid-gap: 0.5rem;
 
       @media (max-width: 1024px) {
-        align-items: start;
+        align-items: center;
         margin: 1rem 0;
       }
 
@@ -2217,6 +2243,16 @@ header {
         gap: 0.5rem;
         grid-gap: 0.5rem;
         align-items: baseline;
+
+        @media (max-width: 1024px) {
+          justify-content: center;
+          width: 100%;
+          align-items: center;
+          a,span{
+            width: auto;
+            line-break: anywhere;
+          }
+        }
 
         .contact-icon {
           min-width: 20px;
@@ -2227,6 +2263,11 @@ header {
 
         &.address {
           max-width: 300px;
+          @media (max-width: 1024px) {
+
+            margin-left: auto;
+            margin-right: auto;
+          }
         }
       }
     }
@@ -2236,9 +2277,12 @@ header {
       justify-self: center;
 
       @media (max-width: 1024px) {
-        justify-self: start;
+        justify-self: center;
         order: 2;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       & > span {
@@ -2250,6 +2294,9 @@ header {
         margin-bottom: 1.5rem;
         color: $light-color;
         display: block;
+        @media (max-width: 1024px) {
+          text-align: center;
+        }
       }
 
       a {
@@ -2260,6 +2307,11 @@ header {
         line-height: normal;
         display: inline-flex;
         margin-bottom: 0.35rem;
+        @media (max-width: 1024px) {
+          justify-content: center;
+          text-align: center;
+          width: 100%;
+        }
       }
 
       ul {
@@ -2270,13 +2322,17 @@ header {
           gap: 0.5rem 1.5rem;
           grid-gap: 0.5rem 1.5rem;
           display: flex;
-        flex-wrap: wrap;
-      
-
+          flex-wrap: wrap;
+          justify-content: center;
+          width: 100%;
         }
 
         li {
           margin: 0;
+          @media (max-width: 1024px) {
+            text-align: center;
+            width: auto;
+          }
         }
       }
     }
@@ -2286,6 +2342,9 @@ header {
       @media (max-width: 1024px) {
         order: 3;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       & > span {
@@ -2297,6 +2356,9 @@ header {
         margin-bottom: 1.5rem;
         color: $light-color;
         display: block;
+        @media (max-width: 1024px) {
+          text-align: center;
+        }
       }
       
       input {
@@ -2304,6 +2366,7 @@ header {
         
         @media (max-width: 1024px) {
           width: 100%;
+          text-align: center;
         }
       }
 
