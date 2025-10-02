@@ -1,44 +1,91 @@
 <?php
 
 /**
- * News Card Component
+ * News Card Component - REAL DATA VERSION
  * 
- * news_card_tag_text
- * news_card_title
- * news_card_description
- * news_card_button_text
- * news_card_button_link
- * news_card_image
+ * news_card_post_id - Specific post ID (optional)
+ * news_card_category - Category slug (optional)
+ * news_card_tag - Tag slug (optional)
+ * news_card_fallback_title - Fallback title if no post found
+ * news_card_fallback_description - Fallback description if no post found
+ * news_card_button_text - Button text
+ * news_card_image - Custom image (optional, will use post featured image if empty)
  * 
  */
 if (!function_exists('news_card_shortcode')) {
     function news_card_shortcode($atts)
     {
         extract(shortcode_atts(array(
-            'news_card_tag_text'     => 'News',
-            'news_card_title'        => 'Refugee Camps In Jordan',
-            'news_card_description'  => 'Jordan is home to Za\'atari, Azraq, and Mrajeeb Al Fhood refugee camps for Syrian refugees. Although a great number of Syrian refugees are living in Jordan, however, only 18 percent of refugees in Jordan live in refugee camps.',
-            'news_card_button_text'  => 'See more',
-            'news_card_button_link'  => '#',
-            'news_card_image'        => '',
+            'news_card_post_id' => '',
+            'news_card_category' => '',
+            'news_card_tag' => '',
+            'news_card_fallback_title' => 'Latest News',
+            'news_card_fallback_description' => 'Stay updated with our latest news and updates.',
+            'news_card_button_text' => 'Read More',
+            'news_card_image' => '',
         ), $atts));
         
         ob_start();
+        
+        // Get real post data
+        $post_data = null;
+        
+        if (!empty($news_card_post_id)) {
+            // Get specific post by ID
+            $post_data = get_post($news_card_post_id);
+        } else {
+            // Get latest post from category/tag
+            $args = array(
+                'post_type' => 'post',
+                'post_status' => 'publish',
+                'posts_per_page' => 1,
+                'orderby' => 'date',
+                'order' => 'DESC',
+            );
+            
+            if (!empty($news_card_category)) {
+                $args['category_name'] = $news_card_category;
+            }
+            
+            if (!empty($news_card_tag)) {
+                $args['tag'] = $news_card_tag;
+            }
+            
+            $query = new WP_Query($args);
+            if ($query->have_posts()) {
+                $post_data = $query->posts[0];
+            }
+            wp_reset_postdata();
+        }
+        
+        if ($post_data) {
+            $title = $post_data->post_title;
+            $description = $post_data->post_excerpt ?: wp_trim_words($post_data->post_content, 20);
+            $link = get_permalink($post_data->ID);
+            $image = !empty($news_card_image) ? $news_card_image : get_the_post_thumbnail_url($post_data->ID, 'large');
+            
+            // Get category name for tag
+            $categories = get_the_category($post_data->ID);
+            $tag = !empty($categories) ? $categories[0]->name : 'News';
+        } else {
+            // Fallback data
+            $title = $news_card_fallback_title;
+            $description = $news_card_fallback_description;
+            $link = '#';
+            $image = !empty($news_card_image) ? $news_card_image : get_template_directory_uri() . '/dist/imgs/news-card-image.png';
+            $tag = 'News';
+        }
 ?>
 
         <div class="news-inner-section custom-widget">
             <div class="news-inner-section__content">
-                <span class="news-inner-section__tag"><?php echo esc_html($news_card_tag_text); ?></span>
-                <h3 class="news-inner-section__title"><?php echo esc_html($news_card_title); ?></h3>
-                <p class="news-inner-section__description"><?php echo esc_html($news_card_description); ?></p>
-                <a href="<?php echo esc_url($news_card_button_link); ?>" class="news-inner-section__button btn btn-primary"><?php echo esc_html($news_card_button_text); ?></a>
+                <span class="news-inner-section__tag"><?php echo esc_html($tag); ?></span>
+                <h3 class="news-inner-section__title"><?php echo esc_html($title); ?></h3>
+                <p class="news-inner-section__description"><?php echo esc_html($description); ?></p>
+                <a href="<?php echo esc_url($link); ?>" class="news-inner-section__button btn btn-primary"><?php echo esc_html($news_card_button_text); ?></a>
             </div>
             <div class="news-inner-section__image">
-                <?php if (!empty($news_card_image)) : ?>
-                    <img src="<?php echo esc_url($news_card_image); ?>" alt="<?php echo esc_attr($news_card_title); ?>">
-                <?php else : ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/dist/imgs/news-card-image.png" alt="Refugee child in camp">
-                <?php endif; ?>
+                <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>">
             </div>
         </div>
 

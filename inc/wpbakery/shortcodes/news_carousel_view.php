@@ -64,11 +64,10 @@ if (!function_exists('news_carousel_shortcode')) {
                         // BACKEND DEVELOPER: EASY SWITCH TO REAL POSTS
                         // ========================================
                         // To enable real posts, simply change this to: $use_real_posts = true;
-                        $use_real_posts = false;
+                        $use_real_posts = true;
                         
                         if ($use_real_posts) {
-                            // REAL POSTS CODE - Uncomment when ready
-                            /*
+                            // REAL POSTS CODE - Now active
                             $args = array(
                                 'post_type' => 'post',
                                 'post_status' => 'publish',
@@ -125,7 +124,6 @@ if (!function_exists('news_carousel_shortcode')) {
                                 }
                             }
                             wp_reset_query();
-                            */
                         } else {
                             // PLACEHOLDER CONTENT - Shows by default
                             $sample_news = array(
