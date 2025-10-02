@@ -91,7 +91,7 @@ if (!function_exists('faqs_shortcode')) {
                         );
                         
                         foreach ($sample_faqs as $index => $faq) {
-                            $is_active = $index === 3 ? 'active' : ''; // 4th item active by default (like screenshot)
+                            $is_active = $index === 0 ? 'active' : ''; // 4th item active by default (like screenshot)
                         ?>
                             <div class="faq-item <?php echo $is_active; ?>">
                                 <div class="faq-question" data-faq="faq-<?php echo $index; ?>">

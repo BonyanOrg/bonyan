@@ -476,10 +476,14 @@ input {
 
   // Breadcrumb
   .rank-math-breadcrumb {
+ 
     color: $light-color;
     position: relative;
     display: flex;
     gap: 0.5rem;  
+    //** we hide all breadcrumbs 
+    display: none !important; // Hide all breadcrumbs
+
 
     p {
       padding: 0.5rem 1rem;
