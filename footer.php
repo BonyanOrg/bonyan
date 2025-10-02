@@ -185,8 +185,8 @@
 					<a href="<?php echo get_option("snapchat_url") ?>"><i class="fa-brands fa-snapchat"></i></a>
 				</div>
 				<div class="copyrights">
-					<span>© All rights reserved for Smile Givers International</span>
-				</div>
+				<span><?php _e('© All rights reserved for Smile Givers International', 'bonyan'); ?></span>
+			</div>
 
 
 			</div>

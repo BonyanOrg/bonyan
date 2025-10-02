@@ -128,33 +128,33 @@ if (!function_exists('news_carousel_shortcode')) {
                             // PLACEHOLDER CONTENT - Shows by default
                             $sample_news = array(
                                 array(
-                                    'title' => 'Severe malnutrition cases have tripled in Islamic Relief clinics across Darfur, as hundreds of thousands of people continue to flee ongoing attacks and violence in the region. The humanitarian crisis has reached critical levels with children and families facing unprecedented challenges.',
-                                    'category' => 'Press Releases',
+                                    'title' => __('Severe malnutrition cases have tripled in Islamic Relief clinics across Darfur, as hundreds of thousands of people continue to flee ongoing attacks and violence in the region. The humanitarian crisis has reached critical levels with children and families facing unprecedented challenges.', 'bonyan'),
+                                    'category' => __('Press Releases', 'bonyan'),
                                     'image' => 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop&crop=center'
                                 ),
                                 array(
-                                    'title' => 'Arafat in Ethiopia: The childhood I know, the life I always miss. Growing up in the refugee camps taught me resilience and hope, but the memories of home and family continue to shape my journey and inspire my work with humanitarian organizations.',
-                                    'category' => 'Press Releases',
+                                    'title' => __('Arafat in Ethiopia: The childhood I know, the life I always miss. Growing up in the refugee camps taught me resilience and hope, but the memories of home and family continue to shape my journey and inspire my work with humanitarian organizations.', 'bonyan'),
+                                    'category' => __('Press Releases', 'bonyan'),
                                     'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=250&fit=crop&crop=center'
                                 ),
                                 array(
-                                    'title' => 'Eid Mubarak from Islamic Relief Worldwide.',
-                                    'category' => 'Press Releases',
+                                    'title' => __('Eid Mubarak from Islamic Relief Worldwide.', 'bonyan'),
+                                    'category' => __('Press Releases', 'bonyan'),
                                     'image' => 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=250&fit=crop&crop=center'
                                 ),
                                 array(
-                                    'title' => 'Emergency Response Team Deployed to Support Communities Affected by Recent Natural Disasters. Our dedicated volunteers and staff are working around the clock to provide immediate assistance, shelter, and essential supplies to those in need.',
-                                    'category' => 'Emergency Response',
+                                    'title' => __('Emergency Response Team Deployed to Support Communities Affected by Recent Natural Disasters. Our dedicated volunteers and staff are working around the clock to provide immediate assistance, shelter, and essential supplies to those in need.', 'bonyan'),
+                                    'category' => __('Emergency Response', 'bonyan'),
                                     'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=250&fit=crop&crop=center'
                                 ),
                                 array(
-                                    'title' => 'New Educational Programs Launched to Empower Youth in Underserved Communities. Through innovative learning initiatives and community partnerships, we are creating opportunities for children to build brighter futures and achieve their full potential.',
-                                    'category' => 'Education',
+                                    'title' => __('New Educational Programs Launched to Empower Youth in Underserved Communities. Through innovative learning initiatives and community partnerships, we are creating opportunities for children to build brighter futures and achieve their full potential.', 'bonyan'),
+                                    'category' => __('Education', 'bonyan'),
                                     'image' => 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=250&fit=crop&crop=center'
                                 ),
                                 array(
-                                    'title' => 'Partnership Announcement: Collaborative Efforts to Address Global Humanitarian Challenges. We are excited to announce new strategic partnerships that will enhance our ability to serve communities worldwide and create lasting positive impact.',
-                                    'category' => 'Partnerships',
+                                    'title' => __('Partnership Announcement: Collaborative Efforts to Address Global Humanitarian Challenges. We are excited to announce new strategic partnerships that will enhance our ability to serve communities worldwide and create lasting positive impact.', 'bonyan'),
+                                    'category' => __('Partnerships', 'bonyan'),
                                     'image' => 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop&crop=center'
                                 )
                             );

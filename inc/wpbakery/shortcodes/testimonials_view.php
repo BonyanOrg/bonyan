@@ -86,33 +86,33 @@ if (!function_exists('testimonials_shortcode')) {
                             $sample_testimonials = array(
                                 array(
                                     'rating' => 5,
-                                    'text' => 'When I volunteered, I discovered a new side of myself. For the first time, I felt like I was part of real change.',
-                                    'author' => 'Mohammad'
+                                    'text' => __('When I volunteered, I discovered a new side of myself. For the first time, I felt like I was part of real change.', 'bonyan'),
+                                    'author' => __('Mohammad', 'bonyan')
                                 ),
                                 array(
                                     'rating' => 5,
-                                    'text' => 'Volunteering with this organization has been the most rewarding experience of my life. I\'ve seen firsthand the impact we can make together.',
-                                    'author' => 'Sarah'
+                                    'text' => __('Volunteering with this organization has been the most rewarding experience of my life. I\'ve seen firsthand the impact we can make together.', 'bonyan'),
+                                    'author' => __('Sarah', 'bonyan')
                                 ),
                                 array(
                                     'rating' => 5,
-                                    'text' => 'The sense of community and purpose I found here is incredible. Every day I learn something new and meet amazing people.',
-                                    'author' => 'Ahmed'
+                                    'text' => __('The sense of community and purpose I found here is incredible. Every day I learn something new and meet amazing people.', 'bonyan'),
+                                    'author' => __('Ahmed', 'bonyan')
                                 ),
                                 array(
                                     'rating' => 5,
-                                    'text' => 'Being part of this mission has transformed my perspective on life. I\'m grateful for every opportunity to serve others.',
-                                    'author' => 'Fatima'
+                                    'text' => __('Being part of this mission has transformed my perspective on life. I\'m grateful for every opportunity to serve others.', 'bonyan'),
+                                    'author' => __('Fatima', 'bonyan')
                                 ),
                                 array(
                                     'rating' => 5,
-                                    'text' => 'The dedication and passion of everyone here is inspiring. I\'ve never felt more connected to a cause than I do now.',
-                                    'author' => 'David'
+                                    'text' => __('The dedication and passion of everyone here is inspiring. I\'ve never felt more connected to a cause than I do now.', 'bonyan'),
+                                    'author' => __('David', 'bonyan')
                                 ),
                                 array(
                                     'rating' => 5,
-                                    'text' => 'This experience has taught me the true meaning of compassion and service. I\'m proud to be part of such an amazing team.',
-                                    'author' => 'Aisha'
+                                    'text' => __('This experience has taught me the true meaning of compassion and service. I\'m proud to be part of such an amazing team.', 'bonyan'),
+                                    'author' => __('Aisha', 'bonyan')
                                 )
                             );
                             

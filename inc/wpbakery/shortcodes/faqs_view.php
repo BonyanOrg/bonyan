@@ -63,30 +63,31 @@ if (!function_exists('faqs_shortcode')) {
                         */
                     } else {
                         // PLACEHOLDER CONTENT - Shows by default (forced sample data)
+                        // Update lines 66-91 - Sample FAQs array
                         $sample_faqs = array(
                             array(
-                                'question' => 'Why is building schools in war areas important?',
-                                'answer' => 'Building schools in war areas is crucial because education provides hope, stability, and a path to a better future for children affected by conflict. It helps restore normalcy and empowers communities to rebuild their lives.'
+                                'question' => __('Why is building schools in war areas important?', 'bonyan'),
+                                'answer' => __('Building schools in war areas is crucial because education provides hope, stability, and a path to a better future for children affected by conflict. It helps restore normalcy and empowers communities to rebuild their lives.', 'bonyan')
                             ),
                             array(
-                                'question' => 'How can I volunteer with your organization?',
-                                'answer' => 'You can volunteer by filling out our online application form, attending our orientation sessions, or contacting our volunteer coordinator directly. We offer various opportunities including teaching, construction, medical support, and administrative roles.'
+                                'question' => __('How can I volunteer with your organization?', 'bonyan'),
+                                'answer' => __('You can volunteer by filling out our online application form, attending our orientation sessions, or contacting our volunteer coordinator directly. We offer various opportunities including teaching, construction, medical support, and administrative roles.', 'bonyan')
                             ),
                             array(
-                                'question' => 'What types of donations do you accept?',
-                                'answer' => 'We accept monetary donations, in-kind donations like medical supplies and educational materials, and volunteer time. All donations are used to support our humanitarian projects and help communities in need.'
+                                'question' => __('What types of donations do you accept?', 'bonyan'),
+                                'answer' => __('We accept monetary donations, in-kind donations like medical supplies and educational materials, and volunteer time. All donations are used to support our humanitarian projects and help communities in need.', 'bonyan')
                             ),
                             array(
-                                'question' => 'How do you ensure aid reaches the right people?',
-                                'answer' => 'We work with local community leaders, conduct needs assessments, and maintain strict monitoring and evaluation systems. Our teams on the ground verify distribution and maintain detailed records of all aid provided.'
+                                'question' => __('How do you ensure aid reaches the right people?', 'bonyan'),
+                                'answer' => __('We work with local community leaders, conduct needs assessments, and maintain strict monitoring and evaluation systems. Our teams on the ground verify distribution and maintain detailed records of all aid provided.', 'bonyan')
                             ),
                             array(
-                                'question' => 'What makes your organization different from others?',
-                                'answer' => 'Our focus on sustainable development, long-term community partnerships, and culturally sensitive approaches sets us apart. We don\'t just provide aid; we work with communities to build lasting solutions.'
+                                'question' => __('What makes your organization different from others?', 'bonyan'),
+                                'answer' => __('Our focus on sustainable development, long-term community partnerships, and culturally sensitive approaches sets us apart. We don\'t just provide aid; we work with communities to build lasting solutions.', 'bonyan')
                             ),
                             array(
-                                'question' => 'How can I stay updated on your projects?',
-                                'answer' => 'You can subscribe to our newsletter, follow us on social media, or visit our website regularly for project updates, success stories, and impact reports. We also send quarterly reports to our donors.'
+                                'question' => __('How can I stay updated on your projects?', 'bonyan'),
+                                'answer' => __('You can subscribe to our newsletter, follow us on social media, or visit our website regularly for project updates, success stories, and impact reports. We also send quarterly reports to our donors.', 'bonyan')
                             )
                         );
                         

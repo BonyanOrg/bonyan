@@ -19,9 +19,9 @@ if (!function_exists('news_card_shortcode')) {
             'news_card_post_id' => '',
             'news_card_category' => '',
             'news_card_tag' => '',
-            'news_card_fallback_title' => 'Latest News',
-            'news_card_fallback_description' => 'Stay updated with our latest news and updates.',
-            'news_card_button_text' => 'Read More',
+            'news_card_fallback_title' => __('Latest News', 'bonyan'),
+            'news_card_fallback_description' => __('Stay updated with our latest news and updates.', 'bonyan'),
+            'news_card_button_text' => __('Read More', 'bonyan'),
             'news_card_image' => '',
         ), $atts));
         
@@ -66,14 +66,14 @@ if (!function_exists('news_card_shortcode')) {
             
             // Get category name for tag
             $categories = get_the_category($post_data->ID);
-            $tag = !empty($categories) ? $categories[0]->name : 'News';
+            $tag = !empty($categories) ? $categories[0]->name : __('News', 'bonyan');
         } else {
             // Fallback data
             $title = $news_card_fallback_title;
             $description = $news_card_fallback_description;
             $link = '#';
             $image = !empty($news_card_image) ? $news_card_image : get_template_directory_uri() . '/dist/imgs/news-card-image.png';
-            $tag = 'News';
+            $tag = __('News', 'bonyan');
         }
 ?>
 

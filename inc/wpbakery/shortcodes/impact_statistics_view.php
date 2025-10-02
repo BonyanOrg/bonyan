@@ -11,7 +11,7 @@ if (!function_exists('impact_statistics_shortcode')) {
     function impact_statistics_shortcode($atts)
     {
         extract(shortcode_atts(array(
-            'impact_title' => 'Our impact for children in 2024',
+            'impact_title' => __('Our impact for children in 2024', 'bonyan'),
             'impact_cards' => '',
         ), $atts));
 
@@ -91,22 +91,22 @@ if (!function_exists('impact_statistics_shortcode')) {
                                         array(
                                             'card_icon' => 'face-kid',
                                             'card_number' => '113.6K',
-                                            'card_text' => 'Children Helped'
+                                            'card_text' => __('Children Helped', 'bonyan')
                                         ),
                                         array(
                                             'card_icon' => 'globe',
                                             'card_number' => '45',
-                                            'card_text' => 'Countries Reached'
+                                            'card_text' => __('Countries Reached', 'bonyan')
                                         ),
                                         array(
                                             'card_icon' => 'heart-red',
                                             'card_number' => '2.1M',
-                                            'card_text' => 'Lives Impacted'
+                                            'card_text' => __('Lives Impacted', 'bonyan')
                                         ),
                                         array(
                                             'card_icon' => 'star',
                                             'card_number' => '98%',
-                                            'card_text' => 'Success Rate'
+                                            'card_text' => __('Success Rate', 'bonyan')
                                         )
                                     );
                                     
