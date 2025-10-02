@@ -57,7 +57,7 @@
 	<!-- Start Infaque Modal -->
 	<style>
 		div#infaque-modal iframe {
-			min-height: 750px;
+			min-height: 710px;
 		}
 		div#infaque-modal iframe .donation-form-amount-section .donation-form-amount-section-inner {
 			min-height: auto !important;

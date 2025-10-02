@@ -988,7 +988,7 @@
                   `
                   
                   <div id="give_form_container" style="">
-                  <div class="modal-window" style="padding: 50px;">
+                  <div class="modal-window" style="padding: 20px;">
         <button class="modal-close-btn" data-target="infaque-modal">
             <i class="fa-solid fa-times"></i>
         </button>
