@@ -31,6 +31,11 @@
     margin-top: 70px;
   }
 
+  @media (max-width: 576px) and (max-height: 1000px) {
+    height: 60vh;
+    min-height: 583px;
+  }
+
   .swiper-wrapper {
     height: 100%;
   }
@@ -311,6 +316,7 @@ html[dir="rtl"] {
     margin-top: -400px;
   }
 
+  
   @media (max-width: 768px) {
     padding: 1rem;
    

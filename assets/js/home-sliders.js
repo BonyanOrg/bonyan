@@ -1,18 +1,20 @@
-window.addEventListener('DOMContentLoaded', function () {
-    /* ===[Start Global Lazyload Options]=== */
-    const globalSwiperOptions = {
-        checkInView: true,
-        enabled: true,
-        loadOnTransitionStart: true
-    }
-    /* ===[End Global Lazyload Options]=== */
+window.addEventListener( 'DOMContentLoaded', function() {
+	/* ===[Start Global Lazyload Options]=== */
+	const globalSwiperOptions = {
+		checkInView: true,
+		enabled: true,
+		loadOnTransitionStart: true,
+	};
+	/* ===[End Global Lazyload Options]=== */
 
-    /* ===[Start Main Slider]=== */
+	/* ===[Start Main Slider]=== */
+	// COMMENTED OUT - Main slider is now static, no Swiper needed
+	// Uncomment the code below to revert back to slider functionality
+	/*
     const mainCarousel = new Swiper(".main-carousel", {
         preloadImages: true,
         touchEventsTarget: "container",
         grabCursor: true,
-        
 
         autoplay: {
             delay: 3000,
@@ -34,5 +36,6 @@ window.addEventListener('DOMContentLoaded', function () {
             crossFade: true
         },
     });
-    /* ===[End Main Slider]=== */
-});
+    */
+	/* ===[End Main Slider]=== */
+} );

@@ -1,10 +1,74 @@
 <div class="main-slider">
-    <!-- Swiper -->
+    <!-- FIXED IMAGE VERSION - Same design, no slider functionality -->
+    
+    <!-- Static Hero Section (using same structure as slider) -->
+    <div class="main-carousel">
+        <div class="swiper-wrapper">
+            <?php
+            // Get only the first slider post for static display
+            $args = array(
+                'post_type' => 'main_slider',
+                'post_status' => 'publish',
+                'posts_per_page' => 1, // Only get the first one
+            );
+            $main_slider_posts = new WP_Query($args);
+            
+            if ($main_slider_posts->have_posts()) {
+                $slider_post = $main_slider_posts->posts[0];
+                
+                $mad_give_form_id = esc_attr(get_post_meta($slider_post->ID, "mad_give_form_id", true));
+                $mad_choice = esc_attr(get_post_meta($slider_post->ID, "mad_choice", true));
+                $mad_url = esc_url(get_post_meta($slider_post->ID, "mad_url", true));
+                $mad_url_button_text = esc_attr(get_post_meta($slider_post->ID, "mad_url_button_text", true));
+            ?>
+                <!-- Single static slide (same structure as swiper-slide) -->
+                <div class="swiper-slide">  
+                    <img src="<?php echo get_the_post_thumbnail_url($slider_post->ID) ?>" alt="Main Hero Image">
+                    
+                    <div class="container">
+                        <div class="slide-content">
+                            <div class="main-carousel-sub-container">
+                                <span class="slide-title"><?php echo get_the_title($slider_post->ID) ?></span>
+
+                                <span class="slide-desc mt-4">
+                                    <p><?php echo esc_html(get_the_excerpt($slider_post->ID)); ?></p>
+                                </span>
+
+                                <div class="main-carousel-cta my-4">
+                                    <?php if ($mad_choice === 'give_id') : ?>
+                                        <button data-infaque-campaign-id="<?php echo get_option('infaque_campaign_id') ?>" data-target="infaque-modal" class="user-action-btn primary-btn donation-btn primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
+                                            <strong><?php _e('Donate', 'bonyan'); ?></strong>
+                                        </button>
+                                    <?php else : ?>
+                                        <a href="<?php echo $mad_url ?>" class="user-action-btn primary-btn primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
+                                            <strong><?php echo $mad_url_button_text ?></strong>
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            } else {
+                // Fallback if no slider posts exist
+                echo '<!-- No Main Slider posts found. Please create some in WordPress Admin > Main Slider -->';
+            }
+            wp_reset_query();
+            ?>
+        </div>
+        
+        <!-- Hide pagination for static version -->
+        <!-- <div class="swiper-pagination text-center mb-2 mb-xl-5"></div> -->
+    </div>
+
+    <!-- COMMENTED OUT ORIGINAL SLIDER CODE - Uncomment to revert back to slider -->
+    <!--
     <div class="swiper main-carousel">
         <div class="swiper-wrapper">
 
             <?php
-
+            /*
             $args = array(
                 'post_type' => 'main_slider',
                 'post_status' => 'publish',
@@ -27,7 +91,7 @@
             ?>
                     <div class="swiper-slide">  
                         <img src="<?php echo get_the_post_thumbnail_url($slider_post->ID) ?>" alt="Main Slider">
-                        <!-- <div class="swiper-lazy-preloader"></div> -->
+                        <div class="swiper-lazy-preloader"></div>
 
                         <div class="container">
                             <div class="slide-content">
@@ -43,7 +107,6 @@
                                             <button data-infaque-campaign-id="<?php echo get_option('infaque_campaign_id') ?>" data-target="infaque-modal" class="user-action-btn primary-btn donation-btn primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
                                                 <strong><?php _e('Donate', 'bonyan'); ?></strong>
                                             </button>
-                                            <!-- <a href="#" class="primary-btn"> More</a> -->
                                         <?php else : ?>
                                             <a href="<?php echo $mad_url ?>" class="user-action-btn primary-btn primary-btn-white-bg py-2 py-md-3 px-4 px-md-5 border-30 no-border">
                                                 <strong><?php echo $mad_url_button_text ?></strong>
@@ -59,12 +122,14 @@
                 }
             }
             wp_reset_query();
+            */
             ?>
         </div>
 
         <div class="swiper-pagination text-center mb-2 mb-xl-5"></div>
     </div>
- 
+    -->
+
     <!-- Hero Donation Form - Positioned outside slider -->
     <div class="hero-donation-form-overlay">
         <div class="container">
