@@ -17,10 +17,13 @@ function get_infaque_form()
     }
     $amount_parameter = !empty($amount) ? "&amount={$amount}" : '';
     $donation_type_parameter = !empty($donationType) ? "&donationType={$donationType}" : '';
-
+    
+    // Get current language and add to URL
+    $current_lang = get_locale(); // Returns 'en_US', 'ar', 'es_ES', etc.
+    $lang_parameter = !empty($current_lang) ? "&lang={$current_lang}" : '';
 
     // Build the Charity Stack URL
-    $infaque_url = "https://bonyan-ngo.web.app/donate-directly/contribution?cause=false&value={$campaignID}{$amount_parameter}{$donation_type_parameter}&hideOtherCausesCampaigns=yes&header=no-header";
+    $infaque_url = "https://bonyan-ngo.web.app/donate-directly/contribution?cause=false&value={$campaignID}{$amount_parameter}{$donation_type_parameter}{$lang_parameter}&hideOtherCausesCampaigns=yes&header=no-header";
 
     // Return iframe HTML to embed the form
     $iframe_html = '<iframe id="iframe1" scrolling="no" title="iframe" frameborder="0" src="' . esc_url($infaque_url) . '" width="100%" height="400px" frameborder="0"></iframe>';
