@@ -79,11 +79,11 @@ function Init_event_Options($post)
                 </th>
                 <td>
                     <input type="text" minlength="4" maxlength="7" placeholder="EX: #f47920" id="color_input"
-                        name="evento_bgcolor" value="<?php echo !empty($evento_bgcolor) ? $evento_bgcolor : '#6D54A7';
+                        name="evento_bgcolor" value="<?php echo !empty($evento_bgcolor) ? $evento_bgcolor : '#1877F2';
                         ?>">
                     <div>
                         <div class="color-holder" id="color_preview"
-                            style="background-color:<?php echo !empty($evento_bgcolor) ? $evento_bgcolor : '#6D54A7' ?>;">
+                            style="background-color:<?php echo !empty($evento_bgcolor) ? $evento_bgcolor : '#1877F2' ?>;">
                         </div>
                     </div>
                 </td>

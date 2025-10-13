@@ -6,10 +6,11 @@
 }
 
 .main-carousel {
-  height: calc(100vh - 50px);
-  min-height: calc(100vh - 50px);
+  height: calc(90vh - 50px);
+  min-height: 683px;
+
   width: 100%;
-  margin-top: 150px;
+  margin-top: 180px;
 
   @media (max-width: 1199px) {
     height: 75vh;
@@ -166,6 +167,11 @@
             left: 50%;
           }
         }
+        
+        @media (max-width: 1024px) {
+          padding-top: 0;
+
+        }
 
         @media (max-width: 992px) {
           font-size: 40px;
@@ -313,7 +319,7 @@ html[dir="rtl"] {
   @media (max-width: 1199px) {
     padding: 1.5rem;
     position: relative;
-    margin-top: -400px;
+    margin-top: -450px;
   }
 
   
@@ -350,7 +356,7 @@ html[dir="rtl"] {
 
   @media (max-width: 576px) {
     width: 100%;
-    margin-block: 20px;
+    margin-block: 0px;
   }
 
   .donation-form-card {
@@ -365,7 +371,7 @@ html[dir="rtl"] {
     }
 
     @media (max-width: 576px) {
-      padding: 16px;
+      padding: 10px;
     }
   }
 
@@ -504,6 +510,9 @@ html[dir="rtl"] {
 
   .impact-description {
     margin-bottom: 1.5rem;
+    @media (max-width: 576px) {
+      margin-bottom: 10px;
+    }
 
     p {
       color: $dark-color-600;
@@ -524,6 +533,10 @@ html[dir="rtl"] {
 
   .custom-amount-input {
     margin-bottom: 1.5rem;
+
+    @media (max-width: 576px) {
+      margin-bottom: 10px;
+    }
 
     .input-wrapper {
       position: relative;
@@ -587,6 +600,10 @@ html[dir="rtl"] {
     gap: 0.5rem;
     margin-bottom: 1rem;
 
+    @media (max-width: 576px) {
+      margin-bottom: 10px;
+    }
+
     @media (max-width: 768px) {
       font-size: 0.9rem;
       padding: 0.8rem;
@@ -621,6 +638,10 @@ html[dir="rtl"] {
     gap: 1rem;
     margin-bottom: 1rem;
 
+    @media (max-width: 576px) {
+      margin-bottom: 10px;
+    }
+
     .payment-icon {
       height: auto;
       width: auto;
@@ -637,11 +658,11 @@ html[dir="rtl"] {
 
 
       @media (max-width: 768px) {
-        height: 25px;
+        height: 40px;
       }
 
       @media (max-width: 576px) {
-        height: 22px;
+        height: 40px;
       }
 
       &:hover {

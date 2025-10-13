@@ -8,7 +8,7 @@ const calendar = new tui.Calendar('#events-calendar', {
     calendars: [{
         id: 'cal1',
         name: 'Events',
-        backgroundColor: '#6D54A7',
+        backgroundColor: '#1877F2',
         color: '#fff',
         borderColor: '#9d85d5'
     },],

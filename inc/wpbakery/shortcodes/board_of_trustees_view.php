@@ -60,7 +60,7 @@ if (!function_exists('board_of_trustees_shortcode')) {
                                 <span> <?php _e('Download CV', 'bonyan') ?> </span>
                                 <div class="download-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="11.887" height="12.226" viewBox="0 0 11.887 12.226">
-                                        <path id="Path_10542" data-name="Path 10542" d="M9.3,5.179,5.2,1.08,6.283,0l5.943,5.943L6.283,11.887,5.2,10.806l4.1-4.1H0V5.179Z" transform="translate(11.887) rotate(90)" fill="#6d54a7" />
+                                        <path id="Path_10542" data-name="Path 10542" d="M9.3,5.179,5.2,1.08,6.283,0l5.943,5.943L6.283,11.887,5.2,10.806l4.1-4.1H0V5.179Z" transform="translate(11.887) rotate(90)" fill="#1877F2" />
                                     </svg>
                                 </div>
                             </a>

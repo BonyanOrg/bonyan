@@ -54,7 +54,7 @@ if (!function_exists('campaigns_slider_shortcode')) {
                         <div class="swiper-nav-btn swiper-next-nav campaigns-next-arrow"></div>
                     </div>
 
-                    <a href="<?php echo $a_href ?>" class="more-btn secondary-outlined-btn ms-3 primary-color hide-from-laptop-up"><?php _e('see more', 'bonyan') ?></a>
+                    <a href="<?php echo $a_href ?>" class="more-btn secondary-outlined-btn ms-3 primary-color "><?php _e('see more', 'bonyan') ?></a>
                 </div>
 
                 <div class="swiper campaigns-carousel">

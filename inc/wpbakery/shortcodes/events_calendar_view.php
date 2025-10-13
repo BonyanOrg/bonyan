@@ -87,7 +87,7 @@ if (!function_exists('events_calendar_shortcode')) {
                 $temp_calendar = new \stdClass;
                 $temp_calendar->id = $term->term_id;
                 $temp_calendar->name = $term->name;
-                $temp_calendar->backgroundColor = !empty($term_bgcolor) ? $term_bgcolor : '#6D54A7';
+                $temp_calendar->backgroundColor = !empty($term_bgcolor) ? $term_bgcolor : '#1877F2';
                 $temp_calendar->color = !empty($term_text_color) ? $term_text_color : '#fff';
                 $temp_calendar->borderColor = !empty($term_border_color) ? $term_border_color : '#9d85d5';
                 array_push($calendars_array, $temp_calendar);
@@ -117,7 +117,7 @@ if (!function_exists('events_calendar_shortcode')) {
                         $temp_event->end = get_post_meta(get_the_ID(), "evento_endDate", true);
                         $temp_event->location = get_post_meta(get_the_ID(), "evento_location", true);
                         $temp_event->body = get_the_excerpt();
-                        $temp_event->backgroundColor = !empty($evento_bgcolor) ? $evento_bgcolor : "#6D54A7";
+                        $temp_event->backgroundColor = !empty($evento_bgcolor) ? $evento_bgcolor : "#1877F2";
                         array_push($data_array, $temp_event);
                     }
                 }

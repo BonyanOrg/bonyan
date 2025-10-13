@@ -28,10 +28,10 @@ function add_event_field()
         </th>
         <td>
             <input type="text" minlength="4" maxlength="7" placeholder="EX: #f47920" id="color_input"
-                name="events-categories_bgcolor" value="#6D54A7">
+                name="events-categories_bgcolor" value="#1877F2">
             <div>
                 <div class="color-holder" id="color_preview"
-                    style="background-color:<?php echo !empty($events_categories_bgcolor) ? $events_categories_bgcolor : '#6D54A7' ?>;">
+                    style="background-color:<?php echo !empty($events_categories_bgcolor) ? $events_categories_bgcolor : '#1877F2' ?>;">
                 </div>
             </div>
         </td>
@@ -89,7 +89,7 @@ function event_edit_cover_field($term)
                 name="events-categories_bgcolor" value="<?php echo $events_categories_bgcolor; ?>">
             <div>
                 <div class="color-holder" id="color_preview"
-                    style="background-color:<?php echo !empty($events_categories_bgcolor) ? $events_categories_bgcolor : '#6D54A7' ?>;">
+                    style="background-color:<?php echo !empty($events_categories_bgcolor) ? $events_categories_bgcolor : '#1877F2' ?>;">
                 </div>
             </div>
         </td>

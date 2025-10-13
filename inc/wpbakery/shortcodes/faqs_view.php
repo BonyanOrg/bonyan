@@ -25,7 +25,7 @@ if (!function_exists('faqs_shortcode')) {
         <!-- Start FAQs -->
         <section class="faqs-section py-5 custom-widget">
             <div class="">
-                <div class="d-flex align-items-center justify-content-center justify-content-xl-start ">
+                <div class="d-flex align-items-center justify-content-center justify-content-xl-center ">
                     <h2 class="bonyan-title primary-color bold"><?php echo esc_html($faqs_title); ?></h2>
                 </div>
                 

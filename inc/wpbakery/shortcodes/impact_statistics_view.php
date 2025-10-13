@@ -70,7 +70,7 @@ if (!function_exists('impact_statistics_shortcode')) {
                                         // Get icon path
                                         $icon_path = get_template_directory_uri() . '/dist/imgs/' . $icon . '.svg';
                                 ?>
-                                    <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                    <div class="col-6 col-md-6 col-lg-3 mb-4">
                                         <div class="impact-card">
                                             <div class="impact-card-icon">
                                                 <img src="<?php echo esc_url($icon_path); ?>" alt="<?php echo esc_attr($text); ?>" class="impact-icon">
@@ -118,7 +118,7 @@ if (!function_exists('impact_statistics_shortcode')) {
                                         // Get icon path
                                         $icon_path = get_template_directory_uri() . '/dist/imgs/' . $icon . '.svg';
                                 ?>
-                                    <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                    <div class="col-6 col-md-6 col-lg-3 mb-4">
                                         <div class="impact-card">
                                             <div class="impact-card-icon">
                                                 <img src="<?php echo esc_url($icon_path); ?>" alt="<?php echo esc_attr($text); ?>" class="impact-icon">

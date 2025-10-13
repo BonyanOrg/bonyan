@@ -37,7 +37,7 @@ foreach ($tag_num as $k => $h) {
 $currentDepth = 0;
 ob_start();
 ?>
-<div class="toc px-2 px-lg-4 my-4" style="background-color: #fff; border: 1px solid #6D54A7; padding: 0.75rem 1rem; width: 500px; max-width: 100%; border-radius: 1rem;">
+<div class="toc px-2 px-lg-4 my-4" style="background-color: #fff; border: 1px solid #1877F2; padding: 0.75rem 1rem; width: 500px; max-width: 100%; border-radius: 1rem;">
     <style>
         .toc ol li:before {
             content: counters(item, ".") " ";
@@ -46,7 +46,7 @@ ob_start();
     </style>
 
     <div class="toc-header mb-2" style="display: flex; justify-content: space-between; align-items: center;">
-        <p style="margin: 0; font-size: 1.5rem; font-weight:500; color: #6D54A7;"><?php _e('Content', 'bonyan') ?></p>
+        <p style="margin: 0; font-size: 1.5rem; font-weight:500; color: #1877F2;"><?php _e('Content', 'bonyan') ?></p>
     </div>
 
     <div class="toc-holder" style="max-height: 300px; overflow-y: auto;">

@@ -276,7 +276,7 @@ input {
 .search-input-holder {
   input {
     border: none;
-    color: $primary-color;
+    color: $text-color;
     font-weight: bold;
 
     @media (max-width: 1024px) {
@@ -284,7 +284,7 @@ input {
     }
 
     &::placeholder {
-      color: $primary-color;
+      color: $text-color;
     }
   }
 
@@ -1069,7 +1069,7 @@ input {
     
     #give_form_container{
       height: auto;
-      max-height: 80%;
+      height: 93%;
       max-width: 417px;
       width: 100%;
 
@@ -1943,7 +1943,7 @@ header {
 @media (max-width: 1024px) {
   header {
     .top-header {
-      padding: 0.5rem 0;
+      padding: 0 0;
 
       .top-header-helper {
         .header-logo {
@@ -3068,9 +3068,7 @@ header {
           height: 100%;
           top: 0;
           left: 0;
-          background: linear-gradient(45deg,
-              rgba($primary-color, 0.8) 0%,
-              transparent 100%);
+          //background: linear-gradient(45deg, rgba($primary-color, 0.8) 0%, transparent 100%);  
         }
 
         img {
@@ -5454,11 +5452,11 @@ header {
     }
 
     .select2-container--default .select2-selection--single {
-      border: 1px solid #6d54a7;
+      border: 1px solid #1877F2;
       border-radius: 20px;
       padding: 0.75rem;
       outline: none;
-      color: #6d54a7;
+      color: #1877F2;
       background: #fbfaff;
       height: auto;
       display: flex;
@@ -5867,9 +5865,7 @@ div.nsl-container .nsl-button-google {
           height: 100%;
           top: 0;
           left: 0;
-          background: linear-gradient(45deg,
-              rgba($primary-color, 0.8) 0%,
-              transparent 100%);
+          //background: linear-gradient(45deg, rgba($primary-color, 0.8) 0%, transparent 100%);
         }
 
         img {

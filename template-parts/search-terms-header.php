@@ -138,20 +138,7 @@
                 <?php
                         }
                         
-                        // On mobile, show all remaining child categories as scrollable buttons
-                        if (count($remaining_terms) > 0) {
-                            foreach ($remaining_terms as $term) {
-                                $active = "";
-                                if ($term->term_id == $args['queried_object']->term_id) {
-                                    $active = "active";
-                                }
-                ?>
-                                <a href="<?php echo get_term_link($term->term_id) ?>" class="category-filter-item mobile-only <?php echo $active ?>">
-                                    <span><?php echo $term->name ?></span>
-                                </a>
-                <?php
-                            }
-                        }
+                        // Mobile categories are handled by the dropdown, no need for duplicate buttons
                     } else if (count($terms) > 0) {
                         // Show first 4 top-level categories as buttons
                         $first_four = array_slice($terms, 0, 4);
@@ -194,20 +181,7 @@
                 <?php
                         }
                         
-                        // On mobile, show all remaining top-level categories as scrollable buttons
-                        if (count($remaining_terms) > 0) {
-                            foreach ($remaining_terms as $term) {
-                                $active = "";
-                                if ($term->term_id == $args['queried_object']->term_id) {
-                                    $active = "active";
-                                }
-                ?>
-                                <a href="<?php echo get_term_link($term->term_id) ?>" class="category-filter-item mobile-only <?php echo $active ?>">
-                                    <span><?php echo $term->name ?></span>
-                                </a>
-                <?php
-                            }
-                        }
+                        // Mobile categories are handled by the dropdown, no need for duplicate buttons
                     }
                 } ?>
             </div>

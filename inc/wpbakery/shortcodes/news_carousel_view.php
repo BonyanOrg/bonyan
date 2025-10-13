@@ -46,7 +46,7 @@ if (!function_exists('news_carousel_shortcode')) {
 
         <!-- Start News Cards -->
         <section class="news-section py-5 custom-widget">
-                <div class="d-flex align-items-center justify-content-center justify-content-xl-strtch mb-3 ">
+                <div class="d-flex align-items-center justify-content-center justify-content-xl-strtch mb-3 flex-wrap">
                     <h2 class="bonyan-title"><?php echo esc_html($news_carousel_header_text); ?></h2>
 
                     <div class="custom-swiper-nav ms-auto">
@@ -54,7 +54,7 @@ if (!function_exists('news_carousel_shortcode')) {
                         <div class="swiper-nav-btn swiper-next-nav news-next-arrow"></div>
                     </div>
 
-                    <a href="<?php echo $a_href ?>" class="more-btn secondary-outlined-btn ms-3 primary-color hide-from-laptop-up"><?php _e('View All', 'bonyan') ?></a>
+                    <a href="<?php echo $a_href ?>" class="more-btn secondary-outlined-btn ms-3 primary-color"><?php _e('View All', 'bonyan') ?></a>
                 </div>
 
                 <div class="swiper news-carousel">

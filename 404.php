@@ -87,7 +87,7 @@ get_header();
     }
 
     .back-to-home{
-        color: #6D54A7;
+        color: #1877F2;
     }
 </style>
 
