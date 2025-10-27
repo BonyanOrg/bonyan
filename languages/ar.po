@@ -215,6 +215,9 @@ msgstr "تبرع الأن"
 msgid "Search..."
 msgstr "ابحث..."
 
+msgid "More Categories..."
+msgstr "المزيد من الفئات..."
+
 #: header.php:214 template-parts/donation-modal.php:30
 msgid "Log in"
 msgstr "تسجيل الدخول"
