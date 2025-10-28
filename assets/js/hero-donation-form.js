@@ -3,14 +3,15 @@
  * Handles donation type selection, amount selection, and form submission
  */
 
+( function( $ ) {
+	// Get translations from PHP (passed via wp_localize_script)
+	const translations = typeof heroDonationForm !== 'undefined' ? heroDonationForm : {};
 
-(function($) { 
-	
 	// Price configurations for each donation type
 	const priceConfigs = {
 		'one-time': {
 			amounts: [ 60, 87, 120, 290 ],
-			descriptions: {
+			descriptions: translations.oneTimeDescriptions || {
 				60: '$60 gift could provide emergency food supplies for a family in need.',
 				87: '$87 gift could provide a family with a food parcel containing canned beans, hummus, olive oil, bottles of water and other essentials.',
 				120: '$120 gift could provide clean water and sanitation supplies for a community.',
@@ -19,7 +20,7 @@
 		},
 		monthly: {
 			amounts: [ 25, 50, 100, 200 ],
-			descriptions: {
+			descriptions: translations.monthlyDescriptions || {
 				25: '$25 monthly could provide ongoing food support for a family in crisis.',
 				50: '$50 monthly could provide consistent food parcels and essential supplies for a family.',
 				100: '$100 monthly could provide sustainable water and sanitation solutions.',

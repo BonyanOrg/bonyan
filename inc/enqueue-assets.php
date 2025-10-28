@@ -143,6 +143,22 @@ function bonyan_scripts()
 
         wp_enqueue_script('bonyan-home-sliders-script', get_template_directory_uri() . '/dist/js/home-sliders.min.js', array('bonyan-swiper-carousel-script'), $GLOBALS['bonyan_version'], true);
         wp_enqueue_script('bonyan-hero-donation-form-script', get_template_directory_uri() . '/dist/js/hero-donation-form.min.js', array('jquery'), $GLOBALS['bonyan_version'], true);
+        
+        // Pass translated strings to hero donation form
+        wp_localize_script('bonyan-hero-donation-form-script', 'heroDonationForm', array(
+            'oneTimeDescriptions' => array(
+                60 => bonyan_translate_hero_string('$60 gift could provide emergency food supplies for a family in need.'),
+                87 => bonyan_translate_hero_string('$87 gift could provide a family with a food parcel containing canned beans, hummus, olive oil, bottles of water and other essentials.'),
+                120 => bonyan_translate_hero_string('$120 gift could provide clean water and sanitation supplies for a community.'),
+                290 => bonyan_translate_hero_string('$290 gift could provide comprehensive emergency relief including food, water, and medical supplies.'),
+            ),
+            'monthlyDescriptions' => array(
+                25 => bonyan_translate_hero_string('$25 monthly could provide ongoing food support for a family in crisis.'),
+                50 => bonyan_translate_hero_string('$50 monthly could provide consistent food parcels and essential supplies for a family.'),
+                100 => bonyan_translate_hero_string('$100 monthly could provide sustainable water and sanitation solutions.'),
+                200 => bonyan_translate_hero_string('$200 monthly could provide comprehensive ongoing support including food, water, medical care, and education.'),
+            ),
+        ));
     }
     /* =====[End Enqueue Home Page Assets]===== */
 
@@ -181,6 +197,17 @@ function load_styles_in_footer()
 }
 
 add_action('get_footer', 'load_styles_in_footer');
+/**
+ * Translate string for hero donation form
+ * Uses WPML if available, falls back to WordPress translation
+ */
+function bonyan_translate_hero_string($text) {
+	if (function_exists('icl_translate')) {
+		return icl_translate('bonyan', $text, $text);
+	}
+	return __($text, 'bonyan');
+}
+
 /**
  * Add RTL support to stylesheets
  *

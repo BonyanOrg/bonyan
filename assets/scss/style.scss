@@ -399,14 +399,16 @@ input {
     }
 
     &.swiper-prev-nav {
-      background-image: url("data:image/svg+xml,%3Csvg style='fill:%236D54A7' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg style='fill:%231877F2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z'/%3E%3C/svg%3E");
+
       background-repeat: no-repeat no-repeat;
       background-position: center center;
       background-size: 12px;
     }
 
     &.swiper-next-nav {
-      background-image: url("data:image/svg+xml,%3Csvg style='fill:%236D54A7' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg style='fill:%231877F2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --%3E%3Cpath d='M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z'/%3E%3C/svg%3E");
+
       background-repeat: no-repeat no-repeat;
       background-position: center center;
       background-size: 12px;
@@ -2602,7 +2604,7 @@ header {
         -webkit-line-clamp: 2;
         overflow: hidden;
         color: $primary-color;
-        font-family: Poppins;
+        //font-family: Poppins;
         font-size: 20px;
         font-style: normal;
         font-weight: 600;
@@ -3260,13 +3262,13 @@ header {
       text-align: center;
     }
     @media (max-width: 575.98px) {
-      align-items: baseline;
+      align-items: flex-start;
     }
 
     .statistic-title {
       h2 {
         color: #455973;
-        font-family: Poppins;
+        //font-family: Poppins;
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
@@ -3281,7 +3283,7 @@ header {
 
     .statistic-total {
       color: $primary-color;
-      font-family: Poppins;
+      //font-family: Poppins;
       font-size: 40px;
       font-style: normal;
       font-weight: 600;
@@ -3384,7 +3386,7 @@ header {
 
           .stat-value {
             color: $primary-color;
-            font-family: Poppins;
+            //font-family: Poppins;
             font-size: 20px;
             font-style: normal;
             font-weight: 600;
@@ -3401,7 +3403,7 @@ header {
 
           .stat-name {
             color: #455973;
-            font-family: Poppins;
+            //font-family: Poppins;
             font-size: 18px;
             font-style: normal;
             font-weight: 500;
@@ -3673,7 +3675,7 @@ header {
     // Question text styling
     .rank-math-question-text {
       color: $primary-color-400 !important;
-      font-family: 'Poppins', sans-serif !important;
+      //font-family: 'Poppins', sans-serif !important;
       font-size: 16px !important;
       font-style: normal !important;
       font-weight: 500 !important;
@@ -3740,7 +3742,7 @@ header {
     
     .rank-math-answer-content {
       color: $primary-color-400 !important;
-      font-family: 'Poppins', sans-serif !important;
+      //font-family: 'Poppins', sans-serif !important;
       font-size: 18px !important;
       font-style: normal !important;
       font-weight: 500 !important;
@@ -3751,7 +3753,7 @@ header {
     // Paragraph styling
     p, div, span {
       color: $primary-color-400 !important;
-      font-family: 'Poppins', sans-serif !important;
+      //font-family: 'Poppins', sans-serif !important;
       font-size: 18px !important;
       font-style: normal !important;
       font-weight: 500 !important;
@@ -4893,7 +4895,7 @@ header {
 
                 .donation-id {
                   color: $primary-color-400;
-                  font-family: Poppins;
+                  //font-family: Poppins;
                   font-size: 14px;
                   font-style: normal;
                   font-weight: 500;
@@ -4902,7 +4904,7 @@ header {
 
                 .view-action {
                   color: $primary-color-400;
-                  font-family: Poppins;
+                  //font-family: Poppins;
                   font-size: 14px;
                   font-style: normal;
                   font-weight: 500;
@@ -5075,7 +5077,7 @@ header {
 
                 .donation-id {
                   color: $primary-color-400;
-                  font-family: Poppins;
+                  //font-family: Poppins;
                   font-size: 14px;
                   font-style: normal;
                   font-weight: 500;
@@ -5084,7 +5086,7 @@ header {
 
                 .view-action {
                   color: $primary-color-400;
-                  font-family: Poppins;
+                  //font-family: Poppins;
                   font-size: 14px;
                   font-style: normal;
                   font-weight: 500;
@@ -5256,7 +5258,7 @@ header {
 
                 .donation-id {
                   color: $primary-color-400;
-                  font-family: Poppins;
+                  //font-family: Poppins;
                   font-size: 14px;
                   font-style: normal;
                   font-weight: 500;
@@ -5265,7 +5267,7 @@ header {
 
                 .view-action {
                   color: $primary-color-400;
-                  font-family: Poppins;
+                  //font-family: Poppins;
                   font-size: 14px;
                   font-style: normal;
                   font-weight: 500;
@@ -5990,7 +5992,7 @@ div.nsl-container .nsl-button-google {
     color: $light-color;
     padding: $input-padding;
     border-radius: $input-border-radius;
-    font-family: Poppins;
+    //font-family: Poppins;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -6019,7 +6021,7 @@ div.nsl-container .nsl-button-google {
   gap: 8px;
   color: var(--Dark-100, #FFF);
   text-align: center;
-  font-family: Poppins, sans-serif;
+  //font-family: Poppins, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -6267,7 +6269,7 @@ div.nsl-container .nsl-button-google {
     height: auto !important;
     display: flex !important;
     align-items: center !important;
-    font-family: 'Poppins', sans-serif !important;
+    //font-family: 'Poppins', sans-serif !important;
     font-size: $input-font-size !important;
     font-weight: 400 !important;
     transition: $general-transition !important;
@@ -6292,7 +6294,7 @@ div.nsl-container .nsl-button-google {
   // Rendered text styling
   .select2-selection__rendered {
     color: $text-color !important;
-    font-family: 'Poppins', sans-serif !important;
+    //font-family: 'Poppins', sans-serif !important;
     font-size: $input-font-size !important;
     font-weight: 400 !important;
     line-height: 1.5 !important;
@@ -6363,7 +6365,7 @@ div.nsl-container .nsl-button-google {
       padding: 8px 12px !important;
       color: $text-color !important;
       background: $light-color !important;
-      font-family: 'Poppins', sans-serif !important;
+      //font-family: 'Poppins', sans-serif !important;
       font-size: 14px !important;
       font-weight: 400 !important;
       transition: $general-transition !important;
@@ -6414,7 +6416,7 @@ div.nsl-container .nsl-button-google {
     .select2-results__option {
       padding: 12px 16px !important;
       color: $text-color !important;
-      font-family: 'Poppins', sans-serif !important;
+      //font-family: 'Poppins', sans-serif !important;
       font-size: 14px !important;
       font-weight: 400 !important;
       line-height: 1.5 !important;

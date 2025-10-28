@@ -10,7 +10,7 @@
   min-height: 683px;
 
   width: 100%;
-  margin-top: 180px;
+  margin-top: 140px;
 
   @media (max-width: 1199px) {
     height: 75vh;
@@ -717,6 +717,7 @@ html[dir="rtl"] {
 .impact-categories {
   padding: 4rem 0;
   background: $light-color;
+  overflow: hidden; // Prevent body overflow
 
   @media (max-width: 768px) {
     padding: 3rem 0;
@@ -740,6 +741,15 @@ html[dir="rtl"] {
 
     @media (max-width: 768px) {
       gap: 2rem;
+      width: 100%;
+    }
+  }
+  
+  // Container adjustments to prevent overflow
+  .container {
+    @media (max-width: 768px) {
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 
@@ -754,7 +764,7 @@ html[dir="rtl"] {
 
   .impact-categories-title {
     color: $primary-color-400;
-    font-family: Poppins;
+    //font-family: Poppins;
     font-size: 30px;
     font-style: normal;
     font-weight: 600;
@@ -772,7 +782,7 @@ html[dir="rtl"] {
 
   .impact-categories-description {
     color: $dark-700;
-    font-family: Poppins;
+    //font-family: Poppins;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -781,6 +791,7 @@ html[dir="rtl"] {
 
     @media (max-width: 768px) {
       font-size: 16px;
+      text-align: center;
     }
 
     @media (max-width: 576px) {
@@ -793,14 +804,29 @@ html[dir="rtl"] {
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     flex: 1;
+    width: 100%;
+    margin: 0 auto;
 
     @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
       gap: 1.5rem;
+      padding: 0 1rem; // Add padding for better scrolling UX
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; // Firefox
+      -ms-overflow-style: none; // IE and Edge
+      width: 100%;
+      max-width: 100%;
+      
+      &::-webkit-scrollbar {
+        display: none; // Chrome, Safari, Opera
+      }
     }
 
     @media (max-width: 576px) {
-      gap: 10px;
+      gap: 1rem;
+      padding: 0 0.5rem;
     }
   }
 
@@ -816,11 +842,14 @@ html[dir="rtl"] {
     transition: $general-transition;
 
     @media (max-width: 768px) {
+      min-width: 140px;
+      flex-shrink: 0;
       padding: 16px;
       gap: 0.75rem;
     }
 
     @media (max-width: 576px) {
+      min-width: 120px;
       padding: 10px;
       gap: 0.5rem;
     }
@@ -887,7 +916,7 @@ html[dir="rtl"] {
 
   .impact-category-text {
     color: $dark-700;
-    font-family: Poppins;
+    //font-family: Poppins;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

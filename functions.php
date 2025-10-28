@@ -200,4 +200,24 @@ require_once __DIR__ . '/inc/api/functions.php';
  */
 require __DIR__ . '/inc/settings/functions.php';
 
+/**
+ * Register Hero Donation Form strings with WPML
+ */
+function bonyan_register_wpml_strings() {
+	if (function_exists('icl_register_string')) {
+		// One-time donation descriptions
+		icl_register_string('bonyan', '$60 gift could provide emergency food supplies for a family in need.', '$60 gift could provide emergency food supplies for a family in need.');
+		icl_register_string('bonyan', '$87 gift could provide a family with a food parcel containing canned beans, hummus, olive oil, bottles of water and other essentials.', '$87 gift could provide a family with a food parcel containing canned beans, hummus, olive oil, bottles of water and other essentials.');
+		icl_register_string('bonyan', '$120 gift could provide clean water and sanitation supplies for a community.', '$120 gift could provide clean water and sanitation supplies for a community.');
+		icl_register_string('bonyan', '$290 gift could provide comprehensive emergency relief including food, water, and medical supplies.', '$290 gift could provide comprehensive emergency relief including food, water, and medical supplies.');
+		
+		// Monthly donation descriptions
+		icl_register_string('bonyan', '$25 monthly could provide ongoing food support for a family in crisis.', '$25 monthly could provide ongoing food support for a family in crisis.');
+		icl_register_string('bonyan', '$50 monthly could provide consistent food parcels and essential supplies for a family.', '$50 monthly could provide consistent food parcels and essential supplies for a family.');
+		icl_register_string('bonyan', '$100 monthly could provide sustainable water and sanitation solutions.', '$100 monthly could provide sustainable water and sanitation solutions.');
+		icl_register_string('bonyan', '$200 monthly could provide comprehensive ongoing support including food, water, medical care, and education.', '$200 monthly could provide comprehensive ongoing support including food, water, medical care, and education.');
+	}
+}
+add_action('init', 'bonyan_register_wpml_strings');
+
 
