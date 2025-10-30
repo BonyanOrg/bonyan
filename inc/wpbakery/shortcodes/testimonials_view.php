@@ -11,13 +11,13 @@ if (!function_exists('testimonials_shortcode')) {
             'testimonials_title' => 'Trusted by volunteers everywhere',
         ), $atts));
 
-        $testimonials_items = vc_param_group_parse_atts($atts['testimonials_items']);
+        $testimonials_items = isset($atts['testimonials_items']) ? vc_param_group_parse_atts($atts['testimonials_items']) : array();
 
         // ========================================
         // BACKEND DEVELOPER: EASY SWITCH TO REAL DATA
         // ========================================
         // To enable real testimonials from database, simply change this to: $use_real_testimonials = true;
-        $use_real_testimonials = false;
+        $use_real_testimonials = true;
 
         ob_start();
 ?>
@@ -46,8 +46,6 @@ if (!function_exists('testimonials_shortcode')) {
                     <div class="swiper-wrapper">
                         <?php
                         if ($use_real_testimonials && !empty($testimonials_items)) {
-                            // REAL TESTIMONIALS CODE - Uncomment when ready
-                            /*
                             foreach ($testimonials_items as $testimonial) {
                                 $rating = isset($testimonial['testimonial_rating']) ? intval($testimonial['testimonial_rating']) : 5;
                                 $text = isset($testimonial['testimonial_text']) ? $testimonial['testimonial_text'] : '';
@@ -80,7 +78,6 @@ if (!function_exists('testimonials_shortcode')) {
                                 </div>
                             <?php
                             }
-                            */
                         } else {
                             // PLACEHOLDER CONTENT - Shows by default (forced sample data)
                             $sample_testimonials = array(
