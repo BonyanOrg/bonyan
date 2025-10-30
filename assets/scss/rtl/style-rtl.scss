@@ -3296,7 +3296,7 @@ header {
     flex: 0 0 auto;
 
     @media (max-width: 1024px) {
-      align-items: center;
+      align-items: flex-start;
       text-align: center;
     }
     @media (max-width: 575.98px) {
@@ -5499,7 +5499,7 @@ div.nsl-container .nsl-button-google {
 // RTL adjustments for impact statistics
 .impact-statistics-section {
     .impact-title {
-        text-align: right; // RTL adjustment
+        text-align: right !important; // RTL adjustment
     }
 }
 /* ===[End Impact Statistics Component]=== */
@@ -5546,7 +5546,11 @@ div.nsl-container .nsl-button-google {
   }
 
   .impact-categories-description {
-    text-align: right;
+    text-align: right ;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
   }
 
   .impact-category-text {
