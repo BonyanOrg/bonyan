@@ -49,7 +49,7 @@ get_header();
         font-size: 1.5em;
         max-width: 700px;
         width: 100%;
-        color: #38c2cf;
+        color: #1877F2;
     }
 
     @media (max-width: 768px) {
