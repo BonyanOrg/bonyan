@@ -28,7 +28,7 @@
                     <div class="container">
                         <div class="slide-content">
                             <div class="main-carousel-sub-container">
-                                <span class="slide-title"><?php echo get_the_title($slider_post->ID) ?></span>
+                            <h1 class="slide-title"><?php echo get_the_title($slider_post->ID) ?></h1>
 
                                 <span class="slide-desc mt-4">
                                     <p><?php echo esc_html(get_the_excerpt($slider_post->ID)); ?></p>
@@ -136,7 +136,7 @@
             <div class="hero-donation-form">
                 <div class="donation-form-card">
                     <div class="donation-form-header">
-                        <h3><?php _e('Donate to help children in crisis', 'bonyan'); ?></h3>
+                        <h2><?php _e('Donate to help children in crisis', 'bonyan'); ?></h2>
                     </div>
 
                                                             <div class="donation-type-selector">

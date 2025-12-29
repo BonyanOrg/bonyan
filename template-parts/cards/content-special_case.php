@@ -34,7 +34,7 @@ $is_user_dashboard = (isset($args['is_donor_dashboard']) && $args['is_donor_dash
         </div>
 
         <div class="card-title campaign-title">
-            <h3><?php the_title(); ?></h3>
+            <h2><?php the_title(); ?></h2>
         </div>
 
         <div class="campaign-info">
@@ -121,7 +121,7 @@ $is_user_dashboard = (isset($args['is_donor_dashboard']) && $args['is_donor_dash
 
 
     <div class="card-footer campaign-card-cta">
-        <button data-infaque-campaign-id="<?php echo get_option('infaque_campaign_id') ?>" class="donation-btn user-action-btn primary-btn no-border" data-target="infaque-modal" style="<?php echo ($actual >= $total_goal) ? 'display:none;' : ''; ?>"><?php _e('Donate', 'bonyan') ?></button>
+        <button data-infaque-campaign-id="<?php echo get_option('infaque_campaign_id') ?>" class="donation-btn user-action-btn primary-btn no-border" data-target="infaque-modal" style="<?php echo ($actual >= $total_goal) ? 'display:none;' : ''; ?>"><?php _e('Donate Now', 'bonyan') ?></button>
         <a href="<?php echo get_permalink($post) ?>"><?php _e('More', 'bonyan') ?></a>
     </div>
 </div>

@@ -88,8 +88,12 @@ if (!function_exists('program_card_shortcode')) {
             </div>
 
             <div class="program-icon">
-                <img src="<?php echo get_template_directory_uri() . '/dist/imgs/build.svg'; ?>" alt="program icon" class="placeholder-icon">
-            </div>
+    <?php if (!empty($programs_cards_icon_url)) : ?>
+        <img src="<?= esc_url(wp_get_attachment_image_url($programs_cards_icon_url, 'full')); ?>" alt="program icon">
+    <?php else : ?>
+        <img src="<?php echo get_template_directory_uri() . '/dist/imgs/build.svg'; ?>" alt="program icon" class="placeholder-icon">
+    <?php endif; ?>
+</div>
 
             <div class="program-title">
                 <h3><?= esc_html($programs_cards_text) ?></h3>

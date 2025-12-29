@@ -43,7 +43,7 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
         </div>
 
         <div class="card-title campaign-title">
-            <h3><?php the_title(); ?></h3>
+            <h2><?php the_title(); ?></h2>
         </div>
 
         <div class="campaign-info">
@@ -108,39 +108,48 @@ $pure_permalink = clear_url_query_string($_SERVER['REQUEST_URI']);
 
 
     <?php
-    // $total_goal = give_get_form_goal($give_form_id);
-    // echo do_shortcode('[give_totals total_goal="' . $total_goal . '"]');
-    $form = new Give_Donate_Form($give_form_id);
-    $total_goal = apply_filters('give_goal_amount_target_output', round(give_maybe_sanitize_amount($form->goal), 2), $form->ID, $form);
-    //$actual = apply_filters('give_goal_donations_raised_output', $form->sales, $form->ID, $form);
-    $actual = apply_filters('give_goal_amount_raised_output', $form->earnings, $form->ID, $form);
-
-    // Set fallback values if not available
-    if (empty($total_goal) || $total_goal <= 0) {
-        $total_goal = 10000000; // Default goal
-    }
-    if (empty($actual) || $actual <= 0) {
-        $actual = 225; // Default raised amount
-    }
-
-    $progress = $total_goal ? round(($actual / $total_goal) * 100, 2) : 2.25; // Default 2.25% progress
-
-    // Show progress if either condition is met or if no specific setting
-    if ($co_show_progress_bar == "yes" || empty($co_show_progress_bar)) :
+       
+       // ============================================
+       // PROGRESS BAR SECTION - TEMPORARILY HIDDEN
+       // ============================================
+       // Reason: No Infaque API available to fetch campaign amounts dynamically
+       // Current issue: All campaigns show same fallback values (10000000 goal, 225 raised)
+       // Solution needed: Either:
+       //   1. Add manual amount fields in campaign meta box (co_campaign_goal_amount, co_campaign_raised_amount)
+       //   2. Implement Infaque API integration to fetch real-time campaign data
+       //   3. Connect campaigns to GiveWP forms for dynamic amounts
+       // ============================================
+       
+       /*
+       // Original code commented out - will be restored when API/fields are implemented
+       $form = new Give_Donate_Form($give_form_id);
+       $total_goal = apply_filters('give_goal_amount_target_output', round(give_maybe_sanitize_amount($form->goal), 2), $form->ID, $form);
+       $actual = apply_filters('give_goal_amount_raised_output', $form->earnings, $form->ID, $form);
+   
+       if (empty($total_goal) || $total_goal <= 0) {
+           $total_goal = 10000000;
+       }
+       if (empty($actual) || $actual <= 0) {
+           $actual = 225;
+       }
+   
+       $progress = $total_goal ? round(($actual / $total_goal) * 100, 2) : 2.25;
+   
+       if ($co_show_progress_bar == "yes" || empty($co_show_progress_bar)) :
+       ?>
+           <div class="card-body campaign-card-body">
+               <div class="campaign-progress-bar-holder">
+                   <div class="campaign-values-details">
+                       <p><?php echo formatMoney($actual, 1); ?>$ <?php printf(__('Funded of %s$', 'bonyan'), formatMoney($total_goal, 1));  ?></p>
+                   </div>
+                   <div class="progress-bar">
+                       <div class="progress-bar-value" style="width: <?php echo 32 . "%"; ?>;"></div>
+                   </div>
+               </div>
+           </div>
+       <?php endif; ?>
+       */       
     ?>
-
-        <div class="card-body campaign-card-body">
-            <div class="campaign-progress-bar-holder">
-                <div class="campaign-values-details">
-                    <p><?php echo formatMoney($actual, 1); ?>$ <?php printf(__('Funded of %s$', 'bonyan'), formatMoney($total_goal, 1));  ?></p>
-                </div>
-
-                <div class="progress-bar">
-                    <div class="progress-bar-value" style="width: <?php echo 32 . "%"; ?>;"></div>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
 
 
 
