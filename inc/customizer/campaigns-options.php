@@ -49,6 +49,40 @@ $wp_customize->add_control(
     )
 );
 
+//==============
+// Campaign Archive SEO Title
+$wp_customize->add_setting('campaign_archive_title', array(
+    'default' => '',
+    'section' => 'campaigns_section',
+    'type' => 'option',
+));
+$wp_customize->add_control(
+    'campaign_archive_title_control',
+    array(
+        'label'    => 'Campaigns Archive SEO Title',
+        'section' => 'campaigns_section',
+        'settings' => 'campaign_archive_title',
+        'type'     => 'text',
+    )
+);
+
+//==============
+// Campaign Archive SEO Description
+$wp_customize->add_setting('campaign_archive_description', array(
+    'default' => '',
+    'section' => 'campaigns_section',
+    'type' => 'option',
+));
+$wp_customize->add_control(
+    'campaign_archive_description_control',
+    array(
+        'label'    => 'Campaigns Archive Meta Description',
+        'section' => 'campaigns_section',
+        'settings' => 'campaign_archive_description',
+        'type'     => 'textarea',
+    )
+);
+
 
 
 // //==============
