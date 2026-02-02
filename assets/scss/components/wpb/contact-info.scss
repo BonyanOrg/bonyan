@@ -46,3 +46,30 @@
     }
   }
 }
+
+.contact-item.candid-badge {
+  margin-top: 15px;
+  padding-top: 10px;
+  align-items: center;
+  
+  a {
+    display: inline-flex;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  img {
+    width: 90px;
+    height: auto;
+    display: block;
+  }
+  
+  @media (max-width: 1024px) {
+    justify-content: center;
+    margin-top: 10px;
+    padding-top: 8px;
+  }
+}

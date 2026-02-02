@@ -38,10 +38,16 @@
 						</span>
 					</div>
 
-					<div class="contact-item address">
-						<img src="<?php echo get_template_directory_uri() . '/dist/imgs/location-dot.svg'; ?>" alt="Location" class="contact-icon">
+				<div class="contact-item address">
+					<img src="<?php echo get_template_directory_uri() . '/dist/imgs/location-dot.svg'; ?>" alt="Location" class="contact-icon">
 
-						<a href="<?php echo get_option('contact_info_address_url'); ?>"><?php echo get_option('contact_info_address'); ?></a>
+					<a href="<?php echo get_option('contact_info_address_url'); ?>"><?php echo get_option('contact_info_address'); ?></a>
+				</div>
+					
+					<div class="contact-item candid-badge" style="margin-top: 15px; padding-top: 10px;">
+						<a href="https://app.candid.org/profile/15667905/smile-givers-international-61-2107558" target="_blank" rel="noopener noreferrer">
+							<img src="https://sgi.ngo/wp-content/uploads/2025/12/Candid-Platinum.png" alt="Candid Platinum" style="width: 90px; height: auto;">
+						</a>
 					</div>
 					<!-- <div class="contact-item currency-switcher">
 						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="17.728" viewBox="0 0 14 17.728">
@@ -169,6 +175,12 @@
 
 					<a href="<?= esc_url(get_option('contact_info_address_url')); ?>"><?php echo get_option('contact_info_address'); ?></a>
 				</div>
+				
+				<div class="contact-item candid-badge" style="margin-top: 15px; padding-top: 10px;">
+					<a href="https://app.candid.org/profile/15667905/smile-givers-international-61-2107558" target="_blank" rel="noopener noreferrer">
+						<img src="https://sgi.ngo/wp-content/uploads/2025/12/Candid-Platinum.png" alt="Candid Platinum" style="width: 90px; height: auto;">
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -186,6 +198,12 @@
 				</div>
 				<div class="copyrights">
 				<span><?php _e('© All rights reserved for Smile Givers International', 'bonyan'); ?></span>
+				<p class="tax-deductible-text">
+					<?php _e('Smile Givers International is a registered 501(c)(3) charity in the US. All donations are tax-deductible.', 'bonyan'); ?>
+				</p>
+				<p class="tax-id-text">
+					<?php _e('EIN/Tax ID: 61-2107558', 'bonyan'); ?>
+				</p>
 			</div>
 
 

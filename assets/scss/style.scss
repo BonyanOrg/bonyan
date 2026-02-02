@@ -2480,6 +2480,33 @@ header {
           grid-gap: 0.25rem;
         }
       }
+
+      .tax-deductible-text,
+      .tax-id-text {
+        width: 100%;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $light-color;
+        opacity: 0.9;
+        text-align: right;
+        
+        @media (max-width: 1024px) {
+          font-size: 13px;
+          margin-top: 6px;
+          text-align: center;
+        }
+        
+        @media (max-width: 576px) {
+          font-size: 12px;
+        }
+      }
+
+      .tax-id-text {
+        margin-top: 4px;
+        font-weight: 500;
+      }
     }
   }
 
